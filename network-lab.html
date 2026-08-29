@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Network Lab | Shane Mykal Stark</title>
+
+  <style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--background);
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    nav a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    header {
+      padding: 80px 0 50px;
+    }
+
+    .label {
+      color: var(--green);
+      font-family: monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      color: var(--white);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1;
+      margin: 12px 0 20px;
+    }
+
+    h2 {
+      margin-top: 60px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech {
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    .box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      padding: 24px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+
+    pre {
+      background: #070c14;
+      border: 1px solid var(--border);
+      padding: 20px;
+      overflow-x: auto;
+      border-radius: 8px;
+      color: var(--green);
+    }
+
+    ul {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">← Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+
+      <div class="label">Project 01 / Networking</div>
+
+      <h1>Enterprise Network Lab</h1>
+
+      <p>
+        A hands-on infrastructure lab designed to develop and validate
+        enterprise networking, segmentation, routing, firewalling,
+        management, and troubleshooting skills.
+      </p>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h2>Overview</h2>
+
+    <p>
+      This lab recreates core elements of a small enterprise environment
+      using physical networking hardware, virtualization, and segmented
+      network design. The goal is to build practical experience across
+      switching, routing, firewalling, VLANs, management networks,
+      and infrastructure troubleshooting.
+    </p>
+
+
+    <h2>Technologies</h2>
+
+    <p class="tech">
+      Fortinet FortiGate 60E • Cisco Catalyst 3560 • Cisco Catalyst 2960 •
+      VLANs • 802.1Q • IPv4 • SSH • Proxmox • Linux • Windows
+    </p>
+
+
+    <h2>Architecture</h2>
+
+    <pre>
+Internet
+   |
+FortiGate 60E
+   |
+   +-- VLAN 10 - Management
+   |
+   +-- VLAN 20 - Servers
+   |
+   +-- VLAN 30 - Clients
+   |
+   +-- VLAN 40 - Lab / Testing
+          |
+      Cisco Switching
+          |
+      +-- Proxmox Hosts
+      +-- Linux Systems
+      +-- Windows Systems
+      +-- Test Clients
+    </pre>
+
+
+    <h2>Objectives</h2>
+
+    <ul>
+      <li>Segment infrastructure using VLANs.</li>
+      <li>Separate management traffic from client traffic.</li>
+      <li>Configure and validate 802.1Q trunk links.</li>
+      <li>Practice secure remote device administration through SSH.</li>
+      <li>Integrate physical switching with virtualized workloads.</li>
+      <li>Develop repeatable network troubleshooting workflows.</li>
+    </ul>
+
+
+    <h2>Implementation</h2>
+
+    <p>
+      The environment uses Cisco switching for Layer 2 segmentation and
+      a FortiGate firewall for network edge and routing functions. Dedicated
+      VLANs are used to separate management, server, client, and experimental
+      traffic.
+    </p>
+
+    <div class="box">
+      Configuration examples shown in this portfolio are sanitized.
+      Passwords, public IP addresses, MAC addresses, serial numbers,
+      authentication secrets, and production information are excluded.
+    </div>
+
+
+    <h3>Example Trunk Configuration</h3>
+
+    <pre>
+interface GigabitEthernet0/1
+ description Uplink
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+    </pre>
+
+
+    <h3>Example Management Interface</h3>
+
+    <pre>
+interface Vlan10
+ description Management
+ ip address 10.13.10.2 255.255.255.0
+ no shutdown
+    </pre>
+
+
+    <h2>Troubleshooting Approach</h2>
+
+    <p>
+      Troubleshooting is performed from the lowest relevant layer upward.
+      Physical connectivity and interface state are validated first,
+      followed by VLAN membership, trunk configuration, addressing,
+      routing, firewall policy, and application-level connectivity.
+    </p>
+
+    <pre>
+Physical
+   ↓
+Interface
+   ↓
+VLAN
+   ↓
+Trunk
+   ↓
+IP Addressing
+   ↓
+Routing
+   ↓
+Firewall Policy
+   ↓
+Application
+    </pre>
+
+
+    <h2>What I'm Developing</h2>
+
+    <ul>
+      <li>More advanced inter-VLAN routing scenarios</li>
+      <li>Access control lists</li>
+      <li>OSPF routing</li>
+      <li>IPv6 configuration</li>
+      <li>Network monitoring and logging</li>
+      <li>VPN-based remote access</li>
+      <li>Infrastructure diagrams and documentation</li>
+    </ul>
+
+
+    <h2>Lessons Learned</h2>
+
+    <p>
+      Building the environment reinforces that network troubleshooting
+      becomes significantly easier when segmentation, addressing,
+      documentation, and device roles are intentionally designed.
+      A working configuration is only part of the objective; the environment
+      should also be understandable, repeatable, and supportable.
+    </p>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Shane Mykal Stark
+    </div>
+  </footer>
+
+</body>
+</html>
