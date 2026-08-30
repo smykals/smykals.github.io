@@ -12,22 +12,18 @@
   >
 
   <style>
-
     :root {
       --background: #0b1220;
       --silver: #c0c0c0;
       --green: #39d353;
       --blue: #1a73e8;
-
       --white: #f8fafc;
       --muted: #8d99a8;
       --panel: #101a2b;
       --panel-hover: #142238;
       --border: #263348;
-
       --green-soft: rgba(57, 211, 83, 0.10);
       --blue-soft: rgba(26, 115, 232, 0.12);
-
       --max-width: 1120px;
     }
 
@@ -76,6 +72,8 @@
       width: min(92%, var(--max-width));
       margin: 0 auto;
     }
+
+    /* NAVIGATION */
 
     nav {
       position: sticky;
@@ -131,6 +129,8 @@
     .nav-links a:hover {
       color: var(--green);
     }
+
+    /* HERO */
 
     .hero {
       min-height: 78vh;
@@ -208,6 +208,8 @@
       font-size: 1.08rem;
     }
 
+    /* BUTTONS */
+
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -264,6 +266,8 @@
       color: var(--green);
     }
 
+    /* SECTIONS */
+
     section {
       padding: 88px 0;
       border-top: 1px solid var(--border);
@@ -300,6 +304,8 @@
 
       font-size: 1.06rem;
     }
+
+    /* PROJECTS */
 
     .project-grid {
       display: grid;
@@ -396,21 +402,7 @@
       font-size: 0.75rem;
     }
 
-    .coming-soon {
-      opacity: 0.72;
-      cursor: default;
-    }
-
-    .coming-soon:hover {
-      transform: none;
-      border-color: var(--border);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.025),
-          rgba(255, 255, 255, 0.005)
-        );
-    }
+    /* SKILLS */
 
     .skills-grid {
       display: grid;
@@ -455,6 +447,8 @@
       font-size: 0.91rem;
     }
 
+    /* LEADERSHIP */
+
     .leadership-box {
       max-width: 900px;
 
@@ -476,6 +470,8 @@
 
       font-size: 1.03rem;
     }
+
+    /* DEVELOPMENT */
 
     .development-grid {
       display: grid;
@@ -510,6 +506,8 @@
       font-size: 0.9rem;
     }
 
+    /* FOOTER */
+
     footer {
       padding: 36px 0 48px;
 
@@ -542,6 +540,8 @@
     .footer-links a:hover {
       color: var(--green);
     }
+
+    /* MOBILE */
 
     @media (max-width: 900px) {
 
@@ -598,6 +598,7 @@
 
 <body>
 
+  <!-- NAVIGATION -->
 
   <nav>
 
@@ -623,6 +624,8 @@
 
   </nav>
 
+
+  <!-- HERO -->
 
   <header class="hero" id="top">
 
@@ -705,6 +708,8 @@
 
   <main>
 
+    <!-- ABOUT -->
+
     <section id="about">
 
       <div class="container">
@@ -734,6 +739,8 @@
     </section>
 
 
+    <!-- PROJECTS -->
+
     <section id="projects">
 
       <div class="container">
@@ -757,6 +764,8 @@
 
         <div class="project-grid">
 
+
+          <!-- PROJECT 01 -->
 
           <a
             href="network-lab.html"
@@ -783,17 +792,16 @@
             <div class="tags">
 
               <span class="tag">Cisco</span>
-
               <span class="tag">Fortinet</span>
-
               <span class="tag">VLANs</span>
-
               <span class="tag">Routing</span>
 
             </div>
 
           </a>
 
+
+          <!-- PROJECT 02 -->
 
           <a
             href="virtualization-lab.html"
@@ -819,11 +827,8 @@
             <div class="tags">
 
               <span class="tag">Proxmox</span>
-
               <span class="tag">Linux</span>
-
               <span class="tag">VMs</span>
-
               <span class="tag">Storage</span>
 
             </div>
@@ -831,10 +836,15 @@
           </a>
 
 
-          <div class="project-card coming-soon">
+          <!-- PROJECT 03 -->
+
+          <a
+            href="ccna-lab.html"
+            class="project-card"
+          >
 
             <div class="project-number">
-              PROJECT_03 / IN DEVELOPMENT
+              PROJECT_03
             </div>
 
             <h3>
@@ -845,23 +855,20 @@
 
               Hands-on networking labs covering switching, routing,
               VLANs, 802.1Q trunks, STP, ACLs, IPv4, IPv6,
-              and structured network troubleshooting.
+              OSPF, network services, and structured troubleshooting.
 
             </p>
 
             <div class="tags">
 
               <span class="tag">CCNA</span>
-
               <span class="tag">Switching</span>
-
               <span class="tag">Routing</span>
-
               <span class="tag">Troubleshooting</span>
 
             </div>
 
-          </div>
+          </a>
 
 
         </div>
@@ -870,6 +877,8 @@
 
     </section>
 
+
+    <!-- SKILLS -->
 
     <section id="skills">
 
@@ -957,6 +966,8 @@
     </section>
 
 
+    <!-- LEADERSHIP -->
+
     <section id="leadership">
 
       <div class="container">
@@ -996,6 +1007,8 @@
 
     </section>
 
+
+    <!-- CURRENT DEVELOPMENT -->
 
     <section>
 
@@ -1070,6 +1083,8 @@
 
   </main>
 
+
+  <!-- FOOTER -->
 
   <footer>
 
