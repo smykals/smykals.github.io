@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Enterprise networking lab demonstrating segmentation, switching, firewalling, virtualization integration, and structured troubleshooting."
+    content="Enterprise networking lab demonstrating switching, routing, VLANs, firewalling, virtualization integration, secure management, and structured troubleshooting."
   >
 
   <style>
@@ -20,10 +20,10 @@
       --white: #f8fafc;
       --muted: #8d99a8;
       --panel: #101a2b;
-      --panel-hover: #142238;
       --border: #263348;
       --green-soft: rgba(57, 211, 83, 0.10);
       --blue-soft: rgba(26, 115, 232, 0.12);
+      --silver-soft: rgba(192, 192, 192, 0.08);
       --max-width: 1000px;
     }
 
@@ -37,6 +37,7 @@
 
     body {
       margin: 0;
+
       font-family:
         Inter,
         ui-sans-serif,
@@ -158,7 +159,7 @@
     }
 
     section {
-      padding: 55px 0;
+      padding: 58px 0;
 
       border-top: 1px solid var(--border);
     }
@@ -180,14 +181,7 @@
       color: var(--white);
 
       font-size: clamp(1.8rem, 4vw, 2.5rem);
-
       letter-spacing: -0.035em;
-    }
-
-    h3 {
-      margin-top: 32px;
-
-      color: var(--white);
     }
 
     p {
@@ -207,7 +201,6 @@
       padding: 6px 10px;
 
       color: var(--silver);
-
       background: var(--blue-soft);
 
       border: 1px solid rgba(26, 115, 232, 0.30);
@@ -234,57 +227,9 @@
 
       color: var(--silver);
 
-      font-family:
-        "Courier New",
-        monospace;
-
+      font-family: "Courier New", monospace;
       font-size: 0.94rem;
       line-height: 1.7;
-    }
-
-    .green {
-      color: var(--green);
-    }
-
-    .blue {
-      color: var(--blue);
-    }
-
-    .objective-grid {
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 14px;
-
-      margin-top: 28px;
-    }
-
-    .objective {
-      padding: 20px;
-
-      background: rgba(255, 255, 255, 0.015);
-
-      border: 1px solid var(--border);
-      border-radius: 10px;
-
-      color: var(--muted);
-    }
-
-    .objective strong {
-      display: block;
-
-      margin-bottom: 6px;
-
-      color: var(--white);
-    }
-
-    .objective strong::before {
-      content: "> ";
-
-      color: var(--green);
-
-      font-family: monospace;
     }
 
     .note {
@@ -299,6 +244,60 @@
       border-radius: 0 10px 10px 0;
 
       color: var(--silver);
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .status-card {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .status-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .badge {
+      display: inline-block;
+
+      margin-bottom: 12px;
+      padding: 4px 8px;
+
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .implemented {
+      color: var(--green);
+      background: var(--green-soft);
+      border: 1px solid rgba(57, 211, 83, 0.28);
+    }
+
+    .progress {
+      color: var(--blue);
+      background: var(--blue-soft);
+      border: 1px solid rgba(26, 115, 232, 0.30);
+    }
+
+    .planned {
+      color: var(--silver);
+      background: var(--silver-soft);
+      border: 1px solid rgba(192, 192, 192, 0.20);
     }
 
     .workflow {
@@ -331,7 +330,6 @@
       justify-content: center;
 
       color: var(--green);
-
       background: var(--green-soft);
 
       border: 1px solid rgba(57, 211, 83, 0.25);
@@ -377,7 +375,7 @@
     }
 
     @media (max-width: 700px) {
-      .objective-grid {
+      .status-grid {
         grid-template-columns: 1fr;
       }
 
@@ -423,10 +421,10 @@
 
       <p class="intro">
 
-        A hands-on infrastructure environment designed to develop,
+        A hands-on infrastructure environment built to develop,
         test, and document enterprise networking concepts including
-        segmentation, switching, firewalling, virtualization integration,
-        secure management, and structured troubleshooting.
+        switching, segmentation, routing, firewalling, virtualization
+        integration, secure management, and structured troubleshooting.
 
       </p>
 
@@ -438,8 +436,6 @@
   <main>
 
 
-    <!-- OVERVIEW -->
-
     <section>
 
       <div class="container">
@@ -449,24 +445,22 @@
         </div>
 
         <h2>
-          Why I built it.
+          A working multi-layer network lab.
         </h2>
 
         <p>
 
-          The goal of this lab is to recreate core elements of an
-          enterprise network in a controlled environment where configurations,
-          failures, design decisions, and troubleshooting methods can be
-          tested without affecting a production system.
+          This lab recreates core elements of an enterprise network in a
+          controlled environment using physical Cisco switching, Fortinet
+          firewalling, virtualization, and segmented network design.
 
         </p>
 
         <p>
 
-          Rather than focusing only on whether a configuration works,
-          the environment is designed around segmentation, maintainability,
-          documentation, security, and understanding how infrastructure
-          components interact.
+          The environment is actively used to configure and validate switching,
+          routing, VLANs, firewall policies, management access, network services,
+          virtualization connectivity, and troubleshooting workflows.
 
         </p>
 
@@ -474,8 +468,6 @@
 
     </section>
 
-
-    <!-- TECHNOLOGIES -->
 
     <section>
 
@@ -486,14 +478,16 @@
         </div>
 
         <h2>
-          Physical + virtual infrastructure.
+          Physical and virtual infrastructure.
         </h2>
 
         <div class="tech-grid">
 
-          <span class="tag">Cisco Catalyst</span>
+          <span class="tag">FortiGate 60E</span>
 
-          <span class="tag">Fortinet</span>
+          <span class="tag">Cisco Catalyst 3560</span>
+
+          <span class="tag">Cisco Catalyst 2960</span>
 
           <span class="tag">Proxmox</span>
 
@@ -505,13 +499,15 @@
 
           <span class="tag">802.1Q</span>
 
-          <span class="tag">IPv4</span>
+          <span class="tag">Inter-VLAN Routing</span>
+
+          <span class="tag">DHCP</span>
+
+          <span class="tag">DNS</span>
 
           <span class="tag">SSH</span>
 
-          <span class="tag">Routing</span>
-
-          <span class="tag">Firewalling</span>
+          <span class="tag">Firewall Policies</span>
 
         </div>
 
@@ -519,8 +515,6 @@
 
     </section>
 
-
-    <!-- ARCHITECTURE -->
 
     <section>
 
@@ -536,55 +530,55 @@
 
         <p>
 
-          The public diagram intentionally shows the logical design
-          rather than the exact addressing or configuration of the
-          live lab environment.
+          The public diagram shows the logical structure of the environment
+          without publishing exact addressing, VLAN identifiers, firewall rules,
+          hostnames, or management endpoints.
 
         </p>
 
         <div class="architecture">
 
 <pre>
-                       <span class="green">INTERNET</span>
+                       INTERNET
+                          |
+                          |
+                   +---------------+
+                   |  FORTIGATE    |
+                   | Routing / FW  |
+                   +-------+-------+
                            |
                            |
-                    +---------------+
-                    |   FIREWALL    |
-                    | Routing / ACL |
-                    +-------+-------+
-                            |
-                            |
                      802.1Q Trunk
-                            |
-                    +-------+-------+
-                    |   SWITCHING   |
-                    |    L2 / L3    |
-                    +-------+-------+
-                            |
-          +-----------------+-----------------+
-          |                 |                 |
-          |                 |                 |
-   <span class="blue">MANAGEMENT</span>          <span class="blue">SERVERS</span>           <span class="blue">CLIENTS</span>
-          |                 |                 |
-   Network Devices     Virtualization      Test Systems
-   Administration      Infrastructure      Endpoints
-                            |
-                            |
-                      +-----+-----+
-                      |           |
-                    Linux       Windows
+                           |
+                   +-------+-------+
+                   | CISCO SWITCH  |
+                   |  L2 / L3      |
+                   +-------+-------+
+                           |
+          +----------------+----------------+
+          |                |                |
+          |                |                |
+     MANAGEMENT         SERVERS          CLIENTS
+          |                |                |
+     Cisco Devices      Proxmox          Test Systems
+     SSH Access         Virtualization    Endpoints
+                           |
+                     +-----+-----+
+                     |           |
+                   Linux       Windows
 </pre>
 
         </div>
 
+
         <div class="note">
 
           <strong>Security note:</strong>
+
           This portfolio intentionally excludes real IP addressing,
-          VLAN identifiers, public addresses, hostnames, credentials,
-          firewall policies, MAC addresses, serial numbers, VPN
-          information, and other details that could identify the
-          live environment.
+          VLAN identifiers, public IPs, credentials, hostnames,
+          firewall policy details, MAC addresses, VPN information,
+          and other live-environment identifiers.
 
         </div>
 
@@ -593,80 +587,201 @@
     </section>
 
 
-    <!-- OBJECTIVES -->
-
     <section>
 
       <div class="container">
 
         <div class="section-label">
-          04 / Objectives
+          04 / Implemented
         </div>
 
         <h2>
-          What the environment is designed to test.
+          Working in the lab today.
         </h2>
 
-        <div class="objective-grid">
 
-          <div class="objective">
-
-            <strong>Segmentation</strong>
-
-            Separate infrastructure by function using VLAN-based
-            network segmentation.
-
-          </div>
+        <div class="status-grid">
 
 
-          <div class="objective">
+          <div class="status-card">
 
-            <strong>Switching</strong>
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
 
-            Configure and validate access interfaces,
-            trunking, and Layer 2 behavior.
+            <strong>
+              FortiGate 60E
+            </strong>
+
+            Configured and operating as part of the lab environment.
 
           </div>
 
 
-          <div class="objective">
+          <div class="status-card">
 
-            <strong>Routing</strong>
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
 
-            Understand traffic flow between logically
-            separated network segments.
+            <strong>
+              Cisco Catalyst Switching
+            </strong>
 
-          </div>
-
-
-          <div class="objective">
-
-            <strong>Security</strong>
-
-            Apply firewalling and network boundaries while
-            maintaining required connectivity.
+            Cisco 3560 and 2960 switches configured and in use.
 
           </div>
 
 
-          <div class="objective">
+          <div class="status-card">
 
-            <strong>Virtualization</strong>
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
 
-            Integrate physical networking with virtual
-            machines and virtual infrastructure.
+            <strong>
+              VLAN Segmentation
+            </strong>
+
+            VLANs created with access ports assigned by function.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              802.1Q Trunking
+            </strong>
+
+            Trunk links configured to carry segmented traffic between devices.
 
           </div>
 
 
-          <div class="objective">
+          <div class="status-card">
 
-            <strong>Troubleshooting</strong>
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
 
-            Intentionally create and diagnose failures
-            using a repeatable troubleshooting process.
+            <strong>
+              Inter-VLAN Routing
+            </strong>
+
+            Routing configured between selected network segments.
 
           </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              Firewall Policies
+            </strong>
+
+            Traffic flow controlled through defined firewall rules and policies.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              Management VLAN
+            </strong>
+
+            Dedicated management network used for infrastructure administration.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              SSH Management
+            </strong>
+
+            Secure CLI administration configured for Cisco devices.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              DHCP
+            </strong>
+
+            Dynamic network addressing configured and validated.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              DNS
+            </strong>
+
+            Name resolution integrated into the lab environment.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              Proxmox Integration
+            </strong>
+
+            Proxmox infrastructure connected to the segmented network.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge implemented">
+              IMPLEMENTED
+            </span>
+
+            <strong>
+              VM VLAN Connectivity
+            </strong>
+
+            Virtual machines connected to defined VLAN segments and validated.
+
+          </div>
+
 
         </div>
 
@@ -675,14 +790,150 @@
     </section>
 
 
-    <!-- TROUBLESHOOTING -->
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          05 / In Progress
+        </div>
+
+        <h2>
+          Currently building and testing.
+        </h2>
+
+
+        <div class="status-grid">
+
+
+          <div class="status-card">
+
+            <span class="badge progress">
+              IN PROGRESS
+            </span>
+
+            <strong>
+              OSPF
+            </strong>
+
+            Building and validating dynamic routing scenarios and route behavior.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge progress">
+              IN PROGRESS
+            </span>
+
+            <strong>
+              VPN / Remote Access
+            </strong>
+
+            Developing secure remote access into the lab without exposing
+            management interfaces directly to the internet.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge progress">
+              IN PROGRESS
+            </span>
+
+            <strong>
+              Failure Simulation
+            </strong>
+
+            Expanding controlled failure scenarios to practice structured
+            troubleshooting and root-cause identification.
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
 
     <section>
 
       <div class="container">
 
         <div class="section-label">
-          05 / Troubleshooting
+          06 / Planned
+        </div>
+
+        <h2>
+          Next capabilities on the roadmap.
+        </h2>
+
+
+        <div class="status-grid">
+
+
+          <div class="status-card">
+
+            <span class="badge planned">
+              PLANNED
+            </span>
+
+            <strong>
+              Access Control Lists
+            </strong>
+
+            Add ACL-based traffic filtering exercises and validation.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge planned">
+              PLANNED
+            </span>
+
+            <strong>
+              IPv6
+            </strong>
+
+            Add IPv6 addressing, reachability, and routing scenarios.
+
+          </div>
+
+
+          <div class="status-card">
+
+            <span class="badge planned">
+              PLANNED
+            </span>
+
+            <strong>
+              Monitoring & Logging
+            </strong>
+
+            Add centralized visibility, event logging, and network monitoring.
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          07 / Troubleshooting
         </div>
 
         <h2>
@@ -691,54 +942,89 @@
 
         <p>
 
-          When connectivity fails, I work through the relevant layers
-          systematically instead of immediately changing configurations.
-          This helps separate symptoms from the actual point of failure.
+          Troubleshooting starts by establishing what should be happening,
+          identifying where actual behavior diverges from that expectation,
+          and then narrowing the problem using device state and traffic-path
+          evidence.
 
         </p>
 
+
         <div class="workflow">
 
+
           <div class="workflow-step">
+
             <span class="step-number">01</span>
+
             Physical connectivity and device state
+
           </div>
 
+
           <div class="workflow-step">
+
             <span class="step-number">02</span>
+
             Interface configuration and operational state
+
           </div>
 
+
           <div class="workflow-step">
+
             <span class="step-number">03</span>
-            VLAN membership and segmentation
+
+            VLAN membership and trunking
+
           </div>
 
+
           <div class="workflow-step">
+
             <span class="step-number">04</span>
-            Trunk configuration and VLAN propagation
-          </div>
 
-          <div class="workflow-step">
-            <span class="step-number">05</span>
             IP addressing and subnet configuration
+
           </div>
 
+
           <div class="workflow-step">
+
+            <span class="step-number">05</span>
+
+            Gateway and inter-VLAN routing
+
+          </div>
+
+
+          <div class="workflow-step">
+
             <span class="step-number">06</span>
-            Routing and gateway reachability
+
+            DHCP and DNS behavior
+
           </div>
 
+
           <div class="workflow-step">
+
             <span class="step-number">07</span>
-            Firewall and access-control behavior
+
+            Firewall policy and traffic flow
+
           </div>
+
 
           <div class="workflow-step">
+
             <span class="step-number">08</span>
+
             Application or service connectivity
+
           </div>
 
+
         </div>
 
       </div>
@@ -746,55 +1032,12 @@
     </section>
 
 
-    <!-- DEVELOPMENT -->
-
     <section>
 
       <div class="container">
 
         <div class="section-label">
-          06 / Next Steps
-        </div>
-
-        <h2>
-          The lab keeps evolving.
-        </h2>
-
-        <ul>
-
-          <li>Inter-VLAN routing scenarios</li>
-
-          <li>Access control lists</li>
-
-          <li>OSPF routing</li>
-
-          <li>IPv6 implementation</li>
-
-          <li>Network monitoring and centralized logging</li>
-
-          <li>Secure VPN-based remote access</li>
-
-          <li>Virtual network integration</li>
-
-          <li>Failure simulation and troubleshooting exercises</li>
-
-          <li>Expanded infrastructure documentation</li>
-
-        </ul>
-
-      </div>
-
-    </section>
-
-
-    <!-- LESSONS -->
-
-    <section>
-
-      <div class="container">
-
-        <div class="section-label">
-          07 / Lessons
+          08 / Takeaway
         </div>
 
         <h2>
@@ -804,22 +1047,26 @@
         <p>
 
           Building the environment reinforces that reliable infrastructure
-          depends on more than achieving connectivity. Intentional
-          segmentation, predictable addressing, documentation, visibility,
-          and clear device roles make an environment easier to troubleshoot,
-          secure, expand, and support.
+          depends on more than basic connectivity. Segmentation, routing,
+          documentation, management access, service dependencies, firewall
+          behavior, and virtualization all affect how easy a network is to
+          operate and troubleshoot.
 
         </p>
 
         <p>
 
-          The objective is to build systems that are not only functional,
-          but understandable and repeatable.
+          The lab continues to evolve as I add new technologies, create
+          controlled failures, and validate how changes affect the overall
+          environment.
 
         </p>
 
+
         <a class="next-button" href="index.html">
+
           ← Return to Portfolio
+
         </a>
 
       </div>
@@ -833,7 +1080,9 @@
   <footer>
 
     <div class="container">
+
       © 2026 Shane Mykal Stark
+
     </div>
 
   </footer>
