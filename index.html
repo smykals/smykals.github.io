@@ -13,10 +13,6 @@
 
   <style>
 
-    /* =========================================================
-       COLOR PALETTE
-       ========================================================= */
-
     :root {
       --background: #0b1220;
       --silver: #c0c0c0;
@@ -34,11 +30,6 @@
 
       --max-width: 1120px;
     }
-
-
-    /* =========================================================
-       BASE
-       ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -87,9 +78,7 @@
     }
 
 
-    /* =========================================================
-       NAVIGATION
-       ========================================================= */
+    /* NAVIGATION */
 
     nav {
       position: sticky;
@@ -147,9 +136,7 @@
     }
 
 
-    /* =========================================================
-       HERO
-       ========================================================= */
+    /* HERO */
 
     .hero {
       min-height: 78vh;
@@ -182,7 +169,6 @@
       height: 8px;
 
       background: var(--green);
-
       border-radius: 50%;
 
       box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
@@ -229,9 +215,7 @@
     }
 
 
-    /* =========================================================
-       BUTTONS
-       ========================================================= */
+    /* BUTTONS */
 
     .actions {
       display: flex;
@@ -290,9 +274,7 @@
     }
 
 
-    /* =========================================================
-       SECTIONS
-       ========================================================= */
+    /* SECTIONS */
 
     section {
       padding: 88px 0;
@@ -333,18 +315,7 @@
     }
 
 
-    /* =========================================================
-       ABOUT
-       ========================================================= */
-
-    .about-highlight {
-      color: var(--silver);
-    }
-
-
-    /* =========================================================
-       PROJECTS
-       ========================================================= */
+    /* PROJECTS */
 
     .project-grid {
       display: grid;
@@ -363,6 +334,9 @@
       flex-direction: column;
 
       padding: 28px;
+
+      color: inherit;
+      text-decoration: none;
 
       background:
         linear-gradient(
@@ -438,10 +412,24 @@
       font-size: 0.75rem;
     }
 
+    .coming-soon {
+      opacity: 0.72;
+      cursor: default;
+    }
 
-    /* =========================================================
-       TECHNICAL SKILLS
-       ========================================================= */
+    .coming-soon:hover {
+      transform: none;
+      border-color: var(--border);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.025),
+          rgba(255, 255, 255, 0.005)
+        );
+    }
+
+
+    /* TECHNICAL SKILLS */
 
     .skills-grid {
       display: grid;
@@ -487,9 +475,7 @@
     }
 
 
-    /* =========================================================
-       LEADERSHIP
-       ========================================================= */
+    /* LEADERSHIP */
 
     .leadership-box {
       max-width: 900px;
@@ -514,9 +500,7 @@
     }
 
 
-    /* =========================================================
-       CURRENT DEVELOPMENT
-       ========================================================= */
+    /* CURRENT DEVELOPMENT */
 
     .development-grid {
       display: grid;
@@ -552,9 +536,7 @@
     }
 
 
-    /* =========================================================
-       FOOTER
-       ========================================================= */
+    /* FOOTER */
 
     footer {
       padding: 36px 0 48px;
@@ -591,9 +573,7 @@
     }
 
 
-    /* =========================================================
-       MOBILE
-       ========================================================= */
+    /* MOBILE */
 
     @media (max-width: 900px) {
 
@@ -654,6 +634,7 @@
   <!-- NAVIGATION -->
 
   <nav>
+
     <div class="container nav-inner">
 
       <a class="brand" href="#top">
@@ -673,6 +654,7 @@
       </div>
 
     </div>
+
   </nav>
 
 
@@ -777,7 +759,7 @@
         </h2>
 
 
-        <p class="section-copy about-highlight">
+        <p class="section-copy">
 
           I'm an IT professional and technical leader with 8+ years of
           experience across field services, networking, enterprise
@@ -823,9 +805,12 @@
         <div class="project-grid">
 
 
-          <!-- PROJECT 1 -->
+          <!-- PROJECT 01 - CLICKABLE -->
 
-          <article class="project-card">
+          <a
+            href="network-lab.html"
+            class="project-card"
+          >
 
             <div class="project-number">
               PROJECT_01
@@ -839,7 +824,8 @@
 
               A segmented infrastructure lab built around Cisco switching
               and Fortinet firewalling, including VLAN design, routing,
-              management networks, and infrastructure troubleshooting.
+              management networks, virtualization, and structured
+              troubleshooting.
 
             </p>
 
@@ -855,16 +841,16 @@
 
             </div>
 
-          </article>
+          </a>
 
 
 
-          <!-- PROJECT 2 -->
+          <!-- PROJECT 02 -->
 
-          <article class="project-card">
+          <div class="project-card coming-soon">
 
             <div class="project-number">
-              PROJECT_02
+              PROJECT_02 / IN DEVELOPMENT
             </div>
 
             <h3>
@@ -891,16 +877,16 @@
 
             </div>
 
-          </article>
+          </div>
 
 
 
-          <!-- PROJECT 3 -->
+          <!-- PROJECT 03 -->
 
-          <article class="project-card">
+          <div class="project-card coming-soon">
 
             <div class="project-number">
-              PROJECT_03
+              PROJECT_03 / IN DEVELOPMENT
             </div>
 
             <h3>
@@ -927,7 +913,7 @@
 
             </div>
 
-          </article>
+          </div>
 
 
         </div>
@@ -1189,10 +1175,6 @@
 
   </footer>
 
-
-</body>
-</html>
-  </footer>
 
 </body>
 </html>
