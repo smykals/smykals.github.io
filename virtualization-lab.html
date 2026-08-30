@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Virtualization Lab | Shane Mykal Stark</title>
+
+  <meta
+    name="description"
+    content="Virtualization lab demonstrating Proxmox, Linux, Windows, virtual networking, storage, infrastructure services, and systems administration."
+  >
+
+  <style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --green-soft: rgba(57, 211, 83, 0.10);
+      --blue-soft: rgba(26, 115, 232, 0.12);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 5%,
+          rgba(26, 115, 232, 0.10),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 18, 32, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    header {
+      padding: 90px 0 65px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+
+      color: var(--white);
+
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 760px;
+
+      color: var(--muted);
+
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 55px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+
+      color: var(--white);
+
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--white);
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      color: var(--silver);
+
+      background: var(--blue-soft);
+
+      border: 1px solid rgba(26, 115, 232, 0.30);
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.78rem;
+    }
+
+    .architecture {
+      margin-top: 28px;
+      padding: 30px;
+
+      background: #070c14;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow-x: auto;
+    }
+
+    pre {
+      margin: 0;
+
+      color: var(--silver);
+
+      font-family: "Courier New", monospace;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .blue {
+      color: var(--blue);
+    }
+
+    .objective-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+
+      margin-top: 28px;
+    }
+
+    .objective {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: var(--muted);
+    }
+
+    .objective strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color: var(--white);
+    }
+
+    .objective strong::before {
+      content: "> ";
+
+      color: var(--green);
+
+      font-family: monospace;
+    }
+
+    .note {
+      margin: 28px 0;
+      padding: 22px;
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.22);
+      border-left: 3px solid var(--green);
+
+      border-radius: 0 10px 10px 0;
+
+      color: var(--silver);
+    }
+
+    .workflow {
+      margin-top: 25px;
+      padding: 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 10px 0;
+
+      color: var(--silver);
+    }
+
+    .step-number {
+      min-width: 34px;
+      height: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.25);
+      border-radius: 50%;
+
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    ul {
+      color: var(--muted);
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .next-button {
+      display: inline-flex;
+
+      margin-top: 25px;
+      padding: 12px 18px;
+
+      background: var(--blue);
+
+      color: white;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .objective-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a class="brand" href="index.html">
+        SMYKALS<span>.</span>
+      </a>
+
+      <a class="back-link" href="index.html">
+        ← Portfolio
+      </a>
+
+    </div>
+  </nav>
+
+
+  <header>
+
+    <div class="container">
+
+      <div class="status">
+
+        <span class="status-dot"></span>
+
+        Project 02 / Virtualization
+
+      </div>
+
+      <h1>
+        Virtualization Lab
+      </h1>
+
+      <p class="intro">
+
+        A hands-on virtualization environment built to develop
+        systems administration, virtual networking, workload deployment,
+        storage, backup, and infrastructure troubleshooting skills using
+        Proxmox and mixed operating systems.
+
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          01 / Overview
+        </div>
+
+        <h2>
+          Why I built it.
+        </h2>
+
+        <p>
+
+          This lab provides a flexible environment for testing systems,
+          networking, applications, and infrastructure services without
+          requiring dedicated physical hardware for every workload.
+
+        </p>
+
+        <p>
+
+          The environment is designed to support experimentation while
+          reinforcing practical skills in virtualization, resource planning,
+          operating system administration, virtual networking, and recovery.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          02 / Technologies
+        </div>
+
+        <h2>
+          Systems built on virtualization.
+        </h2>
+
+        <div class="tech-grid">
+
+          <span class="tag">Proxmox VE</span>
+
+          <span class="tag">Linux</span>
+
+          <span class="tag">Windows</span>
+
+          <span class="tag">Virtual Machines</span>
+
+          <span class="tag">Virtual Networking</span>
+
+          <span class="tag">Storage</span>
+
+          <span class="tag">Snapshots</span>
+
+          <span class="tag">Backups</span>
+
+          <span class="tag">VLANs</span>
+
+          <span class="tag">SSH</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          03 / Architecture
+        </div>
+
+        <h2>
+          Consolidated infrastructure.
+        </h2>
+
+        <p>
+
+          The public architecture intentionally shows only the logical
+          structure of the lab. Hostnames, addressing, management interfaces,
+          credentials, and other identifying details are excluded.
+
+        </p>
+
+        <div class="architecture">
+
+<pre>
+                     <span class="green">PHYSICAL HOST</span>
+                          |
+                    +-----+-----+
+                    |  PROXMOX  |
+                    |    VE     |
+                    +-----+-----+
+                          |
+             +------------+------------+
+             |            |            |
+             |            |            |
+        <span class="blue">LINUX VMs</span>    <span class="blue">WINDOWS VMs</span>   <span class="blue">SERVICES</span>
+             |            |            |
+         Testing       Systems       Infrastructure
+         Admin         Admin         Workloads
+             |
+             |
+       Virtual Networking
+             |
+       Segmented Network
+</pre>
+
+        </div>
+
+        <div class="note">
+
+          <strong>Security note:</strong>
+          This portfolio does not publish real management addresses,
+          hostnames, hypervisor credentials, network identifiers,
+          storage paths, VPN information, or administrative interfaces.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          04 / Objectives
+        </div>
+
+        <h2>
+          What the environment is designed to test.
+        </h2>
+
+        <div class="objective-grid">
+
+          <div class="objective">
+
+            <strong>Virtual Machines</strong>
+
+            Deploy and manage isolated Linux and Windows workloads.
+
+          </div>
+
+
+          <div class="objective">
+
+            <strong>Resource Allocation</strong>
+
+            Balance CPU, memory, and storage resources across workloads.
+
+          </div>
+
+
+          <div class="objective">
+
+            <strong>Virtual Networking</strong>
+
+            Integrate virtual workloads with segmented physical networks.
+
+          </div>
+
+
+          <div class="objective">
+
+            <strong>Storage</strong>
+
+            Test virtual disk provisioning, capacity planning,
+            and workload storage requirements.
+
+          </div>
+
+
+          <div class="objective">
+
+            <strong>Recovery</strong>
+
+            Use snapshots and backups to support testing and recovery.
+
+          </div>
+
+
+          <div class="objective">
+
+            <strong>Troubleshooting</strong>
+
+            Diagnose failures across the host, hypervisor, virtual network,
+            guest OS, and service layers.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          05 / Administration
+        </div>
+
+        <h2>
+          Managing the environment.
+        </h2>
+
+        <p>
+
+          The lab is used to practice the full lifecycle of virtual workloads,
+          from creation and resource assignment through networking,
+          operating system installation, testing, maintenance, and recovery.
+
+        </p>
+
+        <div class="workflow">
+
+          <div class="workflow-step">
+            <span class="step-number">01</span>
+            Define workload purpose and requirements
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">02</span>
+            Allocate CPU, memory, storage, and network resources
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">03</span>
+            Deploy and configure the guest operating system
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">04</span>
+            Integrate the VM with the appropriate network segment
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">05</span>
+            Validate connectivity and required services
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">06</span>
+            Document configuration and dependencies
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">07</span>
+            Create recovery points where appropriate
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">08</span>
+            Monitor, test, troubleshoot, and refine
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          06 / Troubleshooting
+        </div>
+
+        <h2>
+          Determine which layer actually failed.
+        </h2>
+
+        <p>
+
+          Virtualization introduces additional layers between the physical
+          infrastructure and the application. When something fails,
+          troubleshooting starts by determining whether the issue belongs
+          to the physical host, hypervisor, storage, virtual networking,
+          guest operating system, or application.
+
+        </p>
+
+        <div class="architecture">
+
+<pre>
+Physical Host
+     ↓
+Hypervisor
+     ↓
+Storage
+     ↓
+Virtual Network
+     ↓
+Guest OS
+     ↓
+Service / Application
+</pre>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          07 / Next Steps
+        </div>
+
+        <h2>
+          Expanding the environment.
+        </h2>
+
+        <ul>
+
+          <li>Additional Linux infrastructure services</li>
+
+          <li>Windows Server workloads</li>
+
+          <li>Centralized monitoring and logging</li>
+
+          <li>Automated backup validation</li>
+
+          <li>More advanced VLAN integration</li>
+
+          <li>High-availability concepts</li>
+
+          <li>Infrastructure automation</li>
+
+          <li>Service deployment and dependency mapping</li>
+
+          <li>Failure simulation and recovery testing</li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          08 / Lessons
+        </div>
+
+        <h2>
+          Virtualization is more than creating VMs.
+        </h2>
+
+        <p>
+
+          The lab reinforces that virtualization requires thinking about the
+          complete infrastructure stack. Compute, storage, networking,
+          operating systems, backups, and recovery all affect workload
+          reliability.
+
+        </p>
+
+        <p>
+
+          The goal is not simply to run multiple systems on one host.
+          It is to create an environment where workloads are organized,
+          recoverable, understandable, and easy to troubleshoot.
+
+        </p>
+
+        <a class="next-button" href="index.html">
+          ← Return to Portfolio
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+      © 2026 Shane Mykal Stark
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
