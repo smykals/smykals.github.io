@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CCNA Networking Lab | Shane Mykal Stark</title>
+
+  <meta
+    name="description"
+    content="CCNA networking lab covering switching, routing, VLANs, STP, ACLs, IPv4, IPv6, OSPF, DHCP, SSH, and structured troubleshooting."
+  >
+
+  <style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --green-soft: rgba(57, 211, 83, 0.10);
+      --blue-soft: rgba(26, 115, 232, 0.12);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 5%,
+          rgba(26, 115, 232, 0.10),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 18, 32, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    header {
+      padding: 90px 0 65px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+
+      color: var(--white);
+
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 55px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+
+      color: var(--white);
+
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      color: var(--silver);
+      background: var(--blue-soft);
+
+      border: 1px solid rgba(26, 115, 232, 0.30);
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.78rem;
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .lab-card {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: var(--muted);
+    }
+
+    .lab-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .lab-card strong::before {
+      content: "> ";
+      color: var(--green);
+      font-family: monospace;
+    }
+
+    .architecture {
+      margin-top: 28px;
+      padding: 30px;
+
+      background: #070c14;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow-x: auto;
+    }
+
+    pre {
+      margin: 0;
+
+      color: var(--silver);
+
+      font-family: "Courier New", monospace;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .blue {
+      color: var(--blue);
+    }
+
+    .note {
+      margin: 28px 0;
+      padding: 22px;
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.22);
+      border-left: 3px solid var(--green);
+
+      border-radius: 0 10px 10px 0;
+
+      color: var(--silver);
+    }
+
+    .workflow {
+      margin-top: 25px;
+      padding: 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+      color: var(--silver);
+    }
+
+    .step-number {
+      min-width: 34px;
+      height: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.25);
+      border-radius: 50%;
+
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    ul {
+      color: var(--muted);
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .next-button {
+      display: inline-flex;
+      margin-top: 25px;
+      padding: 12px 18px;
+
+      background: var(--blue);
+      color: white;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .lab-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a class="brand" href="index.html">
+        SMYKALS<span>.</span>
+      </a>
+
+      <a class="back-link" href="index.html">
+        ← Portfolio
+      </a>
+
+    </div>
+  </nav>
+
+
+  <header>
+
+    <div class="container">
+
+      <div class="status">
+        <span class="status-dot"></span>
+        Project 03 / CCNA
+      </div>
+
+      <h1>
+        CCNA Networking Lab
+      </h1>
+
+      <p class="intro">
+
+        A structured collection of hands-on networking labs used to reinforce
+        Cisco switching, routing, network services, security, IPv4, IPv6,
+        and troubleshooting concepts through practical configuration and validation.
+
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          01 / Overview
+        </div>
+
+        <h2>
+          Learning by building.
+        </h2>
+
+        <p>
+
+          This environment supports hands-on development alongside CCNA study.
+          Instead of relying only on theory, each topic is reinforced through
+          configuration, verification, failure testing, troubleshooting, and documentation.
+
+        </p>
+
+        <p>
+
+          The objective is to understand not only which command produces a result,
+          but why the technology behaves the way it does and how to identify
+          failures when the expected result does not occur.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          02 / Technologies
+        </div>
+
+        <h2>
+          Core networking concepts.
+        </h2>
+
+        <div class="tech-grid">
+
+          <span class="tag">Cisco IOS</span>
+          <span class="tag">VLANs</span>
+          <span class="tag">802.1Q</span>
+          <span class="tag">STP</span>
+          <span class="tag">Inter-VLAN Routing</span>
+          <span class="tag">OSPF</span>
+          <span class="tag">ACLs</span>
+          <span class="tag">DHCP</span>
+          <span class="tag">IPv4</span>
+          <span class="tag">IPv6</span>
+          <span class="tag">SSH</span>
+          <span class="tag">Troubleshooting</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          03 / Lab Progression
+        </div>
+
+        <h2>
+          From Layer 2 upward.
+        </h2>
+
+        <div class="lab-grid">
+
+          <div class="lab-card">
+
+            <strong>VLAN Segmentation</strong>
+
+            Create logical broadcast domains and validate access-port membership.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>802.1Q Trunking</strong>
+
+            Carry multiple VLANs between switches while validating allowed VLAN behavior.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>Spanning Tree</strong>
+
+            Examine topology selection, root bridge behavior, and loop prevention.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>Inter-VLAN Routing</strong>
+
+            Provide Layer 3 connectivity between isolated VLANs.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>OSPF</strong>
+
+            Build dynamic routing relationships and validate route exchange.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>Access Control Lists</strong>
+
+            Apply traffic filtering based on defined network requirements.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>IPv4 & Subnetting</strong>
+
+            Design addressing plans and validate subnet boundaries and routing.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>IPv6</strong>
+
+            Configure and validate IPv6 addressing, reachability, and routing concepts.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>DHCP</strong>
+
+            Provide dynamic addressing and validate client configuration.
+
+          </div>
+
+
+          <div class="lab-card">
+
+            <strong>Secure Management</strong>
+
+            Configure SSH-based device administration and management access.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          04 / Logical Topology
+        </div>
+
+        <h2>
+          Built for repeatable testing.
+        </h2>
+
+        <p>
+
+          Lab topologies vary by topic, but the underlying approach uses multiple
+          network segments and routing boundaries to create realistic troubleshooting scenarios.
+
+        </p>
+
+        <div class="architecture">
+
+<pre>
+                      <span class="green">ROUTER / L3 DEVICE</span>
+                              |
+                  +-----------+-----------+
+                  |                       |
+                  |                       |
+             <span class="blue">NETWORK A</span>               <span class="blue">NETWORK B</span>
+                  |                       |
+             +----+----+             +----+----+
+             | SWITCH  |             | SWITCH  |
+             +----+----+             +----+----+
+                  |                       |
+          +-------+-------+       +-------+-------+
+          |               |       |               |
+       VLAN A           VLAN B  VLAN C           VLAN D
+          |               |       |               |
+       Clients         Clients  Clients         Services
+</pre>
+
+        </div>
+
+        <div class="note">
+
+          <strong>Portfolio note:</strong>
+          Public examples are intentionally sanitized. Real management addressing,
+          passwords, credentials, device identifiers, and private network details
+          are not published.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          05 / Validation
+        </div>
+
+        <h2>
+          Configure, verify, then break it.
+        </h2>
+
+        <p>
+
+          Each lab includes validation rather than stopping once a configuration
+          is entered. Device state, forwarding behavior, route selection,
+          addressing, and end-to-end connectivity are checked to confirm that
+          the network is behaving as intended.
+
+        </p>
+
+        <div class="workflow">
+
+          <div class="workflow-step">
+            <span class="step-number">01</span>
+            Define the expected network behavior
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">02</span>
+            Build the topology
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">03</span>
+            Configure the required technology
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">04</span>
+            Verify interfaces and device state
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">05</span>
+            Validate forwarding and reachability
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">06</span>
+            Introduce a controlled failure
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">07</span>
+            Troubleshoot without assuming the cause
+          </div>
+
+          <div class="workflow-step">
+            <span class="step-number">08</span>
+            Document the failure and resolution
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          06 / Troubleshooting
+        </div>
+
+        <h2>
+          Use evidence before configuration changes.
+        </h2>
+
+        <p>
+
+          My troubleshooting approach starts with understanding what should be
+          happening, identifying where the actual behavior diverges from that
+          expectation, and narrowing the problem through verification commands
+          and traffic-path analysis.
+
+        </p>
+
+        <div class="architecture">
+
+<pre>
+Physical / Interface State
+           ↓
+VLAN Membership
+           ↓
+Trunking
+           ↓
+Addressing
+           ↓
+Gateway / Routing
+           ↓
+Route Selection
+           ↓
+ACL / Policy
+           ↓
+End-to-End Service
+</pre>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          07 / Current Development
+        </div>
+
+        <h2>
+          Expanding the labs.
+        </h2>
+
+        <ul>
+
+          <li>More advanced spanning-tree scenarios</li>
+          <li>OSPF neighbor and route troubleshooting</li>
+          <li>IPv6 routing and address planning</li>
+          <li>DHCP relay scenarios</li>
+          <li>Standard and extended ACL design</li>
+          <li>NAT and edge connectivity concepts</li>
+          <li>Network automation fundamentals</li>
+          <li>Wireless networking concepts</li>
+          <li>Failure simulation and timed troubleshooting</li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          08 / Lessons
+        </div>
+
+        <h2>
+          Commands matter less than understanding behavior.
+        </h2>
+
+        <p>
+
+          Hands-on labs reinforce that memorizing configuration syntax is only
+          one part of networking. The deeper skill is understanding how traffic
+          should move, what each device is responsible for, and which evidence
+          confirms or disproves a troubleshooting hypothesis.
+
+        </p>
+
+        <p>
+
+          That mindset makes the lab useful beyond certification preparation
+          because it develops the same structured reasoning required in
+          production environments.
+
+        </p>
+
+        <a class="next-button" href="index.html">
+          ← Return to Portfolio
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+      © 2026 Shane Mykal Stark
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
