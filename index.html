@@ -1,1124 +1,1239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Shane Mykal Stark | Technical Portfolio</title>
-
-  <meta
-    name="description"
-    content="Technical portfolio of Shane Mykal Stark — infrastructure, networking, systems, IT/OT, technical leadership, and continuous improvement."
-  >
-
-  <style>
-    :root {
-      --background: #0b1220;
-      --silver: #c0c0c0;
-      --green: #39d353;
-      --blue: #1a73e8;
-      --white: #f8fafc;
-      --muted: #8d99a8;
-      --panel: #101a2b;
-      --panel-hover: #142238;
-      --border: #263348;
-      --green-soft: rgba(57, 211, 83, 0.10);
-      --blue-soft: rgba(26, 115, 232, 0.12);
-      --max-width: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at 85% 5%,
-          rgba(26, 115, 232, 0.10),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 15% 35%,
-          rgba(57, 211, 83, 0.035),
-          transparent 25%
-        ),
-        var(--background);
-
-      color: var(--silver);
-      line-height: 1.65;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .container {
-      width: min(92%, var(--max-width));
-      margin: 0 auto;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shane Mykal Stark | Technical Portfolio</title>
+
+<meta
+name="description"
+content="Technical portfolio of Shane Mykal Stark — infrastructure, networking, systems, IT/OT, technical leadership, and continuous improvement."
+>
+
+<style>
+
+:root {
+  --background:#0b1220;
+  --silver:#c0c0c0;
+  --green:#39d353;
+  --blue:#1a73e8;
+  --white:#f8fafc;
+  --muted:#8d99a8;
+  --panel:#101a2b;
+  --panel-hover:#142238;
+  --border:#263348;
+  --green-soft:rgba(57,211,83,.10);
+  --blue-soft:rgba(26,115,232,.12);
+  --max-width:1120px;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+
+  font-family:
+  Inter,
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+
+  background:
+  radial-gradient(
+    circle at 85% 5%,
+    rgba(26,115,232,.10),
+    transparent 28%
+  ),
+  radial-gradient(
+    circle at 15% 35%,
+    rgba(57,211,83,.035),
+    transparent 25%
+  ),
+  var(--background);
 
-      background: rgba(11, 18, 32, 0.92);
-      backdrop-filter: blur(14px);
+  color:var(--silver);
+  line-height:1.65;
+}
 
-      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
-    }
+a {
+  color:inherit;
+}
 
-    .nav-inner {
-      min-height: 70px;
+.container {
+  width:min(92%,var(--max-width));
+  margin:0 auto;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
 
-      gap: 30px;
-    }
+/* NAVIGATION */
 
-    .brand {
-      color: var(--white);
+nav {
+  position:sticky;
+  top:0;
+  z-index:1000;
 
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+  background:rgba(11,18,32,.92);
+  backdrop-filter:blur(14px);
 
-      text-decoration: none;
-    }
+  border-bottom:1px solid rgba(192,192,192,.10);
+}
 
-    .brand span {
-      color: var(--green);
-    }
+.nav-inner {
+  min-height:70px;
 
-    .nav-links {
-      display: flex;
-      gap: 26px;
-    }
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-    .nav-links a {
-      color: var(--muted);
+  gap:30px;
+}
 
-      font-size: 0.92rem;
-      font-weight: 500;
+.brand {
+  color:var(--white);
 
-      text-decoration: none;
+  font-size:1.05rem;
+  font-weight:800;
+  letter-spacing:.08em;
 
-      transition: color 0.2s ease;
-    }
+  text-decoration:none;
+}
 
-    .nav-links a:hover {
-      color: var(--green);
-    }
+.brand span {
+  color:var(--green);
+}
 
-    /* HERO */
+.nav-links {
+  display:flex;
+  gap:26px;
+}
 
-    .hero {
-      min-height: 78vh;
+.nav-links a {
+  color:var(--muted);
 
-      display: flex;
-      align-items: center;
+  font-size:.92rem;
+  font-weight:500;
 
-      padding: 100px 0 90px;
-    }
+  text-decoration:none;
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
+  transition:color .2s ease;
+}
 
-      margin-bottom: 22px;
+.nav-links a:hover {
+  color:var(--green);
+}
 
-      color: var(--green);
 
-      font-family: monospace;
-      font-size: 0.86rem;
-      font-weight: 700;
+/* HERO */
 
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+.hero {
+  min-height:78vh;
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
+  display:flex;
+  align-items:center;
 
-      background: var(--green);
-      border-radius: 50%;
+  padding:100px 0 90px;
+}
 
-      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
-    }
+.status {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
 
-    h1 {
-      max-width: 950px;
+  margin-bottom:22px;
 
-      margin: 0;
+  color:var(--green);
 
-      color: var(--white);
+  font-family:monospace;
+  font-size:.86rem;
+  font-weight:700;
 
-      font-size: clamp(3.2rem, 8vw, 6.8rem);
-      line-height: 0.94;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
 
-      letter-spacing: -0.06em;
-    }
+.status-dot {
+  width:8px;
+  height:8px;
 
-    .hero-title {
-      margin: 28px 0 0;
+  background:var(--green);
+  border-radius:50%;
 
-      max-width: 900px;
+  box-shadow:0 0 12px rgba(57,211,83,.65);
+}
 
-      color: var(--silver);
+h1 {
+  max-width:950px;
 
-      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
-      font-weight: 600;
+  margin:0;
 
-      line-height: 1.45;
-    }
+  color:var(--white);
 
-    .hero-title span {
-      color: var(--blue);
-    }
+  font-size:clamp(3.2rem,8vw,6.8rem);
+  line-height:.94;
 
-    .hero-copy {
-      max-width: 720px;
+  letter-spacing:-.06em;
+}
 
-      margin: 28px 0 0;
+.hero-title {
+  margin:28px 0 0;
 
-      color: var(--muted);
+  max-width:900px;
 
-      font-size: 1.08rem;
-    }
+  color:var(--silver);
 
-    /* BUTTONS */
+  font-size:clamp(1.1rem,2.2vw,1.55rem);
+  font-weight:600;
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
+  line-height:1.45;
+}
 
-      gap: 12px;
+.hero-title span {
+  color:var(--blue);
+}
 
-      margin-top: 36px;
-    }
+.hero-copy {
+  max-width:720px;
 
-    .button {
-      min-height: 48px;
+  margin:28px 0 0;
 
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+  color:var(--muted);
 
-      padding: 0 20px;
+  font-size:1.08rem;
+}
 
-      border: 1px solid var(--border);
-      border-radius: 8px;
 
-      font-size: 0.94rem;
-      font-weight: 700;
+/* BUTTONS */
 
-      text-decoration: none;
+.actions {
+  display:flex;
+  flex-wrap:wrap;
 
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border 0.2s ease;
-    }
+  gap:12px;
 
-    .button:hover {
-      transform: translateY(-2px);
-    }
+  margin-top:36px;
+}
 
-    .button-primary {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: white;
-    }
+.button {
+  min-height:48px;
 
-    .button-primary:hover {
-      background: #237ef0;
-    }
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-    .button-secondary {
-      background: rgba(255, 255, 255, 0.025);
-      color: var(--silver);
-    }
+  padding:0 20px;
 
-    .button-secondary:hover {
-      border-color: var(--green);
-      color: var(--green);
-    }
+  border:1px solid var(--border);
+  border-radius:8px;
 
-    /* SECTIONS */
+  font-size:.94rem;
+  font-weight:700;
 
-    section {
-      padding: 88px 0;
-      border-top: 1px solid var(--border);
-    }
+  text-decoration:none;
 
-    .section-label {
-      color: var(--green);
+  transition:
+  transform .2s ease,
+  background .2s ease,
+  border .2s ease;
+}
 
-      font-family: monospace;
-      font-size: 0.82rem;
-      font-weight: 700;
+.button:hover {
+  transform:translateY(-2px);
+}
 
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
+.button-primary {
+  background:var(--blue);
+  border-color:var(--blue);
 
-    .section-title {
-      margin: 10px 0 20px;
+  color:white;
+}
 
-      color: var(--white);
+.button-secondary {
+  background:rgba(255,255,255,.025);
 
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.12;
+  color:var(--silver);
+}
 
-      letter-spacing: -0.04em;
-    }
+.button-secondary:hover {
+  border-color:var(--green);
 
-    .section-copy {
-      max-width: 790px;
+  color:var(--green);
+}
 
-      margin: 0;
 
-      color: var(--muted);
+/* SECTIONS */
 
-      font-size: 1.06rem;
-    }
+section {
+  padding:88px 0;
 
-    /* PROJECTS */
+  border-top:1px solid var(--border);
+}
 
-    .project-grid {
-      display: grid;
+.section-label {
+  color:var(--green);
 
-      grid-template-columns: repeat(3, 1fr);
+  font-family:monospace;
+  font-size:.82rem;
+  font-weight:700;
 
-      gap: 20px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
 
-      margin-top: 42px;
-    }
+.section-title {
+  margin:10px 0 20px;
 
-    .project-card {
-      min-height: 310px;
+  color:var(--white);
 
-      display: flex;
-      flex-direction: column;
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1.12;
 
-      padding: 28px;
+  letter-spacing:-.04em;
+}
 
-      color: inherit;
-      text-decoration: none;
+.section-copy {
+  max-width:790px;
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.025),
-          rgba(255, 255, 255, 0.005)
-        );
+  margin:0;
 
-      border: 1px solid var(--border);
-      border-radius: 14px;
+  color:var(--muted);
 
-      transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        background 0.22s ease;
-    }
+  font-size:1.06rem;
+}
 
-    .project-card:hover {
-      transform: translateY(-5px);
 
-      border-color: rgba(26, 115, 232, 0.8);
+/* PROJECTS */
 
-      background: var(--panel-hover);
-    }
+.project-grid {
+  display:grid;
 
-    .project-number {
-      color: var(--green);
+  grid-template-columns:repeat(2,1fr);
 
-      font-family: monospace;
-      font-size: 0.78rem;
-      font-weight: 700;
+  gap:20px;
 
-      letter-spacing: 0.12em;
-    }
+  margin-top:42px;
+}
 
-    .project-card h3 {
-      margin: 18px 0 12px;
+.project-card {
+  min-height:310px;
 
-      color: var(--white);
+  display:flex;
+  flex-direction:column;
 
-      font-size: 1.35rem;
-    }
+  padding:28px;
 
-    .project-card p {
-      margin: 0;
+  color:inherit;
+  text-decoration:none;
 
-      color: var(--muted);
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,255,255,.025),
+    rgba(255,255,255,.005)
+  );
 
-      font-size: 0.96rem;
-    }
+  border:1px solid var(--border);
+  border-radius:14px;
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
+  transition:
+  transform .22s ease,
+  border-color .22s ease,
+  background .22s ease;
+}
 
-      gap: 8px;
+.project-card:hover {
+  transform:translateY(-5px);
 
-      margin-top: auto;
-      padding-top: 28px;
-    }
+  border-color:rgba(26,115,232,.8);
 
-    .tag {
-      padding: 5px 9px;
+  background:var(--panel-hover);
+}
 
-      color: var(--silver);
+.project-number {
+  color:var(--green);
 
-      background: rgba(26, 115, 232, 0.06);
+  font-family:monospace;
+  font-size:.78rem;
+  font-weight:700;
 
-      border: 1px solid rgba(26, 115, 232, 0.25);
-      border-radius: 999px;
+  letter-spacing:.12em;
+}
 
-      font-family: monospace;
-      font-size: 0.75rem;
-    }
+.project-card h3 {
+  margin:18px 0 12px;
 
-    /* SKILLS */
+  color:var(--white);
 
-    .skills-grid {
-      display: grid;
+  font-size:1.35rem;
+}
 
-      grid-template-columns: repeat(4, 1fr);
+.project-card p {
+  margin:0;
 
-      gap: 16px;
+  color:var(--muted);
 
-      margin-top: 38px;
-    }
+  font-size:.96rem;
+}
 
-    .skill-block {
-      padding: 24px;
+.tags {
+  display:flex;
+  flex-wrap:wrap;
 
-      background: rgba(255, 255, 255, 0.015);
+  gap:8px;
 
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
+  margin-top:auto;
+  padding-top:28px;
+}
 
-    .skill-block h3 {
-      margin: 0 0 12px;
+.tag {
+  padding:5px 9px;
 
-      color: var(--white);
+  color:var(--silver);
 
-      font-size: 1rem;
-    }
+  background:rgba(26,115,232,.06);
 
-    .skill-block h3::before {
-      content: "> ";
+  border:1px solid rgba(26,115,232,.25);
+  border-radius:999px;
 
-      color: var(--green);
+  font-family:monospace;
+  font-size:.75rem;
+}
 
-      font-family: monospace;
-    }
 
-    .skill-block p {
-      margin: 0;
+/* SKILLS */
 
-      color: var(--muted);
+.skills-grid {
+  display:grid;
 
-      font-size: 0.91rem;
-    }
+  grid-template-columns:repeat(4,1fr);
 
-    /* LEADERSHIP */
+  gap:16px;
 
-    .leadership-box {
-      max-width: 900px;
+  margin-top:38px;
+}
 
-      margin-top: 36px;
-      padding: 30px;
+.skill-block {
+  padding:24px;
 
-      background: var(--green-soft);
+  background:rgba(255,255,255,.015);
 
-      border: 1px solid rgba(57, 211, 83, 0.22);
-      border-left: 3px solid var(--green);
+  border:1px solid var(--border);
+  border-radius:12px;
+}
 
-      border-radius: 0 12px 12px 0;
-    }
+.skill-block h3 {
+  margin:0 0 12px;
 
-    .leadership-box p {
-      margin: 0;
+  color:var(--white);
 
-      color: var(--silver);
+  font-size:1rem;
+}
 
-      font-size: 1.03rem;
-    }
+.skill-block h3::before {
+  content:"> ";
 
-    /* DEVELOPMENT */
+  color:var(--green);
 
-    .development-grid {
-      display: grid;
+  font-family:monospace;
+}
 
-      grid-template-columns: repeat(3, 1fr);
+.skill-block p {
+  margin:0;
 
-      gap: 16px;
+  color:var(--muted);
 
-      margin-top: 36px;
-    }
+  font-size:.91rem;
+}
 
-    .development-item {
-      padding: 22px;
 
-      background: var(--blue-soft);
+/* LEADERSHIP */
 
-      border: 1px solid rgba(26, 115, 232, 0.25);
-      border-radius: 12px;
-    }
+.leadership-box {
+  max-width:900px;
 
-    .development-item strong {
-      display: block;
+  margin-top:36px;
+  padding:30px;
 
-      margin-bottom: 7px;
+  background:var(--green-soft);
 
-      color: var(--white);
-    }
+  border:1px solid rgba(57,211,83,.22);
+  border-left:3px solid var(--green);
 
-    .development-item span {
-      color: var(--muted);
+  border-radius:0 12px 12px 0;
+}
 
-      font-size: 0.9rem;
-    }
+.leadership-box p {
+  margin:0;
 
-    /* FOOTER */
+  color:var(--silver);
 
-    footer {
-      padding: 36px 0 48px;
+  font-size:1.03rem;
+}
 
-      border-top: 1px solid var(--border);
 
-      color: var(--muted);
+/* DEVELOPMENT */
 
-      font-size: 0.9rem;
-    }
+.development-grid {
+  display:grid;
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+  grid-template-columns:repeat(3,1fr);
 
-      gap: 20px;
-    }
+  gap:16px;
 
-    .footer-links {
-      display: flex;
+  margin-top:36px;
+}
 
-      gap: 20px;
-    }
+.development-item {
+  padding:22px;
 
-    .footer-links a {
-      color: var(--muted);
-      text-decoration: none;
-    }
+  background:var(--blue-soft);
 
-    .footer-links a:hover {
-      color: var(--green);
-    }
+  border:1px solid rgba(26,115,232,.25);
+  border-radius:12px;
+}
 
-    /* MOBILE */
+.development-item strong {
+  display:block;
 
-    @media (max-width: 900px) {
+  margin-bottom:7px;
 
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
+  color:var(--white);
+}
 
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+.development-item span {
+  color:var(--muted);
 
-      .development-grid {
-        grid-template-columns: 1fr;
-      }
+  font-size:.9rem;
+}
 
-      .hero {
-        min-height: auto;
-      }
-    }
 
-    @media (max-width: 620px) {
+/* FOOTER */
 
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
+footer {
+  padding:36px 0 48px;
 
-        padding: 16px 0;
-      }
+  border-top:1px solid var(--border);
 
-      .nav-links {
-        width: 100%;
+  color:var(--muted);
 
-        gap: 14px;
+  font-size:.9rem;
+}
 
-        overflow-x: auto;
-      }
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
 
-      .hero {
-        padding: 70px 0 65px;
-      }
+  gap:20px;
+}
 
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
+.footer-links {
+  display:flex;
 
-      section {
-        padding: 65px 0;
-      }
-    }
+  gap:20px;
+}
 
-  </style>
+.footer-links a {
+  color:var(--muted);
+
+  text-decoration:none;
+}
+
+.footer-links a:hover {
+  color:var(--green);
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px) {
+
+  .project-grid {
+    grid-template-columns:1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .development-grid {
+    grid-template-columns:1fr;
+  }
+
+  .hero {
+    min-height:auto;
+  }
+
+}
+
+@media(max-width:620px) {
+
+  .nav-inner {
+    flex-direction:column;
+    align-items:flex-start;
+
+    padding:16px 0;
+  }
+
+  .nav-links {
+    width:100%;
+
+    gap:14px;
+
+    overflow-x:auto;
+  }
+
+  .hero {
+    padding:70px 0 65px;
+  }
+
+  .skills-grid {
+    grid-template-columns:1fr;
+  }
+
+  section {
+    padding:65px 0;
+  }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
-  <!-- NAVIGATION -->
 
-  <nav>
+<nav>
 
-    <div class="container nav-inner">
+<div class="container nav-inner">
 
-      <a class="brand" href="#top">
-        SMYKALS<span>.</span>
-      </a>
+<a class="brand" href="#top">
+SMYKALS<span>.</span>
+</a>
 
-      <div class="nav-links">
+<div class="nav-links">
 
-        <a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
-        <a href="#projects">Projects</a>
+<a href="#projects">
+Projects
+</a>
 
-        <a href="#skills">Skills</a>
+<a href="#skills">
+Skills
+</a>
 
-        <a href="#leadership">Leadership</a>
+<a href="#leadership">
+Leadership
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </nav>
+</nav>
 
 
-  <!-- HERO -->
+<header class="hero" id="top">
 
-  <header class="hero" id="top">
+<div class="container">
 
-    <div class="container">
+<div class="status">
 
-      <div class="status">
+<span class="status-dot"></span>
 
-        <span class="status-dot"></span>
+Technical Portfolio
 
-        Technical Portfolio
+</div>
 
-      </div>
 
+<h1>
+Shane Mykal Stark
+</h1>
 
-      <h1>
-        Shane Mykal Stark
-      </h1>
 
+<div class="hero-title">
 
-      <div class="hero-title">
+Technical Leadership
 
-        Technical Leadership
-        <span>•</span>
-        Infrastructure
-        <span>•</span>
-        Networking
-        <span>•</span>
-        Systems
-        <span>•</span>
-        IT/OT
+<span>•</span>
 
-      </div>
+Infrastructure
 
+<span>•</span>
 
-      <p class="hero-copy">
+Networking
 
-        I build, troubleshoot, and improve technology environments
-        where reliability matters. My work combines hands-on technical
-        execution, systems thinking, root cause analysis, and technical
-        leadership.
+<span>•</span>
 
-      </p>
+Systems
 
+<span>•</span>
 
-      <div class="actions">
+IT/OT
 
-        <a
-          class="button button-primary"
-          href="#projects"
-        >
-          View Projects
-        </a>
+</div>
 
 
-        <a
-          class="button button-secondary"
-          href="https://github.com/smykals"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+<p class="hero-copy">
 
+I build, troubleshoot, and improve technology environments
+where reliability matters. My work combines hands-on technical
+execution, systems thinking, root cause analysis, and technical
+leadership.
 
-        <a
-          class="button button-secondary"
-          href="YOUR-LINKEDIN-URL"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+</p>
 
-      </div>
 
-    </div>
+<div class="actions">
 
-  </header>
+<a
+class="button button-primary"
+href="#projects"
+>
+View Projects
+</a>
 
 
-  <main>
+<a
+class="button button-secondary"
+href="https://github.com/smykals"
+target="_blank"
+rel="noopener noreferrer"
+>
+GitHub
+</a>
 
-    <!-- ABOUT -->
 
-    <section id="about">
+<a
+class="button button-secondary"
+href="https://www.linkedin.com/in/shanemykalstark/"
+target="_blank"
+rel="noopener noreferrer"
+>
+LinkedIn
+</a>
 
-      <div class="container">
+</div>
 
-        <div class="section-label">
-          01 / About
-        </div>
+</div>
 
-        <h2 class="section-title">
-          Technical depth with a systems mindset.
-        </h2>
+</header>
 
-        <p class="section-copy">
 
-          I'm an IT professional and technical leader with 8+ years of
-          experience across field services, networking, enterprise
-          infrastructure, and manufacturing IT/OT environments. I specialize
-          in solving complex problems, understanding why systems fail, and
-          finding practical ways to improve them. My background combines
-          hands-on technical work with team development, root cause analysis,
-          documentation, and continuous improvement.
+<main>
 
-        </p>
 
-      </div>
+<section id="about">
 
-    </section>
+<div class="container">
 
+<div class="section-label">
+01 / About
+</div>
 
-    <!-- PROJECTS -->
+<h2 class="section-title">
+Technical depth with a systems mindset.
+</h2>
 
-    <section id="projects">
 
-      <div class="container">
+<p class="section-copy">
 
-        <div class="section-label">
-          02 / Projects
-        </div>
+I'm an IT professional and technical leader with 8+ years of
+experience across field services, networking, enterprise
+infrastructure, and manufacturing IT/OT environments. I specialize
+in solving complex problems, understanding why systems fail, and
+finding practical ways to improve them. My background combines
+hands-on technical work with team development, root cause analysis,
+documentation, and continuous improvement.
 
-        <h2 class="section-title">
-          Built to learn. Documented to prove it.
-        </h2>
+</p>
 
-        <p class="section-copy">
+</div>
 
-          Hands-on projects demonstrating infrastructure design,
-          networking, virtualization, troubleshooting, security,
-          and continuous technical development.
+</section>
 
-        </p>
 
+<section id="projects">
 
-        <div class="project-grid">
+<div class="container">
 
+<div class="section-label">
+02 / Projects
+</div>
 
-          <!-- PROJECT 01 -->
 
-          <a
-            href="network-lab.html"
-            class="project-card"
-          >
+<h2 class="section-title">
+Built to learn. Documented to prove it.
+</h2>
 
-            <div class="project-number">
-              PROJECT_01
-            </div>
 
-            <h3>
-              Enterprise Network Lab
-            </h3>
+<p class="section-copy">
 
-            <p>
+Hands-on projects demonstrating infrastructure design,
+networking, virtualization, troubleshooting, security,
+and continuous technical development.
 
-              A segmented infrastructure lab built around Cisco switching
-              and Fortinet firewalling, including VLAN design, routing,
-              management networks, virtualization, and structured
-              troubleshooting.
+</p>
 
-            </p>
 
-            <div class="tags">
+<div class="project-grid">
 
-              <span class="tag">Cisco</span>
-              <span class="tag">Fortinet</span>
-              <span class="tag">VLANs</span>
-              <span class="tag">Routing</span>
 
-            </div>
+<a
+href="network-lab.html"
+class="project-card"
+>
 
-          </a>
+<div class="project-number">
+PROJECT_01
+</div>
 
+<h3>
+Enterprise Network Lab
+</h3>
 
-          <!-- PROJECT 02 -->
+<p>
 
-          <a
-            href="virtualization-lab.html"
-            class="project-card"
-          >
+A segmented infrastructure lab built around Cisco switching
+and Fortinet firewalling, including VLAN design, routing,
+management networks, virtualization, and structured
+troubleshooting.
 
-            <div class="project-number">
-              PROJECT_02
-            </div>
+</p>
 
-            <h3>
-              Virtualization Lab
-            </h3>
+<div class="tags">
 
-            <p>
+<span class="tag">
+Cisco
+</span>
 
-              A Proxmox-based virtualization environment for Linux and
-              Windows workloads, infrastructure services, networking,
-              storage, testing, troubleshooting, and recovery.
+<span class="tag">
+Fortinet
+</span>
 
-            </p>
+<span class="tag">
+VLANs
+</span>
 
-            <div class="tags">
+<span class="tag">
+Routing
+</span>
 
-              <span class="tag">Proxmox</span>
-              <span class="tag">Linux</span>
-              <span class="tag">VMs</span>
-              <span class="tag">Storage</span>
+</div>
 
-            </div>
+</a>
 
-          </a>
 
+<a
+href="virtualization-lab.html"
+class="project-card"
+>
 
-          <!-- PROJECT 03 -->
+<div class="project-number">
+PROJECT_02
+</div>
 
-          <a
-            href="ccna-lab.html"
-            class="project-card"
-          >
+<h3>
+Virtualization Lab
+</h3>
 
-            <div class="project-number">
-              PROJECT_03
-            </div>
+<p>
 
-            <h3>
-              CCNA Networking Lab
-            </h3>
+A Proxmox-based virtualization environment for Linux and
+Windows workloads, infrastructure services, networking,
+storage, testing, troubleshooting, and recovery.
 
-            <p>
+</p>
 
-              Hands-on networking labs covering switching, routing,
-              VLANs, 802.1Q trunks, STP, ACLs, IPv4, IPv6,
-              OSPF, network services, and structured troubleshooting.
+<div class="tags">
 
-            </p>
+<span class="tag">
+Proxmox
+</span>
 
-            <div class="tags">
+<span class="tag">
+Linux
+</span>
 
-              <span class="tag">CCNA</span>
-              <span class="tag">Switching</span>
-              <span class="tag">Routing</span>
-              <span class="tag">Troubleshooting</span>
+<span class="tag">
+VMs
+</span>
 
-            </div>
+<span class="tag">
+Storage
+</span>
 
-          </a>
+</div>
 
+</a>
 
-        </div>
 
-      </div>
+<a
+href="ccna-lab.html"
+class="project-card"
+>
 
-    </section>
+<div class="project-number">
+PROJECT_03
+</div>
 
+<h3>
+CCNA Networking Lab
+</h3>
 
-    <!-- SKILLS -->
+<p>
 
-    <section id="skills">
+Hands-on networking labs covering switching, routing,
+VLANs, 802.1Q trunks, STP, ACLs, IPv4, IPv6,
+OSPF, network services, and structured troubleshooting.
 
-      <div class="container">
+</p>
 
-        <div class="section-label">
-          03 / Technical Focus
-        </div>
+<div class="tags">
 
-        <h2 class="section-title">
-          Infrastructure across the stack.
-        </h2>
+<span class="tag">
+CCNA
+</span>
 
-        <p class="section-copy">
+<span class="tag">
+Switching
+</span>
 
-          Experience spanning the technologies that connect users,
-          infrastructure, applications, and production environments.
+<span class="tag">
+Routing
+</span>
 
-        </p>
+<span class="tag">
+Troubleshooting
+</span>
 
+</div>
 
-        <div class="skills-grid">
+</a>
 
 
-          <div class="skill-block">
+<a
+href="ccna-study-laptop.html"
+class="project-card"
+>
 
-            <h3>
-              Networking
-            </h3>
+<div class="project-number">
+PROJECT_04
+</div>
 
-            <p>
-              Cisco Catalyst, Cisco Nexus, VLANs, L2/L3 switching,
-              routing, Cisco ISE, DNA Center, Infoblox, and Fortinet.
-            </p>
+<h3>
+CCNA Study Laptop
+</h3>
 
-          </div>
+<p>
 
+A dedicated Linux-based networking workstation built for
+CCNA study, packet analysis, terminal tooling, network testing,
+documentation, and hands-on lab work.
 
-          <div class="skill-block">
+</p>
 
-            <h3>
-              Systems
-            </h3>
+<div class="tags">
 
-            <p>
-              Windows, Windows Server, Linux, VMware vSphere,
-              ESXi, Proxmox, and enterprise hardware.
-            </p>
+<span class="tag">
+Parrot OS
+</span>
 
-          </div>
+<span class="tag">
+Linux
+</span>
 
+<span class="tag">
+Wireshark
+</span>
 
-          <div class="skill-block">
+<span class="tag">
+Cisco
+</span>
 
-            <h3>
-              Identity & Endpoint
-            </h3>
+</div>
 
-            <p>
-              Active Directory, Entra ID, Okta, Intune,
-              SCCM/MECM, MFA, and enterprise endpoint management.
-            </p>
+</a>
 
-          </div>
 
+</div>
 
-          <div class="skill-block">
+</div>
 
-            <h3>
-              IT/OT
-            </h3>
+</section>
 
-            <p>
-              Manufacturing IT, industrial networking, Ignition,
-              OPC-UA, Modbus, PI Vision, and production support.
-            </p>
 
-          </div>
+<section id="skills">
 
+<div class="container">
 
-        </div>
+<div class="section-label">
+03 / Technical Focus
+</div>
 
-      </div>
 
-    </section>
+<h2 class="section-title">
+Infrastructure across the stack.
+</h2>
 
 
-    <!-- LEADERSHIP -->
+<p class="section-copy">
 
-    <section id="leadership">
+Experience spanning the technologies that connect users,
+infrastructure, applications, and production environments.
 
-      <div class="container">
+</p>
 
-        <div class="section-label">
-          04 / Technical Leadership
-        </div>
 
-        <h2 class="section-title">
-          Technical leadership stays technical.
-        </h2>
+<div class="skills-grid">
 
-        <p class="section-copy">
 
-          Strong technical leadership requires understanding the systems,
-          the people operating them, and the context behind the problem.
+<div class="skill-block">
 
-        </p>
+<h3>
+Networking
+</h3>
 
+<p>
 
-        <div class="leadership-box">
+Cisco Catalyst, Cisco Nexus, VLANs, L2/L3 switching,
+routing, Cisco ISE, DNA Center, Infoblox, and Fortinet.
 
-          <p>
+</p>
 
-            My approach combines hands-on technical involvement with team
-            development, knowledge sharing, documentation, outage response,
-            root cause analysis, cross-functional communication, and
-            continuous improvement. The objective isn't simply to fix today's
-            issue — it's to strengthen the environment and the people
-            responsible for supporting it.
+</div>
 
-          </p>
 
-        </div>
+<div class="skill-block">
 
-      </div>
+<h3>
+Systems
+</h3>
 
-    </section>
+<p>
 
+Windows, Windows Server, Linux, VMware vSphere,
+ESXi, Proxmox, and enterprise hardware.
 
-    <!-- CURRENT DEVELOPMENT -->
+</p>
 
-    <section>
+</div>
 
-      <div class="container">
 
-        <div class="section-label">
-          05 / Current Development
-        </div>
+<div class="skill-block">
 
-        <h2 class="section-title">
-          Always building.
-        </h2>
+<h3>
+Identity & Endpoint
+</h3>
 
-        <p class="section-copy">
+<p>
 
-          Current areas of hands-on development and technical study.
+Active Directory, Entra ID, Okta, Intune,
+SCCM/MECM, MFA, and enterprise endpoint management.
 
-        </p>
+</p>
 
+</div>
 
-        <div class="development-grid">
 
+<div class="skill-block">
 
-          <div class="development-item">
+<h3>
+IT/OT
+</h3>
 
-            <strong>
-              Cisco Networking
-            </strong>
+<p>
 
-            <span>
-              CCNA-focused switching, routing, network services,
-              security, and troubleshooting labs.
-            </span>
+Manufacturing IT, industrial networking, Ignition,
+OPC-UA, Modbus, PI Vision, and production support.
 
-          </div>
+</p>
 
+</div>
 
-          <div class="development-item">
 
-            <strong>
-              Virtualization & Linux
-            </strong>
+</div>
 
-            <span>
-              Proxmox infrastructure, Linux administration,
-              virtual networking, and service deployment.
-            </span>
+</div>
 
-          </div>
+</section>
 
 
-          <div class="development-item">
+<section id="leadership">
 
-            <strong>
-              Industrial Technology
-            </strong>
+<div class="container">
 
-            <span>
-              Ignition, OPC-UA, Modbus, industrial networking,
-              and IT/OT integration.
-            </span>
+<div class="section-label">
+04 / Technical Leadership
+</div>
 
-          </div>
 
+<h2 class="section-title">
+Technical leadership stays technical.
+</h2>
 
-        </div>
 
-      </div>
+<p class="section-copy">
 
-    </section>
+Strong technical leadership requires understanding the systems,
+the people operating them, and the context behind the problem.
 
+</p>
 
-  </main>
 
+<div class="leadership-box">
 
-  <!-- FOOTER -->
+<p>
 
-  <footer>
+My approach combines hands-on technical involvement with team
+development, knowledge sharing, documentation, outage response,
+root cause analysis, cross-functional communication, and
+continuous improvement. The objective isn't simply to fix today's
+issue — it's to strengthen the environment and the people
+responsible for supporting it.
 
-    <div class="container footer-inner">
+</p>
 
-      <div>
-        © 2026 Shane Mykal Stark
-      </div>
+</div>
 
+</div>
 
-      <div class="footer-links">
+</section>
 
-        <a
-          href="https://github.com/smykals"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
 
+<section>
 
-        <a
-          href="YOUR-LINKEDIN-URL"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+<div class="container">
 
-      </div>
+<div class="section-label">
+05 / Current Development
+</div>
 
-    </div>
 
-  </footer>
+<h2 class="section-title">
+Always building.
+</h2>
+
+
+<p class="section-copy">
+
+Current areas of hands-on development and technical study.
+
+</p>
+
+
+<div class="development-grid">
+
+
+<div class="development-item">
+
+<strong>
+Cisco Networking
+</strong>
+
+<span>
+
+CCNA-focused switching, routing, network services,
+security, and troubleshooting labs.
+
+</span>
+
+</div>
+
+
+<div class="development-item">
+
+<strong>
+Virtualization & Linux
+</strong>
+
+<span>
+
+Proxmox infrastructure, Linux administration,
+virtual networking, and service deployment.
+
+</span>
+
+</div>
+
+
+<div class="development-item">
+
+<strong>
+Industrial Technology
+</strong>
+
+<span>
+
+Ignition, OPC-UA, Modbus, industrial networking,
+and IT/OT integration.
+
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+
+© 2026 Shane Mykal Stark
+
+</div>
+
+
+<div class="footer-links">
+
+
+<a
+href="https://github.com/smykals"
+target="_blank"
+rel="noopener noreferrer"
+>
+GitHub
+</a>
+
+
+<a
+href="https://www.linkedin.com/in/shanemykalstark/"
+target="_blank"
+rel="noopener noreferrer"
+>
+LinkedIn
+</a>
+
+
+</div>
+
+</div>
+
+</footer>
 
 
 </body>
