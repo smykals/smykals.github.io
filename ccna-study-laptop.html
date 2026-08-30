@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CCNA Study Laptop | Shane Mykal Stark</title>
+
+<meta name="description"
+content="Dedicated Linux networking workstation built for CCNA study, packet analysis, troubleshooting, documentation, and hands-on networking labs.">
+
+<style>
+
+:root {
+  --background:#0b1220;
+  --silver:#c0c0c0;
+  --green:#39d353;
+  --blue:#1a73e8;
+  --white:#f8fafc;
+  --muted:#8d99a8;
+  --panel:#101a2b;
+  --border:#263348;
+  --green-soft:rgba(57,211,83,.10);
+  --blue-soft:rgba(26,115,232,.12);
+  --max-width:1000px;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+
+  font-family:
+  Inter,
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+
+  background:
+  radial-gradient(
+    circle at 85% 5%,
+    rgba(26,115,232,.10),
+    transparent 28%
+  ),
+  var(--background);
+
+  color:var(--silver);
+  line-height:1.7;
+}
+
+.container {
+  width:min(92%,var(--max-width));
+  margin:0 auto;
+}
+
+nav {
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(11,18,32,.94);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(192,192,192,.10);
+}
+
+.nav-inner {
+  min-height:70px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+.brand {
+  color:var(--white);
+  font-weight:800;
+  letter-spacing:.08em;
+  text-decoration:none;
+}
+
+.brand span {
+  color:var(--green);
+}
+
+.back-link {
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.92rem;
+}
+
+.back-link:hover {
+  color:var(--green);
+}
+
+header {
+  padding:90px 0 65px;
+}
+
+.status {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+
+  color:var(--green);
+
+  font-family:monospace;
+  font-size:.84rem;
+  font-weight:700;
+
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.status-dot {
+  width:8px;
+  height:8px;
+
+  background:var(--green);
+  border-radius:50%;
+
+  box-shadow:0 0 12px rgba(57,211,83,.65);
+}
+
+h1 {
+  margin:18px 0 22px;
+
+  color:var(--white);
+
+  font-size:clamp(3rem,7vw,5.5rem);
+  line-height:.98;
+
+  letter-spacing:-.055em;
+}
+
+.intro {
+  max-width:760px;
+
+  color:var(--muted);
+
+  font-size:1.1rem;
+}
+
+section {
+  padding:55px 0;
+
+  border-top:1px solid var(--border);
+}
+
+.section-label {
+  color:var(--green);
+
+  font-family:monospace;
+  font-size:.80rem;
+  font-weight:700;
+
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+h2 {
+  margin:10px 0 20px;
+
+  color:var(--white);
+
+  font-size:clamp(1.8rem,4vw,2.5rem);
+  letter-spacing:-.035em;
+}
+
+p {
+  color:var(--muted);
+}
+
+.tech-grid {
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:25px;
+}
+
+.tag {
+  padding:6px 10px;
+
+  color:var(--silver);
+  background:var(--blue-soft);
+
+  border:1px solid rgba(26,115,232,.30);
+  border-radius:999px;
+
+  font-family:monospace;
+  font-size:.78rem;
+}
+
+.grid {
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:14px;
+
+  margin-top:28px;
+}
+
+.card {
+  padding:22px;
+
+  background:rgba(255,255,255,.015);
+
+  border:1px solid var(--border);
+  border-radius:10px;
+
+  color:var(--muted);
+}
+
+.card strong {
+  display:block;
+
+  margin-bottom:7px;
+
+  color:var(--white);
+}
+
+.card strong::before {
+  content:"> ";
+
+  color:var(--green);
+
+  font-family:monospace;
+}
+
+.architecture {
+  margin-top:28px;
+  padding:30px;
+
+  background:#070c14;
+
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  overflow-x:auto;
+}
+
+pre {
+  margin:0;
+
+  color:var(--silver);
+
+  font-family:"Courier New",monospace;
+  font-size:.94rem;
+  line-height:1.7;
+}
+
+.note {
+  margin:28px 0;
+  padding:22px;
+
+  background:var(--green-soft);
+
+  border:1px solid rgba(57,211,83,.22);
+  border-left:3px solid var(--green);
+
+  border-radius:0 10px 10px 0;
+
+  color:var(--silver);
+}
+
+.workflow {
+  margin-top:25px;
+  padding:25px;
+
+  background:var(--panel);
+
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.workflow-step {
+  display:flex;
+  align-items:center;
+
+  gap:15px;
+
+  padding:10px 0;
+
+  color:var(--silver);
+}
+
+.step-number {
+  min-width:34px;
+  height:34px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  color:var(--green);
+  background:var(--green-soft);
+
+  border:1px solid rgba(57,211,83,.25);
+  border-radius:50%;
+
+  font-family:monospace;
+  font-weight:700;
+}
+
+ul {
+  color:var(--muted);
+  padding-left:22px;
+}
+
+li {
+  margin:8px 0;
+}
+
+.next-button {
+  display:inline-flex;
+
+  margin-top:25px;
+  padding:12px 18px;
+
+  background:var(--blue);
+
+  color:white;
+
+  border-radius:8px;
+
+  text-decoration:none;
+  font-weight:700;
+}
+
+footer {
+  margin-top:40px;
+  padding:35px 0;
+
+  border-top:1px solid var(--border);
+
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+@media(max-width:700px) {
+
+  .grid {
+    grid-template-columns:1fr;
+  }
+
+  header {
+    padding-top:65px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="container nav-inner">
+
+<a class="brand" href="index.html">
+SMYKALS<span>.</span>
+</a>
+
+<a class="back-link" href="index.html">
+← Portfolio
+</a>
+
+</div>
+
+</nav>
+
+
+<header>
+
+<div class="container">
+
+<div class="status">
+
+<span class="status-dot"></span>
+
+Project 04 / Study Workstation
+
+</div>
+
+
+<h1>
+CCNA Study Laptop
+</h1>
+
+
+<p class="intro">
+
+A dedicated Linux-based networking workstation configured for
+CCNA study, packet analysis, terminal-based networking tools,
+documentation, troubleshooting, and hands-on lab work.
+
+</p>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+01 / Overview
+</div>
+
+<h2>
+A purpose-built networking workstation.
+</h2>
+
+<p>
+
+Rather than using a general-purpose computer for certification
+study, I repurposed a business-class laptop into a dedicated
+networking workstation.
+
+</p>
+
+<p>
+
+The system provides a Linux environment for studying network
+concepts, analyzing traffic, accessing Cisco equipment, working
+with virtual labs, documenting configurations, and practicing
+structured troubleshooting.
+
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+02 / Operating System
+</div>
+
+<h2>
+Parrot OS.
+</h2>
+
+<p>
+
+The workstation runs Parrot OS, providing a Linux-based
+environment with access to networking, packet analysis,
+administration, scripting, and troubleshooting utilities.
+
+</p>
+
+<p>
+
+The objective is not to turn CCNA preparation into a security
+project. Instead, Linux provides visibility into network behavior
+and exposes tools that complement Cisco configuration work.
+
+</p>
+
+
+<div class="tech-grid">
+
+<span class="tag">Parrot OS</span>
+
+<span class="tag">Linux</span>
+
+<span class="tag">Cisco</span>
+
+<span class="tag">Wireshark</span>
+
+<span class="tag">tcpdump</span>
+
+<span class="tag">Nmap</span>
+
+<span class="tag">SSH</span>
+
+<span class="tag">Python</span>
+
+<span class="tag">Packet Analysis</span>
+
+<span class="tag">CLI</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+03 / Purpose
+</div>
+
+<h2>
+Study, test, observe, troubleshoot.
+</h2>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<strong>
+CCNA Study
+</strong>
+
+Maintain Cisco study material, documentation, notes,
+and networking references in a dedicated environment.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+Packet Analysis
+</strong>
+
+Use Wireshark and tcpdump to observe traffic and reinforce
+how protocols behave on a live network.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+Network Testing
+</strong>
+
+Use Linux networking utilities to validate addressing,
+connectivity, routes, DNS, ports, and services.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+Cisco Administration
+</strong>
+
+Connect to physical network equipment using secure
+terminal-based management tools.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+Documentation
+</strong>
+
+Capture configurations, diagrams, troubleshooting notes,
+commands, and lessons learned from each lab.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+Automation
+</strong>
+
+Provide a Linux and Python environment for future
+network automation and scripting exercises.
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+04 / Toolset
+</div>
+
+<h2>
+Networking from the command line.
+</h2>
+
+
+<div class="architecture">
+
+<pre>
+CCNA STUDY WORKSTATION
+        |
+        +-- ip
+        |
+        +-- ping
+        |
+        +-- traceroute
+        |
+        +-- ss
+        |
+        +-- dig / nslookup
+        |
+        +-- tcpdump
+        |
+        +-- Wireshark
+        |
+        +-- Nmap
+        |
+        +-- SSH
+        |
+        +-- Python
+        |
+        +-------------------+
+        |                   |
+        v                   v
+ PHYSICAL LAB         VIRTUAL LABS
+ Cisco Switching       Networking
+ Routing               Linux / VMs
+ VLANs                  Testing
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+05 / Troubleshooting
+</div>
+
+<h2>
+Use multiple perspectives on the same problem.
+</h2>
+
+<p>
+
+One advantage of the workstation is the ability to compare what
+the network infrastructure reports with what an endpoint actually
+experiences.
+
+</p>
+
+<p>
+
+Cisco CLI output can show the state of the infrastructure while
+Linux tools provide another view of addressing, reachability,
+DNS resolution, route selection, open connections, and packet flow.
+
+</p>
+
+
+<div class="workflow">
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+01
+</span>
+
+Verify local interface state
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+02
+</span>
+
+Validate IP addressing and subnet information
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+03
+</span>
+
+Test local and remote reachability
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+04
+</span>
+
+Examine the traffic path
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+05
+</span>
+
+Validate DNS and required services
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+06
+</span>
+
+Compare endpoint behavior with network-device state
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+07
+</span>
+
+Capture packets when additional evidence is required
+
+</div>
+
+
+<div class="workflow-step">
+
+<span class="step-number">
+08
+</span>
+
+Document the cause and resolution
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+06 / Lab Integration
+</div>
+
+<h2>
+Connected to the larger environment.
+</h2>
+
+<p>
+
+The workstation is designed to complement both my physical
+networking equipment and virtualized infrastructure.
+
+</p>
+
+
+<div class="architecture">
+
+<pre>
+                 CCNA STUDY LAPTOP
+                        |
+           +------------+------------+
+           |                         |
+           v                         v
+    PHYSICAL NETWORK           VIRTUALIZATION
+           |                         |
+     Cisco Switching              Proxmox
+     Routing Labs                 Linux VMs
+     VLAN Testing                 Test Systems
+           |                         |
+           +------------+------------+
+                        |
+                 TROUBLESHOOTING
+                  & VALIDATION
+</pre>
+
+</div>
+
+
+<div class="note">
+
+<strong>Security note:</strong>
+
+Public documentation intentionally excludes private IP
+addressing, credentials, device identifiers, VPN information,
+management interfaces, and other details that could expose
+the live lab environment.
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+07 / Current Development
+</div>
+
+<h2>
+The workstation evolves with the curriculum.
+</h2>
+
+
+<ul>
+
+<li>
+Build a reusable library of networking and troubleshooting commands
+</li>
+
+<li>
+Expand packet-capture analysis exercises
+</li>
+
+<li>
+Develop Python network automation fundamentals
+</li>
+
+<li>
+Add additional Cisco lab tooling as needed
+</li>
+
+<li>
+Integrate further with physical Cisco equipment
+</li>
+
+<li>
+Document repeatable troubleshooting scenarios
+</li>
+
+<li>
+Use controlled failures for timed troubleshooting practice
+</li>
+
+<li>
+Continue building Linux administration skills alongside networking
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+08 / Takeaway
+</div>
+
+<h2>
+The workstation is part of the lab.
+</h2>
+
+<p>
+
+Building a dedicated study system turned the laptop itself into
+part of the learning environment. It provides a consistent place
+to configure, observe, test, document, and troubleshoot networks
+rather than limiting study to reading or memorizing commands.
+
+</p>
+
+<p>
+
+The result is a platform that supports CCNA preparation today
+while also providing a foundation for Linux administration,
+packet analysis, scripting, automation, and more advanced
+network engineering work.
+
+</p>
+
+
+<a class="next-button" href="index.html">
+
+← Return to Portfolio
+
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+© 2026 Shane Mykal Stark
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
