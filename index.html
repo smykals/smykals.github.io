@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shane Mykal Stark | IT Professional</title>
+
+    <meta
+        name="description"
+        content="Professional technology portfolio of Shane Mykal Stark — IT infrastructure, technical operations, field services, networking, troubleshooting, continuous improvement, and technical leadership."
+    >
+
+    <style>
+
+        :root {
+            --silver: #C0C0C0;
+            --green: #39D353;
+            --blue: #1A73E8;
+            --dark: #0B1220;
+
+            --border: rgba(192, 192, 192, 0.18);
+            --silver-soft: rgba(192, 192, 192, 0.72);
+            --silver-faint: rgba(192, 192, 192, 0.08);
+            --green-soft: rgba(57, 211, 83, 0.10);
+            --blue-soft: rgba(26, 115, 232, 0.10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 82% 10%,
+                    rgba(26, 115, 232, 0.12),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 8% 60%,
+                    rgba(57, 211, 83, 0.07),
+                    transparent 26%
+                ),
+                var(--dark);
+
+            color: var(--silver);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(192, 192, 192, 0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(192, 192, 192, 0.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 52px 52px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(11, 18, 32, 0.94);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .name {
+            color: var(--silver);
+
+            font-size: 1.08rem;
+            font-weight: 800;
+            letter-spacing: .05em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 27px;
+
+            color: var(--silver);
+            font-size: .88rem;
+        }
+
+        .nav-links a {
+            position: relative;
+            transition: color .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 100%;
+            height: 2px;
+
+            transform: scaleX(0);
+            transform-origin: left;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+
+            transition: transform .2s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 88vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            padding: 110px 0 95px;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            border-radius: 50%;
+
+            right: -280px;
+            top: -220px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(26, 115, 232, .18),
+                    transparent 66%
+                );
+
+            filter: blur(10px);
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 560px;
+            height: 560px;
+
+            border-radius: 50%;
+
+            left: -250px;
+            bottom: -280px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(57, 211, 83, .10),
+                    transparent 66%
+                );
+
+            filter: blur(10px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 1000px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 24px;
+
+            color: var(--silver);
+
+            font-size: .77rem;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 42px;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+        }
+
+        .hero h1 {
+            max-width: 920px;
+
+            margin-bottom: 28px;
+
+            color: var(--silver);
+
+            font-size:
+                clamp(3.8rem, 8vw, 7rem);
+
+            line-height: .93;
+            letter-spacing: -.055em;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--silver);
+        }
+
+        .hero-subtitle {
+            color: var(--silver);
+
+            font-size:
+                clamp(1.05rem, 2vw, 1.35rem);
+
+            margin-bottom: 22px;
+        }
+
+        .hero-experience {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 28px;
+        }
+
+        .experience-pill {
+            padding: 7px 12px;
+
+            border-radius: 6px;
+            border: 1px solid var(--border);
+
+            background: var(--silver-faint);
+
+            color: var(--silver);
+
+            font-size: .82rem;
+        }
+
+        .hero-description {
+            max-width: 760px;
+
+            margin-bottom: 36px;
+
+            color: var(--silver-soft);
+
+            font-size: 1.08rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .button {
+            min-height: 50px;
+
+            padding: 0 24px;
+
+            border-radius: 6px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: .92rem;
+            font-weight: 700;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease,
+                border-color .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: var(--dark);
+
+            box-shadow:
+                0 0 22px rgba(57, 211, 83, .18);
+        }
+
+        .button-primary:hover {
+            box-shadow:
+                0 0 30px rgba(57, 211, 83, .32);
+        }
+
+        .button-secondary {
+            color: var(--silver);
+
+            border:
+                1px solid rgba(26, 115, 232, .75);
+
+            background: var(--blue-soft);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--blue);
+
+            box-shadow:
+                0 0 24px rgba(26, 115, 232, .18);
+        }
+
+
+        /* =========================================================
+           STANDARD SECTIONS
+        ========================================================= */
+
+        .section {
+            position: relative;
+            padding: 105px 0;
+        }
+
+        .section::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(1180px, 92%);
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(57, 211, 83, .25),
+                    rgba(26, 115, 232, .25),
+                    transparent
+                );
+        }
+
+        .section-heading {
+            max-width: 800px;
+            margin-bottom: 52px;
+        }
+
+        .section-label {
+            margin-bottom: 12px;
+
+            color: var(--green);
+
+            font-size: .76rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .19em;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 18px;
+
+            color: var(--silver);
+
+            font-size:
+                clamp(2.2rem, 4vw, 3.6rem);
+
+            line-height: 1.08;
+        }
+
+        .section-heading p {
+            color: var(--silver-soft);
+            font-size: 1.04rem;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                .72fr 1.28fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .about-title {
+            color: var(--silver);
+
+            font-size:
+                clamp(2.4rem, 5vw, 4rem);
+
+            line-height: 1.05;
+        }
+
+        .accent-line {
+            width: 90px;
+            height: 4px;
+
+            margin-top: 28px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+        }
+
+        .about-text p {
+            margin-bottom: 22px;
+
+            color: var(--silver-soft);
+
+            font-size: 1.07rem;
+        }
+
+        .about-text strong {
+            color: var(--silver);
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            position: relative;
+
+            padding: 31px;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(192, 192, 192, .02),
+                    transparent
+                ),
+                var(--dark);
+
+            overflow: hidden;
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(26, 115, 232, .45);
+
+            box-shadow:
+                0 16px 38px
+                rgba(26, 115, 232, .10);
+        }
+
+        .skill-card::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+        }
+
+        .skill-type {
+            margin-bottom: 10px;
+
+            font-size: .72rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .14em;
+        }
+
+        .professional .skill-type,
+        .leadership .skill-type {
+            color: var(--green);
+        }
+
+        .lab .skill-type,
+        .learning .skill-type {
+            color: var(--blue);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 22px;
+
+            color: var(--silver);
+
+            font-size: 1.22rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tags span {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 5px;
+
+            border:
+                1px solid rgba(192, 192, 192, .13);
+
+            background:
+                rgba(192, 192, 192, .025);
+
+            color: var(--silver);
+
+            font-size: .81rem;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 330px;
+
+            padding: 34px;
+
+            display: flex;
+            flex-direction: column;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(26, 115, 232, .06),
+                    transparent 48%
+                ),
+                var(--dark);
+
+            cursor: pointer;
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(26, 115, 232, .45);
+
+            box-shadow:
+                0 18px 40px
+                rgba(26, 115, 232, .10);
+        }
+
+        .project-card::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+
+            transition:
+                width .28s ease;
+        }
+
+        .project-card:hover::after {
+            width: 100%;
+        }
+
+        .project-status {
+            margin-bottom: 14px;
+
+            color: var(--green);
+
+            font-size: .74rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .13em;
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+
+            color: var(--silver);
+
+            font-size: 1.35rem;
+
+            transition: color .2s ease;
+        }
+
+        .project-card:hover h3 {
+            color: var(--green);
+        }
+
+        .project-card p {
+            color: var(--silver-soft);
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            margin-top: auto;
+
+            color: var(--silver);
+
+            font-size: .84rem;
+        }
+
+        .project-link {
+            margin-top: 18px;
+
+            color: var(--blue);
+
+            font-size: .87rem;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
+
+        .experience-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .experience-card {
+            display: grid;
+
+            grid-template-columns:
+                190px 1fr;
+
+            gap: 30px;
+
+            padding: 30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 11px;
+
+            background:
+                rgba(11, 18, 32, .82);
+        }
+
+        .experience-meta {
+            color: var(--silver-soft);
+            font-size: .87rem;
+        }
+
+        .experience-card h3 {
+            margin-bottom: 5px;
+
+            color: var(--silver);
+
+            font-size: 1.2rem;
+        }
+
+        .experience-company {
+            margin-bottom: 12px;
+            color: var(--blue);
+        }
+
+        .experience-card p {
+            color: var(--silver-soft);
+        }
+
+
+        /* =========================================================
+           LEARNING
+        ========================================================= */
+
+        .learning-box {
+            position: relative;
+
+            padding: 45px;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(57, 211, 83, .04),
+                    rgba(26, 115, 232, .07)
+                ),
+                var(--dark);
+        }
+
+        .learning-box::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+        }
+
+        .learning-box h3 {
+            margin-bottom: 14px;
+
+            color: var(--silver);
+
+            font-size: 1.4rem;
+        }
+
+        .learning-box p {
+            max-width: 900px;
+            color: var(--silver-soft);
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+            text-align: center;
+
+            padding: 70px 30px;
+
+            border-radius: 14px;
+
+            border:
+                1px solid rgba(26, 115, 232, .35);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(57, 211, 83, .04),
+                    rgba(26, 115, 232, .07)
+                ),
+                var(--dark);
+        }
+
+        .contact-box::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--blue)
+                );
+        }
+
+        .contact-box h2 {
+            margin-bottom: 16px;
+
+            color: var(--silver);
+
+            font-size:
+                clamp(2.4rem, 5vw, 3.8rem);
+
+            line-height: 1.05;
+        }
+
+        .contact-box p {
+            max-width: 680px;
+
+            margin:
+                0 auto 30px;
+
+            color: var(--silver-soft);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 38px 0;
+
+            border-top:
+                1px solid var(--border);
+
+            background:
+                rgba(11, 18, 32, .94);
+        }
+
+        .footer-content {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            color: var(--silver-soft);
+
+            font-size: .86rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: var(--silver);
+
+            transition:
+                color .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .about-grid,
+            .skills-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 720px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 90px 0 70px;
+            }
+
+            .hero h1 {
+                font-size:
+                    clamp(3.2rem, 15vw, 5rem);
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="container">
+
+        <nav>
+
+            <a href="#top" class="name">
+                SHANE MYKAL STARK
+            </a>
+
+            <div class="nav-links">
+
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#learning">Learning</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main id="top">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                IT Professional
+            </div>
+
+            <h1>
+                Shane Mykal
+                <span>Stark.</span>
+            </h1>
+
+            <div class="hero-subtitle">
+
+                IT Infrastructure • Technical Operations •
+                Field Services • Complex Problem Solving •
+                Technical Leadership
+
+            </div>
+
+            <div class="hero-experience">
+
+                <div class="experience-pill">
+                    10 Years in IT
+                </div>
+
+                <div class="experience-pill">
+                    13 Years in Field Services
+                </div>
+
+                <div class="experience-pill">
+                    Enterprise Technology
+                </div>
+
+                <div class="experience-pill">
+                    Manufacturing IT / OT
+                </div>
+
+                <div class="experience-pill">
+                    Technical Leadership
+                </div>
+
+            </div>
+
+            <p class="hero-description">
+
+                Technical professional and continuous learner
+                focused on understanding how systems work,
+                why they fail, and how technology, processes,
+                and teams can be improved.
+
+            </p>
+
+            <div class="hero-actions">
+
+                <a
+                    href="#projects"
+                    class="button button-primary"
+                >
+                    View My Projects
+                </a>
+
+                <a
+                    href="mailto:shanemykalstark@gmail.com"
+                    class="button button-secondary"
+                >
+                    Email Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="section-label">
+                    About Me
+                </div>
+
+                <h2 class="about-title">
+                    Technical by nature.<br>
+                    Always learning.
+                </h2>
+
+                <div class="accent-line"></div>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+
+                    <strong>
+                        I’m an IT professional with 10 years of
+                        IT experience and 13 years in field services.
+                    </strong>
+
+                    My career has consistently progressed toward
+                    greater technical and leadership responsibility,
+                    with each of my previous organizations providing
+                    opportunities to move into leadership roles.
+
+                </p>
+
+                <p>
+
+                    My background combines hands-on troubleshooting,
+                    technical operations, infrastructure support,
+                    root-cause analysis, process improvement, and
+                    people development. I’ve supported enterprise
+                    and manufacturing environments while continuously
+                    expanding my technical depth through hands-on
+                    work, independent projects, and ongoing study.
+
+                </p>
+
+                <p>
+
+                    <strong>
+                        I’m a continuous learner who isn’t afraid
+                        to take on a challenge or step into
+                        unfamiliar territory.
+                    </strong>
+
+                    I don’t need to know everything on day one.
+                    I’m willing to dig in, learn what I need to
+                    learn, and work through a problem until I
+                    understand it.
+
+                </p>
+
+                <p>
+
+                    I approach technology by asking
+                    <strong>why</strong> — why a system failed,
+                    why an issue keeps returning, and what can be
+                    changed to prevent it from happening again.
+
+                    That same approach carries into leadership:
+                    understand the problem, understand the people
+                    involved, and improve the system rather than
+                    simply address the immediate symptom.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section class="section" id="skills">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Technical Skills
+            </div>
+
+            <h2>
+                Experience backed by continued hands-on development.
+            </h2>
+
+            <p>
+
+                My technical background combines professional
+                experience with continued hands-on learning through
+                labs, independent projects, and technical study.
+                These categories provide context around where
+                that experience was developed.
+
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card professional">
+
+                <div class="skill-type">
+                    Professional Experience
+                </div>
+
+                <h3>
+                    Enterprise IT & Technical Operations
+                </h3>
+
+                <div class="skill-tags">
+
+                    <span>Active Directory</span>
+                    <span>Azure AD / Entra ID</span>
+                    <span>Microsoft 365</span>
+                    <span>Exchange Online</span>
+                    <span>Intune</span>
+                    <span>SCCM / MECM</span>
+                    <span>Windows</span>
+                    <span>Windows Server</span>
+                    <span>Linux Administration</span>
+                    <span>macOS Support</span>
+
+                    <span>Cisco Networking</span>
+                    <span>Network Troubleshooting</span>
+                    <span>Wireless Networking</span>
+                    <span>TCP/IP</span>
+                    <span>DNS</span>
+                    <span>DHCP</span>
+
+                    <span>VMware vSphere</span>
+                    <span>ESXi</span>
+
+                    <span>Enterprise Hardware</span>
+                    <span>Dell Enterprise Hardware</span>
+                    <span>HP Enterprise Hardware</span>
+
+                    <span>ServiceNow</span>
+                    <span>SolarWinds</span>
+                    <span>Infoblox</span>
+                    <span>Cisco ISE</span>
+                    <span>Cisco DNA Center</span>
+                    <span>CyberArk</span>
+                    <span>Okta</span>
+                    <span>MFA</span>
+
+                    <span>IT / OT Support</span>
+                    <span>Manufacturing IT</span>
+                    <span>Field Services</span>
+                    <span>End User Support</span>
+                    <span>Remote Support</span>
+
+                    <span>Incident Management</span>
+                    <span>Problem Management</span>
+                    <span>Change Management</span>
+                    <span>Root Cause Analysis</span>
+                    <span>Technical Troubleshooting</span>
+
+                    <span>Asset Lifecycle Management</span>
+                    <span>Technical Documentation</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card leadership">
+
+                <div class="skill-type">
+                    Leadership & Operations
+                </div>
+
+                <h3>
+                    People, Process & Service Delivery
+                </h3>
+
+                <div class="skill-tags">
+
+                    <span>Technical Leadership</span>
+                    <span>Team Leadership</span>
+                    <span>People Development</span>
+
+                    <span>Coaching</span>
+                    <span>Mentoring</span>
+                    <span>Technical Training</span>
+
+                    <span>Hiring</span>
+                    <span>Team Development</span>
+                    <span>Performance Management</span>
+
+                    <span>Stakeholder Management</span>
+                    <span>Vendor Management</span>
+                    <span>Contractor Coordination</span>
+
+                    <span>Service Delivery</span>
+                    <span>Incident Coordination</span>
+                    <span>Escalation Management</span>
+
+                    <span>Cross-Functional Collaboration</span>
+
+                    <span>SOP Development</span>
+                    <span>Process Documentation</span>
+
+                    <span>Continuous Improvement</span>
+                    <span>Process Improvement</span>
+
+                    <span>Root Cause Analysis</span>
+                    <span>Operational Problem Solving</span>
+
+                    <span>Customer Service</span>
+                    <span>Technical Communication</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card lab">
+
+                <div class="skill-type">
+                    Hands-On / Lab Experience
+                </div>
+
+                <h3>
+                    Networking, Systems & Virtualization
+                </h3>
+
+                <div class="skill-tags">
+
+                    <span>FortiGate</span>
+                    <span>Cisco Catalyst</span>
+
+                    <span>VLANs</span>
+                    <span>802.1Q Trunking</span>
+                    <span>Access Ports</span>
+                    <span>Inter-VLAN Routing</span>
+                    <span>Management VLANs</span>
+
+                    <span>Firewall Policies</span>
+                    <span>SSH Management</span>
+
+                    <span>Proxmox VE</span>
+                    <span>Virtual Machines</span>
+                    <span>Virtual Networking</span>
+                    <span>VM-to-VLAN Integration</span>
+
+                    <span>Linux</span>
+                    <span>Parrot OS</span>
+                    <span>CLI Administration</span>
+
+                    <span>DHCP Configuration</span>
+                    <span>DNS Configuration</span>
+
+                    <span>Static IP Addressing</span>
+                    <span>Subnetting</span>
+
+                    <span>Routing Concepts</span>
+
+                    <span>Network Diagrams</span>
+                    <span>Logical Topology Design</span>
+                    <span>Physical Topology Design</span>
+
+                    <span>Homelab Architecture</span>
+
+                    <span>Infrastructure Documentation</span>
+
+                    <span>Packet Tracer</span>
+                    <span>Network Validation</span>
+                    <span>Troubleshooting Labs</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card learning">
+
+                <div class="skill-type">
+                    Currently Developing
+                </div>
+
+                <h3>
+                    Expanding Technical Depth
+                </h3>
+
+                <div class="skill-tags">
+
+                    <span>CCNA 200-301</span>
+                    <span>OSPF</span>
+                    <span>ACLs</span>
+                    <span>IPv6</span>
+                    <span>VPN / Remote Access</span>
+                    <span>Network Monitoring</span>
+                    <span>Centralized Logging</span>
+                    <span>Network Automation</span>
+                    <span>Python for Networking</span>
+                    <span>Ansible</span>
+                    <span>Advanced Routing</span>
+                    <span>Security Hardening</span>
+                    <span>Infrastructure Automation</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section class="section" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Featured Projects
+            </div>
+
+            <h2>
+                Building knowledge by building systems.
+            </h2>
+
+            <p>
+
+                Hands-on projects documenting the systems I build,
+                configure, troubleshoot, and use to expand my
+                technical capabilities.
+
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- NETWORK LAB -->
+
+            <a
+                href="network-lab.html"
+                class="project-card"
+            >
+
+                <div class="project-status">
+                    Hands-On Lab
+                </div>
+
+                <h3>
+                    Enterprise Network Lab
+                </h3>
+
+                <p>
+
+                    A physical networking environment using
+                    enterprise Cisco switching and Fortinet
+                    firewall hardware. The project includes
+                    VLAN segmentation, 802.1Q trunking,
+                    inter-VLAN routing, firewall policies,
+                    DHCP, DNS, management networks, and
+                    integration with virtualized systems.
+
+                </p>
+
+                <div class="project-tech">
+
+                    Cisco Catalyst • FortiGate • VLANs •
+                    802.1Q • Routing • DHCP • DNS • SSH
+
+                </div>
+
+                <div class="project-link">
+                    View Network Lab →
+                </div>
+
+            </a>
+
+
+
+            <!-- VIRTUALIZATION LAB -->
+
+            <a
+                href="virtualization-lab.html"
+                class="project-card"
+            >
+
+                <div class="project-status">
+                    Hands-On Lab
+                </div>
+
+                <h3>
+                    Virtualization Lab
+                </h3>
+
+                <p>
+
+                    A Proxmox-based virtualization environment
+                    used to deploy and manage virtual machines,
+                    experiment with virtual networking,
+                    integrate workloads with segmented VLANs,
+                    and build practical systems administration
+                    experience.
+
+                </p>
+
+                <div class="project-tech">
+
+                    Proxmox VE • Virtual Machines • Linux •
+                    Virtual Networking • VLAN Integration
+
+                </div>
+
+                <div class="project-link">
+                    View Virtualization Lab →
+                </div>
+
+            </a>
+
+
+
+            <!-- CCNA LAB -->
+
+            <a
+                href="ccna-lab.html"
+                class="project-card"
+            >
+
+                <div class="project-status">
+                    Active Learning
+                </div>
+
+                <h3>
+                    CCNA Lab
+                </h3>
+
+                <p>
+
+                    Practical networking labs supporting my
+                    CCNA studies through configuration,
+                    validation, troubleshooting, and
+                    experimentation with switching, routing,
+                    addressing, VLANs, subnetting, and other
+                    networking concepts.
+
+                </p>
+
+                <div class="project-tech">
+
+                    Cisco IOS • Switching • Routing •
+                    VLANs • Subnetting • Troubleshooting
+
+                </div>
+
+                <div class="project-link">
+                    View CCNA Lab →
+                </div>
+
+            </a>
+
+
+
+            <!-- CCNA STUDY LAPTOP -->
+
+            <a
+                href="ccna-study-laptop.html"
+                class="project-card"
+            >
+
+                <div class="project-status">
+                    Learning Platform
+                </div>
+
+                <h3>
+                    CCNA Study Laptop
+                </h3>
+
+                <p>
+
+                    A dedicated Linux-based networking
+                    workstation built to support CCNA study,
+                    network analysis, Packet Tracer,
+                    troubleshooting, documentation, lab
+                    access, and continued development of
+                    practical networking skills.
+
+                </p>
+
+                <div class="project-tech">
+
+                    Linux • Parrot OS • Packet Tracer •
+                    Networking Tools • CLI • CCNA
+
+                </div>
+
+                <div class="project-link">
+                    View Study Laptop →
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section class="section" id="experience">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Professional Experience
+            </div>
+
+            <h2>
+                Technical experience with a pattern of leadership.
+            </h2>
+
+            <p>
+
+                My career has developed through increasingly
+                complex technical environments and repeated
+                opportunities to take on greater responsibility,
+                solve difficult problems, and develop other
+                technical professionals.
+
+            </p>
+
+        </div>
+
+
+        <div class="experience-list">
+
+
+            <div class="experience-card">
+
+                <div class="experience-meta">
+                    Current
+                </div>
+
+                <div>
+
+                    <h3>
+                        IT Engineer – Field Services
+                    </h3>
+
+                    <div class="experience-company">
+                        Manufacturing IT
+                    </div>
+
+                    <p>
+
+                        Supporting technology in a manufacturing
+                        environment with exposure to enterprise
+                        infrastructure, end-user systems, IT/OT
+                        operations, troubleshooting, vendor
+                        coordination, hardware lifecycle, and
+                        production-focused technical support.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="experience-card">
+
+                <div class="experience-meta">
+                    Previous
+                </div>
+
+                <div>
+
+                    <h3>
+                        Regional Field Supervisor & Network Specialist
+                    </h3>
+
+                    <div class="experience-company">
+                        Enterprise / Higher Education Technology
+                    </div>
+
+                    <p>
+
+                        Progressed from technical network and field
+                        services responsibilities into regional
+                        leadership, supporting distributed
+                        environments while leading, developing,
+                        training, and coordinating technical teams.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="experience-card">
+
+                <div class="experience-meta">
+                    Previous
+                </div>
+
+                <div>
+
+                    <h3>
+                        Technical Specialist & Team Trainer
+                    </h3>
+
+                    <div class="experience-company">
+                        Field Technology Services
+                    </div>
+
+                    <p>
+
+                        Combined hands-on field troubleshooting
+                        and technical service delivery with
+                        training, coaching, and development
+                        responsibilities, continuing an early
+                        pattern of progressing into leadership.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTINUOUS LEARNING
+========================================================= -->
+
+<section class="section" id="learning">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Continuous Learning
+            </div>
+
+            <h2>
+                The lab doesn't stop when the workday ends.
+            </h2>
+
+            <p>
+                Technical growth is an ongoing part of how I
+                approach my career.
+            </p>
+
+        </div>
+
+
+        <div class="learning-box">
+
+            <h3>
+                Building deeper technical capability.
+            </h3>
+
+            <p>
+
+                I believe technical growth requires more than
+                reading documentation or collecting
+                certifications. I learn by building,
+                configuring, breaking, troubleshooting, and
+                understanding systems firsthand.
+
+                My current development is focused on networking,
+                CCNA concepts, virtualization, Linux,
+                infrastructure, troubleshooting, security,
+                and eventually network and infrastructure
+                automation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2>
+                Let's connect.
+            </h2>
+
+            <p>
+
+                Interested in discussing IT infrastructure,
+                technical operations, field engineering,
+                technical leadership, or another challenging
+                technology problem? Feel free to reach out.
+
+            </p>
+
+            <a
+                href="mailto:shanemykalstark@gmail.com"
+                class="button button-primary"
+            >
+                Email Me
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+                © 2026 Shane Mykal Stark
+            </div>
+
+            <div class="footer-links">
+
+                <a href="mailto:shanemykalstark@gmail.com">
+                    Email
+                </a>
+
+                <a href="#top">
+                    Back to Top
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
