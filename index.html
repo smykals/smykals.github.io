@@ -1,1979 +1,1413 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Shane Mykal Stark | IT Professional</title>
-
-    <meta
-        name="description"
-        content="Professional technology portfolio of Shane Mykal Stark — IT infrastructure, technical operations, field services, networking, troubleshooting, continuous improvement, and technical leadership."
-    >
-
-    <style>
-
-        :root {
-            --silver: #C0C0C0;
-            --green: #39D353;
-            --blue: #1A73E8;
-            --dark: #0B1220;
-
-            --border: rgba(192, 192, 192, 0.18);
-            --silver-soft: rgba(192, 192, 192, 0.72);
-            --silver-faint: rgba(192, 192, 192, 0.08);
-            --green-soft: rgba(57, 211, 83, 0.10);
-            --blue-soft: rgba(26, 115, 232, 0.10);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-
-            background:
-                radial-gradient(
-                    circle at 82% 10%,
-                    rgba(26, 115, 232, 0.12),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 8% 60%,
-                    rgba(57, 211, 83, 0.07),
-                    transparent 26%
-                ),
-                var(--dark);
-
-            color: var(--silver);
-            line-height: 1.65;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-
-            background-image:
-                linear-gradient(
-                    rgba(192, 192, 192, 0.018) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(192, 192, 192, 0.018) 1px,
-                    transparent 1px
-                );
-
-            background-size: 52px 52px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1180px, 92%);
-            margin: 0 auto;
-        }
-
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(11, 18, 32, 0.94);
-            backdrop-filter: blur(14px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            min-height: 78px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-        .name {
-            color: var(--silver);
-
-            font-size: 1.08rem;
-            font-weight: 800;
-            letter-spacing: .05em;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-
-            gap: 27px;
-
-            color: var(--silver);
-            font-size: .88rem;
-        }
-
-        .nav-links a {
-            position: relative;
-            transition: color .2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--green);
-        }
-
-        .nav-links a::after {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-
-            width: 100%;
-            height: 2px;
-
-            transform: scaleX(0);
-            transform-origin: left;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-
-            transition: transform .2s ease;
-        }
-
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 88vh;
-
-            display: flex;
-            align-items: center;
-
-            position: relative;
-            overflow: hidden;
-
-            padding: 110px 0 95px;
-        }
-
-        .hero::before {
-            content: "";
-
-            position: absolute;
-
-            width: 700px;
-            height: 700px;
-
-            border-radius: 50%;
-
-            right: -280px;
-            top: -220px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(26, 115, 232, .18),
-                    transparent 66%
-                );
-
-            filter: blur(10px);
-        }
-
-        .hero::after {
-            content: "";
-
-            position: absolute;
-
-            width: 560px;
-            height: 560px;
-
-            border-radius: 50%;
-
-            left: -250px;
-            bottom: -280px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(57, 211, 83, .10),
-                    transparent 66%
-                );
-
-            filter: blur(10px);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-
-            max-width: 1000px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-
-            gap: 12px;
-
-            margin-bottom: 24px;
-
-            color: var(--silver);
-
-            font-size: .77rem;
-            text-transform: uppercase;
-            letter-spacing: .2em;
-        }
-
-        .eyebrow::before {
-            content: "";
-
-            width: 42px;
-            height: 2px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-        }
-
-        .hero h1 {
-            max-width: 920px;
-
-            margin-bottom: 28px;
-
-            color: var(--silver);
-
-            font-size:
-                clamp(3.8rem, 8vw, 7rem);
-
-            line-height: .93;
-            letter-spacing: -.055em;
-        }
-
-        .hero h1 span {
-            display: block;
-            color: var(--silver);
-        }
-
-        .hero-subtitle {
-            color: var(--silver);
-
-            font-size:
-                clamp(1.05rem, 2vw, 1.35rem);
-
-            margin-bottom: 22px;
-        }
-
-        .hero-experience {
-            display: flex;
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-bottom: 28px;
-        }
-
-        .experience-pill {
-            padding: 7px 12px;
-
-            border-radius: 6px;
-            border: 1px solid var(--border);
-
-            background: var(--silver-faint);
-
-            color: var(--silver);
-
-            font-size: .82rem;
-        }
-
-        .hero-description {
-            max-width: 760px;
-
-            margin-bottom: 36px;
-
-            color: var(--silver-soft);
-
-            font-size: 1.08rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-
-        /* =========================================================
-           BUTTONS
-        ========================================================= */
-
-        .button {
-            min-height: 50px;
-
-            padding: 0 24px;
-
-            border-radius: 6px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: .92rem;
-            font-weight: 700;
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease,
-                border-color .2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-        }
-
-        .button-primary {
-            background: var(--green);
-            color: var(--dark);
-
-            box-shadow:
-                0 0 22px rgba(57, 211, 83, .18);
-        }
-
-        .button-primary:hover {
-            box-shadow:
-                0 0 30px rgba(57, 211, 83, .32);
-        }
-
-        .button-secondary {
-            color: var(--silver);
-
-            border:
-                1px solid rgba(26, 115, 232, .75);
-
-            background: var(--blue-soft);
-        }
-
-        .button-secondary:hover {
-            border-color: var(--blue);
-
-            box-shadow:
-                0 0 24px rgba(26, 115, 232, .18);
-        }
-
-
-        /* =========================================================
-           STANDARD SECTIONS
-        ========================================================= */
-
-        .section {
-            position: relative;
-            padding: 105px 0;
-        }
-
-        .section::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: min(1180px, 92%);
-            height: 1px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(57, 211, 83, .25),
-                    rgba(26, 115, 232, .25),
-                    transparent
-                );
-        }
-
-        .section-heading {
-            max-width: 800px;
-            margin-bottom: 52px;
-        }
-
-        .section-label {
-            margin-bottom: 12px;
-
-            color: var(--green);
-
-            font-size: .76rem;
-            font-weight: 700;
-
-            text-transform: uppercase;
-            letter-spacing: .19em;
-        }
-
-        .section-heading h2 {
-            margin-bottom: 18px;
-
-            color: var(--silver);
-
-            font-size:
-                clamp(2.2rem, 4vw, 3.6rem);
-
-            line-height: 1.08;
-        }
-
-        .section-heading p {
-            color: var(--silver-soft);
-            font-size: 1.04rem;
-        }
-
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about-grid {
-            display: grid;
-
-            grid-template-columns:
-                .72fr 1.28fr;
-
-            gap: 70px;
-
-            align-items: start;
-        }
-
-        .about-title {
-            color: var(--silver);
-
-            font-size:
-                clamp(2.4rem, 5vw, 4rem);
-
-            line-height: 1.05;
-        }
-
-        .accent-line {
-            width: 90px;
-            height: 4px;
-
-            margin-top: 28px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-        }
-
-        .about-text p {
-            margin-bottom: 22px;
-
-            color: var(--silver-soft);
-
-            font-size: 1.07rem;
-        }
-
-        .about-text strong {
-            color: var(--silver);
-        }
-
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        .skills-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 20px;
-        }
-
-        .skill-card {
-            position: relative;
-
-            padding: 31px;
-
-            border-radius: 12px;
-
-            border: 1px solid var(--border);
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(192, 192, 192, .02),
-                    transparent
-                ),
-                var(--dark);
-
-            overflow: hidden;
-
-            transition:
-                transform .2s ease,
-                border-color .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-4px);
-
-            border-color:
-                rgba(26, 115, 232, .45);
-
-            box-shadow:
-                0 16px 38px
-                rgba(26, 115, 232, .10);
-        }
-
-        .skill-card::before {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            top: 0;
-
-            width: 100%;
-            height: 3px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-        }
-
-        .skill-type {
-            margin-bottom: 10px;
-
-            font-size: .72rem;
-            font-weight: 800;
-
-            text-transform: uppercase;
-            letter-spacing: .14em;
-        }
-
-        .professional .skill-type,
-        .leadership .skill-type {
-            color: var(--green);
-        }
-
-        .lab .skill-type,
-        .learning .skill-type {
-            color: var(--blue);
-        }
-
-        .skill-card h3 {
-            margin-bottom: 22px;
-
-            color: var(--silver);
-
-            font-size: 1.22rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tags span {
-            display: inline-block;
-
-            padding: 6px 10px;
-
-            border-radius: 5px;
-
-            border:
-                1px solid rgba(192, 192, 192, .13);
-
-            background:
-                rgba(192, 192, 192, .025);
-
-            color: var(--silver);
-
-            font-size: .81rem;
-        }
-
-
-        /* =========================================================
-           PROJECTS
-        ========================================================= */
-
-        .project-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 20px;
-        }
-
-        .project-card {
-            position: relative;
-
-            overflow: hidden;
-
-            min-height: 330px;
-
-            padding: 34px;
-
-            display: flex;
-            flex-direction: column;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(26, 115, 232, .06),
-                    transparent 48%
-                ),
-                var(--dark);
-
-            cursor: pointer;
-
-            transition:
-                transform .2s ease,
-                border-color .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-
-            border-color:
-                rgba(26, 115, 232, .45);
-
-            box-shadow:
-                0 18px 40px
-                rgba(26, 115, 232, .10);
-        }
-
-        .project-card::after {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 0;
-            height: 3px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-
-            transition:
-                width .28s ease;
-        }
-
-        .project-card:hover::after {
-            width: 100%;
-        }
-
-        .project-status {
-            margin-bottom: 14px;
-
-            color: var(--green);
-
-            font-size: .74rem;
-            font-weight: 800;
-
-            text-transform: uppercase;
-            letter-spacing: .13em;
-        }
-
-        .project-card h3 {
-            margin-bottom: 12px;
-
-            color: var(--silver);
-
-            font-size: 1.35rem;
-
-            transition: color .2s ease;
-        }
-
-        .project-card:hover h3 {
-            color: var(--green);
-        }
-
-        .project-card p {
-            color: var(--silver-soft);
-            margin-bottom: 20px;
-        }
-
-        .project-tech {
-            margin-top: auto;
-
-            color: var(--silver);
-
-            font-size: .84rem;
-        }
-
-        .project-link {
-            margin-top: 18px;
-
-            color: var(--blue);
-
-            font-size: .87rem;
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           EXPERIENCE
-        ========================================================= */
-
-        .experience-list {
-            display: grid;
-            gap: 18px;
-        }
-
-        .experience-card {
-            display: grid;
-
-            grid-template-columns:
-                190px 1fr;
-
-            gap: 30px;
-
-            padding: 30px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 11px;
-
-            background:
-                rgba(11, 18, 32, .82);
-        }
-
-        .experience-meta {
-            color: var(--silver-soft);
-            font-size: .87rem;
-        }
-
-        .experience-card h3 {
-            margin-bottom: 5px;
-
-            color: var(--silver);
-
-            font-size: 1.2rem;
-        }
-
-        .experience-company {
-            margin-bottom: 12px;
-            color: var(--blue);
-        }
-
-        .experience-card p {
-            color: var(--silver-soft);
-        }
-
-
-        /* =========================================================
-           LEARNING
-        ========================================================= */
-
-        .learning-box {
-            position: relative;
-
-            padding: 45px;
-
-            overflow: hidden;
-
-            border-radius: 12px;
-
-            border:
-                1px solid var(--border);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(57, 211, 83, .04),
-                    rgba(26, 115, 232, .07)
-                ),
-                var(--dark);
-        }
-
-        .learning-box::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 3px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-        }
-
-        .learning-box h3 {
-            margin-bottom: 14px;
-
-            color: var(--silver);
-
-            font-size: 1.4rem;
-        }
-
-        .learning-box p {
-            max-width: 900px;
-            color: var(--silver-soft);
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        .contact-box {
-            position: relative;
-
-            overflow: hidden;
-            text-align: center;
-
-            padding: 70px 30px;
-
-            border-radius: 14px;
-
-            border:
-                1px solid rgba(26, 115, 232, .35);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(57, 211, 83, .04),
-                    rgba(26, 115, 232, .07)
-                ),
-                var(--dark);
-        }
-
-        .contact-box::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 4px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--green),
-                    var(--blue)
-                );
-        }
-
-        .contact-box h2 {
-            margin-bottom: 16px;
-
-            color: var(--silver);
-
-            font-size:
-                clamp(2.4rem, 5vw, 3.8rem);
-
-            line-height: 1.05;
-        }
-
-        .contact-box p {
-            max-width: 680px;
-
-            margin:
-                0 auto 30px;
-
-            color: var(--silver-soft);
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            padding: 38px 0;
-
-            border-top:
-                1px solid var(--border);
-
-            background:
-                rgba(11, 18, 32, .94);
-        }
-
-        .footer-content {
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 25px;
-
-            color: var(--silver-soft);
-
-            font-size: .86rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 22px;
-        }
-
-        .footer-links a {
-            color: var(--silver);
-
-            transition:
-                color .2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--green);
-        }
-
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 900px) {
-
-            .about-grid,
-            .skills-grid,
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-card {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-        @media (max-width: 720px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 90px 0 70px;
-            }
-
-            .hero h1 {
-                font-size:
-                    clamp(3.2rem, 15vw, 5rem);
-            }
-
-            .section {
-                padding: 80px 0;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<title>Packet Launcher</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #0B1220;
+    color: white;
+    font: 16px monospace;
+  }
+  main { width: min(960px, 96vw); }
+  canvas {
+    display: block;
+    width: 100%;
+    image-rendering: pixelated;
+    border: 4px solid #1A73E8;
+    box-sizing: border-box;
+    background: #0B1220;
+  }
+  p { font-size: 14px; }
+</style>
 </head>
-
-
 <body>
-
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
-<header>
-
-    <div class="container">
-
-        <nav>
-
-            <a href="#top" class="name">
-                SHANE MYKAL STARK
-            </a>
-
-            <div class="nav-links">
-
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#learning">Learning</a>
-                <a href="#contact">Contact</a>
-
-            </div>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<main id="top">
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-    <div class="container">
-
-        <div class="hero-content">
-
-            <div class="eyebrow">
-                IT Professional
-            </div>
-
-            <h1>
-                Shane Mykal
-                <span>Stark.</span>
-            </h1>
-
-            <div class="hero-subtitle">
-
-                IT Infrastructure • Technical Operations •
-                Field Services • Complex Problem Solving •
-                Technical Leadership
-
-            </div>
-
-            <div class="hero-experience">
-
-                <div class="experience-pill">
-                    10 Years in IT
-                </div>
-
-                <div class="experience-pill">
-                    13 Years in Field Services
-                </div>
-
-                <div class="experience-pill">
-                    Enterprise Technology
-                </div>
-
-                <div class="experience-pill">
-                    Manufacturing IT / OT
-                </div>
-
-                <div class="experience-pill">
-                    Technical Leadership
-                </div>
-
-            </div>
-
-            <p class="hero-description">
-
-                Technical professional and continuous learner
-                focused on understanding how systems work,
-                why they fail, and how technology, processes,
-                and teams can be improved.
-
-            </p>
-
-            <div class="hero-actions">
-
-                <a
-                    href="#projects"
-                    class="button button-primary"
-                >
-                    View My Projects
-                </a>
-
-                <a
-                    href="mailto:shanemykalstark@gmail.com"
-                    class="button button-secondary"
-                >
-                    Email Me
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section class="section" id="about">
-
-    <div class="container">
-
-        <div class="about-grid">
-
-            <div>
-
-                <div class="section-label">
-                    About Me
-                </div>
-
-                <h2 class="about-title">
-                    Technical by nature.<br>
-                    Always learning.
-                </h2>
-
-                <div class="accent-line"></div>
-
-            </div>
-
-
-            <div class="about-text">
-
-                <p>
-
-                    <strong>
-                        I’m an IT professional with 10 years of
-                        IT experience and 13 years in field services.
-                    </strong>
-
-                    My career has consistently progressed toward
-                    greater technical and leadership responsibility,
-                    with each of my previous organizations providing
-                    opportunities to move into leadership roles.
-
-                </p>
-
-                <p>
-
-                    My background combines hands-on troubleshooting,
-                    technical operations, infrastructure support,
-                    root-cause analysis, process improvement, and
-                    people development. I’ve supported enterprise
-                    and manufacturing environments while continuously
-                    expanding my technical depth through hands-on
-                    work, independent projects, and ongoing study.
-
-                </p>
-
-                <p>
-
-                    <strong>
-                        I’m a continuous learner who isn’t afraid
-                        to take on a challenge or step into
-                        unfamiliar territory.
-                    </strong>
-
-                    I don’t need to know everything on day one.
-                    I’m willing to dig in, learn what I need to
-                    learn, and work through a problem until I
-                    understand it.
-
-                </p>
-
-                <p>
-
-                    I approach technology by asking
-                    <strong>why</strong> — why a system failed,
-                    why an issue keeps returning, and what can be
-                    changed to prevent it from happening again.
-
-                    That same approach carries into leadership:
-                    understand the problem, understand the people
-                    involved, and improve the system rather than
-                    simply address the immediate symptom.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SKILLS
-========================================================= -->
-
-<section class="section" id="skills">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                Technical Skills
-            </div>
-
-            <h2>
-                Experience backed by continued hands-on development.
-            </h2>
-
-            <p>
-
-                My technical background combines professional
-                experience with continued hands-on learning through
-                labs, independent projects, and technical study.
-                These categories provide context around where
-                that experience was developed.
-
-            </p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <div class="skill-card professional">
-
-                <div class="skill-type">
-                    Professional Experience
-                </div>
-
-                <h3>
-                    Enterprise IT & Technical Operations
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>Active Directory</span>
-                    <span>Azure AD / Entra ID</span>
-                    <span>Microsoft 365</span>
-                    <span>Exchange Online</span>
-                    <span>Intune</span>
-                    <span>SCCM / MECM</span>
-                    <span>Windows</span>
-                    <span>Windows Server</span>
-                    <span>Linux Administration</span>
-                    <span>macOS Support</span>
-
-                    <span>Cisco Networking</span>
-                    <span>Network Troubleshooting</span>
-                    <span>Wireless Networking</span>
-                    <span>TCP/IP</span>
-                    <span>DNS</span>
-                    <span>DHCP</span>
-
-                    <span>VMware vSphere</span>
-                    <span>ESXi</span>
-
-                    <span>Enterprise Hardware</span>
-                    <span>Dell Enterprise Hardware</span>
-                    <span>HP Enterprise Hardware</span>
-
-                    <span>ServiceNow</span>
-                    <span>SolarWinds</span>
-                    <span>Infoblox</span>
-                    <span>Cisco ISE</span>
-                    <span>Cisco DNA Center</span>
-                    <span>CyberArk</span>
-                    <span>Okta</span>
-                    <span>MFA</span>
-
-                    <span>IT / OT Support</span>
-                    <span>Manufacturing IT</span>
-                    <span>Field Services</span>
-                    <span>End User Support</span>
-                    <span>Remote Support</span>
-
-                    <span>Incident Management</span>
-                    <span>Problem Management</span>
-                    <span>Change Management</span>
-                    <span>Root Cause Analysis</span>
-                    <span>Technical Troubleshooting</span>
-
-                    <span>Asset Lifecycle Management</span>
-                    <span>Technical Documentation</span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="skill-card leadership">
-
-                <div class="skill-type">
-                    Leadership & Operations
-                </div>
-
-                <h3>
-                    People, Process & Service Delivery
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>Technical Leadership</span>
-                    <span>Team Leadership</span>
-                    <span>People Development</span>
-
-                    <span>Coaching</span>
-                    <span>Mentoring</span>
-                    <span>Technical Training</span>
-
-                    <span>Hiring</span>
-                    <span>Team Development</span>
-                    <span>Performance Management</span>
-
-                    <span>Stakeholder Management</span>
-                    <span>Vendor Management</span>
-                    <span>Contractor Coordination</span>
-
-                    <span>Service Delivery</span>
-                    <span>Incident Coordination</span>
-                    <span>Escalation Management</span>
-
-                    <span>Cross-Functional Collaboration</span>
-
-                    <span>SOP Development</span>
-                    <span>Process Documentation</span>
-
-                    <span>Continuous Improvement</span>
-                    <span>Process Improvement</span>
-
-                    <span>Root Cause Analysis</span>
-                    <span>Operational Problem Solving</span>
-
-                    <span>Customer Service</span>
-                    <span>Technical Communication</span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="skill-card lab">
-
-                <div class="skill-type">
-                    Hands-On / Lab Experience
-                </div>
-
-                <h3>
-                    Networking, Systems & Virtualization
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>FortiGate</span>
-                    <span>Cisco Catalyst</span>
-
-                    <span>VLANs</span>
-                    <span>802.1Q Trunking</span>
-                    <span>Access Ports</span>
-                    <span>Inter-VLAN Routing</span>
-                    <span>Management VLANs</span>
-
-                    <span>Firewall Policies</span>
-                    <span>SSH Management</span>
-
-                    <span>Proxmox VE</span>
-                    <span>Virtual Machines</span>
-                    <span>Virtual Networking</span>
-                    <span>VM-to-VLAN Integration</span>
-
-                    <span>Linux</span>
-                    <span>Parrot OS</span>
-                    <span>CLI Administration</span>
-
-                    <span>DHCP Configuration</span>
-                    <span>DNS Configuration</span>
-
-                    <span>Static IP Addressing</span>
-                    <span>Subnetting</span>
-
-                    <span>Routing Concepts</span>
-
-                    <span>Network Diagrams</span>
-                    <span>Logical Topology Design</span>
-                    <span>Physical Topology Design</span>
-
-                    <span>Homelab Architecture</span>
-
-                    <span>Infrastructure Documentation</span>
-
-                    <span>Packet Tracer</span>
-                    <span>Network Validation</span>
-                    <span>Troubleshooting Labs</span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="skill-card learning">
-
-                <div class="skill-type">
-                    Currently Developing
-                </div>
-
-                <h3>
-                    Expanding Technical Depth
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>CCNA 200-301</span>
-                    <span>OSPF</span>
-                    <span>ACLs</span>
-                    <span>IPv6</span>
-                    <span>VPN / Remote Access</span>
-                    <span>Network Monitoring</span>
-                    <span>Centralized Logging</span>
-                    <span>Network Automation</span>
-                    <span>Python for Networking</span>
-                    <span>Ansible</span>
-                    <span>Advanced Routing</span>
-                    <span>Security Hardening</span>
-                    <span>Infrastructure Automation</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     PROJECTS
-========================================================= -->
-
-<section class="section" id="projects">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                Featured Projects
-            </div>
-
-            <h2>
-                Building knowledge by building systems.
-            </h2>
-
-            <p>
-
-                Hands-on projects documenting the systems I build,
-                configure, troubleshoot, and use to expand my
-                technical capabilities.
-
-            </p>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <!-- NETWORK LAB -->
-
-            <a
-                href="network-lab.html"
-                class="project-card"
-            >
-
-                <div class="project-status">
-                    Hands-On Lab
-                </div>
-
-                <h3>
-                    Enterprise Network Lab
-                </h3>
-
-                <p>
-
-                    A physical networking environment using
-                    enterprise Cisco switching and Fortinet
-                    firewall hardware. The project includes
-                    VLAN segmentation, 802.1Q trunking,
-                    inter-VLAN routing, firewall policies,
-                    DHCP, DNS, management networks, and
-                    integration with virtualized systems.
-
-                </p>
-
-                <div class="project-tech">
-
-                    Cisco Catalyst • FortiGate • VLANs •
-                    802.1Q • Routing • DHCP • DNS • SSH
-
-                </div>
-
-                <div class="project-link">
-                    View Network Lab →
-                </div>
-
-            </a>
-
-
-
-            <!-- VIRTUALIZATION LAB -->
-
-            <a
-                href="virtualization-lab.html"
-                class="project-card"
-            >
-
-                <div class="project-status">
-                    Hands-On Lab
-                </div>
-
-                <h3>
-                    Virtualization Lab
-                </h3>
-
-                <p>
-
-                    A Proxmox-based virtualization environment
-                    used to deploy and manage virtual machines,
-                    experiment with virtual networking,
-                    integrate workloads with segmented VLANs,
-                    and build practical systems administration
-                    experience.
-
-                </p>
-
-                <div class="project-tech">
-
-                    Proxmox VE • Virtual Machines • Linux •
-                    Virtual Networking • VLAN Integration
-
-                </div>
-
-                <div class="project-link">
-                    View Virtualization Lab →
-                </div>
-
-            </a>
-
-
-
-            <!-- CCNA LAB -->
-
-            <a
-                href="ccna-lab.html"
-                class="project-card"
-            >
-
-                <div class="project-status">
-                    Active Learning
-                </div>
-
-                <h3>
-                    CCNA Lab
-                </h3>
-
-                <p>
-
-                    Practical networking labs supporting my
-                    CCNA studies through configuration,
-                    validation, troubleshooting, and
-                    experimentation with switching, routing,
-                    addressing, VLANs, subnetting, and other
-                    networking concepts.
-
-                </p>
-
-                <div class="project-tech">
-
-                    Cisco IOS • Switching • Routing •
-                    VLANs • Subnetting • Troubleshooting
-
-                </div>
-
-                <div class="project-link">
-                    View CCNA Lab →
-                </div>
-
-            </a>
-
-
-
-            <!-- CCNA STUDY LAPTOP -->
-
-            <a
-                href="ccna-study-laptop.html"
-                class="project-card"
-            >
-
-                <div class="project-status">
-                    Learning Platform
-                </div>
-
-                <h3>
-                    CCNA Study Laptop
-                </h3>
-
-                <p>
-
-                    A dedicated Linux-based networking
-                    workstation built to support CCNA study,
-                    network analysis, Packet Tracer,
-                    troubleshooting, documentation, lab
-                    access, and continued development of
-                    practical networking skills.
-
-                </p>
-
-                <div class="project-tech">
-
-                    Linux • Parrot OS • Packet Tracer •
-                    Networking Tools • CLI • CCNA
-
-                </div>
-
-                <div class="project-link">
-                    View Study Laptop →
-                </div>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     EXPERIENCE
-========================================================= -->
-
-<section class="section" id="experience">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                Professional Experience
-            </div>
-
-            <h2>
-                Technical experience with a pattern of leadership.
-            </h2>
-
-            <p>
-
-                My career has developed through increasingly
-                complex technical environments and repeated
-                opportunities to take on greater responsibility,
-                solve difficult problems, and develop other
-                technical professionals.
-
-            </p>
-
-        </div>
-
-
-        <div class="experience-list">
-
-
-            <div class="experience-card">
-
-                <div class="experience-meta">
-                    Current
-                </div>
-
-                <div>
-
-                    <h3>
-                        IT Engineer – Field Services
-                    </h3>
-
-                    <div class="experience-company">
-                        Manufacturing IT
-                    </div>
-
-                    <p>
-
-                        Supporting technology in a manufacturing
-                        environment with exposure to enterprise
-                        infrastructure, end-user systems, IT/OT
-                        operations, troubleshooting, vendor
-                        coordination, hardware lifecycle, and
-                        production-focused technical support.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="experience-card">
-
-                <div class="experience-meta">
-                    Previous
-                </div>
-
-                <div>
-
-                    <h3>
-                        Regional Field Supervisor & Network Specialist
-                    </h3>
-
-                    <div class="experience-company">
-                        Enterprise / Higher Education Technology
-                    </div>
-
-                    <p>
-
-                        Progressed from technical network and field
-                        services responsibilities into regional
-                        leadership, supporting distributed
-                        environments while leading, developing,
-                        training, and coordinating technical teams.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="experience-card">
-
-                <div class="experience-meta">
-                    Previous
-                </div>
-
-                <div>
-
-                    <h3>
-                        Technical Specialist & Team Trainer
-                    </h3>
-
-                    <div class="experience-company">
-                        Field Technology Services
-                    </div>
-
-                    <p>
-
-                        Combined hands-on field troubleshooting
-                        and technical service delivery with
-                        training, coaching, and development
-                        responsibilities, continuing an early
-                        pattern of progressing into leadership.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CONTINUOUS LEARNING
-========================================================= -->
-
-<section class="section" id="learning">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                Continuous Learning
-            </div>
-
-            <h2>
-                The lab doesn't stop when the workday ends.
-            </h2>
-
-            <p>
-                Technical growth is an ongoing part of how I
-                approach my career.
-            </p>
-
-        </div>
-
-
-        <div class="learning-box">
-
-            <h3>
-                Building deeper technical capability.
-            </h3>
-
-            <p>
-
-                I believe technical growth requires more than
-                reading documentation or collecting
-                certifications. I learn by building,
-                configuring, breaking, troubleshooting, and
-                understanding systems firsthand.
-
-                My current development is focused on networking,
-                CCNA concepts, virtualization, Linux,
-                infrastructure, troubleshooting, security,
-                and eventually network and infrastructure
-                automation.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section class="section" id="contact">
-
-    <div class="container">
-
-        <div class="contact-box">
-
-            <div class="section-label">
-                Contact
-            </div>
-
-            <h2>
-                Let's connect.
-            </h2>
-
-            <p>
-
-                Interested in discussing IT infrastructure,
-                technical operations, field engineering,
-                technical leadership, or another challenging
-                technology problem? Feel free to reach out.
-
-            </p>
-
-            <a
-                href="mailto:shanemykalstark@gmail.com"
-                class="button button-primary"
-            >
-                Email Me
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
+<main>
+  <h2 style="color:#ffffff;">PACKET LAUNCHER <span id="distance" style="color:#1A73E8;">0 m</span></h2>
+  <canvas id="game" width="640" height="360"></canvas>
+  <p style="color:#ffffff;">↑/↓ Aim · Hold Space to charge · Release to launch · Space pauses/resumes · Repeaters bounce it onward · Routing boosts propel it forward · Grow/shrink packet pickups · R to restart</p>
 </main>
 
+<script>
+const canvas = document.querySelector("#game");
+const ctx = canvas.getContext("2d");
+const distanceText = document.querySelector("#distance");
+const keys = new Set();
 
+const GROUND = 320;
+const GRAVITY = 0.23;
+const PACKET_BLUE = "#1A73E8";
+const GREEN = "#39D353";
+const SILVER = "#C0C0C0";
+const NAVY = "#0B1220";
+const DEEP_NAVY = "#05080D";
+const DEFAULT_PACKET_SIZE = 12;
+const MIN_PACKET_SIZE = 9;
+const MAX_PACKET_SIZE = 18;
+const cannon = { x: 55, y: 280 };
+let audioCtx = null;
+let launchBursts = [];
+let player, angle, charge, charging, launched, stopped, delivered, paused, camera, best, dropped, combo, comboMultiplier, currentDistance, bestDistance;
+let selectedPayload = "packet";
+let soundEnabled = true;
+let flightSoundTimer = 0;
+let lastChargeTick = -1;
+let nextRepeaterX = 500;
+let nextBoostX = 780;
+let nextPickupX = 610;
+let nextObstacleX = 900;
+let route = { repeaters: [], boosts: [], pickups: [], obstacles: [] };
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+function ensureAudioContext() {
+  const AudioCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtor) return null;
+  if (!audioCtx) {
+    audioCtx = new AudioCtor();
+  }
+  if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
 
-<footer>
+function playTone({
+  frequency = 220,
+  duration = 0.12,
+  volume = 0.08,
+  attack = 0.01,
+  decay = 0.12,
+  type = "sawtooth",
+  detune = 0,
+  pan = 0
+}) {
+  const ctx = ensureAudioContext();
+  if (!ctx || !soundEnabled) return;
 
-    <div class="container">
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  const panner = ctx.createStereoPanner();
 
-        <div class="footer-content">
+  osc.type = type;
+  osc.frequency.setValueAtTime(frequency, now);
+  osc.detune.setValueAtTime(detune, now);
 
-            <div>
-                © 2026 Shane Mykal Stark
-            </div>
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(volume, now + attack);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration + decay);
 
-            <div class="footer-links">
+  panner.pan.setValueAtTime(pan, now);
 
-                <a href="mailto:shanemykalstark@gmail.com">
-                    Email
-                </a>
+  osc.connect(gain);
+  gain.connect(panner);
+  panner.connect(ctx.destination);
 
-                <a href="#top">
-                    Back to Top
-                </a>
+  osc.start(now);
+  osc.stop(now + duration + decay + 0.02);
+}
 
-            </div>
+function playStaticBurst() {
+  const ctx = ensureAudioContext();
+  if (!ctx || !soundEnabled) return;
 
-        </div>
+  const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.12, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < data.length; i++) {
+    data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 2);
+  }
 
-    </div>
+  const src = ctx.createBufferSource();
+  const gain = ctx.createGain();
+  src.buffer = buffer;
+  gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.09, ctx.currentTime + 0.005);
+  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.12);
+  src.connect(gain).connect(ctx.destination);
+  src.start();
+}
 
-</footer>
+function playLaunchPulse() {
+  playTone({ frequency: 180, duration: 0.08, volume: 0.09, attack: 0.004, decay: 0.12, type: "sawtooth", detune: 110, pan: -0.18 });
+  playTone({ frequency: 98, duration: 0.12, volume: 0.06, attack: 0.008, decay: 0.1, type: "triangle", detune: 30, pan: 0.18 });
+}
 
+function playFlightTone() {
+  if (!launched || stopped || delivered || dropped) return;
+  const speed = Math.hypot(player.vx, player.vy);
+  if (speed < 1.5) return;
+  if (performance.now() - flightSoundTimer < 55) return;
+  flightSoundTimer = performance.now();
 
+  playTone({
+    frequency: 120 + speed * 7,
+    duration: 0.07,
+    volume: Math.min(0.045, 0.012 + speed * 0.0016),
+    attack: 0.006,
+    decay: 0.09,
+    type: "triangle",
+    detune: (Math.random() - 0.5) * 25,
+    pan: Math.max(-0.7, Math.min(0.7, (player.vx / 18) * 0.6))
+  });
+}
+
+function playBounceTone() {
+  playTone({ frequency: 620, duration: 0.08, volume: 0.045, attack: 0.004, decay: 0.08, type: "square", detune: 85, pan: Math.random() * 0.6 - 0.3 });
+}
+
+function playObstacleHit() {
+  playTone({ frequency: 150, duration: 0.08, volume: 0.07, attack: 0.004, decay: 0.08, type: "square", detune: -120, pan: -0.25 });
+  playTone({ frequency: 68, duration: 0.1, volume: 0.06, attack: 0.002, decay: 0.08, type: "sawtooth", detune: 180, pan: 0.25 });
+  playStaticBurst();
+}
+
+function playArrivalChime() {
+  playTone({ frequency: 660, duration: 0.13, volume: 0.07, attack: 0.006, decay: 0.12, type: "triangle", detune: 50, pan: -0.15 });
+  setTimeout(() => {
+    if (soundEnabled) {
+      playTone({ frequency: 820, duration: 0.16, volume: 0.08, attack: 0.007, decay: 0.12, type: "triangle", detune: 60, pan: 0.15 });
+    }
+  }, 90);
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  if (soundEnabled) {
+    ensureAudioContext();
+  }
+}
+
+function payloadName() {
+  return selectedPayload === "data" ? "Data" : "Packet";
+}
+
+function payloadTitleCase() {
+  return selectedPayload === "data" ? "DATA" : "PACKET";
+}
+
+function clampPacketSize(value) {
+  return Math.min(MAX_PACKET_SIZE, Math.max(MIN_PACKET_SIZE, value));
+}
+
+function applySizePickup(kind) {
+  const delta = kind === "grow" ? 2.8 : -2.8;
+  player.size = clampPacketSize(player.size + delta);
+
+  if (player.y + player.size >= GROUND) {
+    player.y = GROUND - player.size;
+  }
+
+  player.vx *= kind === "grow" ? 0.96 : 1.02;
+  player.vy *= kind === "grow" ? 0.98 : 1.02;
+}
+
+function playLaunchSound() {
+  const AudioCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtor || !soundEnabled) return;
+
+  audioCtx ??= new AudioCtor();
+  const now = audioCtx.currentTime;
+  const osc = audioCtx.createOscillator();
+  const osc2 = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+
+  osc.type = "sawtooth";
+  osc2.type = "triangle";
+  osc.frequency.setValueAtTime(180, now);
+  osc2.frequency.setValueAtTime(95, now);
+
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.18, now + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+
+  osc.connect(gain);
+  osc2.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  osc.start(now);
+  osc2.start(now);
+  osc.stop(now + 0.2);
+  osc2.stop(now + 0.22);
+}
+
+function spawnLaunchBurst(x, y, angleRad) {
+  const colors = ["#1A73E8", "#39D353", "#C0C0C0"];
+
+  for (let i = 0; i < 18; i++) {
+    const a = angleRad + (Math.random() - 0.5) * 0.5;
+    const speed = 22 + Math.random() * 38;
+    launchBursts.push({
+      x,
+      y,
+      dx: Math.cos(a) * speed,
+      dy: Math.sin(a) * speed,
+      radius: 2 + Math.random() * 5,
+      life: 0.55 + Math.random() * 0.35,
+      color: colors[i % colors.length],
+      burst: true
+    });
+  }
+
+  for (let i = 0; i < 12; i++) {
+    launchBursts.push({
+      x,
+      y,
+      dx: (Math.random() - 0.5) * 50,
+      dy: (Math.random() - 0.5) * 32,
+      radius: 3 + Math.random() * 7,
+      life: 0.7 + Math.random() * 0.5,
+      color: i % 2 === 0 ? "rgba(26, 115, 232, 0.9)" : "rgba(57, 211, 83, 0.9)",
+      burst: true
+    });
+  }
+}
+
+function drawLaunchBursts() {
+  for (let i = launchBursts.length - 1; i >= 0; i--) {
+    const p = launchBursts[i];
+    p.x += p.dx * 0.1;
+    p.y += p.dy * 0.1;
+    p.dy += 0.12;
+    p.life -= 0.03;
+
+    if (p.life <= 0) {
+      launchBursts.splice(i, 1);
+      continue;
+    }
+
+    ctx.beginPath();
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
+
+function makeRepeater(x) {
+  return { x, y: GROUND - 4, used: false };
+}
+
+function makeBoost(x) {
+  const kinds = ["relay", "amplifier", "cache", "router"];
+  return {
+    x,
+    y: 90 + Math.random() * 170,
+    kind: kinds[Math.floor(Math.random() * kinds.length)],
+    used: false,
+    radius: 12 + Math.random() * 10
+  };
+}
+
+function makePickup(x) {
+  return {
+    x,
+    y: 90 + Math.random() * 170,
+    kind: Math.random() < 0.5 ? "grow" : "shrink",
+    radius: 15 + Math.random() * 6,
+    used: false
+  };
+}
+
+function makeObstacle(x) {
+  const roll = Math.random();
+
+  if (roll < 0.35) {
+    return {
+      kind: "firewall",
+      x,
+      y: 120 + Math.random() * 140,
+      w: 20 + Math.random() * 18,
+      h: 50 + Math.random() * 90,
+      color: SILVER,
+      flash: 0
+    };
+  }
+
+  if (roll < 0.65) {
+    return {
+      kind: "router",
+      x,
+      y: 90 + Math.random() * 150,
+      radius: 16 + Math.random() * 14,
+      color: SILVER,
+      flash: 0
+    };
+  }
+
+  if (roll < 0.85) {
+    return {
+      kind: "cloud",
+      x,
+      y: 100 + Math.random() * 150,
+      radius: 22 + Math.random() * 18,
+      color: SILVER,
+      flash: 0
+    };
+  }
+
+  return {
+    kind: "loss",
+    x,
+    y: GROUND - 18 - Math.random() * 8,
+    w: 42 + Math.random() * 52,
+    h: 16 + Math.random() * 14,
+    color: SILVER,
+    flash: 0
+  };
+}
+
+function circleRectCollision(px, py, radius, rect) {
+  const closestX = Math.min(Math.max(px, rect.x - rect.w / 2), rect.x + rect.w / 2);
+  const closestY = Math.min(Math.max(py, rect.y - rect.h / 2), rect.y + rect.h / 2);
+  const dx = px - closestX;
+  const dy = py - closestY;
+  return dx * dx + dy * dy < radius * radius;
+}
+
+function handleFirewallHit(obstacle) {
+  const dx = player.x - obstacle.x;
+  const dy = player.y - obstacle.y;
+  const sideBias = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+
+  if (sideBias === "x") {
+    const dir = dx >= 0 ? 1 : -1;
+    player.vx = -dir * (Math.abs(player.vx) * 0.8 + 2.2);
+    player.vy *= 0.96;
+    player.x = Math.min(Math.max(player.x, obstacle.x - obstacle.w / 2 - player.size), obstacle.x + obstacle.w / 2 + player.size);
+  } else {
+    const dir = dy >= 0 ? 1 : -1;
+    player.vy = -dir * (Math.abs(player.vy) * 0.82 + 2.4);
+    player.vx *= 0.96;
+    player.y = Math.min(Math.max(player.y, obstacle.y - obstacle.h / 2 - player.size), obstacle.y + obstacle.h / 2 + player.size);
+  }
+}
+
+function handleObstacleCollision(obstacle) {
+  if (obstacle.kind === "firewall") {
+    if (circleRectCollision(player.x, player.y, player.size, obstacle)) {
+      obstacle.flash = 0.35;
+      handleFirewallHit(obstacle);
+      playObstacleHit();
+      endRunAsDropped();
+    }
+    return;
+  }
+
+  if (obstacle.kind === "router") {
+    const dist = Math.hypot(player.x - obstacle.x, player.y - obstacle.y);
+    if (dist < player.size + obstacle.radius) {
+      obstacle.flash = 0.35;
+      const nx = (player.x - obstacle.x) / Math.max(dist, 0.001);
+      const ny = (player.y - obstacle.y) / Math.max(dist, 0.001);
+      player.x = obstacle.x + (obstacle.radius + player.size) * nx;
+      player.y = obstacle.y + (obstacle.radius + player.size) * ny;
+      player.vx = -nx * (Math.abs(player.vx) * 0.7 + 7.5);
+      player.vy = -ny * (Math.abs(player.vy) * 0.7 + 7.5);
+      player.rotation = Math.atan2(player.vy, player.vx);
+      playObstacleHit();
+      endRunAsDropped();
+    }
+    return;
+  }
+
+  if (obstacle.kind === "cloud") {
+    const dist = Math.hypot(player.x - obstacle.x, player.y - obstacle.y);
+    if (dist < player.size + obstacle.radius) {
+      obstacle.flash = 0.35;
+      player.vx *= 0.965;
+      player.vy *= 0.98;
+    }
+    return;
+  }
+
+  if (obstacle.kind === "loss") {
+    if (circleRectCollision(player.x, player.y, player.size, obstacle)) {
+      obstacle.flash = 0.35;
+      player.vx *= 0.82;
+      player.vy *= 0.8;
+      player.vy += 0.12;
+      if (Math.abs(player.vx) < 1.1 && Math.abs(player.vy) < 1.1) {
+        player.vx *= 0.75;
+        player.vy *= 0.8;
+      }
+    }
+  }
+
+  maybeEndRunFromObstacle(obstacle);
+}
+
+function maybeEndRunFromObstacle(obstacle) {
+  if (delivered || dropped || !launched) return;
+
+  const blocked = obstacle.kind === "firewall" || obstacle.kind === "router";
+  if (!blocked) return;
+
+  const speed = Math.hypot(player.vx, player.vy);
+  const hitDistance = obstacle.kind === "firewall"
+    ? Math.max(Math.abs(player.x - obstacle.x) - obstacle.w / 2, Math.abs(player.y - obstacle.y) - obstacle.h / 2)
+    : Math.abs(player.x - obstacle.x) - obstacle.radius;
+
+  if (obstacle.flash > 0.15 && speed < 2.5 && hitDistance < player.size + 6) {
+    endRunAsDropped();
+  }
+}
+
+function generateRoute() {
+  route = { repeaters: [], boosts: [], pickups: [], obstacles: [] };
+  nextRepeaterX = 280 + Math.random() * 180;
+  nextBoostX = 360 + Math.random() * 160;
+  nextPickupX = 320 + Math.random() * 180;
+  nextObstacleX = 420 + Math.random() * 180;
+
+  for (let i = 0; i < 8; i++) {
+    nextRepeaterX += 210 + Math.random() * 380;
+    route.repeaters.push(makeRepeater(nextRepeaterX));
+  }
+
+  for (let i = 0; i < 10; i++) {
+    nextBoostX += 220 + Math.random() * 420;
+    route.boosts.push(makeBoost(nextBoostX));
+  }
+
+  for (let i = 0; i < 8; i++) {
+    nextPickupX += 170 + Math.random() * 300;
+    route.pickups.push(makePickup(nextPickupX));
+  }
+
+  for (let i = 0; i < 7; i++) {
+    nextObstacleX += 220 + Math.random() * 360;
+    route.obstacles.push(makeObstacle(nextObstacleX));
+  }
+}
+
+function resetGame() {
+  generateRoute();
+  selectedPayload = "packet";
+  player = {
+    x: cannon.x + 26,
+    y: cannon.y - 6,
+    vx: 0,
+    vy: 0,
+    size: DEFAULT_PACKET_SIZE,
+    rotation: 0
+  };
+  angle = 35;
+  charge = 0;
+  charging = false;
+  launched = false;
+  stopped = false;
+  delivered = false;
+  dropped = false;
+  paused = false;
+  camera = 0;
+  currentDistance = 0;
+  bestDistance = bestDistance || 0;
+  combo = 0;
+  comboMultiplier = 1;
+  launchBursts = [];
+  lastChargeTick = -1;
+  updateDistanceDisplay();
+}
+
+function incrementCombo() {
+  if (player.y + player.size >= GROUND - 2) {
+    combo = 0;
+    comboMultiplier = 1;
+    return;
+  }
+
+  combo += 1;
+  comboMultiplier = 1 + Math.min(combo - 1, 6) * 0.25;
+}
+
+function resetCombo() {
+  combo = 0;
+  comboMultiplier = 1;
+}
+
+function updateDistanceDisplay() {
+  const currentMeters = Math.floor(currentDistance / 10);
+  const bestMeters = Math.floor((bestDistance || 0) / 10);
+  distanceText.textContent = `${currentMeters} m / Best ${bestMeters} m`;
+}
+
+function touching(x, y, radius) {
+  return Math.hypot(player.x - x, player.y - y) < radius + player.size * 0.65;
+}
+
+function endRunAsDropped() {
+  if (dropped || delivered) return;
+  dropped = true;
+  stopped = true;
+  player.vx = 0;
+  player.vy = 0;
+}
+
+function finalizeDelivery() {
+  if (delivered || dropped) return;
+  delivered = true;
+  stopped = true;
+  playArrivalChime();
+}
+
+function respawnRepeater(r) {
+  const gap = 350 + Math.random() * 600;
+  nextRepeaterX += gap;
+  r.x = nextRepeaterX;
+  r.used = false;
+}
+
+function respawnBoost(b) {
+  const gap = 260 + Math.random() * 520;
+  nextBoostX += gap;
+  b.x = nextBoostX;
+  b.y = 90 + Math.random() * 170;
+  b.used = false;
+  b.radius = 12 + Math.random() * 10;
+  const kinds = ["relay", "amplifier", "cache", "router"];
+  b.kind = kinds[Math.floor(Math.random() * kinds.length)];
+}
+
+function respawnPickup(p) {
+  const gap = 180 + Math.random() * 360;
+  nextPickupX += gap;
+  p.x = nextPickupX;
+  p.y = 90 + Math.random() * 170;
+  p.kind = Math.random() < 0.5 ? "grow" : "shrink";
+  p.radius = 15 + Math.random() * 6;
+  p.used = false;
+}
+
+function respawnObstacle(o) {
+  const gap = 260 + Math.random() * 420;
+  nextObstacleX += gap;
+  o.x = nextObstacleX;
+  o.y = 120 + Math.random() * 140;
+  const roll = Math.random();
+
+  if (roll < 0.35) {
+    o.kind = "firewall";
+    o.w = 20 + Math.random() * 18;
+    o.h = 50 + Math.random() * 90;
+  } else if (roll < 0.65) {
+    o.kind = "router";
+    o.radius = 16 + Math.random() * 14;
+  } else if (roll < 0.85) {
+    o.kind = "cloud";
+    o.radius = 22 + Math.random() * 18;
+  } else {
+    o.kind = "loss";
+    o.w = 42 + Math.random() * 52;
+    o.h = 16 + Math.random() * 14;
+    o.y = GROUND - 18 - Math.random() * 8;
+  }
+
+  o.flash = 0;
+}
+
+function playChargeTick() {
+  if (!soundEnabled) return;
+  const frequency = 210 + (Math.min(100, charge || 0) * 3.4);
+  playTone({
+    frequency,
+    duration: 0.05,
+    volume: 0.028,
+    attack: 0.003,
+    decay: 0.08,
+    type: "triangle",
+    detune: 20,
+    pan: 0
+  });
+}
+
+function update() {
+  if (paused) return;
+
+  if (!launched) {
+    if (keys.has("ArrowUp")) angle = Math.min(70, angle + 0.7);
+    if (keys.has("ArrowDown")) angle = Math.max(10, angle - 0.7);
+    if (charging) {
+      const nextCharge = Math.min(100, charge + 0.8);
+      const prevBucket = Math.floor(charge / 5);
+      const nextBucket = Math.floor(nextCharge / 5);
+      charge = nextCharge;
+      if (nextBucket > prevBucket) {
+        playChargeTick();
+      }
+    }
+    player.x = cannon.x + 26;
+    player.y = cannon.y - 6;
+    return;
+  }
+
+  if (stopped) return;
+
+  if (launched && soundEnabled) {
+    playFlightTone();
+  }
+
+  player.vy += GRAVITY;
+  player.x += player.vx;
+  player.y += player.vy;
+
+  const sizeDrag = 0.998 - ((player.size - MIN_PACKET_SIZE) / (MAX_PACKET_SIZE - MIN_PACKET_SIZE)) * 0.018;
+  player.vx *= sizeDrag;
+  player.vy *= 0.999;
+  player.rotation = Math.atan2(player.vy, player.vx);
+
+  for (const repeater of route.repeaters) {
+    if (repeater.x < player.x - 260) respawnRepeater(repeater);
+    if (!repeater.used && Math.abs(player.x - repeater.x) < 26 + player.size * 0.8 && player.y + player.size >= GROUND - 18 && player.y < GROUND && player.vy > 0) {
+      repeater.used = true;
+      if (player.y + player.size < GROUND - 2) incrementCombo();
+      player.y = GROUND - player.size;
+      player.vy = -Math.max(12, Math.abs(player.vy) * 1.5 + 5.5) * comboMultiplier;
+      player.vx += 5.5 * comboMultiplier;
+      playBounceTone();
+    }
+  }
+
+  for (const boost of route.boosts) {
+    if (boost.x < player.x - 260) respawnBoost(boost);
+    if (!boost.used && touching(boost.x, boost.y, boost.radius)) {
+      boost.used = true;
+      if (player.y + player.size < GROUND - 2) incrementCombo();
+      player.vx += 6.5 * comboMultiplier;
+      player.vy = -Math.max(8.2, Math.abs(player.vy) * 0.7 + 5.5) * comboMultiplier;
+      player.rotation = -Math.PI / 2;
+      playBounceTone();
+    }
+  }
+
+  for (const pickup of route.pickups) {
+    if (pickup.x < player.x - 260) respawnPickup(pickup);
+    if (!pickup.used && touching(pickup.x, pickup.y, pickup.radius)) {
+      pickup.used = true;
+      if (player.y + player.size < GROUND - 2) incrementCombo();
+      applySizePickup(pickup.kind);
+    }
+  }
+
+  for (const obstacle of route.obstacles) {
+    handleObstacleCollision(obstacle);
+  }
+
+  if (player.y + player.size >= GROUND) {
+    player.y = GROUND - player.size;
+    if (Math.abs(player.vy) > 0.7) {
+      const groundDrag = 0.96 - ((player.size - MIN_PACKET_SIZE) / (MAX_PACKET_SIZE - MIN_PACKET_SIZE)) * 0.11;
+      player.vy = -Math.abs(player.vy) * 0.58;
+      player.vx *= groundDrag;
+      playBounceTone();
+    } else {
+      player.vy = 0;
+      player.vx *= 0.94;
+      if (Math.abs(player.vx) < 0.18 && Math.abs(player.vy) < 0.2) {
+        finalizeDelivery();
+      }
+    }
+    resetCombo();
+  }
+
+  currentDistance = Math.max(currentDistance, player.x - cannon.x);
+  bestDistance = Math.max(bestDistance, currentDistance);
+  updateDistanceDisplay();
+  camera = Math.max(0, player.x - 190);
+
+  if (charging && Math.floor(charge) !== lastChargeTick) {
+    playChargeTick();
+    lastChargeTick = Math.floor(charge);
+  }
+}
+
+function drawPacket(x, y) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(player.rotation);
+
+  const packetRadius = player.size;
+  const squashX = 1 + Math.min(0.45, Math.abs(player.vx) * 0.035);
+  const squashY = 1 + Math.min(0.45, Math.abs(player.vy) * 0.04);
+  ctx.scale(squashX, squashY);
+
+  const trailBoost = Math.min(2.8, comboMultiplier);
+  ctx.shadowBlur = 18 + combo * 8;
+  ctx.shadowColor = combo > 0 ? "rgba(57, 211, 83, 0.9)" : "rgba(125, 211, 252, 0.9)";
+
+  const trailLength = 18 + packetRadius * 1.4;
+  const trailGrad = ctx.createLinearGradient(-trailLength, 0, 16, 0);
+  trailGrad.addColorStop(0, "rgba(26, 115, 232, 0)");
+  trailGrad.addColorStop(0.45, `rgba(26, 115, 232, ${0.38 + trailBoost * 0.12})`);
+  trailGrad.addColorStop(1, `rgba(57, 211, 83, ${0.52 + trailBoost * 0.16})`);
+  ctx.fillStyle = trailGrad;
+  ctx.fillRect(-trailLength, 0, trailLength, 4 + packetRadius * 0.14);
+
+  ctx.shadowBlur = 0;
+
+  if (selectedPayload === "packet") {
+    const frameGrad = ctx.createLinearGradient(-packetRadius, -packetRadius, packetRadius, packetRadius);
+    frameGrad.addColorStop(0, "#eff6ff");
+    frameGrad.addColorStop(0.35, "#dbeafe");
+    frameGrad.addColorStop(1, "#60a5fa");
+
+    ctx.fillStyle = frameGrad;
+    ctx.fillRect(-packetRadius * 1.05, -packetRadius * 0.8, packetRadius * 2.1, packetRadius * 1.6);
+    ctx.fillStyle = "rgba(15, 23, 42, 0.22)";
+    ctx.fillRect(-packetRadius * 1.02, -packetRadius * 0.78, packetRadius * 2.04, packetRadius * 0.28);
+    ctx.strokeStyle = "rgba(15, 23, 42, 0.8)";
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(-packetRadius * 1.05, -packetRadius * 0.8, packetRadius * 2.1, packetRadius * 1.6);
+
+    ctx.fillStyle = "#0f172a";
+    ctx.fillRect(-packetRadius * 0.7, -packetRadius * 0.45, packetRadius * 0.35, packetRadius * 0.9);
+    ctx.fillRect(packetRadius * 0.35, -packetRadius * 0.45, packetRadius * 0.35, packetRadius * 0.9);
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.fillRect(-packetRadius * 0.1, -packetRadius * 0.18, packetRadius * 0.26, packetRadius * 0.28);
+    ctx.fillRect(packetRadius * 0.18, -packetRadius * 0.18, packetRadius * 0.26, packetRadius * 0.28);
+    ctx.fillRect(-packetRadius * 0.42, -packetRadius * 0.5, packetRadius * 0.84, packetRadius * 0.14);
+
+    ctx.strokeStyle = "rgba(255,255,255,0.65)";
+    ctx.beginPath();
+    ctx.moveTo(-packetRadius * 0.8, -packetRadius * 0.28);
+    ctx.lineTo(packetRadius * 0.8, -packetRadius * 0.28);
+    ctx.moveTo(-packetRadius * 0.8, packetRadius * 0.22);
+    ctx.lineTo(packetRadius * 0.8, packetRadius * 0.22);
+    ctx.stroke();
+  } else {
+    const bodyGrad = ctx.createLinearGradient(-packetRadius, -packetRadius, packetRadius, packetRadius);
+    bodyGrad.addColorStop(0, "#dbeafe");
+    bodyGrad.addColorStop(0.4, "#60a5fa");
+    bodyGrad.addColorStop(1, "#1d4ed8");
+
+    ctx.fillStyle = bodyGrad;
+    ctx.fillRect(-packetRadius * 1.05, -packetRadius * 0.82, packetRadius * 2.1, packetRadius * 1.64);
+    ctx.fillStyle = "rgba(15, 23, 42, 0.2)";
+    ctx.fillRect(-packetRadius * 1.02, -packetRadius * 0.78, packetRadius * 2.04, packetRadius * 0.22);
+    ctx.strokeStyle = "rgba(15, 23, 42, 0.7)";
+    ctx.lineWidth = 1.3;
+    ctx.strokeRect(-packetRadius * 1.05, -packetRadius * 0.82, packetRadius * 2.1, packetRadius * 1.64);
+
+    ctx.fillStyle = "#f8fafc";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.font = `${Math.max(9, packetRadius * 0.9)}px monospace`;
+    ctx.fillText("DATA", 0, 3);
+  }
+
+  ctx.restore();
+}
+
+function drawRepeater(x) {
+  ctx.fillStyle = "rgba(15, 23, 42, 0.2)";
+  ctx.fillRect(x - 24, GROUND + 8, 48, 6);
+  ctx.fillStyle = "#fca5a5";
+  ctx.fillRect(x - 24, GROUND - 4, 48, 8);
+  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.fillRect(x - 18, GROUND - 2, 36, 2);
+}
+
+function drawBoost(boost, sx, sy) {
+  const colors = {
+    relay: "#7dd3fc",
+    amplifier: "#86efac",
+    cache: "#fbbf24",
+    router: "#fca5a5"
+  };
+  const fill = colors[boost.kind] || "#7dd3fc";
+  const size = boost.radius || 12;
+
+  ctx.save();
+  ctx.fillStyle = "rgba(15, 23, 42, 0.2)";
+  ctx.fillRect(sx - 8, sy + 8, 16, 4);
+
+  const glow = ctx.createRadialGradient(sx, sy, 0, sx, sy, size + 7);
+  glow.addColorStop(0, fill);
+  glow.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = glow;
+  ctx.beginPath();
+  ctx.arc(sx, sy, size, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.7)";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(sx, sy, size * 0.7, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.fillStyle = "#0f172a";
+  if (boost.kind === "relay") {
+    ctx.fillRect(sx - 5, sy - 5, 10, 10);
+  }
+  if (boost.kind === "amplifier") {
+    ctx.fillRect(sx - 1, sy - size * 0.7, 3, size * 1.4);
+    ctx.fillRect(sx - size * 0.7, sy - 1, size * 1.4, 3);
+  }
+  if (boost.kind === "cache") {
+    ctx.fillRect(sx - size * 0.7, sy - size * 0.7, size * 1.4, size * 1.4);
+    ctx.fillRect(sx - 2, sy - size * 0.9, 4, 4);
+    ctx.fillRect(sx - 2, sy + size * 0.5, 4, 4);
+  }
+  if (boost.kind === "router") {
+    ctx.fillRect(sx - 1, sy - size * 0.8, 3, size * 1.6);
+    ctx.fillRect(sx - size * 0.8, sy - 1, size * 1.6, 3);
+  }
+  ctx.restore();
+}
+
+function drawPickup(item, sx, sy) {
+  const isGrow = item.kind === "grow";
+  ctx.fillStyle = isGrow ? "#22c55e" : "#f97316";
+  ctx.fillRect(sx - 8, sy - 8, 16, 16);
+  ctx.fillStyle = "#ffffff";
+  if (isGrow) {
+    ctx.fillRect(sx - 2, sy - 7, 4, 14);
+    ctx.fillRect(sx - 7, sy - 2, 14, 4);
+  } else {
+    ctx.fillRect(sx - 7, sy - 2, 14, 4);
+  }
+}
+
+function drawFirewall(obstacle, sx, sy) {
+  const flashAlpha = obstacle.flash > 0 ? 0.2 + obstacle.flash * 1.1 : 0.18;
+  ctx.save();
+  ctx.translate(sx, sy);
+  ctx.fillStyle = `rgba(192, 192, 192, ${flashAlpha})`;
+  ctx.fillRect(-obstacle.w / 2, -obstacle.h / 2, obstacle.w, obstacle.h);
+  ctx.fillStyle = obstacle.flash > 0 ? "#1A73E8" : SILVER;
+  ctx.fillRect(-obstacle.w / 2, -obstacle.h / 2, obstacle.w, obstacle.h);
+  ctx.fillStyle = "rgba(5, 8, 13, 0.7)";
+  for (let x = -obstacle.w / 2 + 4; x < obstacle.w / 2; x += 8) {
+    ctx.fillRect(x, -obstacle.h / 2, 4, obstacle.h);
+  }
+  ctx.restore();
+}
+
+function drawRouter(obstacle, sx, sy) {
+  const flashAlpha = obstacle.flash > 0 ? 0.25 + obstacle.flash * 1.2 : 0.15;
+  ctx.save();
+  ctx.translate(sx, sy);
+  const r = obstacle.radius;
+  ctx.fillStyle = `rgba(192, 192, 192, ${flashAlpha})`;
+  ctx.beginPath();
+  ctx.arc(0, 0, r + 6, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = obstacle.flash > 0 ? "#1A73E8" : SILVER;
+  ctx.beginPath();
+  ctx.arc(0, 0, r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = DEEP_NAVY;
+  ctx.fillRect(-1, -r - 6, 2, r * 2 + 12);
+  ctx.fillRect(-r - 6, -1, r * 2 + 12, 2);
+  ctx.restore();
+}
+
+function drawCloud(obstacle, sx, sy) {
+  const flashAlpha = obstacle.flash > 0 ? 0.24 + obstacle.flash * 1.15 : 0.18;
+  ctx.save();
+  ctx.translate(sx, sy);
+  const r = obstacle.radius;
+  ctx.fillStyle = `rgba(192, 192, 192, ${flashAlpha})`;
+  ctx.beginPath();
+  ctx.arc(0, 0, r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(-r * 0.45, -r * 0.2, r * 0.7, 0, Math.PI * 2);
+  ctx.arc(r * 0.45, -r * 0.1, r * 0.65, 0, Math.PI * 2);
+  ctx.arc(0, r * 0.25, r * 0.8, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = obstacle.flash > 0 ? "#1A73E8" : SILVER;
+  ctx.beginPath();
+  ctx.arc(0, 0, r * 0.72, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawLossZone(obstacle, sx, sy) {
+  const flashAlpha = obstacle.flash > 0 ? 0.28 + obstacle.flash * 1.2 : 0.18;
+  ctx.save();
+  ctx.translate(sx, sy);
+  ctx.fillStyle = `rgba(192, 192, 192, ${flashAlpha})`;
+  ctx.fillRect(-obstacle.w / 2, -obstacle.h / 2, obstacle.w, obstacle.h);
+  ctx.fillStyle = obstacle.flash > 0 ? "#1A73E8" : SILVER;
+  ctx.fillRect(-obstacle.w / 2, -obstacle.h / 2, obstacle.w, obstacle.h);
+  ctx.strokeStyle = "rgba(5, 8, 13, 0.7)";
+  ctx.lineWidth = 1.2;
+  for (let i = -obstacle.w / 2 + 6; i < obstacle.w / 2; i += 10) {
+    ctx.beginPath();
+    ctx.moveTo(i, -obstacle.h / 2);
+    ctx.lineTo(i + 6, obstacle.h / 2);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawObstacles() {
+  for (const obstacle of route.obstacles) {
+    obstacle.flash = Math.max(0, obstacle.flash - 0.04);
+    const sx = obstacle.x - camera;
+    if (sx < -80 || sx > canvas.width + 80) continue;
+
+    if (obstacle.kind === "firewall") {
+      drawFirewall(obstacle, sx, obstacle.y);
+    } else if (obstacle.kind === "router") {
+      drawRouter(obstacle, sx, obstacle.y);
+    } else if (obstacle.kind === "cloud") {
+      drawCloud(obstacle, sx, obstacle.y);
+    } else if (obstacle.kind === "loss") {
+      drawLossZone(obstacle, sx, obstacle.y);
+    }
+  }
+}
+
+function drawFiberLauncher(cx, baseY) {
+  const pulseRate = 0.9 + (charge / 100) * 3.7;
+  const phase = (performance.now() * 0.006 * pulseRate) % 1;
+
+  ctx.save();
+  ctx.translate(cx, baseY + 8);
+  ctx.rotate(-angle * Math.PI / 180);
+
+  ctx.fillStyle = "#05080D";
+  ctx.fillRect(-6, -18, 56, 36);
+
+  ctx.fillStyle = "rgba(192, 192, 192, 0.14)";
+  ctx.fillRect(8, -14, 36, 28);
+
+  ctx.strokeStyle = "rgba(192, 192, 192, 0.22)";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(8, -14, 36, 28);
+
+  ctx.strokeStyle = "rgba(192, 192, 192, 0.35)";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(16, 0);
+  ctx.lineTo(34, 0);
+  ctx.stroke();
+
+  ctx.strokeStyle = "rgba(26, 115, 232, 0.7)";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(34, 0);
+  ctx.lineTo(48, 0);
+  ctx.stroke();
+
+  for (let i = 0; i < 6; i++) {
+    const travel = (phase + i / 6) % 1;
+    const x = 18 + travel * 18;
+    const glow = 0.25 + (1 - travel) * 0.75;
+    ctx.fillStyle = i % 2 === 0
+      ? `rgba(26, 115, 232, ${glow})`
+      : `rgba(57, 211, 83, ${glow})`;
+    ctx.beginPath();
+    ctx.arc(x, 0, 2.2 + travel * 1.6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  const tipGlow = ctx.createRadialGradient(50, 0, 0, 50, 0, 14);
+  tipGlow.addColorStop(0, "rgba(57, 211, 83, 0.95)");
+  tipGlow.addColorStop(0.5, "rgba(26, 115, 232, 0.7)");
+  tipGlow.addColorStop(1, "rgba(26, 115, 232, 0)");
+  ctx.fillStyle = tipGlow;
+  ctx.beginPath();
+  ctx.arc(53, 0, 14, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "#C0C0C0";
+  ctx.fillRect(48, -3, 9, 6);
+  ctx.fillStyle = "#0B1220";
+  ctx.fillRect(53, -1.5, 2, 3);
+
+  ctx.restore();
+}
+
+function draw() {
+  const phase = currentDistance < 180 ? "local" : currentDistance < 370 ? "data" : "internet";
+  const palettes = {
+    local: {
+      top: "#0B1220",
+      mid: "#101a2b",
+      cable: "rgba(26, 115, 232, 0.12)",
+      rack: "rgba(5, 8, 13, 0.9)",
+      slot: "rgba(192, 192, 192, 0.08)",
+      panel: "rgba(26, 115, 232, 0.09)",
+      ground: "#0A1017"
+    },
+    data: {
+      top: "#0A1324",
+      mid: "#12243d",
+      cable: "rgba(26, 115, 232, 0.15)",
+      rack: "rgba(10, 16, 23, 0.92)",
+      slot: "rgba(192, 192, 192, 0.1)",
+      panel: "rgba(57, 211, 83, 0.1)",
+      ground: "#0C1218"
+    },
+    internet: {
+      top: "#0B1325",
+      mid: "#112b45",
+      cable: "rgba(57, 211, 83, 0.18)",
+      rack: "rgba(11, 18, 32, 0.94)",
+      slot: "rgba(192, 192, 192, 0.12)",
+      panel: "rgba(26, 115, 232, 0.12)",
+      ground: "#0B1220"
+    }
+  };
+
+  const active = palettes[phase];
+  ctx.fillStyle = active.top;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const skyGrad = ctx.createLinearGradient(0, 0, 0, GROUND);
+  skyGrad.addColorStop(0, active.top);
+  skyGrad.addColorStop(0.75, active.mid);
+  skyGrad.addColorStop(1, active.top);
+  ctx.fillStyle = skyGrad;
+  ctx.fillRect(0, 0, canvas.width, GROUND);
+
+  ctx.strokeStyle = active.cable;
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 14; i++) {
+    const x = ((i * 118) - (camera * 0.18)) % (canvas.width + 180) - 80;
+    const y = 28 + (i % 5) * 18;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 52, y + 46);
+    ctx.lineTo(x + 110, y + 22);
+    ctx.lineTo(x + 148, y + 78);
+    ctx.stroke();
+  }
+
+  const rackCount = 16;
+  for (let i = 0; i < rackCount; i++) {
+    const x = i * 72 - (camera * 0.12) % 72;
+    const rackX = x;
+    const rackY = 30;
+    const rackW = 38;
+    const rackH = 150;
+
+    ctx.fillStyle = active.rack;
+    ctx.fillRect(rackX, rackY, rackW, rackH);
+
+    ctx.strokeStyle = "rgba(192, 192, 192, 0.14)";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(rackX, rackY, rackW, rackH);
+
+    ctx.fillStyle = active.slot;
+    for (let row = 0; row < 6; row++) {
+      const rowY = rackY + 18 + row * 20;
+      ctx.fillRect(rackX + 6, rowY, rackW - 12, 2);
+      ctx.fillRect(rackX + 6, rowY + 8, rackW - 12, 1);
+    }
+
+    const pulse = (Math.sin((i * 1.7) + performance.now() * 0.003) + 1) / 2;
+    ctx.fillStyle = pulse > 0.6 ? "#39D353" : "#1A73E8";
+    for (let port = 0; port < 5; port++) {
+      const px = rackX + 9 + (port % 2) * 12;
+      const py = rackY + 22 + (port * 22) + ((i + port) % 2) * 4;
+      ctx.fillRect(px, py, 4, 4);
+      ctx.fillRect(px + 14, py, 4, 4);
+    }
+  }
+
+  const groundGrad = ctx.createLinearGradient(0, GROUND, 0, canvas.height);
+  groundGrad.addColorStop(0, active.top);
+  groundGrad.addColorStop(0.36, active.ground);
+  groundGrad.addColorStop(1, "#05080D");
+  ctx.fillStyle = groundGrad;
+  ctx.fillRect(0, GROUND, canvas.width, canvas.height - GROUND);
+
+  ctx.fillStyle = active.slot;
+  for (let i = 0; i < 18; i++) {
+    const x = i * 42 - (camera * 0.54) % 42;
+    ctx.fillRect(x, GROUND + 18, 20, 122);
+    ctx.fillStyle = active.panel;
+    for (let row = 0; row < 5; row++) {
+      ctx.fillRect(x + 3, GROUND + 24 + row * 20, 12, 3);
+    }
+    ctx.fillStyle = active.slot;
+  }
+
+  ctx.strokeStyle = active.cable;
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 12; i++) {
+    const y = GROUND + 20 + i * 18;
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(canvas.width, y);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle = "rgba(192, 192, 192, 0.12)";
+  for (let i = 0; i < 18; i++) {
+    const x = i * 64 - (camera * 0.72) % 64;
+    ctx.beginPath();
+    ctx.moveTo(x + 6, GROUND + 12);
+    ctx.lineTo(x + 22, GROUND + 42);
+    ctx.lineTo(x + 46, GROUND + 18);
+    ctx.lineTo(x + 64, GROUND + 60);
+    ctx.stroke();
+  }
+
+  ctx.fillStyle = "#111827";
+  ctx.fillRect(0, GROUND, canvas.width, 4);
+
+  const portRows = 8;
+  for (let i = 0; i < portRows; i++) {
+    const x = i * 120 - (camera * 0.9) % 120;
+    const baseY = GROUND + 30;
+    const pulse = (Math.sin((i * 1.4) + performance.now() * 0.004) + 1) / 2;
+    ctx.fillStyle = pulse > 0.5 ? "#39D353" : "#1A73E8";
+    for (let j = 0; j < 3; j++) {
+      ctx.fillRect(x + 12 + j * 28, baseY + (j % 2) * 18, 4, 4);
+    }
+  }
+
+  for (const repeater of route.repeaters) {
+    const sx = repeater.x - camera;
+    if (sx > -60 && sx < canvas.width + 60) drawRepeater(sx);
+  }
+
+  for (const boost of route.boosts) {
+    if (boost.used) continue;
+    const sx = boost.x - camera;
+    const sy = boost.y;
+    if (sx > -30 && sx < canvas.width + 30) drawBoost(boost, sx, sy);
+  }
+
+  for (const pickup of route.pickups) {
+    if (pickup.used) continue;
+    const sx = pickup.x - camera;
+    const sy = pickup.y;
+    if (sx > -30 && sx < canvas.width + 30) drawPickup(pickup, sx, sy);
+  }
+
+  drawObstacles();
+  drawLaunchBursts();
+
+  const cx = cannon.x - camera;
+  if (cx > -60) {
+    drawFiberLauncher(cx, cannon.y);
+  }
+
+  if (launched) {
+    drawPacket(player.x - camera, player.y);
+  } else {
+    const previewRotation = (-angle * Math.PI / 180) + Math.PI / 2;
+    ctx.save();
+    ctx.translate(cannon.x + 26 - camera, cannon.y - 6);
+    ctx.rotate(previewRotation);
+    ctx.scale(1.15, 1.15);
+    drawPacket(0, 0);
+    ctx.restore();
+  }
+
+  if (!launched) {
+    drawPayloadChoice();
+    drawSoundToggleButton();
+  }
+
+  ctx.textAlign = "left";
+  if (!launched) {
+    ctx.fillStyle = "rgba(15, 23, 42, 0.45)";
+    ctx.fillRect(12, 12, 120, 52);
+    ctx.fillStyle = "#f8fafc";
+    ctx.font = "700 12px monospace";
+    ctx.fillText(`ANGLE ${Math.round(angle)}°`, 20, 30);
+    ctx.fillText(`POWER ${Math.round(charge)}%`, 20, 48);
+    ctx.fillStyle = "#e11d30";
+    ctx.fillRect(20, 58, charge * 0.9, 6);
+  }
+
+  ctx.textAlign = "right";
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "10px monospace";
+  ctx.fillText("Created by Shane Mykal Stark | 2026", canvas.width - 12, canvas.height - 12);
+
+  drawResultBanner();
+}
+
+function drawPayloadChoice() {
+  if (launched || charging) return;
+
+  const x = canvas.width / 2;
+  const y = canvas.height * 0.28;
+  const panelW = 360;
+  const panelH = 110;
+
+  ctx.save();
+  ctx.textAlign = "center";
+  ctx.fillStyle = "rgba(5, 8, 13, 0.7)";
+  ctx.fillRect(x - panelW / 2, y - 40, panelW, panelH);
+  ctx.strokeStyle = "rgba(26, 115, 232, 0.9)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x - panelW / 2, y - 40, panelW, panelH);
+
+  ctx.fillStyle = "#f8fafc";
+  ctx.font = "700 18px monospace";
+  ctx.fillText("SELECT PAYLOAD", x, y - 12);
+
+  const leftX = x - 110;
+  const rightX = x + 110;
+  const optionY = y + 18;
+  const cardW = 90;
+  const cardH = 52;
+
+  const packetActive = selectedPayload === "packet";
+  const dataActive = selectedPayload === "data";
+
+  [
+    { x: leftX, label: "Packet", active: packetActive },
+    { x: rightX, label: "Data", active: dataActive }
+  ].forEach(({ x, label, active }) => {
+    ctx.fillStyle = active ? "rgba(26, 115, 232, 0.35)" : "rgba(15, 23, 42, 0.8)";
+    ctx.fillRect(x - cardW / 2, optionY - cardH / 2, cardW, cardH);
+    ctx.strokeStyle = active ? "rgba(96, 165, 250, 0.9)" : "rgba(192, 192, 192, 0.5)";
+    ctx.lineWidth = active ? 2 : 1;
+    ctx.strokeRect(x - cardW / 2, optionY - cardH / 2, cardW, cardH);
+
+    ctx.fillStyle = active ? "#f8fafc" : "#dbeafe";
+    ctx.font = "700 14px monospace";
+    ctx.fillText(label, x, optionY + 5);
+  });
+
+  ctx.fillStyle = "#cbd5e1";
+  ctx.font = "12px monospace";
+  ctx.fillText("P / D or click a card", x, y + 58);
+  ctx.restore();
+}
+
+function drawResultBanner() {
+  if (!dropped && !delivered) return;
+
+  const message = dropped ? `${payloadName()} Dropped!` : `${payloadName()} delivered!`;
+  const meters = Math.floor((currentDistance || 0) / 10);
+  const x = canvas.width / 2;
+  const y = canvas.height / 2 - 8;
+
+  ctx.save();
+  ctx.textAlign = "center";
+  ctx.fillStyle = "rgba(5, 8, 13, 0.72)";
+  ctx.fillRect(x - 190, y - 52, 380, 104);
+  ctx.strokeStyle = dropped ? "rgba(239, 68, 68, 0.9)" : "rgba(57, 211, 83, 0.9)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x - 190, y - 52, 380, 104);
+
+  ctx.fillStyle = dropped ? "#f8fafc" : "#d1fae5";
+  ctx.font = "700 30px monospace";
+  ctx.fillText(message, x, y - 6);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "700 18px monospace";
+  ctx.fillText(`Distance: ${meters} m`, x, y + 28);
+  ctx.restore();
+}
+
+function drawSoundToggleButton() {
+  if (launched || charging) return;
+
+  const x = canvas.width / 2;
+  const y = canvas.height * 0.8;
+  const w = 160;
+  const h = 34;
+
+  ctx.save();
+  ctx.textAlign = "center";
+  ctx.fillStyle = soundEnabled ? "rgba(26, 115, 232, 0.32)" : "rgba(15, 23, 42, 0.82)";
+  ctx.fillRect(x - w / 2, y - h / 2, w, h);
+  ctx.strokeStyle = soundEnabled ? "rgba(96, 165, 250, 0.9)" : "rgba(192, 192, 192, 0.6)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x - w / 2, y - h / 2, w, h);
+  ctx.fillStyle = "#f8fafc";
+  ctx.font = "700 12px monospace";
+  ctx.fillText(soundEnabled ? "SOUND: ON" : "SOUND: OFF", x, y + 5);
+  ctx.restore();
+}
+
+addEventListener("keydown", e => {
+  if (["ArrowUp", "ArrowDown", "Space"].includes(e.code)) e.preventDefault();
+  keys.add(e.code);
+
+  if (e.code === "KeyP") {
+    selectedPayload = "packet";
+    return;
+  }
+
+  if (e.code === "KeyD") {
+    selectedPayload = "data";
+    return;
+  }
+
+  if (e.code === "KeyR") {
+    resetGame();
+    return;
+  }
+
+  if (e.code === "Space" && !e.repeat) {
+    if (launched) {
+      paused = !paused;
+      return;
+    }
+
+    if (!charging) {
+      charging = true;
+      charge = 0;
+    }
+  }
+});
+
+canvas.addEventListener("click", (event) => {
+  if (launched || charging) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const x = (event.clientX - rect.left) * (canvas.width / rect.width);
+  const y = (event.clientY - rect.top) * (canvas.height / rect.height);
+
+  if (x >= canvas.width / 2 - 90 && x <= canvas.width / 2 + 90 && y >= canvas.height * 0.76 && y <= canvas.height * 0.84) {
+    toggleSound();
+    return;
+  }
+
+  const leftCard = canvas.width / 2 - 120;
+  const rightCard = canvas.width / 2 + 120;
+
+  if (x >= leftCard && x <= rightCard && y >= canvas.height * 0.28 + 18 - 26 && y <= canvas.height * 0.28 + 18 + 26) {
+    selectedPayload = x < canvas.width / 2 ? "packet" : "data";
+  } else if (x < canvas.width / 2) {
+    selectedPayload = "packet";
+  } else {
+    selectedPayload = "data";
+  }
+});
+
+addEventListener("keyup", e => {
+  keys.delete(e.code);
+
+  if (e.code === "Space" && charging && !launched) {
+    charging = false;
+    launched = true;
+    const radians = angle * Math.PI / 180;
+    const speed = 5 + charge * 0.12;
+    player.x = cannon.x + 26;
+    player.y = cannon.y - 6;
+    player.vx = Math.cos(radians) * speed;
+    player.vy = -Math.sin(radians) * speed;
+    player.rotation = radians;
+    playLaunchPulse();
+    spawnLaunchBurst(player.x, player.y, radians);
+  }
+});
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+resetGame();
+loop();
+</script>
 </body>
-
 </html>
