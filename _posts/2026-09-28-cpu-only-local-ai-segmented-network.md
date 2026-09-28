@@ -3,108 +3,88 @@ layout: post
 title: "From Spare OptiPlex to HTTPS Local AI Service"
 date: 2026-09-28 10:47:00 -0400
 category: Systems & Networking
-description: "How I chose Debian 13, brought up Ollama and Open WebUI, and connected a management laptop to a CPU-only AI server through a segmented network."
+description: "My build notes on Debian 13, CPU-only Ollama, Open WebUI, and making the service reachable from a separate management network."
 ---
 
-I wanted to find out whether a spare mini desktop could make a useful local AI server before spending money on different hardware. The machine is a Dell OptiPlex with an **Intel Core i5, 32 GB RAM, a 256 GB SSD, and a 1 TB HDD**. It has no dedicated GPU, so model inference runs on the CPU.
+I had a Dell OptiPlex mini desktop and wanted to find out how useful it could be as a local AI server before considering different hardware. It has an **Intel Core i5, 32 GB of RAM, a 256 GB SSD, and a 1 TB HDD**. There is no dedicated GPU, so whatever model I chose would have to run on the CPU.
 
-The finished service combines **Debian 13**, **Ollama**, and **Open WebUI in Docker**. The interesting part was not just getting a model to respond. My management laptop is on a different network segment from the server. I wanted to open the UI from that laptop through **HTTPS**, using the server's **static IP address**, while keeping access controlled by the firewall.
+I ended up with **Debian 13**, **Ollama** for inference, and **Open WebUI in Docker** for the browser interface. Getting a model to answer locally was only the first part. I also wanted to open the UI from my management laptop, which is on a separate network segment, using the server's **static IP address over HTTPS**.
 
-This entry walks through the decisions and the order I used to isolate problems. I have sanitized the addresses and network identifiers.
+Here is how I approached the build and where the troubleshooting got interesting. I've left out my actual addresses and network identifiers.
 
-## 1. Choose an operating system for the job
+## Deciding what Linux to run
 
-Before installing the AI stack, I had to decide what the OptiPlex should run. I wanted a Linux server OS that would work well on the existing hardware, support Ollama and Docker, and be straightforward to administer from another device. A desktop environment was not a requirement: the goal was to host a service and reach its web interface remotely.
+I started with the operating system because it would affect everything after it: Docker support, how I would administer the machine, and how much of its CPU and memory would be left for inference. I did not need a full desktop on the server. I needed a dependable base that I could manage remotely and use to host services.
 
-I settled on **Debian 13** and installed it on the OptiPlex. The machine has a 256 GB SSD and a 1 TB HDD. After installation, I checked that the host booted, had network connectivity, and could be administered before adding the model runtime. This gave me a clean base for separating an operating-system or network issue from an application issue later.
+I chose **Debian 13** and installed it on the OptiPlex. Once it booted, I worked through the basics before adding AI software: network connectivity, the server address and gateway, and access to the machine for administration. I wanted a known working Linux host so that a later browser problem would not send me back to guessing whether the OS installation itself was sound.
 
-The decision was about fit, not a claim that I benchmarked multiple distributions. Debian 13 met the needs of this build.
+This was a practical choice for my setup, not a benchmark showing Debian outperforming other distributions.
 
-## 2. Establish a stable server address
+## Giving the server a consistent place on the network
 
-A service is difficult to use consistently if the destination changes. I assigned the OptiPlex a **static IP address on the server network**, then checked its address, subnet, gateway, and ability to reach the network services it needed. I also verified that the address would not conflict with another assignment.
-
-The static address became the destination for the management-to-server firewall policy and the browser connection. It did not, by itself, make the server reachable from the management network: those networks still needed a working routed path and an explicit policy.
-
-For troubleshooting, these are the kinds of checks I used at the Linux boundary:
+The OptiPlex is on my server network. I set it up with a **static IP address** so the destination would remain predictable for both my browser and the firewall rule I would need later. I checked its interface address, route, and gateway before I moved on.
 
 ```bash
-ip address          # Address on the active interface
-ip route            # Default gateway and route selection
-ss -lnt             # TCP ports listening on the host
+ip address
+ip route
 ```
 
-I am leaving the actual address and interface details out of the public post.
+Those checks became important when I tried to reach it from another segment. A service can work perfectly on the server and still be unreachable from a laptop if I am testing the wrong address, the route is missing, or the firewall policy does not match the traffic.
 
-## 3. Install Ollama and prove inference locally
+## Getting Ollama working before adding a browser
 
-I installed **Ollama** on Debian and tested it from the terminal before adding the browser UI. The first useful milestone was a model answering a prompt directly on the host. That proved the runtime and model worked without involving Docker, browser access, HTTPS, or inter-network routing.
+I installed Ollama on Debian, downloaded small models, and ran prompts directly from the terminal. That gave me a baseline: I knew the runtime could load a model and return an answer on this hardware before I introduced Docker or the network path from my laptop.
 
-The general installation and verification path is:
+I used commands such as these to inspect the local side:
 
 ```bash
-# Follow Ollama's current Linux installation instructions.
-ollama --version
 ollama list
 ollama run gemma3:1b
 ollama ps
 ```
 
-Ollama's [Linux installation guide](https://docs.ollama.com/linux) documents the current installer. The commands above show the verification path, rather than claiming an exact historical install command. I used `ollama ps` to confirm the loaded model was running on the **CPU**.
+`ollama ps` showed the model running on the **CPU**. I tried smaller and larger options with similar prompts while watching resource use and how long I actually waited for an answer. The larger models I tested ran, but the delay was noticeable. **Gemma 3 1B** felt much more responsive on this machine.
 
-I tried small models with similar prompts and watched CPU and memory use while they answered. Larger models could run, but their wait time was noticeable. **Gemma 3 1B** was much more responsive on this hardware. That was the point where I stopped treating “the model loads” as a useful performance verdict. The real question was whether the response quality and delay made it pleasant to use.
+That changed the question I was asking. “Can it load?” is a compatibility check. “Would I choose to use it regularly?” depends on the quality of the answer and the time it takes to get there.
 
-## 4. Add a browser interface with Docker
+## Adding Open WebUI
 
-Ollama's CLI proved the model worked, but I wanted a web interface I could open from my laptop. I installed Docker Engine on Debian 13 and ran **Open WebUI** as a container, with persistent application data. I then checked that the container was up, that its port was published on the host, and that the UI could connect to Ollama.
-
-The diagnostic sequence matters:
+The command line was useful for testing, but I wanted a browser interface. I installed Docker Engine and ran **Open WebUI** in a container with persistent data, then checked the container state and whether Open WebUI could see and use the Ollama models.
 
 ```bash
-docker ps                    # Container state and published host port
-docker logs <webui-container> # Startup or connection errors
-ollama list                  # Models available to the backend
+docker ps
+docker logs <webui-container>
+ollama list
 ```
 
-Open WebUI's [Docker quick start](https://docs.openwebui.com/getting-started/quick-start/) explains its image, persistent volume, and the host-to-container connection used when Ollama runs on the host. Docker's [Debian installation guide](https://docs.docker.com/engine/install/debian/) covers Docker Engine on Debian 13.
+The separation helped me troubleshoot. If Ollama answered in the terminal but no model appeared in Open WebUI, I would focus on the connection between the container and Ollama. Once the UI could send a prompt and get a response on the server side, I had a working application. Only then did I move to access from my laptop.
 
-I first validated the UI and model connection from the server side. If the interface loaded but did not list or run a model, I would investigate the **container-to-Ollama connection**. If the UI and model worked locally but the laptop could not open the page, the next focus was the **client-to-server path**. Keeping those tests separate saved time.
+The [Ollama Linux guide](https://docs.ollama.com/linux), [Docker's Debian guide](https://docs.docker.com/engine/install/debian/), and [Open WebUI's Docker quick start](https://docs.openwebui.com/getting-started/quick-start/) are useful references for the current installation commands. The commands above document my verification points; they are not a claim that I preserved every original installation command.
 
-## 5. Make the management laptop reach the server
+## Reaching it from my management laptop
 
-The OptiPlex sits on my **server network**. My laptop sits on a separate **management network**. When I moved the test from the server to the laptop, the UI being healthy did not guarantee that the laptop could reach it.
+This is where the project became more than “install a model on a mini PC.”
 
-I traced the traffic in this order:
+My laptop is on a **management network**; the OptiPlex is on a **server network**. Open WebUI running on the OptiPlex did not mean my laptop automatically had permission to reach it. I had to consider the entire path between the two devices.
 
-1. **Destination:** Was the laptop trying the OptiPlex's current static address and the intended service port?
-2. **Host listener:** Was the HTTPS endpoint or published web service listening on a reachable interface, rather than only on loopback?
-3. **Routing:** Did the management network have a path to the server network, and could return traffic get back?
-4. **Firewall policy:** Was there an allow rule with the correct source network, server destination, protocol and port, in the correct direction and order?
-5. **Client test:** Could I connect from the management laptop after the rule was in place?
+I checked the server's static address and the port I intended to use. I checked that the service was listening on the host, then looked at the route between the networks and the firewall policy controlling the connection. I created a rule allowing the required **management-to-server** traffic to the OptiPlex for the service, then tested again from the laptop.
 
-I created the needed **management-to-server firewall rule** for this service. The policy was scoped to the intended path instead of opening all server services to the management network. I then retested from the laptop, which is the client that had originally failed.
+The detail that matters in a rule like this is the match: **source, destination, protocol, port, direction, and rule order**. If one is wrong, the rule can exist and the connection can still fail. I wanted to permit access to the service I needed without making the entire server network broadly available.
 
-A browser error is a symptom, not a diagnosis. A timeout can point toward a path or policy problem; a refused TCP connection points me toward the host listener or port; a TLS warning means I got far enough to negotiate HTTPS. I used those different outcomes to decide which layer to inspect next.
+I learned to be more precise about what “it doesn't work” meant. If the laptop cannot establish a TCP connection, that points me toward the destination, listening port, route, or policy. If it connects but the browser reports a certificate problem, I have already made it through part of the network path. If the page loads but a prompt fails, I can return to Open WebUI and Ollama. Those are different failures, even though they can all begin as “I can't use the AI server.”
 
-## 6. Reach the interface over HTTPS
+## Putting HTTPS on the browser path
 
-I set up an **HTTPS endpoint** for Open WebUI and tested access from the management laptop in a browser using the server's **static IP address**. The complete request had to pass through the firewall, reach the HTTPS listener, and make it through to Open WebUI and Ollama.
+After working through reachability, I set up **HTTPS** for the web interface and opened it from my management laptop using the server's **static IP address**. I tested more than whether the page appeared: the browser had to reach the HTTPS endpoint, Open WebUI had to load, and a prompt had to make it through to Ollama and back.
 
-I checked each part separately:
+Connecting by IP also made the certificate worth checking carefully. For normal browser validation, a certificate has to identify the IP address being used, and the client has to trust its issuer. I treated any certificate warning separately from a routing or firewall failure.
 
-- Could the laptop establish a TCP connection to the HTTPS port at the static address?
-- Did the browser reach the expected TLS endpoint?
-- Did the certificate and the address used in the browser agree? When connecting by IP, the certificate must include that IP as a subject alternative name for normal browser validation.
-- Once the page loaded, could I actually submit a prompt and receive an answer?
+I have not included a proxy configuration or certificate issuance command here because I do not have those exact details recorded well enough to present them as my steps. I would rather document that part accurately in a follow-up than give someone a plausible procedure that is not the one I used.
 
-A working TLS connection does not prove the UI backend is healthy. A working Ollama prompt on the server does not prove the management laptop has a route or firewall permission. Testing the full path—**laptop → firewall → HTTPS → Open WebUI → Ollama → model**—was the final check.
+## What this build taught me
 
-I am not specifying the HTTPS termination software or how the certificate was issued here because I have not captured those implementation details accurately enough for a reproducible command-by-command guide. The endpoint and the network access are the verified parts of this build; I will add the certificate procedure when I document the actual configuration.
+The finished path is **management laptop → firewall and routed networks → HTTPS → Open WebUI → Ollama → CPU inference**. Each arrow represents a place where I could test something instead of changing the whole setup at once.
 
-## What I took away
+The OptiPlex has been useful for learning local AI without a GPU, and Gemma 3 1B gave me a better speed tradeoff than the larger models I tried. Just as valuable, the access issue made me work through Linux networking, Docker, a static server address, inter-network firewall rules, and HTTPS as one connected system.
 
-This started as a CPU-only model experiment and became a useful systems exercise. The hardware could run local inference, but a model that loads is not necessarily a model I want to wait on. Gemma 3 1B gave me a better responsiveness tradeoff than the larger models I tested.
-
-The access problem reinforced a repeatable troubleshooting method: prove one boundary at a time, from the local model through the container, host listener, routed network, firewall rule, TLS connection, and browser. When a test failed, I could inspect that boundary instead of changing several unrelated settings.
-
-Next I want to record repeatable prompt timings and a sanitized version of the exact HTTPS configuration. That will turn the operational notes into a more complete deployment guide.
+My next step is to record repeatable prompt timings and the exact HTTPS configuration in a sanitized follow-up. For now, the biggest lesson is the troubleshooting method: **prove what works locally, then move one boundary outward until you find where the request stops**.
