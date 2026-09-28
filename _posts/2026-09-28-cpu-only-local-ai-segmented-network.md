@@ -16,7 +16,7 @@ This entry walks through the decisions and the order I used to isolate problems.
 
 Before installing the AI stack, I had to decide what the OptiPlex should run. I wanted a Linux server OS that would work well on the existing hardware, support Ollama and Docker, and be straightforward to administer from another device. A desktop environment was not a requirement: the goal was to host a service and reach its web interface remotely.
 
-I settled on **Debian 13** and installed it on the OptiPlex. The 256 GB SSD holds the operating system and application environment; the machine also has a 1 TB HDD. After installation, I checked that the host booted, had network connectivity, and could be administered before adding the model runtime. This gave me a clean base for separating an operating-system or network issue from an application issue later.
+I settled on **Debian 13** and installed it on the OptiPlex. The machine has a 256 GB SSD and a 1 TB HDD. After installation, I checked that the host booted, had network connectivity, and could be administered before adding the model runtime. This gave me a clean base for separating an operating-system or network issue from an application issue later.
 
 The decision was about fit, not a claim that I benchmarked multiple distributions. Debian 13 met the needs of this build.
 
