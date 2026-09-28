@@ -1,0 +1,4 @@
+title: Shane Mykal Stark | Field Journal
+markdown: kramdown
+permalink: /journal/:year/:month/:day/:title/
+timezone: America/New_York
