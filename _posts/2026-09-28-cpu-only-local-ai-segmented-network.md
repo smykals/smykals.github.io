@@ -6,7 +6,7 @@ category: Systems & Networking
 description: "A Dell OptiPlex running Debian 13, Ollama, and Open WebUI became a practical exercise in model sizing, segmented network access, firewall policy, and HTTPS."
 ---
 
-I built a local AI server on a Dell OptiPlex mini desktop with an **Intel Core i5, 32 GB of RAM, a 256 GB SSD, and an additional HDD**, running **Debian 13**. It uses the CPU for inference, with no dedicated GPU. Ollama serves the models, and Open WebUI runs in Docker to provide the browser interface.
+I built a local AI server on a Dell OptiPlex mini desktop with an **Intel Core i5, 32 GB of RAM, a 256 GB SSD, and a 1 TB HDD**, running **Debian 13**. It uses the CPU for inference, with no dedicated GPU. Ollama serves the models, and Open WebUI runs in Docker to provide the browser interface.
 
 My initial question was practical: could a small machine I already had provide a useful local AI experience? The answer depended on more than whether a model could load. I also had to make the service accessible from my management laptop, which lives on a separate network segment, and provide an HTTPS browser endpoint.
 
@@ -16,7 +16,7 @@ This is a record of the build and the troubleshooting path. Network identifiers 
 
 | Component | Role |
 | --- | --- |
-| Dell OptiPlex mini desktop | Debian 13 host; Core i5, 32 GB RAM, 256 GB SSD, additional HDD; CPU inference |
+| Dell OptiPlex mini desktop | Debian 13 host; Core i5, 32 GB RAM, 256 GB SSD, 1 TB HDD; CPU inference |
 | Ollama | Local model runtime |
 | Open WebUI container | Browser interface to the local models |
 | Management laptop | Client on a separate management network |
