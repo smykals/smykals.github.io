@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a111b"><title>Packet Route — Network arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <main class="shell">
+  <header class="header"><a class="brand" href="./" aria-label="Packet Route home"><span class="brand-icon">⌘</span> PACKET<span>ROUTE</span><small>NETWORK ARCADE / 001</small></a><div class="header-right"><span class="live-dot"></span> LOCAL CONNECTION <button id="sound" class="icon-button" aria-label="Disable sound" aria-pressed="true">SOUND ON</button><button id="pause" class="icon-button" aria-label="Pause game">Ⅱ</button></div></header>
+  <section class="intro"><div><div class="eyebrow">KEEP THE TRAFFIC MOVING</div><h1>A clear path. A higher score.</h1><p>Match packets. Find your route. Beat the congestion.</p></div><div class="edition"><b id="level-label">LEVEL 01</b><span id="level-name">FIRST CONNECTION</span></div></section>
+  <div class="layout">
+   <aside class="left-panel">
+    <section class="panel score-panel"><div class="eyebrow">THROUGHPUT</div><div id="score" class="score">0</div><div class="score-caption">LEVEL SCORE</div><div class="best-row"><span>BEST LEVEL</span><strong id="best">0</strong></div></section>
+    <section class="panel telemetry"><div class="section-label"><span class="live-dot"></span> NETWORK STATUS</div><div class="status-line"><span id="status">Standing by</span><span id="pressure">0%</span></div><div class="meter"><i id="pressure-bar"></i></div><div class="stat-row"><span>Packets routed</span><strong id="delivered">0</strong></div><div class="stat-row"><span>Packets dropped</span><strong id="dropped">0</strong></div><div class="stat-row"><span>Routing streak</span><strong id="streak">—</strong></div><div class="stat-row"><span>Time online</span><strong id="time">00:00</strong></div><div class="pulse-chart" aria-hidden="true">▁ ▂ ▁ ▃ ▂ ▅ ▂ ▁ ▃ ▆ ▃ ▂ ▄ ▁ ▂ ▅ ▃ ▂</div></section>
+    <div class="side-note"><span>↗</span><p>A good route clears packets.<br>A great route drops the whole branch.</p></div>
+   </aside>
+   <section class="game-card" aria-label="Packet Route game">
+    <div class="board-header"><span><i class="live-dot"></i> ROUTING FABRIC</span><span id="board-state">READY TO CONNECT</span></div>
+    <div class="congestion-strip"><span>CONGESTION <b id="congestion-count">6 / 6</b></span><span id="congestion-dots" role="img" aria-label="6 unsuccessful shots until incoming traffic">● ● ● ● ● ●</span><small id="advance-count">8 SHOTS TO ADVANCE</small></div><div class="canvas-wrap"><canvas id="game" width="640" height="760" tabindex="0" aria-label="Packet field. Aim with mouse or arrow keys. Click or press space to launch."></canvas>
+     <div id="overlay" class="overlay"><div class="overlay-icon">⌘</div><div id="overlay-kicker" class="eyebrow">YOUR NETWORK. YOUR HIGH SCORE.</div><h2 id="overlay-title">Make the connection.</h2><p id="overlay-copy">Route 3 or more matching packets to clear them.<br>Keep the network from reaching saturation.</p><div id="result" class="result" hidden></div><button id="play" class="primary-button">CONNECT & PLAY <span>↗</span></button><small id="overlay-help">AIM WITH YOUR MOUSE · CLICK TO LAUNCH</small></div>
+    </div>
+    <div class="launcher-queue"><div class="queue-slot"><small>CURRENT</small><span id="loaded-packet" class="queue-chip">HTTPS</span></div><span class="swap-arrow" aria-hidden="true">&#8646;</span><button id="swap" class="queue-slot" disabled title="Swap packets (X)"><small>UP NEXT</small><span id="queued-packet" class="queue-chip">DNS</span></button><span id="queue-status">CLICK NEXT OR PRESS X TO SWAP</span></div>
+    <div class="board-footer"><span><kbd>←</kbd> <kbd>→</kbd> AIM <kbd>SPACE</kbd> FIRE</span><span><kbd>P</kbd> PAUSE</span></div>
+   </section>
+   <aside class="right-panel">
+    <section class="panel queue-panel"><div class="eyebrow">UP NEXT</div><div id="next-packet" class="packet-preview"><span>DNS</span></div><div id="next-name">Name service</div><small>Plan your next connection.</small></section>
+    <section class="panel"><div class="section-label">TRAFFIC DIRECTORY</div><div class="traffic"><i style="--color:#45d5d0">H</i><div>HTTPS<small>Web traffic</small></div><span>01</span></div><div class="traffic"><i style="--color:#b995ff">D</i><div>DNS<small>Name service</small></div><span>02</span></div><div class="traffic"><i style="--color:#ffbb66">V</i><div>VoIP<small>Voice traffic</small></div><span>03</span></div><div class="traffic"><i style="--color:#fa799d">M</i><div>MGMT<small>Management</small></div><span>04</span></div><div class="traffic"><i style="--color:#80b6ff">S</i><div>STORE<small>Storage · level 3+</small></div><span>05</span></div><div class="traffic"><i style="--color:#b4de74">▶</i><div>STREAM<small>Media · level 5+</small></div><span>06</span></div></section>
+    <section class="how-to"><div class="section-label">THE ROUTING RULES</div><p><b>01</b> Connect <strong>3 of a kind.</strong></p><p><b>02</b> Bounce off walls for an angle.</p><p><b>03</b> Drop loose groups for a bonus.</p><p><b>04</b> Stay above the saturation line.</p></section>
+   </aside>
+  </div>
+  <footer class="page-footer"><span>BUILT FOR THE FLOW.</span><span>No networking knowledge required. Just a good aim.</span><span>PACKET ROUTE <em>v0.1</em></span></footer>
+ </main>
+ <div id="announcement" class="sr-only" aria-live="polite"></div>
+ <script src="core.js"></script><script src="levels.js"></script><script src="engine.js"></script><script src="renderer.js"></script><script src="sound.js"></script><script src="ui.js"></script>
+</body>
+</html>
+
+
+
+
