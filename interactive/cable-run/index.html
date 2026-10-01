@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cable Run</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Title Screen -->
+    <div id="title-screen" class="modal-screen active">
+      <div class="modal-center">
+        <div class="title-logo">
+          <p class="logo-accent">Infrastructure operations / 24:7</p>
+          <h1>Cable Run</h1>
+          <p class="logo-subtitle">Deep in the server room. One connection at a time.</p>
+        </div>
+        <p id="campaign-progress" class="campaign-progress"></p>
+        <div class="title-buttons">
+          <button type="button" class="menu-btn sound-toggle" aria-pressed="true">Sound: On</button>
+          <button id="btn-play" type="button" class="primary-btn">Play</button>
+          <button id="btn-select-level" type="button" class="secondary-btn">Level Select</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level Select Screen -->
+    <div id="level-select-screen" class="modal-screen">
+      <div class="modal-center">
+        <h2>Level Select</h2>
+        <p>Endless random mazes. Restart to retry the same layout.</p>
+        <div id="level-grid" class="level-grid"></div>
+        <div class="level-pages">
+          <button id="btn-prev-page" type="button" class="secondary-btn">Previous 50</button>
+          <span id="level-page-label" aria-live="polite"></span>
+          <button id="btn-next-page" type="button" class="secondary-btn">Next 50</button>
+        </div>
+        <button id="btn-back-levels" type="button" class="secondary-btn">Back</button>
+      </div>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pause-menu" class="modal-screen">
+      <div class="modal-center">
+        <h2>Paused</h2>
+        <div class="pause-buttons">
+          <button type="button" class="menu-btn sound-toggle" aria-pressed="true">Sound: On</button>
+          <button id="btn-resume" type="button" class="primary-btn">Resume</button>
+          <button id="btn-restart-game" type="button" class="secondary-btn">Restart Level</button>
+          <button id="btn-level-select-pause" type="button" class="secondary-btn">Level Select</button>
+          <button id="btn-title" type="button" class="secondary-btn">Title Screen</button>
+        </div>
+      </div>
+    </div>
+
+    <dialog id="connection-dialog" aria-labelledby="connection-heading">
+      <h2 id="connection-heading">Connection Made</h2>
+      <div id="result-stars" class="result-stars" aria-label="Stars earned"></div>
+      <p id="result-summary"></p>
+      <p id="result-efficiency"></p>
+      <p id="result-tip"></p>
+      <p id="result-record"></p>
+      <div class="connection-actions">
+        <button id="btn-connection-restart" type="button" class="secondary-btn">Restart</button>
+        <button id="btn-connection-next" type="button" class="primary-btn">Next Level</button>
+        <button id="btn-result-title" type="button" class="secondary-btn">Title Screen</button>
+      </div>
+    </dialog>
+
+    <!-- Main Game -->
+    <main id="game-container" class="game-shell" style="display: none;">
+      <header class="hud">
+        <div>
+          <p class="eyebrow">Network operations / Cable routing</p>
+          <h1>Cable Run</h1>
+        </div>
+        <div class="status-panel">
+          <div><span class="label">Score</span><strong id="score-label">0</strong></div>
+          <div><span class="label">Packets</span><strong id="packets-label">0 / 0</strong></div>
+          <div id="media-readout" class="media-readout" data-medium="copper"><span class="label">Cable</span><strong id="media-label">Copper</strong><span id="media-trait">Fast reel | surge-sensitive</span></div>
+          <div id="bend-readout" class="bend-readout" hidden><span class="label">Bend risk</span><strong id="bend-risk">0 / 5</strong></div>
+          <div>
+            <span class="label">Level</span>
+            <strong id="level-label">1</strong>
+            <span id="difficulty-label" class="label">Easy</span>
+          </div>
+          <div>
+            <span class="label">Moves</span>
+            <strong id="length-label">0</strong>
+          </div>
+          <div>
+            <span class="label">Integrity</span>
+            <strong id="integrity-label" aria-live="polite">3 / 3</strong>
+          </div>
+          <div>
+            <span class="label">Repellent</span>
+            <strong id="repellent-label">Inactive</strong>
+          </div>
+          <div>
+            <span class="label">Status</span>
+            <strong id="status-label">Ready</strong>
+          </div>
+        </div>
+        <div class="hud-actions"><button type="button" class="menu-btn sound-toggle" aria-pressed="true">Sound: On</button>
+        <button id="pause-button" type="button" class="menu-btn">Menu</button></div>
+      </header>
+
+      <section class="game-board-panel">
+        <div class="room-header"><span><i class="status-led"></i> SERVER ROOM</span><span>LABYRINTH / LOCAL SCAN</span></div>
+        <div class="board-scene">
+          <div id="board" class="board" aria-label="Server room cable routing floor plan"></div>
+          <div id="rat-layer" aria-hidden="true"></div>
+          <div id="reward-toast" role="status"></div>
+        </div>
+        <div class="room-legend" aria-label="Floor plan legend">
+          <span><i class="legend-switch"></i>Switch</span>
+          <span><i class="legend-device"></i>Exit port</span>
+          <span><i class="legend-rack"></i>Rack / blocked</span>
+          <span><i class="legend-cable"></i>Installed cable</span>
+        </div>
+        <div class="touch-controls" role="group" aria-label="Directional movement">
+          <span></span><button type="button" data-dx="0" data-dy="-1" aria-label="Move up">&#9650;</button><span></span>
+          <button type="button" data-dx="-1" data-dy="0" aria-label="Move left">&#9664;</button><button type="button" data-dx="0" data-dy="1" aria-label="Move down">&#9660;</button><button type="button" data-dx="1" data-dy="0" aria-label="Move right">&#9654;</button>
+        </div>
+      </section>
+
+      <aside class="controls-panel">
+        <div class="objective-box">
+          <h2>Work order</h2>
+          <p id="objective-text">Connect your cable to the visible orange exit port by exploring the hidden aisles.</p>
+        </div>
+
+        <div class="objective-box"><h2>Bonus star goals</h2><p id="star-goals"></p><p id="star-goal-note"></p></div>
+
+        <div class="instructions">
+          <h2>Controls</h2>
+          <ul>
+            <li><strong>Move:</strong> Arrow keys or WASD</li>
+            <li><strong>Click:</strong> Click an adjacent tile to move there</li>
+            <li><strong>Reel cable:</strong> Use Reel Cable or press R. Copper reels two tiles; Fiber reels one.</li>
+            <li><strong>Pause:</strong> Press Escape or Menu button</li>
+            <li>Run cable from the green switch to the orange exit.</li>
+            <li>Explore lit aisles; discovered rooms stay dimly visible.</li>
+          </ul>
+          <details class="system-guide">
+            <summary>Room systems</summary>
+            <ul>
+              <li>Data packets score points; quick pickups build a streak. Packet routes open from room 2.</li>
+              <li>Rats begin in room 3. A flashing rat is chewing exposed cable; reel in that segment within 2 seconds.</li>
+              <li>Repellent protects from rats for 8 seconds from room 4. Surge panels appear in room 5: cyan is safe, amber warns, red damages cable.</li>
+              <li>Patrol rats join in room 7; ambushers join in room 11.</li>
+              <li>Drill unlocks in room 12. Conduit unlocks in room 14.</li>
+              <li>Copper is vulnerable on warning or active surge panels. Fiber ignores surges; the meter warns at 4 bends in 8 steps and damages integrity at 5.</li>
+              <li>Collect 60% of packets, protect full integrity, or finish within 125% of the shortest route for bonus stars.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="booster-buttons">
+          <button id="reel-button" type="button" class="secondary">Reel Cable (R)</button>
+          <button id="booster-drill" type="button" aria-pressed="false">Drill (F): 2</button>
+          <button id="booster-conduit" type="button" aria-pressed="false">Conduit (C): 2</button>
+        </div>
+        <div class="button-row">
+          <button id="restart-button" type="button">Restart</button>
+          <button id="next-button" type="button" class="secondary">Next Level</button>
+        </div>
+      </aside>
+        <footer class="site-credit">Created &amp; Developed by <span>[ smykals // games ]</span></footer>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
