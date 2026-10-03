@@ -15,17 +15,16 @@
     <style>
 
         :root {
-            --silver: #F4F7FA;
-            --green: #20D9FF;
-            --red: #FF2438;
-            --blue: #0A98FF;
-            --dark: #050A10;
+            --silver: #C0C0C0;
+            --green: #39D353;
+            --blue: #1A73E8;
+            --dark: #0B1220;
 
-            --border: rgba(244, 247, 250, 0.18);
-            --silver-soft: rgba(244, 247, 250, 0.72);
-            --silver-faint: rgba(244, 247, 250, 0.08);
-            --green-soft: rgba(32, 217, 255, 0.10);
-            --blue-soft: rgba(10, 152, 255, 0.10);
+            --border: rgba(192, 192, 192, 0.18);
+            --silver-soft: rgba(192, 192, 192, 0.72);
+            --silver-faint: rgba(192, 192, 192, 0.08);
+            --green-soft: rgba(57, 211, 83, 0.10);
+            --blue-soft: rgba(26, 115, 232, 0.10);
         }
 
         * {
@@ -44,12 +43,12 @@
             background:
                 radial-gradient(
                     circle at 82% 10%,
-                    rgba(10, 152, 255, 0.12),
+                    rgba(26, 115, 232, 0.12),
                     transparent 28%
                 ),
                 radial-gradient(
                     circle at 8% 60%,
-                    rgba(32, 217, 255, 0.07),
+                    rgba(57, 211, 83, 0.07),
                     transparent 26%
                 ),
                 var(--dark);
@@ -68,12 +67,12 @@
 
             background-image:
                 linear-gradient(
-                    rgba(244, 247, 250, 0.018) 1px,
+                    rgba(192, 192, 192, 0.018) 1px,
                     transparent 1px
                 ),
                 linear-gradient(
                     90deg,
-                    rgba(244, 247, 250, 0.018) 1px,
+                    rgba(192, 192, 192, 0.018) 1px,
                     transparent 1px
                 );
 
@@ -100,7 +99,7 @@
             top: 0;
             z-index: 1000;
 
-            background: rgba(5, 10, 16, 0.94);
+            background: rgba(11, 18, 32, 0.94);
             backdrop-filter: blur(14px);
 
             border-bottom: 1px solid var(--border);
@@ -203,7 +202,7 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(10, 152, 255, .18),
+                    rgba(26, 115, 232, .18),
                     transparent 66%
                 );
 
@@ -226,7 +225,7 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(32, 217, 255, .10),
+                    rgba(57, 211, 83, .10),
                     transparent 66%
                 );
 
@@ -369,19 +368,19 @@
             color: var(--dark);
 
             box-shadow:
-                0 0 22px rgba(32, 217, 255, .18);
+                0 0 22px rgba(57, 211, 83, .18);
         }
 
         .button-primary:hover {
             box-shadow:
-                0 0 30px rgba(32, 217, 255, .32);
+                0 0 30px rgba(57, 211, 83, .32);
         }
 
         .button-secondary {
             color: var(--silver);
 
             border:
-                1px solid rgba(10, 152, 255, .75);
+                1px solid rgba(26, 115, 232, .75);
 
             background: var(--blue-soft);
         }
@@ -390,7 +389,7 @@
             border-color: var(--blue);
 
             box-shadow:
-                0 0 24px rgba(10, 152, 255, .18);
+                0 0 24px rgba(26, 115, 232, .18);
         }
 
 
@@ -420,8 +419,8 @@
                 linear-gradient(
                     90deg,
                     transparent,
-                    rgba(32, 217, 255, .25),
-                    rgba(10, 152, 255, .25),
+                    rgba(57, 211, 83, .25),
+                    rgba(26, 115, 232, .25),
                     transparent
                 );
         }
@@ -536,7 +535,7 @@
             background:
                 linear-gradient(
                     180deg,
-                    rgba(244, 247, 250, .02),
+                    rgba(192, 192, 192, .02),
                     transparent
                 ),
                 var(--dark);
@@ -553,11 +552,11 @@
             transform: translateY(-4px);
 
             border-color:
-                rgba(10, 152, 255, .45);
+                rgba(26, 115, 232, .45);
 
             box-shadow:
                 0 16px 38px
-                rgba(10, 152, 255, .10);
+                rgba(26, 115, 232, .10);
         }
 
         .skill-card::before {
@@ -620,10 +619,10 @@
             border-radius: 5px;
 
             border:
-                1px solid rgba(244, 247, 250, .13);
+                1px solid rgba(192, 192, 192, .13);
 
             background:
-                rgba(244, 247, 250, .025);
+                rgba(192, 192, 192, .025);
 
             color: var(--silver);
 
@@ -664,7 +663,7 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(10, 152, 255, .06),
+                    rgba(26, 115, 232, .06),
                     transparent 48%
                 ),
                 var(--dark);
@@ -681,11 +680,11 @@
             transform: translateY(-5px);
 
             border-color:
-                rgba(10, 152, 255, .45);
+                rgba(26, 115, 232, .45);
 
             box-shadow:
                 0 18px 40px
-                rgba(10, 152, 255, .10);
+                rgba(26, 115, 232, .10);
         }
 
         .project-card::after {
@@ -788,7 +787,7 @@
             border-radius: 11px;
 
             background:
-                rgba(5, 10, 16, .82);
+                rgba(11, 18, 32, .82);
         }
 
         .experience-meta {
@@ -833,8 +832,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(32, 217, 255, .04),
-                    rgba(10, 152, 255, .07)
+                    rgba(57, 211, 83, .04),
+                    rgba(26, 115, 232, .07)
                 ),
                 var(--dark);
         }
@@ -887,13 +886,13 @@
             border-radius: 14px;
 
             border:
-                1px solid rgba(10, 152, 255, .35);
+                1px solid rgba(26, 115, 232, .35);
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(32, 217, 255, .04),
-                    rgba(10, 152, 255, .07)
+                    rgba(57, 211, 83, .04),
+                    rgba(26, 115, 232, .07)
                 ),
                 var(--dark);
         }
@@ -949,7 +948,7 @@
                 1px solid var(--border);
 
             background:
-                rgba(5, 10, 16, .94);
+                rgba(11, 18, 32, .94);
         }
 
         .footer-content {
@@ -1027,21 +1026,6 @@
 
         }
 
-    
-        /* PROTO.LAB palette: blue glow, cyan signal, red hardware accents */
-        .project-status { color: var(--red); }
-        .project-card:nth-child(even)::after {
-            background: linear-gradient(90deg, var(--blue), var(--red));
-        }
-        .experience-company { color: var(--blue); }
-        .button-primary {
-            background: linear-gradient(90deg, var(--blue), var(--green));
-            color: #02070c;
-        }
-        .eyebrow::before, .accent-line, .skill-card::before,
-        .learning-box::before, .contact-box::before {
-            background: linear-gradient(90deg, var(--blue), var(--green));
-        }
     </style>
 </head>
 
@@ -1711,33 +1695,336 @@
             </a>
 
 
-            <!-- INTERACTIVE PROJECTS -->
+            <!-- PACKET LAUNCHER GAME -->
 
             <a
-                href="interactive/"
+                href="packet-game.html"
                 class="project-card"
             >
 
                 <div class="project-status">
-                    Creative Technical Work
+                    Interactive Project
                 </div>
 
                 <h3>
-                    Interactive Projects
+                    Packet Launcher
                 </h3>
 
                 <p>
-                    A collection of browser-based games and interactive
-                    experiments where I explore programming, UI design,
-                    game mechanics, testing, and creative problem-solving.
+
+                    I developed this networking-inspired browser game
+                    with AI-assisted coding. I directed its concept,
+                    gameplay, visual design, testing, and revisions:
+                    launch a packet or data toward its destination
+                    while network-themed elements alter its path.
+
                 </p>
 
                 <div class="project-tech">
-                    Games • Interactive Experiences • Prototypes • Experiments
+
+                    Interactive Game • Networking Theme •
+                    Browser-Based Physics
+
                 </div>
 
                 <div class="project-link">
-                    Explore Interactive Projects →
+                    Play Packet Launcher →
                 </div>
 
             </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="section" id="journal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="section-label">Field Journal</div>
+            <h2>From project overview to working notes.</h2>
+            <p>Technical notes on the systems I build, the issues I troubleshoot, the evidence I follow, and what I learn along the way.</p>
+            <p style="margin-top: 20px;"><a href="/journal/" style="color: var(--green); font-weight: 700;">Read the Field Journal →</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section class="section" id="experience">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Professional Experience
+            </div>
+
+            <h2>
+                Technical experience with a pattern of leadership.
+            </h2>
+
+            <p>
+
+                My career has developed through increasingly
+                complex technical environments and repeated
+                opportunities to take on greater responsibility,
+                solve difficult problems, and develop other
+                technical professionals.
+
+            </p>
+
+        </div>
+
+
+        <div class="experience-list">
+
+
+            <div class="experience-card">
+
+                <div class="experience-meta">
+                    Current
+                </div>
+
+                <div>
+
+                    <h3>
+                        IT Engineer – Field Services
+                    </h3>
+
+                    <div class="experience-company">
+                        Manufacturing IT
+                    </div>
+
+                    <p>
+
+                        Supporting technology in a manufacturing
+                        environment with exposure to enterprise
+                        infrastructure, end-user systems, IT/OT
+                        operations, troubleshooting, vendor
+                        coordination, hardware lifecycle, and
+                        production-focused technical support.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="experience-card">
+
+                <div class="experience-meta">
+                    Previous
+                </div>
+
+                <div>
+
+                    <h3>
+                        Regional Field Supervisor & Network Specialist
+                    </h3>
+
+                    <div class="experience-company">
+                        Enterprise / Higher Education Technology
+                    </div>
+
+                    <p>
+
+                        Progressed from technical network and field
+                        services responsibilities into regional
+                        leadership, supporting distributed
+                        environments while leading, developing,
+                        training, and coordinating technical teams.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="experience-card">
+
+                <div class="experience-meta">
+                    Previous
+                </div>
+
+                <div>
+
+                    <h3>
+                        Technical Specialist & Team Trainer
+                    </h3>
+
+                    <div class="experience-company">
+                        Field Technology Services
+                    </div>
+
+                    <p>
+
+                        Combined hands-on field troubleshooting
+                        and technical service delivery with
+                        training, coaching, and development
+                        responsibilities, continuing an early
+                        pattern of progressing into leadership.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTINUOUS LEARNING
+========================================================= -->
+
+<section class="section" id="learning">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Continuous Learning
+            </div>
+
+            <h2>
+                The lab doesn't stop when the workday ends.
+            </h2>
+
+            <p>
+                Technical growth is an ongoing part of how I
+                approach my career.
+            </p>
+
+        </div>
+
+
+        <div class="learning-box">
+
+            <h3>
+                Building deeper technical capability.
+            </h3>
+
+            <p>
+
+                I believe technical growth requires more than
+                reading documentation or collecting
+                certifications. I learn by building,
+                configuring, breaking, troubleshooting, and
+                understanding systems firsthand.
+
+                My current development is focused on networking,
+                CCNA concepts, virtualization, Linux,
+                infrastructure, troubleshooting, security,
+                and eventually network and infrastructure
+                automation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2>
+                Let's connect.
+            </h2>
+
+            <p>
+
+                Interested in discussing IT infrastructure,
+                technical operations, field engineering,
+                technical leadership, or another challenging
+                technology problem? Feel free to reach out.
+
+            </p>
+
+            <a
+                href="mailto:shanemykalstark@gmail.com"
+                class="button button-primary"
+            >
+                Email Me
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+                © 2026 Shane Mykal Stark
+            </div>
+
+            <div class="footer-links">
+
+                <a href="mailto:shanemykalstark@gmail.com">
+                    Email
+                </a>
+
+                <a href="#top">
+                    Back to Top
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
