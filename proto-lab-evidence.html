@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PROTO.LAB Technical Evidence | Shane Mykal Stark</title><meta name="description" content="Sanitized personal-lab firewall, VPN DNS, remote access, and virtualization capacity evidence with verification context."><style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --green-soft: rgba(57, 211, 83, 0.10);
+      --blue-soft: rgba(26, 115, 232, 0.12);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 5%,
+          rgba(26, 115, 232, 0.10),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 18, 32, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    header {
+      padding: 90px 0 65px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+
+      color: var(--white);
+
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 760px;
+
+      color: var(--muted);
+
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 55px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+
+      color: var(--white);
+
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--white);
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      color: var(--silver);
+
+      background: var(--blue-soft);
+
+      border: 1px solid rgba(26, 115, 232, 0.30);
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.78rem;
+    }
+
+    .architecture {
+      margin-top: 28px;
+      padding: 30px;
+
+      background: #070c14;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow-x: auto;
+    }
+
+    pre {
+      margin: 0;
+
+      color: var(--silver);
+
+      font-family: "Courier New", monospace;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .blue {
+      color: var(--blue);
+    }
+
+    .objective-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+
+      margin-top: 28px;
+    }
+
+    .objective {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: var(--muted);
+    }
+
+    .objective strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color: var(--white);
+    }
+
+    .objective strong::before {
+      content: "> ";
+
+      color: var(--green);
+
+      font-family: monospace;
+    }
+
+    .note {
+      margin: 28px 0;
+      padding: 22px;
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.22);
+      border-left: 3px solid var(--green);
+
+      border-radius: 0 10px 10px 0;
+
+      color: var(--silver);
+    }
+
+    .workflow {
+      margin-top: 25px;
+      padding: 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 10px 0;
+
+      color: var(--silver);
+    }
+
+    .step-number {
+      min-width: 34px;
+      height: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.25);
+      border-radius: 50%;
+
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    ul {
+      color: var(--muted);
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .next-button {
+      display: inline-flex;
+
+      margin-top: 25px;
+      padding: 12px 18px;
+
+      background: var(--blue);
+
+      color: white;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .objective-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+    }
+  
+    .case-figure{margin:28px 0 0}.case-figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}.case-figure figcaption{margin-top:12px;color:var(--muted);font-size:.9rem}
+    .troubleshooting-case{padding:26px;background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:20px 0}.troubleshooting-case h3{margin:0 0 18px;color:var(--white);font-size:1.3rem}.troubleshooting-case dl{display:grid;grid-template-columns:110px 1fr;gap:12px 18px;margin:0}.troubleshooting-case dt{color:var(--green);font-weight:bold}.troubleshooting-case dd{margin:0;color:var(--muted)}code{color:#dde8f4;background:#070c14;padding:3px 6px;border-radius:4px;overflow-wrap:anywhere}.concept-figure{max-width:750px;margin-left:auto;margin-right:auto}
+    @media(max-width:600px){.troubleshooting-case{padding:20px}.troubleshooting-case dl{grid-template-columns:1fr;gap:6px}.troubleshooting-case dd{margin-bottom:12px}}
+  .learning-loop{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.learning-loop span{padding:8px 12px;background:var(--panel);border:1px solid var(--border);border-radius:6px;color:var(--white)}.learning-questions{color:var(--muted);padding-left:22px}.learning-questions li{margin:14px 0}
+
+.evidence-index {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:24px 0 36px}.evidence-index a {padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:.9rem}
+.evidence-entry {padding:28px;border:1px solid var(--border);border-radius:12px;background:var(--panel);margin:0 0 24px;scroll-margin-top:90px}.evidence-entry h2 {font-size:clamp(1.3rem,3vw,1.8rem)}.evidence-label {color:#70baff;font-size:.8rem;letter-spacing:.04em;margin-bottom:12px}.evidence-entry dt {color:var(--white);font-weight:700;margin-top:20px}.evidence-entry dd {margin:6px 0 0}.evidence-caption {font-size:.85rem;color:var(--muted)}.framework {padding:28px;border-left:3px solid #ef4444;background:var(--panel);margin:36px 0}.framework h2 {font-size:1.6rem}.framework-path {color:#70baff;font-weight:700}.evidence-entry a {color:#70baff}a:focus-visible {outline:2px solid #00bdec;outline-offset:5px}@media(max-width:600px){.evidence-index{grid-template-columns:1fr}.evidence-entry{padding:20px}}
+
+.scenario-disclosure{margin:32px 0;border:1px solid var(--border);border-radius:12px;padding:20px}.scenario-disclosure summary{cursor:pointer;color:var(--white);font-weight:700}.scenario-disclosure summary:focus-visible{outline:2px solid #00bdec;outline-offset:4px}.scenario-disclosure[open] summary{margin-bottom:24px}
+
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#080f1a;padding:20px;border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:#a4dcf7}.case-figure img{max-width:100%;height:auto}.artifact-links{display:flex;flex-wrap:wrap;gap:14px}.artifact-links a{color:#70baff}.evidence-entry{scroll-margin-top:90px}
+
+.verification-summary{padding:24px;border:1px solid var(--border);border-radius:12px;background:var(--panel);margin-bottom:28px}.verification-summary h2{font-size:1.5rem}.verification-summary li{margin-bottom:12px}
+</style></head><body><nav><div class="container nav-inner"><a class="brand" href="index.html">SMYKALS<span>.</span></a><a class="back-link" href="technical-evidence.html">&larr; Technical evidence</a></div></nav><header><div class="container"><h1>PROTO.LAB technical evidence.</h1><p class="intro">Personal-lab investigations with the evidence collected, my technical reasoning, changes made, and verification results.</p><div class="note">These records come from my independent lab. Terminal excerpts are sanitized transcriptions from the supplied document; screenshots are original personal-lab images. No employer systems are shown.</div></div></header><main><section><div class="container"><div class="verification-summary"><h2>What was verified</h2><ul><li><strong>Firewall:</strong> The Proxmox GUI became reachable from the authorized management path after the scoped policy change.</li><li><strong>DNS:</strong> Client queries appeared in AdGuard Home, and filtering was confirmed for the tested queries.</li><li><strong>Remote access:</strong> An RDP session was successfully established through the private administrative path.</li><li><strong>Memory:</strong> Guest and host utilization were observed. This is a capacity investigation, with no documented post-change performance result.</li></ul><p class="evidence-caption">Incident and screenshot capture dates are not recorded in the supplied evidence document. These cases are presented by topic, without an inferred chronology.</p></div><div class="evidence-index"><a href="#firewall-policy">Firewall policy denial</a><a href="#vpn-dns">VPN DNS bypass</a><a href="#remote-access">Remote access validation</a><a href="#memory-capacity">Memory capacity evidence</a></div><article class="evidence-entry" id="firewall-policy"><div class="evidence-label">01 / Personal-lab incident / Application access verified</div><h2>Inter-zone Proxmox GUI failure</h2><p><strong>Environment:</strong> FortiGate, managed switching, Proxmox VE, and a segmented OT learning lab.</p><dl><dt>Problem</dt><dd>A trusted management endpoint could reach the virtualization host at the network layer, but could not open the Proxmox web interface.</dd><dt>My investigation</dt><dd>I confirmed that pveproxy was listening on TCP/8006 and examined firewall flow debugging. The firewall received the connection and found a route to the OT zone, but rejected the session at the forward-policy check.</dd></dl><pre><code>Sanitized transcript excerpt
+received packet: TCP [management endpoint]:[ephemeral] -&gt; [OT virtualization host]:8006
+find a route: destination reachable via OT zone
+Denied by forward policy check (policy 0)
+Destination service check: *:8006 LISTEN pveproxy</code></pre><dl><dt>Reasoning</dt><dd>A listening service and an available route narrowed the failure domain to policy enforcement. The flow trace identified where the connection stopped.</dd><dt>Root cause and my change</dt><dd>The administrative path lacked an explicit inter-zone permit policy. I added a narrowly scoped rule for the required management traffic, with internal NAT disabled.</dd><dt>Verification</dt><dd>The Proxmox GUI became reachable from the authorized management path after the change. This checked application access rather than relying only on ICMP.</dd><dt>Result context</dt><dd>This validates the tested administrative path. It does not establish that all segmentation policies or OT process integrations have been tested.</dd></dl></article>
+<article class="evidence-entry" id="vpn-dns"><div class="evidence-label">02 / Personal-lab incident / DNS filtering verified</div><h2>VPN DNS filtering bypass</h2><p><strong>Environment:</strong> Ubuntu VPN host, WireGuard, AdGuard Home, Unbound, and a Windows client.</p><dl><dt>Problem</dt><dd>The VPN tunnel worked, but DNS-based filtering was not being applied to the remote client.</dd><dt>My investigation</dt><dd>I captured DNS traffic on the VPN interface. Queries were traversing the tunnel, but were addressed to a different resolver instead of the filtering DNS service.</dd></dl><pre><code>Sanitized transcript excerpt
+$ sudo tcpdump -ni wg0 'host [VPN client] and port 53'
+Client connected? YES
+VPN passing DNS? YES
+DNS queries present? YES
+Going to AdGuard? NO
+Observed destination: external resolver
+Expected destination: VPN filtering DNS service</code></pre><dl><dt>Reasoning</dt><dd>The capture separated tunnel transport from resolver selection. DNS traffic existed on the tunnel, so the investigation focused on where the queries were sent.</dd><dt>Root cause and my change</dt><dd>The client DNS setting pointed to the wrong resolver. I changed the VPN client configuration to use AdGuard Home on the VPN host.</dd><dt>Verification</dt><dd>Subsequent queries appeared in AdGuard Home. The query log and blocked-domain results confirmed filtering for the tested queries.</dd><dt>Result context</dt><dd>This confirms the tested DNS path and filtering behavior; it is not a claim that all clients or alternate DNS methods were assessed.</dd></dl></article>
+<article class="evidence-entry" id="remote-access"><div class="evidence-label">03 / Personal-lab implementation / Remote session verified</div><h2>Remote administrative access path</h2><p><strong>Environment:</strong> Dedicated Linux VPN host, Tailscale, a Windows jump-host VM, and Proxmox VE.</p><dl><dt>Objective and my implementation</dt><dd>I established a private remote-administration path through the VPN boundary and Windows jump host, avoiding direct public exposure of hypervisor and management interfaces.</dd></dl><pre><code>Sanitized logical path
+Remote trusted endpoint
+  → Private overlay VPN
+  → Dedicated VPN host
+  → Windows jump host (RDP)
+  → Authorized management resources
+
+Separate recovery path:
+VPN → Hypervisor console → Jump-host console</code></pre><dl><dt>Verification</dt><dd>I configured Remote Desktop on the Windows host, confirmed TCP/3389 was listening, and successfully established a remote session through the private access path.</dd><dt>Result context</dt><dd>The record validates an RDP session through the administrative path. The separate recovery route is documented as an architectural path; a completed recovery drill is not recorded.</dd></dl></article>
+<article class="evidence-entry" id="memory-capacity"><div class="evidence-label">04 / Personal-lab investigation / Capacity decision</div><h2>Virtualization capacity investigation</h2><p><strong>Environment:</strong> Proxmox VE with Windows 11 and Linux guests on a memory-constrained host.</p><dl><dt>Problem</dt><dd>The Windows jump-host VM showed high memory utilization while sharing a host with other workloads.</dd><dt>Evidence</dt><dd>The VM summary recorded 99.92% memory utilization with 6.00 GiB assigned. A later host view showed approximately 89.5% host memory utilization while Windows and Linux guests were present.</dd></dl><figure class="case-figure"><a href="assets/images/proto-vm-memory.png"><img src="assets/images/proto-vm-memory.png" alt="Proxmox Windows VM summary showing 99.92 percent memory utilization with 6 GiB assigned." width="677" height="570" loading="lazy"></a><figcaption>Personal-lab VM summary. A point-in-time reading, not a time-series measurement.</figcaption></figure><figure class="case-figure"><a href="assets/images/proto-host-memory.png"><img src="assets/images/proto-host-memory.png" alt="Proxmox host resource view showing approximately 89.5 percent host memory utilization alongside Windows and Linux guests." width="1085" height="141" loading="lazy"></a><figcaption>Later host-level view. The readings are from different moments and should not be treated as one synchronized measurement.</figcaption></figure><dl><dt>My analysis and design decision</dt><dd>I reviewed guest allocation and ballooning against total host capacity. Increasing guest allocation could move the bottleneck to the host, so I treated host memory as the limiting resource and considered headroom for the hypervisor and other workloads.</dd><dt>Result context</dt><dd>The evidence supports a capacity investigation and design decision. No final allocation, post-change utilization, performance improvement, or long-term stability result is recorded.</dd></dl></article><div class="framework"><h2>What this demonstrates</h2><p>Separate service availability, routing, policy, and application behavior. Make the smallest justified change, then verify at the layer where the original problem occurred.</p><p class="framework-path">Scope → Impact → Evidence → Isolate → Restore → Root cause → Prevent</p></div><p class="artifact-links"><a href="network-lab.html#artifacts">Network lab artifacts &rarr;</a><a href="virtualization-lab.html#artifacts">Infrastructure lab artifacts &rarr;</a></p></div></section></main><footer><div class="container">&copy; 2026 Shane Mykal Stark</div></footer></body></html>

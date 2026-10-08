@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Enterprise Network Lab | Shane Mykal Stark</title>
+  <title>Network Segmentation &amp; Connectivity Lab | Shane Mykal Stark</title>
 
   <meta
     name="description"
@@ -383,7 +383,8 @@
         padding-top: 65px;
       }
     }
-  </style>
+  .network-cover{margin:30px 0 0}.network-cover img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:12px}.network-cover figcaption{margin-top:12px;font-size:.9rem;color:var(--muted)}
+</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
 <script>
@@ -419,64 +420,33 @@
 
         <span class="status-dot"></span>
 
-        Project 01 / Networking
+        Flagship Case Study / Independent Network Lab
 
       </div>
 
       <h1>
-        Enterprise Network Lab
+        Network Segmentation &amp; Connectivity Lab
       </h1>
 
-      <p class="intro">
+      <p class="intro">A physical Cisco and FortiGate lab focused on how traffic moves between network segments: switching, trunking, routing, firewall policy, network services, and validation.</p>
 
-        A hands-on infrastructure environment built to develop,
-        test, and document enterprise networking concepts including
-        switching, segmentation, routing, firewalling, virtualization
-        integration, secure management, and structured troubleshooting.
-
-      </p>
-
-    </div>
+    <figure class="network-cover"><img src="assets/images/network-segmentation-cover.png" alt="Concept artwork for the network segmentation lab, with Cisco switching, Fortinet firewalling, and example network zones." width="1367" height="450"><figcaption>Concept illustration. Its example VLAN numbers, OT/VPN zones, and checklist are illustrative. The documented topology and implementation status are described below.</figcaption></figure></div>
 
   </header>
 
 
-  <main>
+  <main><section id="artifacts"><div class="container"><h2>Contribution and supporting artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
 
 
-    <section>
 
-      <div class="container">
-
-        <div class="section-label">
-          01 / Overview
-        </div>
-
-        <h2>
-          A working multi-layer network lab.
-        </h2>
-
-        <p>
-
-          This lab recreates core elements of an enterprise network in a
-          controlled environment using physical Cisco switching, Fortinet
-          firewalling, virtualization, and segmented network design.
-
-        </p>
-
-        <p>
-
-          The environment is actively used to configure and validate switching,
-          routing, VLANs, firewall policies, management access, network services,
-          virtualization connectivity, and troubleshooting workflows.
-
-        </p>
-
-      </div>
-
-    </section>
-
-
+    <section><div class="container">
+      <div class="section-label">01 / Context &amp; Role</div>
+      <h2>Build a network I can operate and explain.</h2>
+      <p>The goal was to create a controlled environment for practicing enterprise networking beyond isolated configuration exercises: physical switching, firewalling, network services, and virtual workloads working together.</p>
+      <p><strong>My role:</strong> I configured the Cisco switches and FortiGate firewall, created functional network segments, validated connected endpoints, and documented the logical architecture and troubleshooting approach.</p>
+      <p><strong>Scope:</strong> An independent learning lab using a FortiGate 60E, Cisco Catalyst 3560 and 2960 switches. This case study describes lab implementation; it does not claim a production deployment or business performance improvement.</p>
+      <div class="note"><strong>Documented outcome:</strong> The existing lab record reports working VLAN segmentation, trunking, selected inter-VLAN routing, SSH management, DHCP/DNS, and endpoint connectivity. OSPF exercises remain in progress.</div>
+    </div></section>
     <section>
 
       <div class="container">
@@ -496,12 +466,6 @@
           <span class="tag">Cisco Catalyst 3560</span>
 
           <span class="tag">Cisco Catalyst 2960</span>
-
-          <span class="tag">Proxmox</span>
-
-          <span class="tag">Linux</span>
-
-          <span class="tag">Windows</span>
 
           <span class="tag">VLANs</span>
 
@@ -544,39 +508,7 @@
 
         </p>
 
-        <div class="architecture">
-
-<pre>
-                       INTERNET
-                          |
-                          |
-                   +---------------+
-                   |  FORTIGATE    |
-                   | Routing / FW  |
-                   +-------+-------+
-                           |
-                           |
-                     802.1Q Trunk
-                           |
-                   +-------+-------+
-                   | CISCO SWITCH  |
-                   |  L2 / L3      |
-                   +-------+-------+
-                           |
-          +----------------+----------------+
-          |                |                |
-          |                |                |
-     MANAGEMENT         SERVERS          CLIENTS
-          |                |                |
-     Cisco Devices      Proxmox          Test Systems
-     SSH Access         Virtualization    Endpoints
-                           |
-                     +-----+-----+
-                     |           |
-                   Linux       Windows
-</pre>
-
-        </div>
+        <figure style="margin:28px 0 0"><img src="assets/images/network-topology.svg" alt="Logical lab topology: FortiGate and Cisco switching connect management, server, and client segments; server and client endpoints connect to their assigned segments." style="display:block;width:100%;height:auto"><figcaption style="margin-top:12px;color:var(--muted);font-size:.9rem">Logical topology of the independent lab. Connections show functional relationships, with live addressing and management details omitted.</figcaption></figure>
 
 
         <div class="note">
@@ -595,6 +527,16 @@
     </section>
 
 
+
+    <section><div class="container">
+      <div class="section-label">Design decisions</div><h2>Separate functions. Trace dependencies.</h2>
+      <div class="status-grid">
+        <div class="status-card"><strong>Functional segmentation</strong>Management, servers, and clients occupy distinct segments, giving the lab a structure for exploring routing and traffic control.</div>
+        <div class="status-card"><strong>Traffic-path validation</strong>Connected endpoints provide a way to check VLAN placement, gateway reachability, network services, and firewall behavior.</div>
+        <div class="status-card"><strong>Dedicated administration</strong>A management network and SSH access provide a defined path for administering infrastructure.</div>
+        <div class="status-card"><strong>Incremental implementation</strong>Working capabilities are separated from in-progress and planned exercises so the project communicates its actual scope.</div>
+      </div>
+    </div></section>
     <section>
 
       <div class="container">
@@ -761,34 +703,10 @@
           </div>
 
 
-          <div class="status-card">
-
-            <span class="badge implemented">
-              IMPLEMENTED
-            </span>
-
-            <strong>
-              Proxmox Integration
-            </strong>
-
-            Proxmox infrastructure connected to the segmented network.
-
-          </div>
+          
 
 
-          <div class="status-card">
-
-            <span class="badge implemented">
-              IMPLEMENTED
-            </span>
-
-            <strong>
-              VM VLAN Connectivity
-            </strong>
-
-            Virtual machines connected to defined VLAN segments and validated.
-
-          </div>
+          
 
 
         </div>
@@ -829,20 +747,7 @@
           </div>
 
 
-          <div class="status-card">
-
-            <span class="badge progress">
-              IN PROGRESS
-            </span>
-
-            <strong>
-              VPN / Remote Access
-            </strong>
-
-            Developing secure remote access into the lab without exposing
-            management interfaces directly to the internet.
-
-          </div>
+          
 
 
           <div class="status-card">
@@ -945,12 +850,12 @@
         </div>
 
         <h2>
-          Follow the path, not the assumption.
+          Trace the failure through the network.
         </h2>
 
         <p>
 
-          Troubleshooting starts by establishing what should be happening,
+          The workflow below describes my troubleshooting approach rather than a specific resolved incident. Troubleshooting starts by establishing what should be happening,
           identifying where actual behavior diverges from that expectation,
           and then narrowing the problem using device state and traffic-path
           evidence.
@@ -1082,7 +987,7 @@
     </section>
 
 
-  </main>
+<section><div class="container"><div class="section-label">Connected workloads</div><h2>The network supports the services.</h2><p>This page covers traffic paths and network controls. The infrastructure case study documents the separate hosts providing jump access, storage, VPN, and local AI.</p><a class="next-button" href="virtualization-lab.html">Explore workload placement &amp; administration &rarr;</a></div></section>  </main>
 
 
   <footer>

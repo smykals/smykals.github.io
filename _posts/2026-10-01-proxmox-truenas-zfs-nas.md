@@ -110,14 +110,14 @@ Only after those checks does it make sense to return to the application itself.
 
 The most important result of this project is the troubleshooting sequence I ended up using:
 
-1. **Physical hardware** — Is the disk, NIC, or device present and healthy?
-2. **Hypervisor** — Does Proxmox see the hardware and present it correctly?
-3. **Virtual machine** — Does TrueNAS see what Proxmox is giving it?
-4. **Storage** — Is the ZFS pool healthy and behaving as expected?
-5. **Application** — Is the service running and configured correctly?
-6. **Network** — Is there a valid path between the client and server?
-7. **Security policy** — Does the firewall permit that specific path?
-8. **Client** — Can the user or device actually consume the service?
+1. **Physical hardware**: Is the disk, NIC, or device present and healthy?
+2. **Hypervisor**: Does Proxmox see the hardware and present it correctly?
+3. **Virtual machine**: Does TrueNAS see what Proxmox is giving it?
+4. **Storage**: Is the ZFS pool healthy and behaving as expected?
+5. **Application**: Is the service running and configured correctly?
+6. **Network**: Is there a valid path between the client and server?
+7. **Security policy**: Does the firewall permit that specific path?
+8. **Client**: Can the user or device actually consume the service?
 
 The important part is not the exact order in every situation. It is the discipline of **proving one layer before moving to the next**.
 

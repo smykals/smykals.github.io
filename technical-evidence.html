@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Technical Evidence | Shane Mykal Stark</title><meta name="description" content="An anonymized infrastructure incident, technical scenarios, and Shane Mykal Stark's approach to fault isolation, restoration, and operational decisions."><style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --green-soft: rgba(57, 211, 83, 0.10);
+      --blue-soft: rgba(26, 115, 232, 0.12);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 5%,
+          rgba(26, 115, 232, 0.10),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 18, 32, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    header {
+      padding: 90px 0 65px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+
+      color: var(--white);
+
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 760px;
+
+      color: var(--muted);
+
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 55px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+
+      color: var(--white);
+
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--white);
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      color: var(--silver);
+
+      background: var(--blue-soft);
+
+      border: 1px solid rgba(26, 115, 232, 0.30);
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.78rem;
+    }
+
+    .architecture {
+      margin-top: 28px;
+      padding: 30px;
+
+      background: #070c14;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow-x: auto;
+    }
+
+    pre {
+      margin: 0;
+
+      color: var(--silver);
+
+      font-family: "Courier New", monospace;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .blue {
+      color: var(--blue);
+    }
+
+    .objective-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+
+      margin-top: 28px;
+    }
+
+    .objective {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: var(--muted);
+    }
+
+    .objective strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color: var(--white);
+    }
+
+    .objective strong::before {
+      content: "> ";
+
+      color: var(--green);
+
+      font-family: monospace;
+    }
+
+    .note {
+      margin: 28px 0;
+      padding: 22px;
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.22);
+      border-left: 3px solid var(--green);
+
+      border-radius: 0 10px 10px 0;
+
+      color: var(--silver);
+    }
+
+    .workflow {
+      margin-top: 25px;
+      padding: 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 10px 0;
+
+      color: var(--silver);
+    }
+
+    .step-number {
+      min-width: 34px;
+      height: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.25);
+      border-radius: 50%;
+
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    ul {
+      color: var(--muted);
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .next-button {
+      display: inline-flex;
+
+      margin-top: 25px;
+      padding: 12px 18px;
+
+      background: var(--blue);
+
+      color: white;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .objective-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+    }
+  
+    .case-figure{margin:28px 0 0}.case-figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}.case-figure figcaption{margin-top:12px;color:var(--muted);font-size:.9rem}
+    .troubleshooting-case{padding:26px;background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:20px 0}.troubleshooting-case h3{margin:0 0 18px;color:var(--white);font-size:1.3rem}.troubleshooting-case dl{display:grid;grid-template-columns:110px 1fr;gap:12px 18px;margin:0}.troubleshooting-case dt{color:var(--green);font-weight:bold}.troubleshooting-case dd{margin:0;color:var(--muted)}code{color:#dde8f4;background:#070c14;padding:3px 6px;border-radius:4px;overflow-wrap:anywhere}.concept-figure{max-width:750px;margin-left:auto;margin-right:auto}
+    @media(max-width:600px){.troubleshooting-case{padding:20px}.troubleshooting-case dl{grid-template-columns:1fr;gap:6px}.troubleshooting-case dd{margin-bottom:12px}}
+  .learning-loop{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.learning-loop span{padding:8px 12px;background:var(--panel);border:1px solid var(--border);border-radius:6px;color:var(--white)}.learning-questions{color:var(--muted);padding-left:22px}.learning-questions li{margin:14px 0}
+
+.evidence-index {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:24px 0 36px}.evidence-index a {padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:.9rem}
+.evidence-entry {padding:28px;border:1px solid var(--border);border-radius:12px;background:var(--panel);margin:0 0 24px;scroll-margin-top:90px}.evidence-entry h2 {font-size:clamp(1.3rem,3vw,1.8rem)}.evidence-label {color:#70baff;font-size:.8rem;letter-spacing:.04em;margin-bottom:12px}.evidence-entry dt {color:var(--white);font-weight:700;margin-top:20px}.evidence-entry dd {margin:6px 0 0}.evidence-caption {font-size:.85rem;color:var(--muted)}.framework {padding:28px;border-left:3px solid #ef4444;background:var(--panel);margin:36px 0}.framework h2 {font-size:1.6rem}.framework-path {color:#70baff;font-weight:700}.evidence-entry a {color:#70baff}a:focus-visible {outline:2px solid #00bdec;outline-offset:5px}@media(max-width:600px){.evidence-index{grid-template-columns:1fr}.evidence-entry{padding:20px}}
+
+.scenario-disclosure{margin:32px 0;border:1px solid var(--border);border-radius:12px;padding:20px}.scenario-disclosure summary{cursor:pointer;color:var(--white);font-weight:700}.scenario-disclosure summary:focus-visible{outline:2px solid #00bdec;outline-offset:4px}.scenario-disclosure[open] summary{margin-bottom:24px}
+</style></head><body><nav><div class="container nav-inner"><a class="brand" href="index.html">SMYKALS<span>.</span></a><a class="back-link" href="index.html#projects">&larr; Portfolio</a></div></nav><header><div class="container"><h1>Technical evidence.</h1><p class="intro">How I approach infrastructure problems: scope the impact, isolate the failure, restore service, determine root cause, and reduce the chance of recurrence.</p><div class="note"><strong>How to read this page:</strong> Start with the real incident and documented lab fixes below. My working approach follows. Five hypothetical scenarios are available in a separate expandable section; they describe reasoning rather than completed work.</div></div></header><main><section><div class="container"><div class="evidence-index" aria-label="Evidence groups"><a href="#completed-work">Real incidents &amp; completed lab fixes</a><a href="#working-method">My working approach</a><a href="#scenario-library">Optional: hypothetical scenarios</a><a href="green-belt-case-study.html#measured-outcome">Measured professional improvement</a></div><h2 id="completed-work">Real incidents and completed lab fixes</h2><p>Work performed and outcomes reported, with the limits of the available records.</p><article class="evidence-entry" id="proto-lab"><div class="evidence-label">Sanitized personal-lab evidence / Verified access and filtering</div><h2>PROTO.LAB: inspect the technical artifacts</h2><p>Firewall flow debugging, a VPN DNS capture, remote-session validation, and original VM and host memory screenshots.</p><p><a class="next-button" href="proto-lab-evidence.html">Inspect PROTO.LAB artifacts and verified outcomes &rarr;</a></p></article><article class="evidence-entry" id="fiber-failure"><div class="evidence-label">Real-world infrastructure incident</div><h2>Building-to-building fiber failure</h2><dl>
+<dt>Impact</dt><dd>Intermittent connectivity affected infrastructure between buildings.</dd>
+<dt>My investigation</dt><dd>I scoped the affected area, compared the impacted systems for common dependencies, isolated network segments, and ruled out endpoints and switching where appropriate. This narrowed the failure domain to the physical network path.</dd>
+<dt>Finding</dt><dd>The fiber connection was identified as the failure point. The available account does not specify the diagnostic readings or test equipment used to confirm it.</dd>
+<dt>Restoration</dt><dd>A temporary Ethernet connection restored connectivity while the permanent fiber repair was coordinated. My documented contribution is the impact assessment and fault isolation; installation and repair ownership are not specified.</dd>
+<dt>Observed outcome and limits</dt><dd>Connectivity was restored through the temporary path. The account does not record the recovery checks, monitoring duration, downtime, or completion of the permanent repair.</dd>
+<dt>Technical judgment</dt><dd>Narrow the failure domain before changing configurations, restore service through a workable temporary path, and distinguish restoration from permanent resolution.</dd>
+</dl></article><article class="evidence-entry" id="vm-build-fixes"><div class="evidence-label">Documented independent lab work</div><h2>VM storage and installation-media faults</h2><dl><dt>My contribution</dt><dd>I built the Proxmox guests, investigated missing Windows Setup disks, loaded the Windows 11 VirtIO SCSI driver, and corrected the incompatible Void Linux installation image.</dd><dt>Observed outcomes</dt><dd>The Windows disk appeared after loading the driver. Switching from the Asahi image to the x86_64 glibc base image resulted in a working Void Linux VM.</dd><dt>Result context</dt><dd>These are installation and boot outcomes recorded in the October 3, 2026 lab journal. They do not establish long-term stability or production readiness.</dd></dl><p><a href="virtualization-lab.html#documented-troubleshooting">Read the symptom, fix, and verification record &rarr;</a></p><p><a href="/journal/2026/10/03/two-vms-troubleshooting-the-stack/">Read the source build journal &rarr;</a></p></article><h2 id="working-method">My working approach</h2><p>Methods and professional boundaries, rather than additional completed incident claims.</p><article class="evidence-entry" id="recurring-failure"><div class="evidence-label">07 / Working methodology</div><h2>Recurring failure and root cause analysis</h2><dl><dt>My approach</dt><dd>Restoring service does not necessarily resolve the underlying problem. For recurring incidents, I look for patterns in timing, affected equipment, network paths, environmental conditions, configuration changes, vendor activity, logs, and previous tickets.</dd><dt>Investigation sequence</dt><dd>Symptom → Evidence → Common dependency → Root cause → Corrective action → Validation → Documentation</dd><dt>What this demonstrates</dt><dd>Troubleshooting discipline, documentation, reliability improvement, and a Green Belt approach to recurring problems.</dd></dl><p><a href="green-belt-case-study.html">Related measured work: label-printing support improvement &rarr;</a></p></article><article class="evidence-entry" id="technical-boundaries"><div class="evidence-label">08 / Working approach and professional boundaries</div><h2>Troubleshooting technology outside my specialty</h2><dl><dt>Context</dt><dd>Site IT touches PLCs, controls systems, production applications, specialized equipment, vendor systems, and industrial platforms. IT is not always the subject-matter expert for the equipment itself.</dd><dt>My contribution</dt><dd>I can establish whether an endpoint has link, validate addressing, test the network path, inspect VLAN, routing, and firewall behavior, determine whether other devices are affected, identify where communication stops, and collect evidence.</dd><dt>Escalation boundary</dt><dd>When the issue crosses into control logic or a vendor-specific domain, I bring in Controls or the vendor with the findings. Infrastructure troubleshooting does not imply PLC programming expertise.</dd><dt>What this demonstrates</dt><dd>Technical ownership, useful escalation, and a clear understanding of the limits of my specialty.</dd></dl></article><details class="scenario-disclosure" id="scenario-library"><summary>Explore hypothetical scenarios (5)</summary><h2 id="hypothetical-scenarios">Hypothetical scenarios</h2><p>These entries explain how I would approach a problem. No execution, outcome, or validation is claimed.</p><article class="evidence-entry" id="plc-or-network"><div class="evidence-label">02 / Technical scenario</div><h2>Production line down: PLC or network?</h2><dl><dt>Scenario</dt><dd>One production line is down while the rest of the facility remains operational. Maintenance suspects the PLC, Controls suspects the network, and a contractor recently worked in the affected area.</dd><dt>How I would investigate</dt><dd>I would establish the failure timeline, determine which devices and communications are affected, identify their common network path, inspect the area where work occurred, and test connectivity from both sides of the suspected boundary.</dd><dt>Decision discipline</dt><dd>Recent physical work makes damaged fiber, Ethernet, power, or another physical dependency a hypothesis to test. It does not establish the cause.</dd><dt>What this illustrates</dt><dd>IT/OT fault isolation, production support, evidence-led diagnosis, and cross-functional communication.</dd></dl></article><article class="evidence-entry" id="vlan-connectivity"><div class="evidence-label">03 / Technical scenario informed by network-support experience</div><h2>VLAN and network connectivity failure</h2><dl><dt>Scenario</dt><dd>A group of systems loses access while other areas continue operating normally.</dd><dt>How I would investigate</dt><dd>I would determine whether the affected systems share a switch, VLAN, subnet, uplink, gateway, DHCP scope, DNS dependency, firewall path, or application dependency.</dd><dt>Path to isolate</dt><dd>Endpoint → Access port → VLAN → Trunk → Switching → Gateway → Firewall/routing → Destination</dd><dt>Decision discipline</dt><dd>Each test should eliminate part of the path. I would use the findings to guide the next test rather than change configurations until something works.</dd><dt>What this illustrates</dt><dd>Cisco switching, VLANs, 802.1Q, routing, DHCP/DNS, firewall troubleshooting, and change discipline.</dd></dl></article><article class="evidence-entry" id="security-availability"><div class="evidence-label">04 / Technical and leadership scenario</div><h2>IT security and OT availability</h2><dl><dt>Scenario</dt><dd>A security requirement calls for a change to an OT-connected system, while Operations or Controls identifies potential production risk.</dd><dt>How I would evaluate it</dt><dd>I would understand the vulnerability and actual exposure, then assess operational dependencies, vendor support requirements, maintenance windows, rollback capability, and consequences of failure.</dd><dt>Controlled response</dt><dd>If immediate remediation cannot be performed safely, I would evaluate segmentation, access restrictions, monitoring, or isolation as compensating controls while developing a controlled remediation plan with the responsible teams.</dd><dt>What this illustrates</dt><dd>Risk assessment, OT security thinking, stakeholder coordination, segmentation, and balancing security with availability.</dd></dl></article><article class="evidence-entry" id="production-outage"><div class="evidence-label">05 / Technical scenario informed by production-support experience</div><h2>Major production outage</h2><dl><dt>Scenario</dt><dd>Several production-impacting problems are reported simultaneously.</dd><dt>Prioritization</dt><dd>Safety → Production impact → Scope → Business impact → Workaround availability</dd><dt>How I would coordinate</dt><dd>I would establish incident ownership, identify symptoms that might share a dependency, assign parallel investigation where possible, and keep Operations informed while troubleshooting continues.</dd><dt>Restoration and follow-through</dt><dd>Restore service safely, then investigate the cause and the actions needed to prevent recurrence.</dd><dt>What this illustrates</dt><dd>Incident management, escalation, prioritization, communication, and technical leadership.</dd></dl></article><article class="evidence-entry" id="emergency-change"><div class="evidence-label">06 / Technical scenario</div><h2>Emergency change or wait?</h2><dl><dt>Scenario</dt><dd>A production-impacting issue has a possible infrastructure fix that would require a change outside the normal maintenance window.</dd><dt>Decision question</dt><dd>Is the risk of changing it now lower than the risk of leaving production in its current state?</dd><dt>How I would evaluate it</dt><dd>I would assess impact, confidence in the diagnosis, dependencies, rollback capability, available subject-matter experts, operational approval, and whether a temporary workaround could safely bridge the gap until a maintenance window.</dd><dt>What this illustrates</dt><dd>Risk-based change decisions, rollback planning, production awareness, and operational judgment.</dd></dl></article></details><div class="framework"><h2>My troubleshooting framework</h2><p class="framework-path">Scope → Impact → Evidence → Isolate → Restore → Root cause → Prevent</p><p>I start with what I can prove, narrow the failure domain, restore service safely, and then determine what needs to change so the same problem does not become tomorrow's outage.</p></div><p><a href="virtualization-lab.html#documented-troubleshooting">Inspect documented VM troubleshooting &rarr;</a></p><a class="next-button" href="index.html#experience">Return to professional experience &rarr;</a></div></section></main><footer><div class="container">&copy; 2026 Shane Mykal Stark</div></footer></body></html>

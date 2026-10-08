@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OT Network Learning Environment | Shane Mykal Stark</title>
+
+  <meta
+    name="description"
+    content="An in-development OT lab: simulated asset sorting, PLC/HMI/SCADA concepts, historian data, and IT/OT boundary learning with Fortinet, Cisco, and Proxmox."
+  >
+
+  <style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --green-soft: rgba(57, 211, 83, 0.10);
+      --blue-soft: rgba(26, 115, 232, 0.12);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 5%,
+          rgba(26, 115, 232, 0.10),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 18, 32, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    header {
+      padding: 90px 0 65px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+
+      color: var(--white);
+
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 760px;
+
+      color: var(--muted);
+
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 55px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+
+      color: var(--white);
+
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--white);
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      color: var(--silver);
+
+      background: var(--blue-soft);
+
+      border: 1px solid rgba(26, 115, 232, 0.30);
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.78rem;
+    }
+
+    .architecture {
+      margin-top: 28px;
+      padding: 30px;
+
+      background: #070c14;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow-x: auto;
+    }
+
+    pre {
+      margin: 0;
+
+      color: var(--silver);
+
+      font-family: "Courier New", monospace;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .blue {
+      color: var(--blue);
+    }
+
+    .objective-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+
+      margin-top: 28px;
+    }
+
+    .objective {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: var(--muted);
+    }
+
+    .objective strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color: var(--white);
+    }
+
+    .objective strong::before {
+      content: "> ";
+
+      color: var(--green);
+
+      font-family: monospace;
+    }
+
+    .note {
+      margin: 28px 0;
+      padding: 22px;
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.22);
+      border-left: 3px solid var(--green);
+
+      border-radius: 0 10px 10px 0;
+
+      color: var(--silver);
+    }
+
+    .workflow {
+      margin-top: 25px;
+      padding: 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 10px 0;
+
+      color: var(--silver);
+    }
+
+    .step-number {
+      min-width: 34px;
+      height: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.25);
+      border-radius: 50%;
+
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    ul {
+      color: var(--muted);
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .next-button {
+      display: inline-flex;
+
+      margin-top: 25px;
+      padding: 12px 18px;
+
+      background: var(--blue);
+
+      color: white;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .objective-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+    }
+  
+    .case-figure{margin:28px 0 0}.case-figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}.case-figure figcaption{margin-top:12px;color:var(--muted);font-size:.9rem}
+    .troubleshooting-case{padding:26px;background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:20px 0}.troubleshooting-case h3{margin:0 0 18px;color:var(--white);font-size:1.3rem}.troubleshooting-case dl{display:grid;grid-template-columns:110px 1fr;gap:12px 18px;margin:0}.troubleshooting-case dt{color:var(--green);font-weight:bold}.troubleshooting-case dd{margin:0;color:var(--muted)}code{color:#dde8f4;background:#070c14;padding:3px 6px;border-radius:4px;overflow-wrap:anywhere}.concept-figure{max-width:750px;margin-left:auto;margin-right:auto}
+    @media(max-width:600px){.troubleshooting-case{padding:20px}.troubleshooting-case dl{grid-template-columns:1fr;gap:6px}.troubleshooting-case dd{margin-bottom:12px}}
+  .learning-loop{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.learning-loop span{padding:8px 12px;background:var(--panel);border:1px solid var(--border);border-radius:6px;color:var(--white)}.learning-questions{color:var(--muted);padding-left:22px}.learning-questions li{margin:14px 0}
+</style>
+</head>
+
+<body><nav><div class="container nav-inner"><a class="brand" href="index.html">SMYKALS<span>.</span></a><a class="back-link" href="index.html#projects">&larr; Portfolio</a></div></nav><header><div class="container"><div class="status"><span class="status-dot"></span>In Development / Independent OT Learning Project</div><h1>The homelab is getting a factory floor.</h1><p class="intro">A dedicated OT environment alongside my existing IT lab, starting with a simulated automated asset-sorting line. The focus is how industrial systems work together and what happens at the IT/OT boundary.</p><figure class="case-figure"><img src="assets/images/ot-factory-floor.png" alt="Concept illustration showing an IT homelab connected through a Fortinet boundary to a simulated factory environment." width="1374" height="1145"><figcaption>Concept artwork for the intended learning environment. It does not show installed industrial hardware or verified production capabilities.</figcaption></figure></div></header><main><section id="artifacts"><div class="container"><h2>Contribution and supporting artifacts</h2><p>I am designing and building the learning environment. The sorting process, control-system integrations, and failure tests are planned; no completed process validation is claimed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect a completed lab management-access policy investigation &rarr;</a></li><li><a href="assets/images/it-ot-learning-concept.png">Open the planned IT/OT concept illustration</a></li><li><a href="technical-evidence.html#plc-or-network">Read the hypothetical production-line scenario</a></li></ul></div></section><section><div class="container"><div class="section-label">01 / Motivation &amp; Role</div><h2>Bring the manufacturing questions into the lab.</h2><p>I work in manufacturing, where IT and OT cross my path every day. I want to understand more than the individual roles of a PLC, HMI, or SCADA system: how they work together, where IT fits, and how dependencies affect the process.</p><p><strong>My role:</strong> I am designing and building the dedicated OT learning environment, with Proxmox providing virtualization, Cisco switching underneath it, and Fortinet at the IT/OT boundary.</p><div class="note"><strong>Status:</strong> In development. The architecture and process below describe the intended learning scope. Completed integrations, exercises, and validation results will be documented as the build progresses.</div></div></section><section><div class="container"><div class="section-label">02 / Learning Architecture</div><h2>Two environments, a deliberate boundary.</h2><p>The existing homelab provides the IT environment. The developing OT side provides the simulated factory. The boundary between them is the central area of investigation.</p><figure class="case-figure"><img src="assets/images/it-ot-learning-concept.png" alt="Planned IT and OT learning concept with a firewall boundary and simulated industrial control and sorting components." width="1374" height="1145" loading="lazy"><figcaption>Planning illustration. Example hostnames, VLAN numbers, MES, monitoring, and other pictured services are conceptual and are not a verified inventory or completed configuration.</figcaption></figure><div class="objective-grid"><div class="objective"><strong>IT environment</strong>Existing infrastructure for administration, storage, remote access, and local AI. Its host layout is documented separately.</div><div class="objective"><strong>IT/OT boundary</strong>Fortinet provides the boundary for exploring which communication is necessary and how it should be controlled.</div><div class="objective"><strong>OT virtualization</strong>Proxmox provides the virtualization for the learning environment, with Cisco switching supporting connectivity.</div><div class="objective"><strong>Industrial architecture study</strong>Explore concepts used in Rockwell Automation and Siemens environments. Specific vendor software and hardware implementations are not yet documented.</div></div></div></section><section><div class="container"><div class="section-label">03 / First Planned Process</div><h2>Simulate an automated asset-sorting line.</h2><p>The first scenario is an asset-sorting process with sensing, control, operator interaction, visibility, and recorded process history.</p><div class="objective-grid"><div class="objective"><strong>Sensors</strong>Detect assets entering the simulated process.</div><div class="objective"><strong>PLC logic</strong>Make control decisions based on the process inputs.</div><div class="objective"><strong>Actuators</strong>Respond to control decisions and route the assets.</div><div class="objective"><strong>HMI</strong>Show process state and provide the operator interface.</div><div class="objective"><strong>SCADA</strong>Provide process visibility across the simulated environment.</div><div class="objective"><strong>Historian</strong>Record what happened for later review.</div></div></div></section><section><div class="container"><div class="section-label">04 / Questions to Test</div><h2>Explore the boundary, not just the happy path.</h2><ul class="learning-questions"><li>What communication needs to cross between IT and OT, and what should remain separate?</li><li>What happens to the simulated process when communication fails?</li><li>Can the factory-side simulation continue without IT services or Internet connectivity?</li><li>How can remote access be provided without unnecessarily exposing the control network?</li><li>How can security controls protect the environment while preserving the process it supports?</li></ul><p>These are planned investigations, rather than claims of tested resilience or completed security controls.</p></div></section><section><div class="container"><div class="section-label">05 / Build Method</div><h2>Keep the learning loop visible.</h2><div class="learning-loop" aria-label="Learning process"><span>Plan</span><span>Build</span><span>Test</span><span>Break</span><span>Troubleshoot</span><span>Learn</span><span>Improve</span><span>Repeat</span></div><p>The lab gives me a place to investigate manufacturing technology without a production line depending on the experiment. Future records will describe each scenario, the expected behavior, observed evidence, changes made, and results.</p><p><a href="network-lab.html">Network segmentation and connectivity work &rarr;</a></p><p><a href="virtualization-lab.html">Existing IT infrastructure and workload placement &rarr;</a></p><a class="next-button" href="index.html#projects">&larr; Return to projects</a></div></section></main><footer><div class="container">&copy; 2026 Shane Mykal Stark</div></footer></body></html>

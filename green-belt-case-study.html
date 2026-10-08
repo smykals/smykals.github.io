@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Label-Printing Support Improvement | Shane Mykal Stark</title>
+
+  <meta
+    name="description"
+    content="An anonymous manufacturing support case study: Lean Six Sigma analysis, standardized ownership and troubleshooting, and a measured decline in monthly label-printing tickets."
+  >
+
+  <style>
+    :root {
+      --background: #0b1220;
+      --silver: #c0c0c0;
+      --green: #39d353;
+      --blue: #1a73e8;
+      --white: #f8fafc;
+      --muted: #8d99a8;
+      --panel: #101a2b;
+      --border: #263348;
+      --green-soft: rgba(57, 211, 83, 0.10);
+      --blue-soft: rgba(26, 115, 232, 0.12);
+      --silver-soft: rgba(192, 192, 192, 0.08);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 5%,
+          rgba(26, 115, 232, 0.10),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 18, 32, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    header {
+      padding: 90px 0 65px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+
+      color: var(--white);
+
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 760px;
+
+      color: var(--muted);
+
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 58px 0;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-family: monospace;
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+
+      color: var(--white);
+
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      color: var(--silver);
+      background: var(--blue-soft);
+
+      border: 1px solid rgba(26, 115, 232, 0.30);
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.78rem;
+    }
+
+    .architecture {
+      margin-top: 28px;
+      padding: 30px;
+
+      background: #070c14;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow-x: auto;
+    }
+
+    pre {
+      margin: 0;
+
+      color: var(--silver);
+
+      font-family: "Courier New", monospace;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .note {
+      margin: 28px 0;
+      padding: 22px;
+
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.22);
+      border-left: 3px solid var(--green);
+
+      border-radius: 0 10px 10px 0;
+
+      color: var(--silver);
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .status-card {
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.015);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .status-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .badge {
+      display: inline-block;
+
+      margin-bottom: 12px;
+      padding: 4px 8px;
+
+      border-radius: 999px;
+
+      font-family: monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .implemented {
+      color: var(--green);
+      background: var(--green-soft);
+      border: 1px solid rgba(57, 211, 83, 0.28);
+    }
+
+    .progress {
+      color: var(--blue);
+      background: var(--blue-soft);
+      border: 1px solid rgba(26, 115, 232, 0.30);
+    }
+
+    .planned {
+      color: var(--silver);
+      background: var(--silver-soft);
+      border: 1px solid rgba(192, 192, 192, 0.20);
+    }
+
+    .workflow {
+      margin-top: 25px;
+      padding: 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 10px 0;
+
+      color: var(--silver);
+    }
+
+    .step-number {
+      min-width: 34px;
+      height: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+      background: var(--green-soft);
+
+      border: 1px solid rgba(57, 211, 83, 0.25);
+      border-radius: 50%;
+
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    ul {
+      color: var(--muted);
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .next-button {
+      display: inline-flex;
+
+      margin-top: 25px;
+      padding: 12px 18px;
+
+      background: var(--blue);
+
+      color: white;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+    }
+  
+    .results-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:30px; }
+    .result { background:var(--panel); border:1px solid var(--border); padding:24px; border-radius:12px; }
+    .result strong { display:block; font-size:2.7rem; line-height:1.15; color:var(--white); margin-bottom:12px; }
+    .result span { color:var(--muted); }
+    .result:last-child strong { color:var(--green); }
+    .comparison { padding:28px; background:#070c14; border:1px solid var(--border); border-radius:12px; margin:28px 0; }
+    .bar-row { display:grid; grid-template-columns:150px 1fr 40px; gap:16px; align-items:center; margin:24px 0; color:var(--white); }
+    .bar-track { height:32px; background:#152237; border-radius:5px; }
+    .bar { height:100%; border-radius:5px; }
+    .bar.before { width:90%; background:#80aeea; }
+    .bar.during { width:32.857%; background:var(--green); }
+    .comparison figcaption { color:var(--muted); font-size:.9rem; margin-top:22px; }
+    .data-table { width:100%; border-collapse:collapse; margin-top:24px; }
+    .data-table th,.data-table td { padding:14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; }
+    .data-table th { color:var(--white); }
+    .data-table td { color:var(--muted); }
+    .table-wrap { overflow-x:auto; }
+    a:focus-visible { outline:2px solid var(--green); outline-offset:5px; }
+    @media(max-width:650px) { .results-grid { grid-template-columns:1fr; } .bar-row { grid-template-columns:105px 1fr 32px; gap:10px; font-size:.85rem; } .comparison { padding:18px; } }
+  .green-belt-cover{margin:30px 0 0}.green-belt-cover img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:12px}.green-belt-cover figcaption{margin-top:12px;font-size:.9rem;color:var(--muted)}
+</style>
+</head>
+
+<body>
+<nav><div class="container nav-inner"><a class="brand" href="index.html">SMYKALS<span>.</span></a><a class="back-link" href="index.html#projects">&larr; Portfolio</a></div></nav>
+<header><div class="container"><div class="status"><span class="status-dot"></span>Professional Case Study / Lean Six Sigma Green Belt</div>
+<h1>Making label-printing support more consistent.</h1>
+<p class="intro">A manufacturing support improvement project that used incident data to clarify ownership, standardize troubleshooting, and strengthen knowledge transfer.</p>
+<div class="results-grid" aria-label="Measured ticket-volume comparison"><div class="result"><strong>6.3</strong><span>Average tickets per month before improvement</span></div><div class="result"><strong>2.3</strong><span>Average tickets per month during the improvement period</span></div><div class="result"><strong>63.5%</strong><span>Reported reduction during the improvement period</span></div></div>
+<figure class="green-belt-cover"><img src="assets/images/green-belt-workshop.png" alt="Illustration of a Green Belt practitioner with a DMAIC board, process-improvement tools, and manufacturing themes." width="1536" height="1024"><figcaption>Concept artwork illustrating the Green Belt approach. The project’s measured results and measurement limits are documented below.</figcaption></figure></div></header>
+<main><section id="artifacts"><div class="container"><h2>Contribution and supporting artifacts</h2><p>I led the improvement project and support-instruction development, clarified ownership and escalation, improved ticket visibility, and supported training. Delivery involved the support and operational teams.</p><ul><li><a href="#measured-outcome">View the monthly-ticket comparison and measurement limits</a></li><li><a href="#baseline-analysis">View baseline findings</a></li></ul></div></section>
+<section><div class="container"><div class="section-label">01 / Problem &amp; My Role</div><h2>One support process, uneven outcomes.</h2>
+<p>Label-printing incidents were handled inconsistently, with unclear ownership, variation in troubleshooting and escalation, higher ticket volume, and operational disruption.</p>
+<p><strong>My role:</strong> I led the Green Belt improvement project and development of standardized support instructions, clarified ownership and escalation through a RACI, improved ticket visibility and aging controls, and supported documented operator and supervisor training.</p>
+<p><strong>Context:</strong> Manufacturing IT/OT support. The employer and internal systems are anonymized.</p></div></section>
+<section><div class="container"><div class="section-label">02 / Analysis</div><h2>The average exposed the gap. Variation explained it.</h2>
+<p>Application-issue mean time to resolution was 191.47 hours against a 72-hour resolution-time target. A median of 14.44 hours and maximum of 1,937.72 hours showed that extreme cases heavily influenced the average.</p>
+<div class="table-wrap"><table class="data-table"><caption id="baseline-analysis">Baseline findings from the project analysis</caption><thead><tr><th scope="col">Measure</th><th scope="col">Finding</th><th scope="col">Implication</th></tr></thead><tbody><tr><th scope="row">Application MTTR</th><td>191.47 hours</td><td>A substantial gap against the 72-hour target</td></tr><tr><th scope="row">Resolution-time variation</th><td>14.44-hour median; 1,937.72-hour maximum</td><td>Extreme cases skewed the mean</td></tr><tr><th scope="row">Application incidents</th><td>41.8%</td><td>Largest issue category</td></tr><tr><th scope="row">Configuration incidents</th><td>26.9%</td><td>Second-largest issue category</td></tr></tbody></table></div>
+<p>Elapsed resolution time included application complexity, specialist availability, ticket aging, and waiting. I focused the improvement work on factors the support process could influence: visibility, ownership, troubleshooting, escalation, training, and prevention.</p></div></section>
+<section><div class="container"><div class="section-label">03 / Work Performed</div><h2>Turn the findings into a repeatable support process.</h2><div class="status-grid">
+<div class="status-card"><strong>Standard troubleshooting</strong>Led development of instructions covering mechanical, application, software, network, and communication issues.</div>
+<div class="status-card"><strong>Ownership &amp; escalation</strong>Clarified roles and escalation responsibilities through a RACI, making the support path more explicit.</div>
+<div class="status-card"><strong>Ticket visibility</strong>Improved open-ticket visibility and aging controls so unresolved issues could be tracked and escalated.</div>
+<div class="status-card"><strong>Station identification</strong>Added easier IP identification at printer and PC stations to support troubleshooting.</div>
+<div class="status-card"><strong>Training &amp; knowledge transfer</strong>Supported documented operator and supervisor training alongside the standard instructions.</div>
+<div class="status-card"><strong>Data-informed review</strong>Used DMAIC, VOC, SIPOC, Pareto analysis, and MTTR/variation analysis to connect incident patterns with process changes.</div>
+</div></div></section>
+<section><div class="container"><div class="section-label">04 / Measured Outcome</div><h2 id="measured-outcome">Fewer tickets during the improvement period.</h2>
+<figure class="comparison" aria-label="Average monthly ticket volume fell from 6.3 before improvement to 2.3 during the improvement period"><div class="bar-row"><span>Before</span><div class="bar-track" aria-hidden="true"><div class="bar before"></div></div><strong>6.3</strong></div><div class="bar-row"><span>During improvement</span><div class="bar-track" aria-hidden="true"><div class="bar during"></div></div><strong>2.3</strong></div><figcaption>Average label-printing tickets per month. Both bars use the same zero-based scale. The project summary reports a 63.5% reduction.</figcaption></figure>
+<p>Monthly ticket volume declined from 6.3 to 2.3 during the improvement period. This is the measured outcome documented in the project summary.</p>
+<div class="note"><strong>Measurement context:</strong> The 72-hour resolution-time goal was a target. The available summary does not establish that it was achieved, provide the comparison-period lengths or ticket counts, or demonstrate that the ticket reduction persisted after the improvement period.</div>
+</div></section>
+<section><div class="container"><div class="section-label">05 / Lessons &amp; Control</div><h2>Improve the process the team can control.</h2>
+<p>The project reinforced the value of looking beyond a single average. Variation revealed where waiting, ownership, escalation, and knowledge gaps influenced the support experience.</p>
+<p>Standard work, explicit responsibilities, ticket visibility, and training gave the team a more defined support process. The result demonstrates how technical support and process improvement can work together.</p>
+<div class="tech-grid"><span class="tag">DMAIC</span><span class="tag">Root-cause analysis</span><span class="tag">RACI</span><span class="tag">Standard work</span><span class="tag">Incident analysis</span><span class="tag">Knowledge transfer</span></div>
+<a class="next-button" href="index.html#projects">&larr; Return to featured projects</a></div></section>
+</main><footer><div class="container">&copy; 2026 Shane Mykal Stark</div></footer></body></html>

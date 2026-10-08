@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CCNA Networking Lab | Shane Mykal Stark</title>
+  <title>CCNA Lab Exercises | Shane Mykal Stark</title>
 
   <meta
     name="description"
@@ -351,7 +351,8 @@
         padding-top: 65px;
       }
     }
-  </style>
+  .exercise-cover{margin:30px 0 0}.exercise-cover img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:12px}.exercise-cover figcaption{margin-top:12px;color:var(--muted);font-size:.9rem}
+</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
 <script>
@@ -385,11 +386,11 @@
 
       <div class="status">
         <span class="status-dot"></span>
-        Project 03 / CCNA
+        Exercise Collection / CCNA Study
       </div>
 
       <h1>
-        CCNA Networking Lab
+        CCNA Lab Exercises
       </h1>
 
       <p class="intro">
@@ -400,12 +401,12 @@
 
       </p>
 
-    </div>
+    <figure class="exercise-cover"><img src="assets/images/ccna-exercises-cover.png" alt="Illustration of a CCNA study lab with switching, routing, and command-line verification examples." width="1536" height="1024"><figcaption>Concept artwork for the exercise collection. The displayed topology, addresses, and successful command output are illustrative, rather than captured test evidence.</figcaption></figure></div>
 
   </header>
 
 
-  <main>
+  <main><section id="artifacts"><div class="container"><h2>Contribution and supporting artifacts</h2><p>I am developing exercise plans for configuration and troubleshooting practice. Proposed faults and validation steps are not completed test results.</p><ul><li><a href="technical-evidence.html#vlan-connectivity">Read a hypothetical VLAN fault-isolation approach</a></li></ul></div></section><section><div class="container"><div class="section-label">Planned Example Exercises</div><h2>Practice a specific fault, then prove the fix.</h2><p>These realistic exercise scenarios are proposed practice, not records of completed work or observed results.</p><div class="lab-grid"><article class="lab-card"><strong>VLAN &amp; trunk validation</strong><p>Connect two switches, assign access ports, and investigate a VLAN missing from a trunk.</p><p><strong>Validation plan:</strong> Check VLAN membership and trunk state; compare same-VLAN reachability before and after correcting the allowed VLAN list.</p></article><article class="lab-card"><strong>Inter-VLAN routing</strong><p>Connect two subnets and investigate an incorrect client default gateway.</p><p><strong>Validation plan:</strong> Compare local-subnet reachability with gateway and remote-subnet reachability, then retest after the correction.</p></article><article class="lab-card"><strong>DHCP troubleshooting</strong><p>Investigate a client that fails to obtain a lease.</p><p><strong>Validation plan:</strong> Check the client VLAN, DHCP pool, and relay configuration where applicable; verify the resulting address, gateway, and connectivity.</p></article><article class="lab-card"><strong>SSH management</strong><p>Configure administrative access and diagnose a failed SSH session.</p><p><strong>Validation plan:</strong> Check management reachability, SSH configuration, authentication, and VTY settings; verify a successful login after correcting the fault.</p></article></div></div></section>
 
 
     <section>
@@ -480,14 +481,14 @@
       <div class="container">
 
         <div class="section-label">
-          03 / Lab Progression
+          03 / Exercise Topics
         </div>
 
         <h2>
-          From Layer 2 upward.
+          Practice topics, from switching to services.
         </h2>
 
-        <div class="lab-grid">
+        <p>These topics organize my practice; the list is not a record of completed exercises. VLANs, trunking, inter-VLAN routing, DHCP, and SSH are implemented in the physical network lab. OSPF is in progress; ACLs and IPv6 are planned extensions.</p><div class="lab-grid">
 
           <div class="lab-card">
 
@@ -828,7 +829,7 @@ End-to-End Service
     </section>
 
 
-  </main>
+<section><div class="container"><div class="section-label">Supporting work</div><h2>Connect the exercises to the larger lab.</h2><p><a class="next-button" href="network-lab.html">Read the network case study &rarr;</a></p><p><a href="ccna-study-laptop.html">See the workstation used for study and lab access &rarr;</a></p><p><a href="/journal/">Explore the Field Journal for build and troubleshooting notes &rarr;</a></p></div></section>  </main>
 
 
   <footer>
