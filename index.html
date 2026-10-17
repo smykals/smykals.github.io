@@ -1225,7 +1225,7 @@ layout: null
     #proto .project-grid > .project-card:has(.project-preview) .project-link {grid-column:auto;}
     #proto .project-grid > .project-card:has(.project-preview) .project-link{margin-top:auto;align-self:stretch;padding-top:18px;}
     /* Fill the thumbnail frame for the new network segmentation artwork only. */
-    #proto .project-preview[src*="Neon%20Network%20Segmentation%20Lab.png"] {object-fit:cover;}
+    #proto .project-grid > .project-card .project-preview[src*="Neon%20Network%20Segmentation%20Lab.png"] {aspect-ratio:1 / 1;height:auto;object-fit:cover;object-position:center;}
     @media(max-width:850px){#proto .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
     @media(max-width:580px){#proto .project-grid{grid-template-columns:1fr;}}
 </style>
