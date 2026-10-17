@@ -1210,6 +1210,22 @@ layout: null
       #proto .project-grid:first-of-type > .project-card:has(.project-preview){display:flex;flex-direction:column;gap:0;}
       #proto .project-grid:first-of-type > .project-card:has(.project-preview) .project-preview{width:100%;height:auto;margin-bottom:18px;}
     }
+
+    /* Match Selected Projects: consistent three-column thumbnails and card dimensions. */
+    #proto .project-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+    #proto .project-grid > .project-card:has(.project-preview){display:flex;flex-direction:column;min-height:0;padding:20px;}
+    #proto .project-grid > .project-card:has(.project-preview) .project-preview {
+      display:block;width:100%;height:auto;aspect-ratio:4 / 3;max-height:none;
+      object-fit:contain;object-position:center;background:#0b1220;
+      grid-column:auto;grid-row:auto;margin:0 0 16px;
+    }
+    #proto .project-grid > .project-card:has(.project-preview) .project-status,
+    #proto .project-grid > .project-card:has(.project-preview) h3,
+    #proto .project-grid > .project-card:has(.project-preview) p,
+    #proto .project-grid > .project-card:has(.project-preview) .project-link {grid-column:auto;}
+    #proto .project-grid > .project-card:has(.project-preview) .project-link{margin-top:auto;align-self:stretch;padding-top:18px;}
+    @media(max-width:850px){#proto .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:580px){#proto .project-grid{grid-template-columns:1fr;}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
