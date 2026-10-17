@@ -1048,6 +1048,15 @@ layout: null
         .capability-skills li { padding: 10px 0; border-top: 1px solid var(--border); line-height: 1.65; }
         .capability-skills li:first-child { padding-top: 0; border-top: 0; }
     .project-preview{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:top;border:1px solid var(--border);border-radius:8px;margin-bottom:24px;background:#0b1220}
+    /* Show the entire existing project thumbnail rather than cropping it. */
+    #proto .project-preview, #projects .project-preview { width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center; }
+    #proto .project-grid, #projects .project-grid { grid-template-columns:repeat(3,minmax(0,1fr));gap:16px; }
+    #proto .project-card { min-height:0;padding:20px; }
+    #proto .project-card h3 { font-size:1.15rem;margin-bottom:10px; }
+    #proto .project-card p { font-size:.9rem;line-height:1.55; }
+    @media(max-width:800px){#proto .project-grid,#projects .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:560px){#proto .project-grid,#projects .project-grid{grid-template-columns:1fr;}}
+
 
         :root { --avatar-red: #ed493f; }
         .hero-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(250px, .85fr); gap: 42px; align-items: center; }
@@ -1167,6 +1176,9 @@ layout: null
         .intro-about-link a { color: #6ab6ff; font-weight: 600; text-underline-offset: 4px; }
         .intro-about-link a:focus-visible { outline: 2px solid #00bdec; outline-offset: 5px; }
 
+
+    /* Final thumbnail overrides: preserve full banner artwork at natural ratio. */
+    #proto .project-preview, #projects .project-preview { height:auto;max-height:none;aspect-ratio:auto;object-fit:contain; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
