@@ -1196,6 +1196,9 @@ layout: null
     @media(max-width:850px){#proto .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
     @media(max-width:580px){#proto .project-grid{grid-template-columns:1fr;}}
     #proto .technical-evidence a.proto-evidence-text-link {background:transparent !important;background-image:none !important;box-shadow:none !important;border:0 !important;border-radius:0 !important;padding:0 !important;min-height:0 !important;display:inline-block;color:#6ab6ff !important;}
+    /* Align the bottom labels in the three PROTO software cards. */
+    #proto .project-grid > article.project-card {display:flex;flex-direction:column;min-width:0;}
+    #proto .project-grid > article.project-card .project-link {margin-top:auto;padding-top:18px;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
@@ -1365,7 +1368,7 @@ layout: null
 <div class="project-grid"><a href="network-lab.html" class="project-card"><img class="project-preview" src="assets/images/Neon%20Network%20Segmentation%20Lab.png" alt="" loading="lazy"><div class="project-status">Independent lab / Ongoing validation</div><h3>Network Segmentation &amp; Connectivity</h3><p>I configure and investigate switching, VLANs, routing, and traffic controls.</p><div class="project-link">View topology &amp; validation approach &rarr;</div></a><a href="virtualization-lab.html" class="project-card"><img class="project-preview" src="assets/images/ewaste-to-homelab.png" alt="" loading="lazy"><div class="project-status">Independent lab / Documented fixes</div><h3>Infrastructure: Access, Storage &amp; AI</h3><p>I build the four-host environment and troubleshoot guest dependencies.</p><div class="project-link">View host layout &amp; troubleshooting record &rarr;</div></a><a href="ot-network-lab.html" class="project-card"><img class="project-preview" src="assets/images/ot-factory-floor.png" alt="" loading="lazy"><div class="project-status">In development / Planned tests</div><h3>OT Learning Environment</h3><p>I am designing a simulated sorting process and IT/OT boundary tests.</p><div class="project-link">View planned architecture &amp; next tests &rarr;</div></a></div>
 <div class="section-heading" style="margin-top:44px"><h3 class="banner-subheading">Software &amp; supporting infrastructure</h3><p>Applications and development infrastructure within the PROTO ecosystem. Work in progress is identified as such.</p></div>
 <div class="project-grid">
-<article class="project-card"><div class="project-status">Application / In development</div><h3>Monitrope</h3><p>Behavioral network monitoring focused on device discovery, learning normal activity, and identifying unusual behavior.</p><div class="project-link">Network intelligence &amp; monitoring</div></article>
+<article class="project-card"><div class="project-status">Application / In development</div><h3>MONITROPE</h3><p>Behavioral network monitoring focused on device discovery, learning normal activity, and identifying unusual behavior.</p><div class="project-link">Network intelligence &amp; monitoring</div></article>
 <article class="project-card"><div class="project-status">Application / Early development</div><h3>DOUTO</h3><p>Reverse-engineering and software-analysis tooling, developed as part of the PROTO product family.</p><div class="project-link">Software analysis &amp; integration</div></article>
 <article class="project-card"><div class="project-status">Internal infrastructure / Ongoing</div><h3>AIIO</h3><p>Local AI inference infrastructure for coding, debugging, and experiments that support PROTO development.</p><div class="project-link">GPU workloads &amp; container infrastructure</div></article>
 </div></div></section>
