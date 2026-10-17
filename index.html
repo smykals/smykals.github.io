@@ -1179,6 +1179,16 @@ layout: null
 
     /* Final thumbnail overrides: preserve full banner artwork at natural ratio. */
     #proto .project-preview, #projects .project-preview { height:auto;max-height:none;aspect-ratio:auto;object-fit:contain; }
+
+    /* PROTO lab: equal-height media frames without cropping original artwork. */
+    #proto .project-grid > .project-card:has(.project-preview) .project-preview {
+      width:100%;height:210px;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center;
+      background:#0b1220;margin-bottom:18px;
+    }
+    #proto .project-grid > .project-card:has(.project-preview) { display:flex;flex-direction:column; }
+    #proto .project-grid > .project-card:has(.project-preview) .project-link { margin-top:auto; }
+    @media(max-width:800px){#proto .project-grid > .project-card:has(.project-preview) .project-preview{height:180px;}}
+    @media(max-width:560px){#proto .project-grid > .project-card:has(.project-preview) .project-preview{height:210px;}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
