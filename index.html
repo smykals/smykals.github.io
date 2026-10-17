@@ -1180,54 +1180,19 @@ layout: null
     /* Final thumbnail overrides: preserve full banner artwork at natural ratio. */
     #proto .project-preview, #projects .project-preview { height:auto;max-height:none;aspect-ratio:auto;object-fit:contain; }
 
-    /* PROTO lab: equal-height media frames without cropping original artwork. */
-    #proto .project-grid > .project-card:has(.project-preview) .project-preview {
-      width:100%;height:210px;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center;
-      background:#0b1220;margin-bottom:18px;
+    /* PROTO.LAB: one consistent thumbnail layout; titles remain visible at the top. */
+    #proto .project-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+    #proto .project-grid > .project-card:has(.project-preview) {
+      display:flex;flex-direction:column;min-width:0;min-height:0;padding:20px;
     }
-    #proto .project-grid > .project-card:has(.project-preview) { display:flex;flex-direction:column; }
-    #proto .project-grid > .project-card:has(.project-preview) .project-link { margin-top:auto; }
-    @media(max-width:800px){#proto .project-grid > .project-card:has(.project-preview) .project-preview{height:180px;}}
-    @media(max-width:560px){#proto .project-grid > .project-card:has(.project-preview) .project-preview{height:210px;}}
-
-    /* PROTO.LAB case studies: one large, readable thumbnail per row. */
-    #proto .project-grid:first-of-type { grid-template-columns:1fr; }
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) {
-      display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
-      grid-template-rows:auto auto 1fr auto;column-gap:28px;align-items:start;
-      min-height:0;padding:24px;
+    #proto .project-grid > .project-card:has(.project-preview) img.project-preview {
+      display:block;box-sizing:border-box;width:100%;height:auto;max-height:none;
+      aspect-ratio:4 / 3;object-fit:cover;object-position:center top;
+      margin:0 0 18px;background:#0b1220;
     }
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) .project-preview {
-      grid-column:1;grid-row:1 / span 4;width:100%;height:auto;max-height:none;
-      aspect-ratio:auto;object-fit:contain;align-self:center;margin:0;
+    #proto .project-grid > .project-card:has(.project-preview) .project-link {
+      margin-top:auto;padding-top:18px;
     }
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) .project-status,
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) h3,
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) p,
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) .project-link {grid-column:2;}
-    #proto .project-grid:first-of-type > .project-card:has(.project-preview) .project-link {align-self:end;margin-top:18px;}
-    @media(max-width:760px){
-      #proto .project-grid:first-of-type > .project-card:has(.project-preview){display:flex;flex-direction:column;gap:0;}
-      #proto .project-grid:first-of-type > .project-card:has(.project-preview) .project-preview{width:100%;height:auto;margin-bottom:18px;}
-    }
-
-    /* Match Selected Projects: consistent three-column thumbnails and card dimensions. */
-    #proto .project-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
-    #proto .project-grid > .project-card:has(.project-preview){display:flex;flex-direction:column;min-height:0;padding:20px;}
-    #proto .project-grid > .project-card:has(.project-preview) .project-preview {
-      display:block;width:100%;height:auto;aspect-ratio:4 / 3;max-height:none;
-      object-fit:contain;object-position:center;background:#0b1220;
-      grid-column:auto;grid-row:auto;margin:0 0 16px;
-    }
-    #proto .project-grid > .project-card:has(.project-preview) .project-status,
-    #proto .project-grid > .project-card:has(.project-preview) h3,
-    #proto .project-grid > .project-card:has(.project-preview) p,
-    #proto .project-grid > .project-card:has(.project-preview) .project-link {grid-column:auto;}
-    #proto .project-grid > .project-card:has(.project-preview) .project-link{margin-top:auto;align-self:stretch;padding-top:18px;}
-    /* Fill the thumbnail frame for the new network segmentation artwork only. */
-    #proto .project-grid > .project-card:has(.project-preview) img.project-preview[src*="Neon"] {width:100%;height:auto;aspect-ratio:1 / 1;object-fit:contain;object-position:center;background:#0b1220;}
-    /* Keep all three PROTO.LAB image frames aligned without cropping artwork or titles. */
-    #proto .project-grid > .project-card:has(.project-preview) img.project-preview {width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover;object-position:center;background:#0b1220;}
     @media(max-width:850px){#proto .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
     @media(max-width:580px){#proto .project-grid{grid-template-columns:1fr;}}
 </style>
