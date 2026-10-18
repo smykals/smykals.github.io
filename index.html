@@ -1199,6 +1199,30 @@ layout: null
     /* Align the bottom labels in the three PROTO software cards. */
     #proto .project-grid > article.project-card {display:flex;flex-direction:column;min-width:0;}
     #proto .project-grid > article.project-card .project-link {margin-top:auto;padding-top:18px;}
+
+/* PROTO identity and application logo alignment */
+.proto-brand { margin: 0 auto 26px; }
+.proto-brand img { display: block; width: min(320px, 100%); height: auto; max-height: 150px; object-fit: contain; object-position: left center; }
+.application-logo { display: block; width: 100%; height: 148px; object-fit: contain; object-position: center; margin: 0 0 18px; border-radius: 6px; }
+
+/* Uniform application logo tiles */
+.application-logo { display:block; width:180px; height:180px; aspect-ratio:1/1; object-fit:contain; object-position:center; background:#000; padding:12px; border-radius:0; margin:0 auto 20px; }
+/* Keep the PROTO identity with its lab heading, rather than as a detached block */
+.proto-brand { display:none; }
+
+/* Fixed, equal square tiles independent of source image aspect ratios */
+#proto .application-logo-frame { box-sizing:border-box; width:220px; height:220px; min-width:220px; min-height:220px; max-width:100%; aspect-ratio:1 / 1; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#000; margin:0 auto 20px; }
+#proto .application-logo-frame .application-logo { display:block; box-sizing:border-box; width:100%; height:100%; min-width:0; max-width:none; max-height:none; padding:12px; margin:0; border:0; border-radius:0; object-fit:contain; object-position:center; background:transparent; }
+
+/* Landscape logo panels for wider wordmarks */
+#proto .application-logo-frame { width:100%; max-width:320px; height:160px; min-width:0; min-height:160px; aspect-ratio:2 / 1; }
+#proto .application-logo-frame .application-logo { width:100%; height:100%; padding:8px 12px; }
+
+/* Slightly enlarge all three application marks within landscape frames */
+#proto .application-logo-frame .application-logo { transform:scale(1.5); transform-origin:center; }
+
+/* MONITROPE-only zoom adjustment */
+#proto .application-logo-frame img[alt="MONITROPE official logo"] { transform:scale(1.7); }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
@@ -1345,13 +1369,13 @@ layout: null
 ========================================================= -->
 
 <section class="section" id="experience">
-<h2 class="full-section-banner"><span><span class="banner-white">Professional</span> <span class="banner-cyan">experience</span></span></h2><div class="container">
+<h2 class="full-section-banner"><span><span class="banner-white">Professional</span> <span class="banner-cyan">Experience</span></span></h2><div class="container">
 <div class="section-heading">
 <h3 class="banner-subheading">Technical ownership. Measurable impact.</h3>
 <p>Hands-on infrastructure work, distributed team leadership, and operational improvement across manufacturing and campus environments.</p></div>
 <div class="experience-list"><article class="experience-card" id="experience-manufacturing"><div class="experience-meta">2024–Present</div><div><h3>IT Engineer, Field Services</h3><div class="experience-company">Manufacturing IT / Production Technology Support</div><p>Support enterprise infrastructure and network-connected production systems in a 24/7 manufacturing environment.</p><ul class="experience-results"><li>Led the Green Belt label-printing support improvement project; the project summary reports a 63.5% reduction in average monthly tickets during the improvement period.</li><li>Investigate infrastructure faults and coordinate restoration with plant teams, specialists, and vendors.</li></ul></div></article><article class="experience-card" id="experience-campus"><div class="experience-meta">2018–2024</div><div><h3>Regional Field Supervisor &amp; Network Specialist</h3><div class="experience-company">Higher Education Networks</div><p>Network responsibility across five campuses in three states, serving 6,500+ users.</p><ul class="experience-results"><li>Supervised and developed 14 distributed Field Service Specialists, with expanded coverage during vacancies.</li><li>Coordinated network escalations and supported campus refreshes, deployments, and technical training.</li></ul></div></article><article class="experience-card" id="experience-field-training"><div class="experience-meta">2016–2018</div><div><h3>Team Trainer</h3><div class="experience-company">Smart Home Technology &amp; Field Services</div><p>Technician development, field escalation, and installation quality.</p><ul class="experience-results"><li>Coached 10–14 field technicians; work-history materials report a 30% reduction in repeat service calls.</li></ul></div></article></div><p><a class="capability-link" href="professional-experience.html">Read my contributions, full experience, and measurement context &rarr;</a></p></div></section>
 <section class="section" id="skills">
-<h2 class="full-section-banner"><span><span class="banner-white">Core</span> <span class="banner-cyan">capabilities</span></span></h2><div class="container">
+<h2 class="full-section-banner"><span><span class="banner-white">Core</span> <span class="banner-cyan">Capabilities</span></span></h2><div class="container">
 
 <div class="proven-skills"><p class="evidence-intro">Capabilities grounded in my professional work</p><div class="proven-skills-grid">
 <article><h3>Network troubleshooting</h3><p>Cisco switching, wireless, authentication, packet captures, and Layer 1 through Layer 3 fault isolation across campus and manufacturing environments.</p><a href="#experience-campus">Regional network responsibility &rarr;</a></article>
@@ -1361,20 +1385,20 @@ layout: null
 </div></div><p><a class="capability-link" href="professional-experience.html">View the complete skills inventory &rarr;</a></p></div></section>
 
 <section class="section" id="proto">
-<h2 class="full-section-banner"><span><span class="banner-white">PROTO</span> <span class="banner-cyan">engineering lab</span></span></h2>
+<h2 class="full-section-banner"><span><span class="banner-white">PROTO</span> <span class="banner-cyan">Engineering Lab</span></span></h2>
 <div class="container">
 <div class="section-heading"><h3 class="banner-subheading">Independent engineering. Applied technology.</h3><p>PROTO brings together my infrastructure lab, software development, and systems experiments. Explore the working environments, design decisions, validation work, and applications in development.</p></div>
 <div class="technical-evidence"><h3>PROTO.LAB — infrastructure &amp; engineering evidence</h3><p>Hands-on networking, virtualization, access, storage, and IT/OT experiments. Troubleshooting records distinguish real incidents from hypothetical scenarios.</p><a class="proto-evidence-text-link" href="proto-lab-evidence.html">Inspect PROTO.LAB evidence &rarr;</a> <a href="technical-evidence.html">Explore troubleshooting records &rarr;</a></div>
 <div class="project-grid"><a href="network-lab.html" class="project-card"><img class="project-preview" src="assets/images/Neon%20Network%20Segmentation%20Lab.png" alt="" loading="lazy"><div class="project-status">Independent lab / Ongoing validation</div><h3>Network Segmentation &amp; Connectivity</h3><p>I configure and investigate switching, VLANs, routing, and traffic controls.</p><div class="project-link">View topology &amp; validation approach &rarr;</div></a><a href="virtualization-lab.html" class="project-card"><img class="project-preview" src="assets/images/ewaste-to-homelab.png" alt="" loading="lazy"><div class="project-status">Independent lab / Documented fixes</div><h3>Infrastructure: Access, Storage &amp; AI</h3><p>I build the four-host environment and troubleshoot guest dependencies.</p><div class="project-link">View host layout &amp; troubleshooting record &rarr;</div></a><a href="ot-network-lab.html" class="project-card"><img class="project-preview" src="assets/images/ot-factory-floor.png" alt="" loading="lazy"><div class="project-status">In development / Planned tests</div><h3>OT Learning Environment</h3><p>I am designing a simulated sorting process and IT/OT boundary tests.</p><div class="project-link">View planned architecture &amp; next tests &rarr;</div></a></div>
 <div class="section-heading" style="margin-top:44px"><h3 class="banner-subheading">Software &amp; supporting infrastructure</h3><p>Applications and development infrastructure within the PROTO ecosystem. Work in progress is identified as such.</p></div>
 <div class="project-grid">
-<article class="project-card"><div class="project-status">Application / In development</div><h3>MONITROPE</h3><p>Behavioral network monitoring focused on device discovery, learning normal activity, and identifying unusual behavior.</p><div class="project-link">Network intelligence &amp; monitoring</div></article>
-<article class="project-card"><div class="project-status">Application / Early development</div><h3>DOUTO</h3><p>Reverse-engineering and software-analysis tooling, developed as part of the PROTO product family.</p><div class="project-link">Software analysis &amp; integration</div></article>
-<article class="project-card"><div class="project-status">Internal infrastructure / Ongoing</div><h3>AIIO</h3><p>Local AI inference infrastructure for coding, debugging, and experiments that support PROTO development.</p><div class="project-link">GPU workloads &amp; container infrastructure</div></article>
+<article class="project-card"><div class="project-status">Application / In development</div><div class="application-logo-frame"><img class="application-logo" src="assets/images/Monitrope%20Metallic%20Tech%20Logo.png" alt="MONITROPE official logo" loading="lazy"></div><h3>MONITROPE</h3><p>Behavioral network monitoring focused on device discovery, learning normal activity, and identifying unusual behavior.</p><div class="project-link">Network intelligence &amp; monitoring</div></article>
+<article class="project-card"><div class="project-status">Application / Early development</div><div class="application-logo-frame"><img class="application-logo" src="assets/images/Neon%20DO2%20Logo%20with%20Gold%20Tagline.png" alt="DO2 official logo" loading="lazy"></div><h3>DO2</h3><p>Reverse-engineering and software-analysis tooling, developed as part of the PROTO product family.</p><div class="project-link">Software analysis &amp; integration</div></article>
+<article class="project-card"><div class="project-status">Internal infrastructure / Ongoing</div><div class="application-logo-frame"><img class="application-logo" src="assets/images/Screenshot%202026-02-20%20064106.png" alt="AIIO official logo" loading="lazy"></div><h3>AIIO</h3><p>Local AI inference infrastructure for coding, debugging, and experiments that support PROTO development.</p><div class="project-link">GPU workloads &amp; container infrastructure</div></article>
 </div></div></section>
 
 <section class="section" id="projects">
-<h2 class="full-section-banner"><span><span class="banner-white">Selected</span> <span class="banner-cyan">projects</span></span></h2>
+<h2 class="full-section-banner"><span><span class="banner-white">Selected</span> <span class="banner-cyan">Projects</span></span></h2>
 
     <div class="container">
 
@@ -1393,7 +1417,7 @@ layout: null
 </div></section>
 
 <section class="section" id="interactive">
-<h2 class="full-section-banner"><span><span class="banner-white">Playable</span> <span class="banner-cyan">experiences</span></span></h2>
+<h2 class="full-section-banner"><span><span class="banner-white">Playable</span> <span class="banner-cyan">Experiences</span></span></h2>
 <div class="avatar-run-track" aria-hidden="true"><div class="avatar-runner"><div class="avatar-run-sprite"></div></div></div>
 <div class="container animation-controls"><button type="button" class="motion-toggle" aria-pressed="false">Pause animations</button></div><div class="container">
 <div class="playable-intro"><div class="section-heading">
@@ -1404,7 +1428,7 @@ layout: null
 
 
 <section class="section" id="journal">
-    <h2 class="full-section-banner"><span><span class="banner-white">Latest from the</span> <span class="banner-cyan">workbench</span></span></h2>
+    <h2 class="full-section-banner"><span><span class="banner-white">Latest From the</span> <span class="banner-cyan">Workbench</span></span></h2>
     <div class="container">
         <div class="section-heading">
             
@@ -1448,7 +1472,7 @@ layout: null
 ========================================================= -->
 
 <section class="section" id="contact">
-<h2 class="full-section-banner"><span><span class="banner-white">Let's</span> <span class="banner-cyan">connect</span></span></h2>
+<h2 class="full-section-banner"><span><span class="banner-white">Let's</span> <span class="banner-cyan">Connect</span></span></h2>
 
     <div class="container">
 
