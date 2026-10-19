@@ -96,3 +96,27 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   .hub .core { max-width: none; }
   .diagram { padding: 18px; }
 }
+
+/* Screenshot gallery and supporting blocks */
+.shot-hero { margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid #2C3238; background: var(--rack); }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.gallery figure { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.gallery figure.wide { grid-column: 1 / -1; }
+.gallery a { display: block; background: #050807; }
+.gallery img { width: 100%; height: auto; max-height: 440px; object-fit: contain; }
+.gallery figcaption { padding: 12px 16px 16px; font-size: 15px; color: var(--dim); }
+.gallery figcaption b { display: block; color: var(--steel); font-size: 15.5px; }
+.steps .lesson { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--rule); color: var(--steel); }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.compare > div { background: #1E2328; border: 1.5px solid var(--wire, #4A5560); border-radius: 10px; padding: 16px 18px; }
+.compare > div.after { border-color: var(--c); }
+.compare h3 { font-size: 16px; margin-bottom: 6px; }
+.compare ul { margin: 0; padding-left: 18px; color: var(--dim); font-size: 15px; display: grid; gap: 4px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 15.5px; background: var(--panel); border-radius: 10px; overflow: hidden; }
+table.data th, table.data td { text-align: left; padding: 11px 16px; border-top: 1px solid var(--rule); }
+table.data thead th { font: 500 13px var(--mono); color: var(--dim); background: var(--rack); border-top: 0; }
+table.data td { color: var(--dim); }
+table.data td:first-child { color: var(--steel); font-weight: 600; }
+.ok-cell { color: var(--led) !important; }
+blockquote.takeaway { margin: 0; padding: 18px 22px; border-left: 4px solid var(--c); background: var(--panel); border-radius: 0 10px 10px 0; font-size: 20px; line-height: 1.5; color: var(--steel); max-width: 60ch; }
+@media (max-width: 720px) { .gallery, .compare { grid-template-columns: 1fr; } }
