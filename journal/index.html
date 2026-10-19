@@ -9,6 +9,10 @@ title: Field Journal
 <meta name="description" content="Shane Mykal Stark's professional portfolio field journal: hands-on IT infrastructure, systems, networking, and troubleshooting notes.">
 <title>Field Journal | Shane Mykal Stark</title>
 <link rel="stylesheet" href="{{ '/journal/style.css' | relative_url }}">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<meta name="theme-color" content="#1D2125">
+<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
 <script>
@@ -18,11 +22,11 @@ title: Field Journal
   gtag('config', 'G-N43N0LR7NG');
 </script>
 </head>
-<body>
-<header class="site-header"><div class="wrap nav"><a class="brand" href="{{ '/' | relative_url }}">SHANE MYKAL STARK</a><nav><a href="{{ '/' | relative_url }}#projects">Projects</a><a aria-current="page" href="{{ '/journal/' | relative_url }}">Field Journal</a><a href="{{ '/' | relative_url }}#contact">Contact</a></nav></div></header>
+<body class="c-writing">
+<div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="{{ '/' | relative_url }}">Shane Mykal Stark</a><a class="back" href="{{ '/' | relative_url }}#journal">Back to the portfolio</a></div></div>
 <main class="wrap">
-<section class="intro"><span class="eyebrow">PROFESSIONAL PORTFOLIO / FIELD JOURNAL</span><h1>Notes from the workbench.</h1><p>Hands-on records of the systems I build, the problems I investigate, and what I learn along the way. Each entry focuses on the goal, the approach, the evidence, and the result.</p></section>
-<section aria-labelledby="entries"><div class="section-head"><h2 id="entries">Journal entries</h2><span>{{ site.posts.size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span></div>
+<section class="intro"><span class="eyebrow">Field Journal</span><h1>Notes from the Workbench.</h1><p>Hands-on records of the systems I build, the problems I investigate, and what I learn along the way. Each entry focuses on the goal, the approach, the evidence, and the result.</p></section>
+<section aria-labelledby="entries"><div class="section-head"><h2 id="entries">Journal Entries</h2><span>{{ site.posts.size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span></div>
 {% for post in site.posts %}
 <article class="entry"><div class="entry-meta"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>{% if post.category %}<span>{{ post.category | escape }}</span>{% endif %}</div><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 220 }}</p><a class="read" href="{{ post.url | relative_url }}">Read entry →</a></article>
 {% else %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bags Weighed, but Never Labeled | Shane Mykal Stark</title>
+<meta name="description" content="Fault isolation on an automated weighing and labeling line: the network was proven healthy and the root cause was a weighing sensor.">
+<meta property="og:title" content="Bags Weighed, but Never Labeled | Shane Mykal Stark">
+<meta property="og:description" content="Fault isolation on an automated weighing and labeling line: the network was proven healthy and the root cause was a weighing sensor.">
+<meta name="theme-color" content="#1D2125">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/case.css">
+</head>
+<body style="--c: var(--amber)">
+<header class="site-head"><div class="wrap"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#plant">Back to the plant floor</a></div></header>
+<main>
+<div class="case-hero"><div class="wrap">
+  <span class="kind">Plant floor case study<span class="state">, resolved</span></span>
+  <h1>Bags Weighed, but Never Labeled</h1>
+  <p class="summary">An automated line weighed every bag, but labels never printed. I proved the network healthy, so the right team could fix the real fault: a weighing sensor.</p>
+  <dl class="facts"><div><dt>Environment</dt><dd>Continuous-production plant</dd></div><div><dt>My role</dt><dd>IT engineer on site</dd></div><div><dt>Worked with</dt><dd>Electrical engineering, operations</dd></div><div><dt>Outcome</dt><dd>Sensor replaced, labeling resumed</dd></div></dl>
+  
+</div></div>
+<section><div class="wrap"><h2>The Problem</h2><div class="prose"><p>Bags moved down an automated line and were weighed correctly, but the labeling step never completed. Labels matter on a production line: product without them can't ship, so the line was effectively stopped at that step.</p><p>Because the labeler and the PLC both sit on the plant network, the first question was whether the network had broken the conversation between them.</p></div></div></section><section><div class="wrap"><h2>How the Line Fits Together</h2><div class="diagram"><ol class="chain"><li class="bad"><b>Weighing sensor</b><small>Measures each bag</small></li><li class="arrow" aria-hidden="true">&rarr;</li><li class="ok"><b>PLC</b><small>Decides when to print</small></li><li class="arrow" aria-hidden="true">&rarr;</li><li class="ok"><b>Switch port and VLAN</b><small>Carries the PLC traffic</small></li><li class="arrow" aria-hidden="true">&rarr;</li><li class="ok"><b>Labeler</b><small>Prints and applies</small></li></ol></div><p class="caption">Green: checked and healthy. Red: the root cause.</p></div></section><section><div class="wrap"><h2>What I Did</h2><ol class="steps"><li><div><h3>Checked the Switch Port</h3><p>Confirmed the port serving the PLC was up, with no errors or flapping. <span class="ok">Healthy.</span></p></div></li><li><div><h3>Checked the VLAN Configuration</h3><p>Confirmed the port was in the expected VLAN and the PLC could reach the labeler. <span class="ok">Healthy.</span></p></div></li><li><div><h3>Verified Communication and Control Signals</h3><p>Worked with electrical engineering to confirm the PLC was communicating and sending the signals we expected. <span class="ok">Healthy.</span></p></div></li><li><div><h3>Followed the Dependency Upstream</h3><p>With the network and PLC ruled out, the missing input pointed to the weighing sensor. <span class="bad">Faulty, and replaced.</span></p></div></li></ol></div></section><section><div class="wrap"><h2>Why It Matters</h2><div class="prose"><p>On a plant floor, every team can see the same symptom. The fastest fix comes from proving, step by step, which layer is <strong>not</strong> at fault, so the right specialist works on the right part. Isolating the network quickly kept IT from becoming the bottleneck and kept the investigation moving.</p></div></div></section>
+<section><div class="wrap"><h2>Skills Used</h2><ul class="chips"><li>Network diagnostics</li><li>Switch port and VLAN verification</li><li>PLC connectivity troubleshooting</li><li>Fault isolation</li><li>Cross-functional work with electrical engineering</li><li>Manufacturing support</li></ul></div></section>
+<section><div class="wrap"><h2>Documentation</h2><ul class="docs"><li><b>Troubleshooting sequence</b><span>The four checks above, in the order they were run, with the result of each.</span></li><li><b>Dependency map</b><span>The line diagram on this page, generalized from the real equipment.</span></li><li><b>What is not shown</b><span>Equipment models, network addresses, port and VLAN identifiers, and site details.</span></li></ul></div></section>
+<section><div class="wrap"><p class="note"><b>Sanitized for public use.</b> Employer names, site locations, people, hostnames, addresses, credentials and internal system details are left out or generalized. Counts are approximate and describe the scope of my responsibilities, not work I did alone.</p></div></section>
+<div class="wrap next"><a href="index.html#plant">&larr; Back to the portfolio</a><a href="plant-network-refresh.html">Replacing a Plant's Network While It Runs &rarr;</a></div>
+</main>
+<footer><div class="wrap">&copy; 2026 Shane Mykal Stark. Built by hand, hosted on GitHub Pages.</div></footer>
+</body>
+</html>

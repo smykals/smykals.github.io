@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1D2125">
+<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
 
   <title>Network Segmentation &amp; Connectivity Lab | Shane Mykal Stark</title>
 
@@ -10,381 +15,6 @@
     name="description"
     content="Enterprise networking lab demonstrating switching, routing, VLANs, firewalling, virtualization integration, secure management, and structured troubleshooting."
   >
-
-  <style>
-    :root {
-      --background: #0b1220;
-      --silver: #c0c0c0;
-      --green: #39d353;
-      --blue: #1a73e8;
-      --white: #f8fafc;
-      --muted: #8d99a8;
-      --panel: #101a2b;
-      --border: #263348;
-      --green-soft: rgba(57, 211, 83, 0.10);
-      --blue-soft: rgba(26, 115, 232, 0.12);
-      --silver-soft: rgba(192, 192, 192, 0.08);
-      --max-width: 1000px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at 85% 5%,
-          rgba(26, 115, 232, 0.10),
-          transparent 28%
-        ),
-        var(--background);
-
-      color: var(--silver);
-      line-height: 1.7;
-    }
-
-    .container {
-      width: min(92%, var(--max-width));
-      margin: 0 auto;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(11, 18, 32, 0.94);
-      backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid rgba(192, 192, 192, 0.10);
-    }
-
-    .nav-inner {
-      min-height: 70px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 20px;
-    }
-
-    .brand {
-      color: var(--white);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-    }
-
-    .brand span {
-      color: var(--green);
-    }
-
-    .back-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-    }
-
-    .back-link:hover {
-      color: var(--green);
-    }
-
-    header {
-      padding: 90px 0 65px;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-
-      color: var(--green);
-
-      font-family: monospace;
-      font-size: 0.84rem;
-      font-weight: 700;
-
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-
-      background: var(--green);
-      border-radius: 50%;
-
-      box-shadow: 0 0 12px rgba(57, 211, 83, 0.65);
-    }
-
-    h1 {
-      margin: 18px 0 22px;
-
-      color: var(--white);
-
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      line-height: 0.98;
-
-      letter-spacing: -0.055em;
-    }
-
-    .intro {
-      max-width: 760px;
-
-      color: var(--muted);
-
-      font-size: 1.1rem;
-    }
-
-    section {
-      padding: 58px 0;
-
-      border-top: 1px solid var(--border);
-    }
-
-    .section-label {
-      color: var(--green);
-
-      font-family: monospace;
-      font-size: 0.80rem;
-      font-weight: 700;
-
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 10px 0 20px;
-
-      color: var(--white);
-
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      letter-spacing: -0.035em;
-    }
-
-    p {
-      color: var(--muted);
-    }
-
-    .tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 9px;
-
-      margin-top: 25px;
-    }
-
-    .tag {
-      padding: 6px 10px;
-
-      color: var(--silver);
-      background: var(--blue-soft);
-
-      border: 1px solid rgba(26, 115, 232, 0.30);
-      border-radius: 999px;
-
-      font-family: monospace;
-      font-size: 0.78rem;
-    }
-
-    .architecture {
-      margin-top: 28px;
-      padding: 30px;
-
-      background: #070c14;
-
-      border: 1px solid var(--border);
-      border-radius: 12px;
-
-      overflow-x: auto;
-    }
-
-    pre {
-      margin: 0;
-
-      color: var(--silver);
-
-      font-family: "Courier New", monospace;
-      font-size: 0.94rem;
-      line-height: 1.7;
-    }
-
-    .note {
-      margin: 28px 0;
-      padding: 22px;
-
-      background: var(--green-soft);
-
-      border: 1px solid rgba(57, 211, 83, 0.22);
-      border-left: 3px solid var(--green);
-
-      border-radius: 0 10px 10px 0;
-
-      color: var(--silver);
-    }
-
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .status-card {
-      padding: 20px;
-
-      background: rgba(255, 255, 255, 0.015);
-
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .status-card strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--white);
-    }
-
-    .badge {
-      display: inline-block;
-
-      margin-bottom: 12px;
-      padding: 4px 8px;
-
-      border-radius: 999px;
-
-      font-family: monospace;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-    }
-
-    .implemented {
-      color: var(--green);
-      background: var(--green-soft);
-      border: 1px solid rgba(57, 211, 83, 0.28);
-    }
-
-    .progress {
-      color: var(--blue);
-      background: var(--blue-soft);
-      border: 1px solid rgba(26, 115, 232, 0.30);
-    }
-
-    .planned {
-      color: var(--silver);
-      background: var(--silver-soft);
-      border: 1px solid rgba(192, 192, 192, 0.20);
-    }
-
-    .workflow {
-      margin-top: 25px;
-      padding: 25px;
-
-      background: var(--panel);
-
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .workflow-step {
-      display: flex;
-      align-items: center;
-
-      gap: 15px;
-
-      padding: 10px 0;
-
-      color: var(--silver);
-    }
-
-    .step-number {
-      min-width: 34px;
-      height: 34px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      color: var(--green);
-      background: var(--green-soft);
-
-      border: 1px solid rgba(57, 211, 83, 0.25);
-      border-radius: 50%;
-
-      font-family: monospace;
-      font-weight: 700;
-    }
-
-    ul {
-      color: var(--muted);
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 8px 0;
-    }
-
-    .next-button {
-      display: inline-flex;
-
-      margin-top: 25px;
-      padding: 12px 18px;
-
-      background: var(--blue);
-
-      color: white;
-
-      border-radius: 8px;
-
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    footer {
-      margin-top: 40px;
-      padding: 35px 0;
-
-      border-top: 1px solid var(--border);
-
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 700px) {
-      .status-grid {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        padding-top: 65px;
-      }
-    }
-  .network-cover{margin:30px 0 0}.network-cover img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:12px}.network-cover figcaption{margin-top:12px;font-size:.9rem;color:var(--muted)}
-</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
 <script>
@@ -395,21 +25,9 @@
 </script>
 </head>
 
-<body>
+<body class="c-lab">
 
-  <nav>
-    <div class="container nav-inner">
-
-      <a class="brand" href="index.html">
-        SMYKALS<span>.</span>
-      </a>
-
-      <a class="back-link" href="index.html">
-        ← Portfolio
-      </a>
-
-    </div>
-  </nav>
+  <div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#lab">Back to the lab</a></div></div>
 
 
   <header>
@@ -430,18 +48,18 @@
 
       <p class="intro">A physical Cisco and FortiGate lab focused on how traffic moves between network segments: switching, trunking, routing, firewall policy, network services, and validation.</p>
 
-    <figure class="network-cover"><img src="assets/images/network-segmentation-cover.png" alt="Concept artwork for the network segmentation lab, with Cisco switching, Fortinet firewalling, and example network zones." width="1367" height="450"><figcaption>Concept illustration. Its example VLAN numbers, OT/VPN zones, and checklist are illustrative. The documented topology and implementation status are described below.</figcaption></figure></div>
+    <figure class="network-cover"><img src="assets/img/pages/network-segmentation-cover.webp" alt="Concept artwork for the network segmentation lab, with Cisco switching, Fortinet firewalling, and example network zones." width="1367" height="450"><figcaption>Concept illustration. Its example VLAN numbers, OT/VPN zones, and checklist are illustrative. The documented topology and implementation status are described below.</figcaption></figure></div>
 
   </header>
 
 
-  <main><section id="artifacts"><div class="container"><h2>Contribution and supporting artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
+  <main><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
 
 
 
     <section><div class="container">
       <div class="section-label">01 / Context &amp; Role</div>
-      <h2>Build a network I can operate and explain.</h2>
+      <h2>Build a Network I Can Operate and Explain.</h2>
       <p>The goal was to create a controlled environment for practicing enterprise networking beyond isolated configuration exercises: physical switching, firewalling, network services, and virtual workloads working together.</p>
       <p><strong>My role:</strong> I configured the Cisco switches and FortiGate firewall, created functional network segments, validated connected endpoints, and documented the logical architecture and troubleshooting approach.</p>
       <p><strong>Scope:</strong> An independent learning lab using a FortiGate 60E, Cisco Catalyst 3560 and 2960 switches. This case study describes lab implementation; it does not claim a production deployment or business performance improvement.</p>
@@ -456,7 +74,7 @@
         </div>
 
         <h2>
-          Physical and virtual infrastructure.
+          Physical and Virtual Infrastructure.
         </h2>
 
         <div class="tech-grid">
@@ -497,7 +115,7 @@
         </div>
 
         <h2>
-          Segmented by function.
+          Segmented by Function.
         </h2>
 
         <p>
@@ -529,7 +147,7 @@
 
 
     <section><div class="container">
-      <div class="section-label">Design decisions</div><h2>Separate functions. Trace dependencies.</h2>
+      <div class="section-label">Design decisions</div><h2>Separate Functions. Trace Dependencies.</h2>
       <div class="status-grid">
         <div class="status-card"><strong>Functional segmentation</strong>Management, servers, and clients occupy distinct segments, giving the lab a structure for exploring routing and traffic control.</div>
         <div class="status-card"><strong>Traffic-path validation</strong>Connected endpoints provide a way to check VLAN placement, gateway reachability, network services, and firewall behavior.</div>
@@ -546,7 +164,7 @@
         </div>
 
         <h2>
-          Working in the lab today.
+          Working in the Lab Today.
         </h2>
 
 
@@ -725,7 +343,7 @@
         </div>
 
         <h2>
-          Currently building and testing.
+          Currently Building and Testing.
         </h2>
 
 
@@ -782,7 +400,7 @@
         </div>
 
         <h2>
-          Next capabilities on the roadmap.
+          Next Capabilities on the Roadmap.
         </h2>
 
 
@@ -850,7 +468,7 @@
         </div>
 
         <h2>
-          Trace the failure through the network.
+          Trace the Failure Through the Network.
         </h2>
 
         <p>
@@ -954,7 +572,7 @@
         </div>
 
         <h2>
-          A working network isn't the finish line.
+          A Working Network Isn't the Finish Line.
         </h2>
 
         <p>
@@ -987,7 +605,7 @@
     </section>
 
 
-<section><div class="container"><div class="section-label">Connected workloads</div><h2>The network supports the services.</h2><p>This page covers traffic paths and network controls. The infrastructure case study documents the separate hosts providing jump access, storage, VPN, and local AI.</p><a class="next-button" href="virtualization-lab.html">Explore workload placement &amp; administration &rarr;</a></div></section>  </main>
+<section><div class="container"><div class="section-label">Connected workloads</div><h2>The Network Supports the Services.</h2><p>This page covers traffic paths and network controls. The infrastructure case study documents the separate hosts providing jump access, storage, VPN, and local AI.</p><a class="next-button" href="virtualization-lab.html">Explore workload placement &amp; administration &rarr;</a></div></section>  </main>
 
 
   <footer>
