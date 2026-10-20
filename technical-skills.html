@@ -1,0 +1,330 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Technical Skills | Shane Mykal Stark</title><meta name="description" content="A detailed technical experience breakdown covering enterprise IT, manufacturing systems, networking, virtualization, cybersecurity, AI infrastructure and independent lab projects."><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"><style>
+@font-face { font-family: "Archivo"; src: url("assets/fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "Plex Mono"; src: url("assets/fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Plex Mono"; src: url("assets/fonts/plex-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+
+/* Powder-coated graphite, brushed steel text, and the T568B pair colours as
+   category codes: orange = work, blue = lab, green = games, brown = writing. */
+:root {
+  --floor: #1D2125;     /* page */
+  --panel: #262B30;     /* cards */
+  --panel-2: #2E3439;   /* raised */
+  --rack: #131619;
+  --steel: #E4E7EA;     /* main text */
+  --dim: #A3ACB5;       /* secondary text */
+  --rule: #363D44;
+  --work: #E07B34;
+  --lab: #4B80E0;
+  --play: #3AA864;
+  --writing: #B07B55;
+  --led: #43E089;
+  --amber: #F4B23E;
+  --display: "Archivo", "Arial Narrow", sans-serif;
+  --mono: "Plex Mono", ui-monospace, monospace;
+  --wrap: min(1160px, calc(100% - 32px));
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--floor); color: var(--steel); font: 400 17px/1.6 var(--display); font-stretch: 100%; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--lab); outline-offset: 3px; }
+.wrap { width: var(--wrap); margin: 0 auto; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 12px; background: var(--steel); color: var(--rack); padding: 8px 12px; z-index: 10; }
+
+/* Header ------------------------------------------------------------------ */
+.site-head { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--floor) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { font-weight: 800; font-stretch: 125%; letter-spacing: -.01em; text-decoration: none; font-size: 17px; }
+.site-nav { display: flex; gap: 22px; font-size: 15px; }
+.site-nav a { text-decoration: none; color: var(--dim); }
+.site-nav a:hover { color: var(--steel); }
+.menu { display: none; background: none; color: var(--steel); border: 1px solid var(--rule); border-radius: 6px; padding: 8px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+
+/* Hero -------------------------------------------------------------------- */
+.hero { padding: 64px 0 80px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(46px, 7vw, 98px); line-height: .92; font-weight: 850; font-stretch: 125%; letter-spacing: -.035em; margin: 0 0 28px; color: #fff; }
+.hero h1 span { display: block; }
+.role { font-size: clamp(20px, 2vw, 25px); line-height: 1.35; max-width: 32ch; margin: 0 0 18px; font-weight: 500; color: #fff; }
+.lede { color: var(--dim); max-width: 56ch; margin: 0 0 30px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 6px; font-weight: 650; font-size: 15px; text-decoration: none; border: 2px solid var(--steel); }
+.btn.primary { background: var(--steel); color: var(--rack); }
+.btn.primary:hover { background: #fff; }
+.btn.secondary:hover { background: var(--panel-2); }
+
+/* The rack: career facts mounted as equipment ------------------------------- */
+.rack { background: var(--rack); border: 1px solid #2C3238; border-radius: 10px; padding: 14px 22px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); position: relative; }
+.rack::before, .rack::after { content: ""; position: absolute; top: 14px; bottom: 14px; width: 9px; background: repeating-linear-gradient(to bottom, #3A4047 0 3px, transparent 3px 9px); }
+.rack::before { left: 7px; } .rack::after { right: 7px; }
+.unit { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 11px 14px; margin: 6px 0; border-radius: 3px; background: linear-gradient(#2C3238, #24292E); border-left: 4px solid var(--c, #555); color: #E9ECEF; text-decoration: none; transition: transform .15s ease; }
+.unit:hover { transform: translateX(-4px); }
+.unit .u { font: 500 11px var(--mono); color: #8B949E; }
+.unit strong { font-weight: 650; font-size: 15.5px; line-height: 1.25; display: block; }
+.unit small { color: #A8B0B9; font-size: 13px; }
+.leds { display: flex; gap: 5px; }
+.leds i { width: 7px; height: 7px; border-radius: 50%; background: var(--led); box-shadow: 0 0 8px var(--led); animation: blink 2.6s infinite; }
+.leds i:nth-child(2) { animation-delay: .7s; }
+.leds i.amber { background: var(--amber); box-shadow: 0 0 8px var(--amber); animation-delay: 1.3s; }
+@keyframes blink { 0%, 86%, 100% { opacity: 1; } 90% { opacity: .25; } }
+.ports { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin-top: 8px; }
+.ports b { height: 9px; border-radius: 2px; background: #0E1013; border: 1px solid #3A4047; }
+.ports b.on { background: var(--led); border-color: var(--led); box-shadow: 0 0 6px var(--led); }
+.rack-caption { margin: 14px 0 0; max-width: calc(100% - 130px); font-size: 13px; color: var(--dim); }
+.badge { position: absolute; right: -18px; bottom: -58px; width: 118px; border-radius: 8px; border: 4px solid var(--panel-2); box-shadow: 0 14px 30px -12px rgba(0,0,0,.7); transform: rotate(4deg); }
+
+/* Sections ---------------------------------------------------------------- */
+section { padding: 84px 0; }
+section + section { border-top: 1px solid var(--rule); }
+section.alt { background: #191C20; }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: end; margin-bottom: 40px; }
+h2 { font-size: clamp(32px, 3.8vw, 50px); text-wrap: balance; line-height: 1; font-weight: 800; font-stretch: 115%; letter-spacing: -.025em; margin: 0; color: #fff; }
+.head p { margin: 0; color: var(--dim); max-width: 52ch; }
+h3 { font-size: 21px; line-height: 1.2; font-weight: 700; margin: 0 0 8px; color: #fff; }
+.more { margin: 26px 0 0; }
+.more a { color: var(--steel); font-weight: 600; text-underline-offset: 4px; }
+
+/* Impact ------------------------------------------------------------------- */
+.impact { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; }
+.case { background: var(--panel); border-radius: 10px; padding: 26px; border-top: 5px solid var(--work); display: flex; flex-direction: column; gap: 10px; }
+.case .figure { font-size: clamp(44px, 5vw, 64px); line-height: 1; font-weight: 850; font-stretch: 75%; letter-spacing: -.02em; color: #fff; }
+.case p { margin: 0; color: var(--dim); }
+.case a { margin-top: auto; font-weight: 600; text-underline-offset: 4px; }
+.case img { border-radius: 6px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 6px; }
+
+/* Experience --------------------------------------------------------------- */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 3px solid var(--rule); }
+.timeline > li { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 24px; padding: 0 0 40px 26px; position: relative; }
+.timeline > li::before { content: ""; position: absolute; left: -9px; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: var(--floor); border: 3px solid var(--dim); }
+.timeline > li:first-child::before { background: var(--work); border-color: var(--work); }
+.when { font: 500 14px var(--mono); color: var(--dim); padding-top: 3px; }
+.org { color: var(--steel); font-weight: 500; display: block; margin-bottom: 10px; }
+.timeline ul { margin: 0; padding-left: 18px; color: var(--dim); max-width: 70ch; display: grid; gap: 6px; }
+.timeline ul strong { color: var(--steel); font-weight: 600; }
+
+/* Plant-floor case studies ------------------------------------------------ */
+.cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.fault { background: var(--panel); border-radius: 10px; padding: 24px 26px 26px; border-top: 5px solid var(--amber); }
+.fault h3 { margin-bottom: 16px; }
+.fault dl { margin: 0; display: grid; gap: 12px; }
+.fault dt { font: 500 12px var(--mono); color: var(--dim); }
+.fault dd { margin: 2px 0 0; font-size: 15.5px; color: var(--steel); }
+
+/* Skills: the patch panel --------------------------------------------------- */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.group { background: var(--panel); border-radius: 10px; padding: 22px 24px 24px; border-left: 4px solid var(--c, var(--dim)); }
+.group h3 { font-size: 18px; margin-bottom: 4px; }
+.group > p { margin: 0 0 14px; color: var(--dim); font-size: 15px; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips li { font-size: 14px; padding: 4px 10px; border-radius: 4px; background: var(--panel-2); border: 1px solid var(--rule); }
+.group.focus { grid-column: span 3; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 32px; align-items: center; background: linear-gradient(90deg, #2A2620, var(--panel) 70%); border-left-color: var(--amber); }
+.group.focus h3 { font-size: 22px; }
+.group.focus .chips li { border-color: #5A4A2A; }
+.tag { font: 500 12px var(--mono); color: var(--amber); display: block; margin-bottom: 8px; }
+
+/* Cards with the original thumbnails --------------------------------------- */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.card { background: var(--panel); border-radius: 10px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; border-bottom: 5px solid var(--c); transition: transform .15s ease, box-shadow .15s ease; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 18px 30px -18px rgba(0,0,0,.8); }
+.card img { aspect-ratio: 3/2; object-fit: cover; width: 100%; background: var(--rack); }
+.card img.contain { object-fit: contain; padding: 22px; }
+.card .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card .kind { font-size: 13px; color: var(--c); font-weight: 650; }
+.card .kind .state { color: var(--dim); font-weight: 500; }
+.card p { margin: 0; color: var(--dim); font-size: 15.5px; }
+.card.wide { grid-column: span 2; flex-direction: row; }
+.card.wide img { width: 52%; aspect-ratio: auto; }
+.card.wide .body { padding: 26px 28px; justify-content: center; }
+.card.wide h3 { font-size: 26px; }
+.soft { --c: #C3CBD3; }
+.card .go { margin-top: auto; padding-top: 8px; font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 4px; }
+.card .stretch { text-decoration: none; }
+.card .stretch::after { content: ""; position: absolute; inset: 0; }
+.card.play { position: relative; }
+.card-links { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.card-links .go { margin: 0; padding: 0; }
+.play-btn { position: relative; z-index: 1; text-decoration: none; font-weight: 650; font-size: 14px; padding: 6px 14px; border-radius: 6px; background: var(--play); color: #0E1A12; }
+.play-btn:hover { background: #4CC57A; }
+.fault .go { display: inline-block; margin-top: 16px; font-weight: 600; }
+.trace-doc { margin: 14px 0 0; } .trace-doc a { font-weight: 600; }
+.card .go.muted { color: var(--dim); text-decoration: none; font-weight: 500; }
+article.card:hover { transform: none; box-shadow: none; }
+.more { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.work { --c: var(--work); } .lab { --c: var(--lab); } .play { --c: var(--play); } .writing { --c: var(--writing); }
+.games .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.games .card img { aspect-ratio: 4/3; }
+.games .head { margin-bottom: 0; }
+.runner-track { height: 104px; position: relative; overflow: hidden; border-bottom: 2px dashed #2F6A45; margin: 0 0 28px; }
+.runner { position: absolute; left: 0; bottom: -1px; animation: run-across 11s linear infinite; }
+.runner-sprite { width: 48px; height: 96px; background: url("assets/img/avatar-run.webp") 0 0 / 600% 100% no-repeat; image-rendering: pixelated; animation: run-cycle .66s steps(6) infinite; }
+@keyframes run-across { from { transform: translateX(-80px); } to { transform: translateX(calc(min(1160px, 100vw) + 80px)); } }
+@keyframes run-cycle { to { background-position: 120% 0; } }
+
+/* Journal ------------------------------------------------------------------ */
+.posts { list-style: none; margin: 0; padding: 0; }
+.posts a { display: grid; grid-template-columns: 130px minmax(0, 1fr) auto; gap: 24px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
+.posts a:hover h3 { text-decoration: underline; text-decoration-color: var(--writing); text-underline-offset: 4px; }
+.posts time { font: 500 14px var(--mono); color: var(--writing); }
+.posts p { margin: 0; color: var(--dim); font-size: 15.5px; max-width: 70ch; }
+.posts span { color: var(--dim); }
+
+/* Contact ------------------------------------------------------------------ */
+.contact { background: var(--rack); }
+.contact h2 { max-width: 16ch; }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+.contact p { color: var(--dim); max-width: 52ch; }
+.contact .btn.secondary { border-color: #59626C; }
+footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px 0 34px; border-top: 1px solid #2A2F35; }
+
+
+/* Boot sequence: the rack powers on once, unit by unit -------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rack .unit { animation: power-on .5s ease-out both; animation-delay: calc(.25s + var(--i) * .16s); }
+  .rack .unit .leds i { animation: led-on .01s both, blink 2.6s infinite; animation-delay: calc(.45s + var(--i) * .16s), calc(1.6s + var(--i) * .3s); }
+  @keyframes power-on { from { opacity: .15; filter: grayscale(1) brightness(.6); transform: translateX(10px); } to { opacity: 1; filter: none; transform: none; } }
+  @keyframes led-on { from { opacity: 0; } to { opacity: 1; } }
+}
+.unit.on { background: linear-gradient(#353C43, #2B3137); }
+.console { font: 400 13.5px/1.5 var(--mono); color: var(--led); min-height: 3em; }
+.console .prompt { color: var(--dim); }
+
+/* Section rail ------------------------------------------------------------ */
+.rail { position: fixed; left: 18px; top: 50%; transform: translateY(-50%); z-index: 4; display: none; flex-direction: column; gap: 6px; padding: 10px 8px; background: var(--rack); border: 1px solid #2C3238; border-radius: 8px; }
+.rail a { position: relative; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--dim); font-size: 13px; height: 18px; }
+.rail i { width: 8px; height: 8px; border-radius: 50%; background: #2F363C; flex: none; transition: background .2s, box-shadow .2s; }
+.rail span { position: absolute; left: 20px; opacity: 0; transform: translateX(-4px); transition: opacity .15s, transform .15s; white-space: nowrap; pointer-events: none; background: var(--rack); padding: 2px 8px; border-radius: 4px; }
+.rail a:hover span, .rail a:focus-visible span, .rail a.active span { opacity: 1; transform: none; }
+.rail a.active i { background: var(--led); box-shadow: 0 0 8px var(--led); }
+.rail a.active { color: var(--steel); }
+@media (min-width: 1380px) { .rail { display: flex; } }
+
+/* Fault trace ------------------------------------------------------------- */
+.trace { background: var(--panel); border-radius: 12px; padding: 28px 30px; border-top: 5px solid var(--amber); margin-bottom: 20px; }
+.trace-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+.trace-head h3 { font-size: 26px; margin: 0; }
+.trace-controls { display: flex; gap: 10px; }
+.trace .btn { cursor: pointer; font-family: inherit; }
+.line { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 70px 1fr 70px 1fr 70px 1fr; align-items: center; }
+.node { text-align: center; padding: 16px 10px; border-radius: 10px; border: 2px solid var(--rule); background: var(--panel-2); transition: border-color .3s, box-shadow .3s; }
+.node .icon svg { width: 46px; height: 46px; fill: none; stroke: var(--dim); stroke-width: 2; transition: stroke .3s; }
+.node b { display: block; font-size: 15.5px; margin-top: 6px; }
+.node small { color: var(--dim); font-size: 13px; }
+.node.checking { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(244,178,62,.15); }
+.node.ok { border-color: var(--led); } .node.ok svg { stroke: var(--led); }
+.node.bad { border-color: #F0564A; box-shadow: 0 0 0 4px rgba(240,86,74,.18); } .node.bad svg { stroke: #F0564A; }
+.node.waiting { opacity: .55; }
+.link { height: 4px; background: var(--rule); position: relative; border-radius: 2px; overflow: hidden; }
+.link.ok { background: #1F5A3A; }
+.link.ok i { position: absolute; top: 0; left: -14px; width: 14px; height: 4px; background: var(--led); box-shadow: 0 0 8px var(--led); animation: packet 1.2s linear infinite; }
+@keyframes packet { to { left: 100%; } }
+.log { margin-top: 26px; border-top: 1px solid var(--rule); padding-top: 18px; min-height: 4.6em; }
+.log p { margin: 0; max-width: 78ch; }
+.log b { color: #fff; }
+.cases.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* IT/OT lab map ------------------------------------------------------------ */
+.map { display: grid; grid-template-columns: 1fr 210px 1fr; gap: 0; background: var(--rack); border: 1px solid #2C3238; border-radius: 12px; padding: 24px; margin-bottom: 12px; }
+.zone { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; padding: 6px 18px; }
+.zlabel { flex-basis: 100%; font: 500 12px var(--mono); color: var(--dim); margin-bottom: 6px; }
+.zlabel em { font-style: normal; color: var(--led); margin-left: 6px; }
+.zlabel em.plan { color: var(--amber); }
+.dev { font-size: 14.5px; text-decoration: none; padding: 8px 12px; border-radius: 6px; border: 1.5px solid #4A5560; background: #1E2328; transition: border-color .15s, transform .15s; }
+.dev:hover, .dev:focus-visible { border-color: var(--lab); transform: translateY(-2px); }
+.dev.plan { border-style: dashed; border-color: #7A6438; }
+.dev.plan:hover { border-color: var(--amber); }
+.wall { border-left: 3px solid #C0392B; border-right: 3px solid #C0392B; background: repeating-linear-gradient(135deg, #24191A 0 10px, #1C1517 10px 20px); text-align: center; padding: 6px 12px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.wall .zlabel { flex-basis: auto; }
+.wall b { font-size: 19px; color: #fff; } .wall small { color: var(--dim); font-size: 13px; }
+.flow { position: relative; height: 26px; margin-top: 12px; }
+.flow i { position: absolute; top: 9px; left: 0; width: 10px; height: 8px; border-radius: 2px; }
+.flow i.ok { background: var(--led); box-shadow: 0 0 8px var(--led); animation: cross 3s linear infinite; }
+.flow i.no { background: #F0564A; animation: blocked 3s linear infinite; }
+.flow .d2 { animation-delay: 1s !important; } .flow .d3 { animation-delay: 2s !important; }
+@keyframes cross { from { left: -10%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 100%; opacity: 0; } }
+@keyframes blocked { from { left: -10%; opacity: 0; } 10% { opacity: 1; } 45% { left: 42%; opacity: 1; } 55% { left: 42%; opacity: 0; } to { left: 42%; opacity: 0; } }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13.5px; color: var(--dim); margin: 0 0 30px; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { display: inline-block; width: 22px; height: 12px; border-radius: 3px; }
+.legend .solid { border: 1.5px solid #4A5560; } .legend .dash { border: 1.5px dashed #7A6438; }
+.legend .pk { width: 10px; height: 8px; } .legend .pk.ok { background: var(--led); } .legend .pk.no { background: #F0564A; }
+
+@media (max-width: 960px) {
+  .map { grid-template-columns: 1fr; padding: 16px; }
+  .wall { border: none; border-top: 3px solid #C0392B; border-bottom: 3px solid #C0392B; margin: 12px 0; padding: 14px; }
+  .cases.two { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .trace { padding: 22px 18px; }
+  .line { grid-template-columns: 1fr; }
+  .link { width: 4px; height: 28px; margin: 0 auto; }
+  .link.ok i { width: 4px; height: 12px; left: 0; top: -12px; animation-name: packet-v; }
+  @keyframes packet-v { to { top: 100%; } }
+}
+
+/* Small screens ------------------------------------------------------------- */
+@media (max-width: 1060px) { .site-nav { gap: 16px; font-size: 14px; } }
+@media (max-width: 960px) {
+  .hero .wrap, .head, .contact .wrap, .group.focus { grid-template-columns: 1fr; }
+  .group.focus { gap: 14px; }
+  .impact, .grid, .skills, .games .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cases { grid-template-columns: 1fr; }
+  .group.focus { grid-column: 1 / -1; }
+  .impact .case:first-child, .card.wide { grid-column: 1 / -1; }
+  .badge { right: 10px; bottom: -40px; width: 104px; }
+}
+@media (max-width: 860px) {
+  .menu { display: block; }
+  .site-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--panel); border-bottom: 1px solid var(--rule); font-size: 16px; }
+  .site-nav.open { display: flex; }
+  .site-nav a { padding: 14px 16px; border-top: 1px solid var(--rule); color: var(--steel); }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .hero { padding: 36px 0 64px; }
+  section { padding: 60px 0; }
+  .impact, .grid, .skills { grid-template-columns: 1fr; }
+  .games .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .games .card .body { padding: 12px 14px 16px; }
+  .games .card p { display: none; }
+  .card-links .go { display: none; }
+  .games .card h3 { font-size: 17px; }
+  .card.wide { flex-direction: column; }
+  .card.wide img { width: 100%; aspect-ratio: 3/2; }
+  .timeline > li, .posts a { grid-template-columns: 1fr; gap: 4px; }
+  .posts a span { display: none; }
+  .rack { padding: 12px 18px; }
+  .unit { grid-template-columns: 22px minmax(0, 1fr) auto; padding: 10px 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before { animation: none !important; transition: none !important; }
+  .runner { left: calc(50% - 24px); }
+}
+</style><style>
+.skills-detail .group { scroll-margin-top: 90px; }
+.skills-detail .group .tag { color: var(--dim); }
+.skills-detail .group p { margin: 10px 0 18px; }
+.skills-intro { max-width: 76ch; color: var(--dim); margin: 16px 0 30px; }
+.skills-legend { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
+.skills-legend span { border:1px solid var(--rule); border-radius:6px; padding:7px 11px; color:var(--dim); font-size:14px; }
+.skill-jump { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+.skill-jump a { color:var(--steel); text-decoration:none; border:1px solid var(--rule); padding:7px 11px; border-radius:5px; font-size:14px; }
+.skill-jump a:hover { background:var(--panel-2); }
+.skills-note { margin-top:32px; padding:20px 24px; border-left:4px solid var(--amber); background:var(--panel); border-radius:8px; color:var(--dim); }
+.skills-note strong { color:var(--steel); }
+</style></head><body><a class="skip" href="#main">Skip to content</a><header class="site-head"><div class="wrap"><a class="brand" href="index.html">Shane Mykal Stark</a><button class="menu" aria-expanded="false" aria-controls="nav">Menu</button><nav class="site-nav" id="nav" aria-label="Main"><a href="index.html#impact">Impact</a><a href="index.html#experience">Experience</a><a href="index.html#skills" aria-current="page">Skills</a><a href="index.html#lab">Lab</a><a href="index.html#journal">Journal</a><a href="index.html#contact">Contact</a></nav></div></header><main id="main"><section class="skills-detail"><div class="wrap"><div class="head"><h2>Technical Skills</h2><p>What I've supported, configured, deployed, troubleshot, and explored — with professional and independent work clearly distinguished.</p></div><p class="skills-intro">This is a deeper look behind the skills on my homepage. Some technologies are part of my professional IT experience; others come from independent hardware work or the PROTO engineering lab. Exposure is not the same as administration, and AI-assisted software development is identified as such.</p><div class="skills-legend"><span>Professional: employer-based experience</span><span>Lab: independently built or tested</span><span>Exposure: encountered or studied, not independently engineered</span></div><nav class="skill-jump" aria-label="Skill categories"><a href="#skill-1">Enterprise Networking</a><a href="#skill-2">Servers &amp; Virtualization</a><a href="#skill-3">Microsoft &amp; Endpoint Administration</a><a href="#skill-4">Security &amp; Remote Access</a><a href="#skill-5">Manufacturing IT &amp; OT</a><a href="#skill-6">Monitoring &amp; Operations</a><a href="#skill-7">AI Infrastructure &amp; Deployment</a><a href="#skill-8">AI-Assisted Software &amp; Automation</a><a href="#skill-9">Hardware, Electronics &amp; Fabrication</a></nav><div class="skills"><article class="group" id="skill-1" style="--c:var(--work)"><span class="tag">Professional + lab</span><h3>Enterprise Networking</h3><p>Core, distribution and access switching; installation, approved configuration deployment, modifications, upgrades, and Layer 1–3 diagnostics.</p><ul class="chips"><li>Cisco Catalyst</li><li>Dell switches</li><li>HP / Aruba</li><li>Cisco Nexus (exposure)</li><li>VLANs and trunking</li><li>STP</li><li>LACP / port channels</li><li>ACLs</li><li>802.1X / port security</li><li>Cisco IOS upgrades</li><li>Wireless: Cisco / Aruba / Ruckus</li><li>Wireshark</li><li>CATV installation and testing</li></ul></article>
+<article class="group" id="skill-2" style="--c:var(--lab)"><span class="tag">Professional + lab</span><h3>Servers &amp; Virtualization</h3><p>Physical server maintenance and hypervisor implementation, including virtual networking, storage, migration, backup and recovery.</p><ul class="chips"><li>Dell PowerEdge</li><li>HPE servers</li><li>iDRAC / iLO</li><li>BIOS / firmware</li><li>VMware ESXi</li><li>Proxmox VE</li><li>Hypervisor clusters</li><li>Virtual switches / bridges</li><li>VM VLANs</li><li>Snapshots / VM restores</li><li>VM migration</li><li>Windows Server</li><li>Debian / Ubuntu</li><li>ZFS pools</li><li>iSCSI</li></ul></article>
+<article class="group" id="skill-3" style="--c:var(--work)"><span class="tag">Professional + lab</span><h3>Microsoft &amp; Endpoint Administration</h3><p>Hands-on identity and endpoint administration. Windows Server experience is more support-oriented than full enterprise server architecture.</p><ul class="chips"><li>Active Directory / GPO</li><li>Users / groups / OUs</li><li>Domain joins</li><li>Entra ID</li><li>MFA / sign-in logs</li><li>Intune</li><li>Windows Autopilot</li><li>Microsoft 365</li><li>Exchange Online</li><li>Teams administration</li><li>SharePoint / OneDrive permissions</li><li>SCCM / MECM (platform experience)</li></ul></article>
+<article class="group" id="skill-4" style="--c:var(--writing)"><span class="tag">Professional + lab</span><h3>Security &amp; Remote Access</h3><p>Firewall deployment and policy changes, VPN configuration, security investigation, and enterprise access-platform support.</p><ul class="chips"><li>FortiGate / FortiOS</li><li>OPNsense</li><li>Firewall rules / NAT</li><li>Network segmentation</li><li>WireGuard</li><li>OpenVPN</li><li>Tailscale</li><li>Microsoft Defender</li><li>Cisco ISE (support/exposure)</li><li>CyberArk (support/exposure)</li><li>Okta (support/exposure)</li><li>Zscaler (support/exposure)</li><li>Nmap</li></ul></article>
+<article class="group" id="skill-5" style="--c:var(--work)"><span class="tag">Professional + lab</span><h3>Manufacturing IT &amp; OT</h3><p>Hands-on support of production-connected IT systems and coordination with controls and maintenance teams; industrial controls are primarily exposure.</p><ul class="chips"><li>Industrial PCs</li><li>Production network troubleshooting</li><li>Industrial label printers</li><li>Barcode / handheld systems</li><li>PI Vision</li><li>GoPlant</li><li>EASE.io</li><li>Mobisys</li><li>SAP</li><li>SCADA / MES (exposure)</li><li>PLCs (exposure)</li><li>Modbus (exposure)</li><li>Production incident response</li></ul></article>
+<article class="group" id="skill-6" style="--c:var(--lab)"><span class="tag">Professional + lab</span><h3>Monitoring &amp; Operations</h3><p>Monitoring configuration, incident investigation, performance baselines, corrective action and cross-team coordination.</p><ul class="chips"><li>SolarWinds</li><li>Windows Performance Monitor</li><li>Event Viewer</li><li>SNMP / syslog / ICMP</li><li>Alert thresholds</li><li>Dashboards</li><li>Historical trends</li><li>Packet captures</li><li>Root cause analysis</li><li>Production outages</li><li>Post-incident reviews</li><li>ServiceNow</li></ul></article>
+<article class="group" id="skill-7" style="--c:var(--lab)"><span class="tag">Primarily personal lab</span><h3>AI Infrastructure &amp; Deployment</h3><p>Personally installed and operated local inference and container infrastructure, including GPU migration and recovery.</p><ul class="chips"><li>Ollama</li><li>Open WebUI</li><li>Local models</li><li>NVIDIA drivers</li><li>GPU container access</li><li>CPU-to-GPU migration</li><li>VRAM monitoring</li><li>Docker Desktop / Engine</li><li>Custom images</li><li>Container networking</li><li>Persistent volumes</li><li>Restart policies</li><li>AIIO</li></ul></article>
+<article class="group" id="skill-8" style="--c:var(--lab)"><span class="tag">Primarily personal projects</span><h3>AI-Assisted Software &amp; Automation</h3><p>AI agents assist with implementation and repository changes; personal work includes deployment, testing, integration and troubleshooting.</p><ul class="chips"><li>Git / GitHub</li><li>GitHub Actions</li><li>VS Code</li><li>Python / PowerShell exposure</li><li>SQLite</li><li>REST API integration</li><li>Automated tests</li><li>Runtime validation</li><li>AI-assisted debugging</li><li>Application deployment</li><li>MONITROPE</li><li>DO²</li><li>GitHub Pages</li></ul></article>
+<article class="group" id="skill-9" style="--c:var(--writing)"><span class="tag">Independent technical experience</span><h3>Hardware, Electronics &amp; Fabrication</h3><p>Hands-on repair, component replacement and testing; microcontroller prototyping remains exposure and learning.</p><ul class="chips"><li>RAM / SSD / HDD / PSU</li><li>Cooling and thermal service</li><li>Soldering / desoldering</li><li>Multimeter</li><li>Cable / PoE testers</li><li>PCB cleaning</li><li>POS and handheld devices</li><li>Zebra / barcode equipment</li><li>3D printing</li><li>Bambu / Elegoo / Creality</li><li>Tinkercad / OrcaSlicer</li><li>Raspberry Pi</li><li>ESP32 (exposure)</li></ul></article></div><div class="skills-note"><strong>How to read this page.</strong> Hands-on means I performed the stated tasks. Configuration deployment includes applying approved configurations, not necessarily designing the original architecture. Manufacturing IT support does not imply PLC programming. My applications are primarily AI-assisted, with hands-on deployment, testing and troubleshooting. Specific capabilities vary by project and environment.</div><p class="more"><a href="index.html#skills">← Back to homepage skills</a> · <a href="index.html#lab">Explore the PROTO lab</a></p></div></section></main><footer><div class="wrap">© 2026 Shane Mykal Stark. Built by hand, hosted on GitHub Pages.</div></footer><script>const menu=document.querySelector('.menu'),nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open)});nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});</script></body></html>
