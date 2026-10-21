@@ -99,6 +99,10 @@
 
           <span class="tag">Firewall Policies</span>
 
+          <span class="tag">EtherChannel</span>
+
+          <span class="tag">Switch-Port Hardening</span>
+
         </div>
 
       </div>
@@ -145,6 +149,21 @@
     </section>
 
 
+
+
+    <section id="physical-switching"><div class="container">
+      <div class="section-label">Physical Switching &amp; Hardening</div>
+      <h2>Know Every Port. Secure the Ones Not in Use.</h2>
+      <p>Logical segmentation explains how traffic moves. Physical interface documentation shows where infrastructure actually connects. I documented switch-side connectivity for the lab's management workstation, firewall, infrastructure hosts, remote-access services, application system, and wireless access point.</p>
+      <p>Interface descriptions identify each connection's purpose, making cable tracing, fault isolation, maintenance, and future changes more predictable. The public summary below uses generalized device roles rather than internal hostnames or endpoint interface identifiers.</p>
+      <div class="status-grid">
+        <div class="status-card"><strong>Physical Port Inventory</strong>Documented active switch interfaces by connected role, including management, infrastructure, remote access, administrative jump access, application services, wireless uplink, and firewall connectivity.</div>
+        <div class="status-card"><strong>EtherChannel / Port-channel</strong>Grouped two physical interfaces into one logical port-channel for the virtualization and storage connection. Link aggregation is documented at both the physical-member and logical-interface levels.</div>
+        <div class="status-card"><strong>Unused-Port Hardening</strong>Assigned three unused switch interfaces to a dedicated BlackHole VLAN and kept them administratively shut down to reduce exposure from unused physical ports.</div>
+        <div class="status-card"><strong>Operational Maintainability</strong>Kept the port inventory aligned with interface descriptions so physical connectivity can be understood without relying solely on memory or tracing cables.</div>
+      </div>
+      <div class="note"><strong>Public documentation:</strong> Switch-side connections, link aggregation, and shutdown controls are described by function. Actual hostnames, VLAN identifiers, and other live-environment details remain in private lab records. The port-channel's resilience and bandwidth behavior depend on the connected systems and traffic distribution.</div>
+    </div></section>
 
     <section><div class="container">
       <div class="section-label">Design decisions</div><h2>Separate Functions. Trace Dependencies.</h2>
@@ -321,11 +340,16 @@
           </div>
 
 
-          
-
-
-          
-
+          <div class="status-card">
+            <span class="badge implemented">IMPLEMENTED</span>
+            <strong>EtherChannel / Link Aggregation</strong>
+            Two physical switch interfaces grouped into one logical port-channel for virtualization and storage connectivity.
+          </div>
+          <div class="status-card">
+            <span class="badge implemented">IMPLEMENTED</span>
+            <strong>Unused Switch-Port Hardening</strong>
+            Three unused interfaces assigned to a dedicated BlackHole VLAN and administratively shut down.
+          </div>
 
         </div>
 
