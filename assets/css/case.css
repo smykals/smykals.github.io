@@ -120,3 +120,27 @@ table.data td:first-child { color: var(--steel); font-weight: 600; }
 .ok-cell { color: var(--led) !important; }
 blockquote.takeaway { margin: 0; padding: 18px 22px; border-left: 4px solid var(--c); background: var(--panel); border-radius: 0 10px 10px 0; font-size: 20px; line-height: 1.5; color: var(--steel); max-width: 60ch; }
 @media (max-width: 720px) { .gallery, .compare { grid-template-columns: 1fr; } }
+
+/* Grouped results and inline follow-on links */
+.results + h3 { margin-top: 28px; }
+section h3 + .results { margin-top: 12px; }
+p.more { margin: 18px 0 0; color: var(--dim); }
+/* Leadership case study: role highlight, scope split, allocation, decision tree, policy split */
+.chain li.me { border-color: var(--c, var(--amber)); box-shadow: 0 0 0 4px rgba(244,178,62,.15); }
+.scope3, .alloc, .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.scope3 > div, .alloc > div, .split > div { background: var(--panel); border-radius: 10px; padding: 18px 20px; border-top: 4px solid var(--c, var(--amber)); }
+.scope3 b, .split b { display: block; font: 500 12px var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .04em; }
+.scope3 .big { display: block; font-size: 26px; font-weight: 800; color: #fff; margin: 6px 0 4px; }
+.scope3 p, .alloc p { margin: 6px 0 0; color: var(--dim); font-size: 15.5px; }
+.alloc b { display: block; color: #fff; font-size: 16px; line-height: 1.35; }
+.split ul { margin: 10px 0 0; padding-left: 18px; color: var(--steel); display: grid; gap: 6px; }
+.split > div + div { border-top-color: #4A5560; }
+.tree { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 0; max-width: 820px; }
+.tree li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 14px; align-items: center; position: relative; padding-bottom: 26px; }
+.tree li:not(.end)::after { content: "No \2193"; position: absolute; left: 18px; bottom: 4px; font: 500 12px var(--mono); color: var(--dim); }
+.tree .q { margin: 0; background: #1E2328; border: 1.5px solid #4A5560; border-radius: 8px; padding: 12px 14px; font-weight: 600; }
+.tree .yes { margin: 0; color: var(--dim); background: var(--panel); border-left: 3px solid var(--led); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+.tree .yes span { display: inline-block; margin-right: 8px; font: 500 12px var(--mono); color: var(--led); }
+.tree li.end { padding-bottom: 0; }
+.tree li.end .q { border-color: var(--c, var(--amber)); }
+@media (max-width: 720px) { .tree li { grid-template-columns: 1fr; gap: 8px; } }
