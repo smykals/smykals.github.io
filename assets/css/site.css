@@ -207,3 +207,9 @@ body > footer, .foot, .footer { background: var(--rack); color: #8B949E; font-si
   .bar-row { grid-template-columns: 1fr 50px; }
   .bar-row .bar-track { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* In-short summary at the top of case studies */
+.tldr { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; margin: 22px 0 28px; max-width: 900px; }
+.tldr div { background: var(--panel); padding: 14px 18px; }
+.tldr dt { font: 500 12px var(--mono); color: var(--dim); }
+.tldr dd { margin: 4px 0 0; font-weight: 600; line-height: 1.4; }

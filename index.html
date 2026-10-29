@@ -6,10 +6,10 @@ layout: null
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shane Mykal Stark | Manufacturing IT, moving into OT</title>
-<meta name="description" content="Shane Mykal Stark supports the networks and production systems behind a 24/7 manufacturing plant, and is building toward OT and digital engineering.">
-<meta property="og:title" content="Shane Mykal Stark | Manufacturing IT, moving into OT">
-<meta property="og:description" content="10 years in IT. Manufacturing networks, production-system support, and a home lab built to study the IT/OT boundary.">
+<title>Shane Mykal Stark | Infrastructure, Networking &amp; IT/OT</title>
+<meta name="description" content="Shane Mykal Stark is an IT infrastructure and network engineer with ten years across 24/7 manufacturing, university data center and campus networks, and leading field technical teams.">
+<meta property="og:title" content="Shane Mykal Stark | Infrastructure, Networking &amp; IT/OT">
+<meta property="og:description" content="Ten years in IT: 24/7 manufacturing networks, university data center and campus infrastructure, technical leadership, and a documented home lab.">
 <meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
 <meta name="theme-color" content="#1D2125">
 <meta name="twitter:card" content="summary_large_image">
@@ -320,6 +320,21 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   *, *::before { animation: none !important; transition: none !important; }
   .runner { left: calc(50% - 24px); }
 }
+
+/* Hero highlights and Start Here paths */
+.proof { list-style: none; margin: 22px 0 26px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 620px; }
+.proof li { border-left: 3px solid var(--work); padding: 4px 0 4px 12px; }
+.proof strong { display: block; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.1; color: var(--steel); }
+.proof span { display: block; font-size: 14px; line-height: 1.35; color: var(--dim); }
+.paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.path { background: var(--panel); border: 1px solid var(--rule); border-top: 3px solid var(--work); border-radius: 10px; padding: 20px 22px; }
+.path h3 { margin: 0 0 12px; font-size: 19px; line-height: 1.25; }
+.path ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.path li { line-height: 1.4; }
+.path a { color: var(--steel); }
+.path .tag { display: inline-block; margin-left: 4px; font: 500 12px var(--mono); color: var(--lab); }
+@media (max-width: 900px) { .paths { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .proof { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -329,13 +344,13 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <a class="brand" href="#top">Shane Mykal Stark</a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="site-nav" id="nav" aria-label="Main">
+      <a href="#start">Start Here</a>
       <a href="#impact">Impact</a>
       <a href="#plant">Plant Floor</a>
       <a href="#experience">Experience</a>
       <a href="technical-skills.html">Technical Skills</a>
       <a href="#lab">Lab</a>
       <a href="#software">Software</a>
-      <a href="#games">Games</a>
       <a href="#journal">Journal</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -344,13 +359,13 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 
 <nav class="rail" aria-label="Sections">
   <a href="#top" data-s="top"><i></i><span>Top</span></a>
+  <a href="#start" data-s="start"><i></i><span>Start Here</span></a>
   <a href="#impact" data-s="impact"><i></i><span>Impact</span></a>
   <a href="#plant" data-s="plant"><i></i><span>Plant Floor</span></a>
   <a href="#experience" data-s="experience"><i></i><span>Experience</span></a>
   <a href="#skills" data-s="skills"><i></i><span>Skills</span></a>
   <a href="#lab" data-s="lab"><i></i><span>Lab</span></a>
   <a href="#software" data-s="software"><i></i><span>Software</span></a>
-  <a href="#games" data-s="games"><i></i><span>Games</span></a>
   <a href="#journal" data-s="journal"><i></i><span>Journal</span></a>
   <a href="#contact" data-s="contact"><i></i><span>Contact</span></a>
 </nav>
@@ -359,8 +374,9 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   <div class="wrap">
     <div>
       <h1><span>Shane</span> <span>Mykal</span> <span>Stark</span></h1>
-      <p class="role">I keep the networks and production systems in a 24/7 plant running, and I'm building toward OT and digital engineering.</p>
-      <p class="lede">Ten years in IT and thirteen in field services. Today I support a continuous-production plant of about 300 endpoints and more than 100 wireless access points, and troubleshoot problems that cross from the network into PLC-connected equipment alongside engineering and maintenance. At home I'm building PROTO, a lab with a simulated factory line for studying how PLCs, HMIs and SCADA depend on the network around them.</p>
+      <p class="role">I keep networks and infrastructure running where downtime isn't an option, from 24/7 plant floors to university data centers, and I've led the teams that do it.</p>
+      <p class="lede">Ten years in IT. Today I'm the on-site IT engineer for a continuous-production plant with about 300 endpoints and 120 wireless access points, working across the network, systems and the PLC-connected equipment production depends on. Before that, I spent six years supporting university networks across data centers and campuses, and from 2020 also led a regional team of field technicians. At home I build and document lab projects, from network segmentation to an OT learning environment.</p>
+      <ul class="proof" aria-label="Highlights"><li><strong>6,500+</strong><span>users on networks I was responsible for</span></li><li><strong>Up to 14</strong><span>field technicians led directly</span></li><li><strong>63.5%</strong><span>fewer label-printing tickets in my Green Belt project</span></li></ul>
       <div class="actions">
         <a class="btn primary" href="#contact">Get in touch</a>
         <a class="btn secondary" href="about.html">About me</a>
@@ -370,7 +386,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
       <div class="rack" role="list" aria-label="Career highlights, shown as rack equipment">
         <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 0" data-detail="Cisco switching and wireless, SAP, PI Vision, industrial labeling equipment"><span class="u">U1</span><span><strong>IT Engineer, 24/7 manufacturing plant</strong><small>About 300 endpoints, 120 access points</small></span><span class="leds" aria-hidden="true"><i></i><i></i></span></a>
         <a class="unit" role="listitem" href="#colo-skills" style="--c: var(--work); --i: 1" data-detail="Network cabinets, switches, cabling and cabinet-level PDUs in university data centers, plus demarcation points, MDFs and IDFs"><span class="u">U2</span><span><strong>6 years of data center &amp; campus network infrastructure</strong><small>Network specialist 2018–2024 · Regional field supervisor 2020–2024</small></span><span class="leds" aria-hidden="true"><i></i><i></i></span></a>
-        <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 2" data-detail="10+ campus-wide refreshes, SLA breaches under 5%, about 70% fewer repeat callbacks"><span class="u">U3</span><span><strong>6,500+ users across 5 directly assigned campuses</strong><small>24/7/365 responsibility in 3 states; supported specialists across 20+ more campuses</small>
+        <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 2" data-detail="10+ network refresh and installation projects, SLA breaches under 5%, about 70% fewer repeat callbacks"><span class="u">U3</span><span><strong>6,500+ users across 5 directly assigned campuses</strong><small>24/7/365 responsibility in 3 states; supported specialists across 20+ more campuses</small>
           <span class="ports" aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b class="on"></b><b class="on"></b><b></b><b class="on"></b><b class="on"></b><b class="on"></b></span></span><span class="leds" aria-hidden="true"><i></i><i></i><i></i></span></a>
         <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 3" data-detail="Hiring, coaching, escalations, and Cisco firmware-upgrade training I wrote"><span class="u">U4</span><span><strong>14 field specialists supervised</strong><small>Up to nearly 30 during vacancies</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
         <a class="unit" role="listitem" href="#impact" style="--c: var(--work); --i: 4" data-detail="Average monthly tickets: 6.3 before, 2.3 during the improvement period"><span class="u">U5</span><span><strong>63.5% fewer label-printing tickets</strong><small>Lean Six Sigma Green Belt project I led</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
@@ -382,6 +398,41 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     </div>
   </div>
 </div>
+
+<section id="start" class="start">
+  <div class="wrap">
+    <div class="head">
+      <h2>Start Here</h2>
+      <p>Pick the path closest to the role you're hiring for. Each one leads to the case studies that matter most for it.</p>
+    </div>
+    <div class="paths">
+      <article class="path">
+        <h3>Infrastructure, Networking &amp; Data Center</h3>
+        <ul>
+          <li><a href="plant-network-refresh.html">Replacing a plant's network while it runs</a></li>
+          <li><a href="campus-network-leadership.html">Campus networks across three states</a></li>
+          <li><a href="proto-lab-evidence.html">Firewall, VPN DNS and remote-access investigations</a> <span class="tag">Personal lab</span></li>
+        </ul>
+      </article>
+      <article class="path">
+        <h3>IT/OT &amp; Manufacturing</h3>
+        <ul>
+          <li><a href="weighing-labeling-fault.html">Bags weighed, but never labeled</a></li>
+          <li><a href="production-data-connectivity.html">Keeping production data reachable</a></li>
+          <li><a href="ot-network-lab.html">OT learning environment</a> <span class="tag">Personal lab, in development</span></li>
+        </ul>
+      </article>
+      <article class="path">
+        <h3>Technical Leadership &amp; Operations</h3>
+        <ul>
+          <li><a href="campus-network-leadership.html">Leading a regional field team</a></li>
+          <li><a href="green-belt-case-study.html">Green Belt: fewer label-printing tickets</a></li>
+          <li><a href="technician-development.html">From technician to team trainer</a></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section id="impact">
   <div class="wrap">
@@ -601,23 +652,6 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 </section>
 
-<section id="games" class="games alt">
-  <div class="wrap">
-    <div class="head">
-      <h2>Games</h2>
-      <p>Browser games I designed and built with AI assistance, each around a networking or infrastructure idea. They all play in your browser.</p>
-    </div>
-  <div class="runner-track" aria-hidden="true"><div class="runner"><div class="runner-sprite"></div></div></div>
-    <div class="grid">
-      <article class="card play"><img src="assets/img/game-packet-launcher.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-packet-launcher.html">Packet Launcher</a></h3><p>Launch a packet toward its destination while network hazards bend its path.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="packet-game.html">Play</a></span></div></article>
-      <article class="card play"><img src="assets/img/game-packet-bingo.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-packet-bingo.html">Packet Bingo</a></h3><p>Scan for devices and services, mark nodes, and build routes across harder networks.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="interactive/packet-bingo/">Play</a></span></div></article>
-      <article class="card play"><img src="assets/img/game-cable-run.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-cable-run.html">Cable Run</a></h3><p>A server-room maze where every move extends your cable. Avoid the rats.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="interactive/cable-run/">Play</a></span></div></article>
-      <article class="card play"><img src="assets/img/game-packet-route.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-packet-route.html">Packet Route</a></h3><p>Aim, route and match traffic across an increasingly congested network.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="interactive/packet-route/">Play</a></span></div></article>
-    </div>
-    <p class="more"><a href="interactive/">All interactive projects</a></p>
-  </div>
-</section>
-
 <section id="journal">
   <div class="wrap">
     <div class="head">
@@ -632,11 +666,28 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 </section>
 
+<section id="games" class="games alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Extras: Networking Games</h2>
+      <p>Browser games I designed and built with AI assistance, each around a networking or infrastructure idea. They all play in your browser.</p>
+    </div>
+  <div class="runner-track" aria-hidden="true"><div class="runner"><div class="runner-sprite"></div></div></div>
+    <div class="grid">
+      <article class="card play"><img src="assets/img/game-packet-launcher.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-packet-launcher.html">Packet Launcher</a></h3><p>Launch a packet toward its destination while network hazards bend its path.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="packet-game.html">Play</a></span></div></article>
+      <article class="card play"><img src="assets/img/game-packet-bingo.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-packet-bingo.html">Packet Bingo</a></h3><p>Scan for devices and services, mark nodes, and build routes across harder networks.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="interactive/packet-bingo/">Play</a></span></div></article>
+      <article class="card play"><img src="assets/img/game-cable-run.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-cable-run.html">Cable Run</a></h3><p>A server-room maze where every move extends your cable. Avoid the rats.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="interactive/cable-run/">Play</a></span></div></article>
+      <article class="card play"><img src="assets/img/game-packet-route.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><h3><a class="stretch" href="game-packet-route.html">Packet Route</a></h3><p>Aim, route and match traffic across an increasingly congested network.</p><span class="card-links"><span class="go">Case study</span><a class="play-btn" href="interactive/packet-route/">Play</a></span></div></article>
+    </div>
+    <p class="more"><a href="interactive/">All interactive projects</a></p>
+  </div>
+</section>
+
 <section id="contact" class="contact">
   <div class="wrap">
     <div>
-      <h2>Building a Plant That Needs IT and OT to Work Together?</h2>
-      <p>I'm looking for roles in OT, digital engineering and manufacturing IT, where plant-floor systems and the network meet. Email is the fastest way to reach me, and my full work history is on LinkedIn.</p>
+      <h2>Need Someone to Keep Critical Infrastructure Running?</h2>
+      <p>I'm looking for infrastructure, network, systems, IT/OT, data center and technical leadership roles, hands-on or leading the team. Email is the fastest way to reach me, and my full work history is on LinkedIn.</p>
     </div>
     <div class="actions">
       <a class="btn primary" href="mailto:shanemykalstark@gmail.com">Email shanemykalstark@gmail.com</a>
