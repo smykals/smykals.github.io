@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keeping Campus Network Cores Powered and Reachable | Shane Mykal Stark</title>
+<meta name="description" content="Hands-on data center and core-rack work for campus networks: redundant UPS and PDU power, out-of-band console access, and the core equipment every user depends on.">
+<meta property="og:title" content="Keeping Campus Network Cores Powered and Reachable | Shane Mykal Stark">
+<meta property="og:description" content="Hands-on data center and core-rack work for campus networks: redundant UPS and PDU power, out-of-band console access, and the core equipment every user depends on.">
+<meta name="theme-color" content="#1D2125">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/case.css">
+</head>
+<body style="--c: var(--amber)">
+<header class="site-head"><div class="wrap"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#colo-skills">Back to experience</a></div></header>
+<main>
+<div class="case-hero"><div class="wrap">
+  <span class="kind">Data center case study<span class="state">, 2018 to 2024</span></span>
+  <h1>Keeping Campus Network Cores Powered and Reachable</h1>
+  <p class="summary">Building, auditing and restoring the core racks every user on a campus network depends on: redundant power, a way in when the network is down, and the equipment in between.</p>
+  <dl class="facts"><div><dt>Environment</dt><dd>University data center rooms, network closets and a shared colocation</dd></div><div><dt>Scale</dt><dd>1,000+ access points and 250 switches across my assigned sites</dd></div><div><dt>My roles</dt><dd>Network Specialist; Regional Field Supervisor from 2020</dd></div><div><dt>Scope</dt><dd>Network equipment, cabinet power and console access, not building power or cooling</dd></div></dl>
+</div></div>
+
+<section><div class="wrap">
+<h2>The Challenge</h2>
+<div class="prose">
+<p>Each campus sent every user through a single core rack. If that rack lost power, or a key device in it failed, the whole campus could lose its internet connection. At a colocation that served several schools at once, one fault could affect all of them.</p>
+<p>The work was keeping those cores redundant, reachable even when the main network was down, and documented well enough that anyone on the team could work on them safely.</p>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>How a Core Fits Together</h2>
+<div class="diagram"><ol class="chain">
+<li class=""><b>Internet circuit</b><small>Direct to the campus, or a transport link to a colocation</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Border routing</b><small>NAT and the edge of the network</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Core switch</b><small>Routing between VLANs and access control</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Core services</b><small>Wireless controllers, DHCP and user authentication</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Campus</b><small>MDFs, IDFs, access switches and access points</small></li>
+</ol></div>
+<p class="caption">At transport sites, DHCP, authentication and DNS lived at the colocation instead of on campus, so troubleshooting had to account for both ends.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>Two Paths That Keep a Core Alive</h2>
+<div class="diagram"><ol class="chain">
+<li class="ok"><b>Separate power feeds</b><small>Two UPSs, ideally on separate circuits</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class="ok"><b>Two PDUs</b><small>Each plugged into a different UPS</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class="ok"><b>Dual power supplies</b><small>Every core device fed from both PDUs</small></li>
+</ol></div>
+<div class="diagram"><ol class="chain">
+<li class="ok"><b>Cellular router</b><small>Independent of the campus internet circuit</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class="ok"><b>Console server</b><small>One port per core device</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class="ok"><b>Console ports</b><small>Direct access to each device, even with the network down</small></li>
+</ol></div>
+<p class="caption">Redundant power keeps a core running through a failed UPS, PDU, outlet or circuit. Out-of-band access means a failed core can still be reached and diagnosed.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>How an Outage Was Handled</h2>
+<div class="diagram"><ol class="chain">
+<li class=""><b>Dispatch</b><small>Priority set by scope; full core outages meant hours, not days</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Isolate</b><small>Out-of-band check: provider fault or our own core?</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Escalate</b><small>Symptoms, scope, timing and device details to engineering</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Restore</b><small>Hands-on fix, inside change control even under pressure</small></li>
+<li class="arrow" aria-hidden="true">&rarr;</li>
+<li class=""><b>Close out</b><small>Root cause recorded and documentation updated</small></li>
+</ol></div>
+<p class="caption">A generalized flow. Who owned each step depended on the cause: outages caused by building power or the internet provider were handled differently from faults in our own equipment.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>What I Did</h2>
+<ul class="steps">
+<li><div><h3>Built Out-of-Band Access</h3><p>Configured and installed a cellular router and a console server in core racks, cabled every core device's console port (using RJ45-to-DB9 adapters where a device needed one), and documented which console port went to which device so engineering could reach any of them.</p></div></li>
+<li><div><h3>Verified Redundant Power</h3><p>Checked that core equipment drew power from two PDUs fed by separate UPSs, corrected cabling where it didn't, and kept each site's UPS-to-PDU power documentation current.</p></div></li>
+<li><div><h3>Brought Power and Console Devices Under Monitoring</h3><p>Replaced default logins on UPSs, PDUs and console servers, configured SNMP so monitoring read real device data rather than just up or down, labeled outlets and console ports by device, and confirmed each node appeared in monitoring.</p></div></li>
+<li><div><h3>Tested and Replaced UPS Batteries</h3><p>Read UPS status and alerts, compared expected runtime between paired units to spot a failing battery, ran self-tests and runtime calibrations, and replaced failed batteries.</p></div></li>
+<li><div><h3>Audited Sites and Cores Against Standards</h3><p>Checked switches against configuration standards, including naming, SSH, ISE, firmware, NTP and SNMP, DHCP snooping, spanning-tree root placement, optic light levels and interface errors, and opened work orders for anything that didn't match.</p></div></li>
+<li><div><h3>Responded to Priority Dispatches</h3><p>Answered core and campus-wide outage dispatches on site, including after hours, within response targets set by how many users were affected.</p></div></li>
+<li><div><h3>Used Out-of-Band Access to Isolate Faults</h3><p>When a campus lost connectivity, came in through the cellular path to check the core directly, which separated an internet-provider fault from a problem in our own equipment.</p></div></li>
+<li><div><h3>Escalated With Evidence</h3><p>Before handing an issue to engineering, gathered the exact symptoms, scope, when it started, environmental factors such as power or weather, and the affected devices, so engineering could start immediately.</p></div></li>
+<li><div><h3>Led On Site During Outages</h3><p>Served as the on-site contact during outages, including building power outages where field services owned the status updates until power returned.</p></div></li>
+<li><div><h3>Worked Within Change Control</h3><p>Did planned work inside approved maintenance windows with advance notice, a written method of procedure and a rollback plan.</p></div></li>
+<li><div><h3>Supported Both Core Designs</h3><p>Worked on direct-internet cores with every service on campus, and on transport sites that depended on a colocation for DHCP, authentication and DNS.</p></div></li>
+<li><div><h3>Worked Hands-On Across the Core</h3><p>Core and border switches, NAT border routers, wireless controllers, and DHCP and authentication servers: hardware swaps, optics and cabling, chassis-part inventory, and careful one-at-a-time restarts of paired servers when engineering approved them.</p></div></li>
+<li><div><h3>Worked in a Shared Colocation</h3><p>Performed rack work in a colocation serving many schools at once, where every change affected more than one campus and had to be deliberate.</p></div></li>
+<li><div><h3>Trained Technicians on the Standards</h3><p>As a supervisor, trained and coached field technicians on these audits, procedures and standards, so the same checks happened the same way at every site.</p></div></li>
+</ul>
+</div></section>
+
+<section><div class="wrap">
+<h2>Scope</h2>
+<div class="results">
+<div class="result"><span class="figure">1,000+</span><p>Wireless access points across my assigned sites.</p></div>
+<div class="result"><span class="figure">250</span><p>Network switches across my assigned sites.</p></div>
+<div class="result"><span class="figure">10+</span><p>Network refresh and installation projects I participated in and coordinated.</p></div>
+</div>
+<p class="caption">These figures describe the infrastructure I supported, not equipment I installed alone. No outage-reduction or uptime figures are claimed.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>Skills Used</h2>
+<ul class="chips"><li>Data center infrastructure</li><li>Out-of-band management</li><li>Console servers</li><li>UPS and PDU power redundancy</li><li>UPS battery testing</li><li>SNMP monitoring</li><li>Network audits</li><li>Core switching</li><li>NAT border routing</li><li>Wireless controllers</li><li>DHCP and authentication services</li><li>Colocation</li><li>Fiber and optics</li><li>Incident response</li><li>Escalation</li><li>Change control</li><li>Technician training</li><li>Network documentation</li></ul>
+</div></section>
+
+<section><div class="wrap">
+<h2>Documentation</h2>
+<ul class="docs">
+<li><b>What is shown</b><span>A generalized core architecture and my responsibilities in it, written in my own words.</span></li>
+<li><b>What is not shown</b><span>The employer, school and site names, rack photos, hostnames, addresses, credentials, people, phone numbers, vendor and ticketing details, and the internal procedures and training material themselves.</span></li>
+</ul>
+</div></section>
+
+<section><div class="wrap">
+<p class="note"><b>Sanitized for public use.</b> Employer names, site locations, people, hostnames, addresses, credentials and internal system details are left out or generalized. Counts are approximate and describe the scope of my responsibilities, not work I did alone.</p>
+</div></section>
+
+<div class="wrap next"><a href="campus-network-leadership.html">&larr; Campus Network Leadership</a><a href="plant-network-refresh.html">Replacing a Plant's Network While It Runs &rarr;</a></div>
+</main>
+<footer><div class="wrap">&copy; 2026 Shane Mykal Stark. Built by hand, hosted on GitHub Pages.</div></footer>
+</body>
+</html>
