@@ -1,0 +1,28 @@
+/* Color tokens for the whole site. Every page reads its colors from here.
+   Work = orange, lab = blue, everything else is neutral.
+   Green, amber and red are reserved for status: up, degraded, down. */
+:root {
+  /* Surfaces */
+  --floor: #171A1E;     /* page */
+  --panel: #21262B;     /* cards */
+  --panel-2: #2A3036;   /* raised */
+  --rack: #111417;      /* diagrams and rack chassis */
+  --rule: #333A42;      /* dividers */
+  --wire: #4A5560;      /* outlines */
+
+  /* Text */
+  --steel: #E8EBEE;     /* main text, 14.6:1 on page */
+  --dim: #ADB6BF;       /* secondary text, 7.4:1 on cards */
+  --soft: #C3CBD3;      /* neutral accent */
+
+  /* Categories */
+  --work: #F0913F;      /* professional work, 6.4:1 on cards */
+  --lab: #74A3F2;       /* personal lab and projects, 6.0:1 on cards */
+  --play: var(--soft);  /* games: neutral */
+  --writing: var(--soft); /* journal: neutral */
+
+  /* Status only */
+  --led: #43D17F;       /* up / healthy */
+  --amber: #F4B23E;     /* degraded / warning */
+  --fault: #F2675C;     /* down / root cause */
+}

@@ -11,31 +11,19 @@ layout: null
 <meta property="og:title" content="Shane Mykal Stark | Infrastructure, Networking &amp; IT/OT">
 <meta property="og:description" content="Ten years in IT: 24/7 manufacturing networks, university data center and campus infrastructure, technical leadership, and a documented home lab.">
 <meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
-<meta name="theme-color" content="#1D2125">
+<meta name="theme-color" content="#171A1E">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
 <style>
 @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
 @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plex-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 
-/* Powder-coated graphite, brushed steel text, and the T568B pair colours as
-   category codes: orange = work, blue = lab, green = games, brown = writing. */
+/* Powder-coated graphite and brushed steel text. Colors come from assets/css/tokens.css:
+   orange = work, blue = lab, neutral for everything else, green/amber/red for status only. */
 :root {
-  --floor: #1D2125;     /* page */
-  --panel: #262B30;     /* cards */
-  --panel-2: #2E3439;   /* raised */
-  --rack: #131619;
-  --steel: #E4E7EA;     /* main text */
-  --dim: #A3ACB5;       /* secondary text */
-  --rule: #363D44;
-  --work: #E07B34;
-  --lab: #4B80E0;
-  --play: #3AA864;
-  --writing: #B07B55;
-  --led: #43E089;
-  --amber: #F4B23E;
   --display: "Archivo", "Arial Narrow", sans-serif;
   --mono: "Plex Mono", ui-monospace, monospace;
   --wrap: min(1160px, calc(100% - 32px));
@@ -231,7 +219,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 .node small { color: var(--dim); font-size: 13px; }
 .node.checking { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(244,178,62,.15); }
 .node.ok { border-color: var(--led); } .node.ok svg { stroke: var(--led); }
-.node.bad { border-color: #F0564A; box-shadow: 0 0 0 4px rgba(240,86,74,.18); } .node.bad svg { stroke: #F0564A; }
+.node.bad { border-color: #F2675C; box-shadow: 0 0 0 4px rgba(242,103,92,.18); } .node.bad svg { stroke: #F2675C; }
 .node.waiting { opacity: .55; }
 .link { height: 4px; background: var(--rule); position: relative; border-radius: 2px; overflow: hidden; }
 .link.ok { background: #1F5A3A; }
@@ -258,7 +246,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 .flow { position: relative; height: 26px; margin-top: 12px; }
 .flow i { position: absolute; top: 9px; left: 0; width: 10px; height: 8px; border-radius: 2px; }
 .flow i.ok { background: var(--led); box-shadow: 0 0 8px var(--led); animation: cross 3s linear infinite; }
-.flow i.no { background: #F0564A; animation: blocked 3s linear infinite; }
+.flow i.no { background: #F2675C; animation: blocked 3s linear infinite; }
 .flow .d2 { animation-delay: 1s !important; } .flow .d3 { animation-delay: 2s !important; }
 @keyframes cross { from { left: -10%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 100%; opacity: 0; } }
 @keyframes blocked { from { left: -10%; opacity: 0; } 10% { opacity: 1; } 45% { left: 42%; opacity: 1; } 55% { left: 42%; opacity: 0; } to { left: 42%; opacity: 0; } }
@@ -266,7 +254,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 .legend span { display: inline-flex; align-items: center; gap: 8px; }
 .legend i { display: inline-block; width: 22px; height: 12px; border-radius: 3px; }
 .legend .solid { border: 1.5px solid #4A5560; } .legend .dash { border: 1.5px dashed #7A6438; }
-.legend .pk { width: 10px; height: 8px; } .legend .pk.ok { background: var(--led); } .legend .pk.no { background: #F0564A; }
+.legend .pk { width: 10px; height: 8px; } .legend .pk.ok { background: var(--led); } .legend .pk.no { background: #F2675C; }
 
 @media (max-width: 960px) {
   .map { grid-template-columns: 1fr; padding: 16px; }

@@ -1,13 +1,10 @@
 /* Shared style for every inner page: the same graphite rack system as the homepage. */
+@import url("tokens.css");
 @font-face { font-family: "Archivo"; src: url("../fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
 @font-face { font-family: "Plex Mono"; src: url("../fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Plex Mono"; src: url("../fonts/plex-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 
 :root {
-  --floor: #1D2125; --panel: #262B30; --panel-2: #2E3439; --rack: #131619;
-  --steel: #E4E7EA; --dim: #A3ACB5; --rule: #363D44; --wire: #4A5560;
-  --work: #E07B34; --lab: #4B80E0; --play: #3AA864; --writing: #B07B55; --soft: #C3CBD3;
-  --led: #43E089; --amber: #F4B23E; --fault: #F0564A;
   --c: var(--lab);
   --display: "Archivo", "Arial Narrow", sans-serif; --mono: "Plex Mono", ui-monospace, monospace;
   /* Older names still used in a few inline styles. */

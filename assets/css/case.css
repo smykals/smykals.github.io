@@ -1,12 +1,9 @@
 /* Case study pages: same graphite rack system as the homepage. */
+@import url("tokens.css");
 @font-face { font-family: "Archivo"; src: url("../fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
 @font-face { font-family: "Plex Mono"; src: url("../fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Plex Mono"; src: url("../fonts/plex-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 :root {
-  --floor: #1D2125; --panel: #262B30; --panel-2: #2E3439; --rack: #131619;
-  --steel: #E4E7EA; --dim: #A3ACB5; --rule: #363D44;
-  --work: #E07B34; --lab: #4B80E0; --play: #3AA864; --writing: #B07B55; --soft: #C3CBD3;
-  --led: #43E089; --amber: #F4B23E; --fault: #F0564A;
   --display: "Archivo", "Arial Narrow", sans-serif; --mono: "Plex Mono", ui-monospace, monospace;
   --wrap: min(1000px, calc(100% - 32px));
 }
@@ -60,7 +57,7 @@ h3 { font-size: 19px; margin: 0 0 6px; color: #fff; }
 .chain li b { display: block; font-size: 15px; }
 .chain li small { color: var(--dim); font-size: 13px; line-height: 1.35; display: block; margin-top: 2px; }
 .chain li.arrow { flex: 0 0 34px; min-width: 34px; border: none; background: none; padding: 0; display: grid; place-items: center; color: var(--dim); font-size: 20px; }
-.chain li.ok { border-color: var(--led); } .chain li.bad { border-color: var(--fault); box-shadow: 0 0 0 4px rgba(240,86,74,.15); }
+.chain li.ok { border-color: var(--led); } .chain li.bad { border-color: var(--fault); box-shadow: 0 0 0 4px rgba(242,103,92,.15); }
 .chain li.plan { border-style: dashed; border-color: #7A6438; }
 .caption { font-size: 14px; color: var(--dim); margin: 10px 0 0; }
 .hub { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px 22px; align-items: center; }
@@ -126,7 +123,7 @@ blockquote.takeaway { margin: 0; padding: 18px 22px; border-left: 4px solid var(
 section h3 + .results { margin-top: 12px; }
 p.more { margin: 18px 0 0; color: var(--dim); }
 /* Leadership case study: role highlight, scope split, allocation, decision tree, policy split */
-.chain li.me { border-color: var(--c, var(--amber)); box-shadow: 0 0 0 4px rgba(244,178,62,.15); }
+.chain li.me { border-color: var(--c, var(--work)); box-shadow: 0 0 0 4px rgba(240,145,63,.15); }
 .scope3, .alloc, .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
 .scope3 > div, .alloc > div, .split > div { background: var(--panel); border-radius: 10px; padding: 18px 20px; border-top: 4px solid var(--c, var(--amber)); }
 .scope3 b, .split b { display: block; font: 500 12px var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .04em; }
