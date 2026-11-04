@@ -306,7 +306,7 @@
     shot = (i + SHOTS.length) % SHOTS.length;
     const [file, cap, alt] = SHOTS[shot];
     shotImg.src = 'assets/images/monitrope%20real%20app%20images/' + file; shotImg.alt = alt;
-    $('#shot-cap').textContent = cap; $('#shot-count').textContent = `${shot + 1} of ${SHOTS.length}`;
+    $('#shot-cap').textContent = cap; $('#shot-count').textContent = `Project Screenshots · ${shot + 1} of ${SHOTS.length}`;
   }
   $('.shot-prev').addEventListener('click', () => showShot(shot - 1));
   $('.shot-next').addEventListener('click', () => showShot(shot + 1));

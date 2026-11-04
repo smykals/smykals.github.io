@@ -833,3 +833,131 @@ body[data-pick] .kpis [data-cap]:not(.pick-on), body[data-pick] .featured [data-
 .ex-graph { height: 172px; }
 .ex-nodes li { transform: translate(-50%, -14px); }
 .ex-node span { max-width: 170px; }
+
+/* Revision 8 ---------------------------------------------------------------------------------- */
+/* Featured: MONITROPE beside a self-sizing stack; Green Belt full width beneath */
+.feat-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.25fr); grid-template-areas: "hero stack" "gb gb"; gap: 14px; align-items: start; }
+.fp-hero { grid-area: hero; align-self: start; }
+.feat-stack { grid-area: stack; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.feat-pro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.feat-pro .fp-case { grid-area: auto !important; }
+.fp-wide .fp-media { flex: 0 0 38%; max-height: none; }
+.fp-wide .fp-media img { height: 100%; min-height: 150px; max-height: 190px; }
+.fp-case { background: linear-gradient(180deg, #19171A, #141518 40%); }
+.fp-art { width: 100%; height: auto; margin: -2px 0 6px; border-radius: 6px; background: #0F0E0F; border: 1px solid #2E2620; }
+.fp-art .ap rect { fill: #2A2C31; stroke: var(--silver); stroke-width: 1; }
+.fp-art .arcs path { fill: none; stroke: var(--work); stroke-width: 1.4; opacity: .7; }
+.fp-art .drop { fill: none; stroke: #55585F; stroke-width: 1.2; stroke-dasharray: 3 3; }
+.fp-art .sw { fill: #24262B; stroke: var(--silver); stroke-width: 1; }
+.fp-art .sw.new { stroke: var(--work); fill: #2A221B; }
+.fp-art .sw.old { stroke: #55585F; stroke-dasharray: 4 3; fill: #18191C; }
+.fp-art .ports rect { fill: #0B0B0D; stroke: #8E9198; stroke-width: .7; }
+.fp-art .ports.old rect { stroke: #4A4D53; }
+.fp-art .led { fill: var(--work); }
+.fp-art .arrow, .fp-art .stepline { fill: none; stroke: var(--work); stroke-width: 1.6; }
+.fp-art text { font: 600 9.5px var(--display); fill: var(--steel); text-anchor: middle; }
+.fp-art .steps text { text-anchor: start; font: 500 9.5px var(--mono); fill: var(--steel); }
+.fp-art .t-dim { fill: #9A9DA4; font-weight: 500; }
+.fp-art .rack { fill: #121316; stroke: #8E9198; stroke-width: 1.2; }
+.fp-art .pdu { fill: #2A2C31; stroke: var(--work); stroke-width: 1; }
+.fp-art .unit, .fp-art .ups, .fp-art .oob { fill: #1F2125; stroke: #6A6D74; stroke-width: 1; }
+.fp-art .ups { stroke: var(--work); }
+.fp-art .in { font-size: 8.5px; } .fp-art .in.dim { fill: #9A9DA4; }
+.fp-art .pwr { fill: none; stroke: var(--work); stroke-width: 1.6; }
+.fp-art .oobline, .fp-art .lead { fill: none; stroke: var(--silver); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.fp-scale { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 12.5px !important; color: var(--steel) !important; }
+
+/* Green Belt feature */
+.fp-gb { grid-area: gb; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: center; padding: 16px 18px; border-top: 3px solid var(--work); background: radial-gradient(500px 240px at 85% 40%, rgba(240,145,63,.07), transparent 70%), linear-gradient(180deg, #19171A, #141518); }
+.gb-text { display: grid; gap: 8px; }
+.gb-cred { margin: 0; font: 600 13px var(--mono) !important; color: var(--work) !important; }
+.home .fp-gb h3 { font-size: 20px; }
+.gb-story { margin: 0; display: grid; gap: 7px; }
+.gb-story dt { font: 600 12px var(--mono); color: var(--silver); }
+.gb-story dd { margin: 1px 0 0; font-size: 14px; line-height: 1.5; color: var(--steel); }
+.gb-links { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 4px 0 0 !important; }
+.gb-links .p-link { margin: 0; }
+.gb-chart { margin: 0; padding: 10px 12px; border: 1px solid #2E2620; border-radius: 8px; background: #0F0E0F; }
+.gb-chart svg { width: 100%; height: auto; display: block; }
+.gb-chart .grid path { stroke: #1F2125; stroke-width: 1; }
+.gb-chart .axis text { font: 500 9px var(--mono); fill: #8E9198; text-anchor: end; }
+.gb-chart .base { stroke: #6A6D74; stroke-width: 1.2; }
+.gb-chart .bar.before { fill: url(#none); fill: #6A3D16; stroke: var(--work); stroke-width: 1.2; }
+.gb-chart .bar.during { fill: var(--work); }
+.gb-chart .val { font: 800 13px var(--display); fill: var(--steel); text-anchor: middle; }
+.gb-chart .lbl { font: 500 10px var(--display); fill: var(--dim); text-anchor: middle; }
+.gb-chart .delta { fill: none; stroke: var(--silver); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.gb-chart figcaption { margin-top: 6px; font-size: 12.5px; color: var(--dim); line-height: 1.45; }
+.gb-chart figcaption strong { font-size: 18px; font-weight: 850; margin-right: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .gb-chart .bar { transform-box: fill-box; transform-origin: bottom; animation: bar-rise .8s ease-out both; }
+}
+
+/* MONITROPE gallery caption */
+.shots-pos { font: 600 12px var(--mono); color: var(--silver); white-space: nowrap; }
+
+/* Checking the Line: equipment, with physical flow and control/network paths labeled */
+.cl-stage { aspect-ratio: 640 / 240; }
+.cl-flow { fill: none; stroke: #4A4D53; stroke-width: 1.4; }
+.cl-cap { font: 500 10px var(--mono); fill: #8E9198; text-anchor: middle; }
+.cl-cap.sig { text-anchor: start; fill: #C2964F; }
+.cl-cap.net { fill: var(--silver); }
+.cl-wire.w-sensor { stroke: #8A6A3F; }
+.cl-parts li { position: absolute; transform: translate(-50%, -50%); }
+.cl-parts .dev-sensor { left: 18.4%; top: 62%; }
+.cl-parts .dev-plc { left: 33.6%; top: 22.5%; }
+.cl-parts .dev-switch { left: 63.4%; top: 22.5%; }
+.cl-parts .dev-labeler { left: 80.3%; top: 58%; }
+.cl-part { display: grid; justify-items: center; gap: 2px; min-width: 96px; padding: 6px 8px 7px; border-style: solid; border-color: #44474D; }
+.cl-part .dev { width: 52px; height: 32px; }
+.dev .metal { fill: #2A2C31; stroke: var(--silver); stroke-width: 1.2; }
+.dev path, .dev rect:not(.metal) { fill: none; stroke: #8E9198; stroke-width: 1.4; }
+.dev .hot { fill: #55585F; stroke: none; }
+.cl-part.ok .dev .hot { fill: var(--led); }
+.cl-part.bad .dev .hot { fill: #FF5A5F; }
+.cl-part.symptom .dev .hot { fill: #F4B23E; }
+.cl-switch { display: grid; justify-items: center; gap: 4px; padding: 6px 8px 8px; border: 1px solid #44474D; border-radius: 8px; background: linear-gradient(180deg, #26282D, #1A1B1F); }
+.cl-switch .dev { width: 116px; height: 28px; }
+.cl-switch .sw-ports rect { fill: #0B0B0D; stroke: #8E9198; stroke-width: 1; }
+.cl-switch-name { font-size: 13px; color: var(--steel); }
+.cl-switch-checks { display: flex; gap: 6px; }
+.cl-part.mini { min-width: 0; padding: 3px 8px 4px; }
+.cl-part.mini b { font-size: 12px; }
+.cl-switch:has(.cl-part.ok) .dev .hot { fill: var(--led); }
+
+/* Experience graph: stationary, clearly interactive nodes; only the signal moves */
+.explore .ex-node i { animation: none !important; }
+.ex-node { padding: 6px 10px 8px; border: 1px solid transparent; background: rgba(11,11,13,.55); transition: border-color .2s, background-color .2s, box-shadow .2s; }
+.ex-node:hover, .ex-node:focus-visible { border-color: #6A6D74; background: #17181C; box-shadow: 0 0 18px -6px rgba(223,37,49,.55); }
+.ex-node:hover i, .ex-node:focus-visible i { border-color: var(--red); box-shadow: 0 0 0 4px #0C0D0F, 0 0 10px rgba(223,37,49,.6); }
+.ex-node[aria-pressed="true"] { border-color: var(--red); background: #1F1416; box-shadow: inset 0 -2px 0 var(--red); }
+.ex-node[aria-pressed="true"] span { color: var(--steel); }
+
+@media (max-width: 1180px) {
+  .feat-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "hero" "stack" "gb"; }
+  .fp-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .fp-gb { grid-template-columns: 1fr; }
+  .cl-stage { aspect-ratio: auto; }
+  .cl-parts .dev-sensor, .cl-parts .dev-plc, .cl-parts .dev-switch, .cl-parts .dev-labeler { left: auto; top: auto; }
+  .cl-parts li { position: static; transform: none; }
+  .cl-parts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; }
+  .cl-scene { position: relative; height: 150px; }
+  .cl-part { width: 100%; }
+  .cl-switch { width: 100%; }
+}
+@media (max-width: 640px) {
+  .feat-pro { grid-template-columns: 1fr; }
+  .fp-hero { display: flex; }
+  .fp-wide { flex-direction: column; }
+  .fp-wide .fp-media img { max-height: 200px; min-height: 0; width: 100%; }
+}
+
+/* Bag path follows the lowered conveyor (sensor at x 118, labeler at x 514, belt top y 182) */
+.cl-bag { transform: translate(118px, 182px); }
+@media (prefers-reduced-motion: no-preference) {
+  .cl-stage:not(.cl-hold) .cl-bag { animation: bag-move-2 7s linear infinite; }
+  @keyframes bag-move-2 { 0% { transform: translate(60px, 182px); } 15%, 30% { transform: translate(118px, 182px); } 85%, 100% { transform: translate(514px, 182px); } }
+}
+@media (prefers-reduced-motion: reduce) { .cl-bag { transform: translate(514px, 182px); } }

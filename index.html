@@ -462,9 +462,9 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
   <div class="feat-grid">
     <article class="fp fp-hero lab" id="lab" data-cap="systems networking">
-      <figure class="shots" aria-roledescription="carousel" aria-label="MONITROPE screenshots">
+      <figure class="shots" aria-label="MONITROPE project screenshots from a lab install">
         <div class="shots-frame"><img id="shot-img" src="assets/images/monitrope%20real%20app%20images/Screenshot%202026-10-20%20135921.png" alt="MONITROPE 0.6.0 Overview page showing the first-week checklist, 18 discovered devices, the network hive and the MONITROPE Intelligence panel" loading="lazy"></div>
-        <figcaption><span class="shots-badge">Screenshot, not a live demo</span><span id="shot-cap">Overview page, 18 discovered devices</span><span class="shots-nav"><button type="button" class="shot-prev" aria-label="Previous screenshot">‹</button><span id="shot-count">1 of 5</span><button type="button" class="shot-next" aria-label="Next screenshot">›</button></span></figcaption>
+        <figcaption><span class="shots-pos" id="shot-count" aria-live="polite">Project Screenshots · 1 of 5</span><span id="shot-cap">Overview page, 18 discovered devices</span><span class="shots-nav"><button type="button" class="shot-prev" aria-label="Previous screenshot">‹</button><button type="button" class="shot-next" aria-label="Next screenshot">›</button></span></figcaption>
       </figure>
       <div class="fp-body">
         <p class="fp-meta"><span class="cat lab">Lab</span><span class="chip wip">v0.7.0 release candidate</span></p>
@@ -477,6 +477,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
         <a class="btn primary" href="monitrope.html">View Project</a>
       </div>
     </article>
+    <div class="feat-stack">
     <article class="fp fp-wide lab" data-cap="networking">
       <a class="fp-media" href="network-lab.html" tabindex="-1" aria-hidden="true"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"></a>
       <div class="fp-body">
@@ -486,28 +487,74 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
         <a class="pc-go" href="network-lab.html">View Project</a>
       </div>
     </article>
+    <div class="feat-pro">
     <article class="fp fp-case work" id="work" data-cap="networking field">
-      <svg class="fp-diagram" viewBox="0 0 300 74" role="img" aria-label="How each change was run: plan, stage, swap, validate, hand back">
-        <g class="steps"><rect x="2" y="22" width="50" height="28" rx="4"/><rect x="64" y="22" width="50" height="28" rx="4"/><rect x="126" y="22" width="50" height="28" rx="4"/><rect x="188" y="22" width="50" height="28" rx="4"/><rect x="250" y="22" width="48" height="28" rx="4"/></g>
-        <g class="arrows"><path d="M52 36 H64M114 36 H126M176 36 H188M238 36 H250"/></g>
-        <g class="labels"><text x="27" y="40">Plan</text><text x="89" y="40">Stage</text><text x="151" y="40">Swap</text><text x="213" y="40">Validate</text><text x="274" y="40">Hand back</text></g>
-        <text class="cap" x="2" y="12">Each change, around production</text>
+      <svg class="fp-art" viewBox="0 0 320 132" role="img" aria-label="Plant refresh: old switching replaced with new Cisco switching and wireless, one staged change at a time: plan, stage, swap, validate, hand back">
+        <g class="arcs"><path d="M60 22 a14 14 0 0 1 28 0"/><path d="M54 22 a20 20 0 0 1 40 0"/><path d="M150 22 a14 14 0 0 1 28 0"/><path d="M144 22 a20 20 0 0 1 40 0"/><path d="M240 22 a14 14 0 0 1 28 0"/><path d="M234 22 a20 20 0 0 1 40 0"/></g>
+        <g class="ap"><rect x="64" y="22" width="20" height="8" rx="4"/><rect x="154" y="22" width="20" height="8" rx="4"/><rect x="244" y="22" width="20" height="8" rx="4"/></g>
+        <path class="drop" d="M74 30 V 48 M164 30 V 48 M254 30 V 48 M74 48 H 254"/>
+        <rect class="sw old" x="20" y="58" width="104" height="22" rx="3"/><g class="ports old"><rect x="28" y="65" width="8" height="7"/><rect x="40" y="65" width="8" height="7"/><rect x="52" y="65" width="8" height="7"/><rect x="64" y="65" width="8" height="7"/><rect x="76" y="65" width="8" height="7"/><rect x="88" y="65" width="8" height="7"/></g>
+        <text class="t-dim" x="72" y="94">Old switching</text>
+        <path class="arrow" d="M132 69 H 176 M168 63 L 176 69 L 168 75"/>
+        <rect class="sw new" x="186" y="54" width="118" height="30" rx="3"/><g class="ports"><rect x="194" y="62" width="9" height="8"/><rect x="207" y="62" width="9" height="8"/><rect x="220" y="62" width="9" height="8"/><rect x="233" y="62" width="9" height="8"/><rect x="246" y="62" width="9" height="8"/><rect x="259" y="62" width="9" height="8"/></g><circle class="led" cx="292" cy="66" r="2.5"/>
+        <text x="245" y="98">New Cisco switching</text>
+        <g class="steps"><text x="20" y="124">Plan</text><text x="78" y="124">Stage</text><text x="138" y="124">Swap</text><text x="196" y="124">Validate</text><text x="262" y="124">Hand back</text></g>
+        <path class="stepline" d="M44 120 H 70 M106 120 H 130 M166 120 H 188 M240 120 H 256"/>
       </svg>
-      <p class="fp-meta"><span class="cat work">Professional</span>Infrastructure refresh</p>
+      <p class="fp-meta"><span class="cat work">Professional</span>Project · 24/7 plant</p>
       <h3><a href="plant-network-refresh.html">Replacing a Plant's Network While It Runs</a></h3>
-      <p>On-site deployment and validation for a facility-wide Cisco switching and wireless refresh, scheduled around production.</p>
+      <p>Deployed switching, applied approved configurations and validated each change around production.</p>
+      <p class="fp-scale"><span class="ev-tag">Environment</span>About 300 endpoints, 120 access points</p>
       <a class="pc-go" href="plant-network-refresh.html">View the Case Study</a>
     </article>
     <article class="fp fp-case work" data-cap="networking systems">
-      <svg class="fp-diagram" viewBox="0 0 300 74" role="img" aria-label="Two paths that keep a campus core alive: separate power feeds through two UPSs and two PDUs to dual power supplies, and out-of-band access through a cellular router and console server">
-        <g class="steps"><rect x="2" y="16" width="62" height="20" rx="4"/><rect x="84" y="16" width="62" height="20" rx="4"/><rect x="166" y="16" width="62" height="20" rx="4"/><rect x="2" y="48" width="62" height="20" rx="4"/><rect x="84" y="48" width="62" height="20" rx="4"/><rect x="166" y="48" width="62" height="20" rx="4"/><rect class="core" x="246" y="22" width="52" height="40" rx="4"/></g>
-        <g class="arrows"><path d="M64 26 H84M146 26 H166M228 26 H246M64 58 H84M146 58 H166M228 58 H246"/></g>
-        <g class="labels"><text x="33" y="30">2 UPSs</text><text x="115" y="30">2 PDUs</text><text x="197" y="30">Dual PSUs</text><text x="33" y="62">Cellular</text><text x="115" y="62">Console srv</text><text x="197" y="62">Console</text><text x="272" y="45">Core</text></g>
-        <text class="cap" x="2" y="9">Power and a way in when the network is down</text>
+      <svg class="fp-art" viewBox="0 0 320 132" role="img" aria-label="Campus core rack: two UPSs feed two PDUs, every core device takes power from both, and a cellular router with a console server gives a way in when the network is down">
+        <rect class="rack" x="96" y="6" width="128" height="120" rx="4"/>
+        <rect class="pdu" x="102" y="16" width="8" height="100" rx="2"/><rect class="pdu" x="210" y="16" width="8" height="100" rx="2"/>
+        <rect class="sw new" x="116" y="22" width="88" height="16" rx="2"/><text class="in" x="160" y="33.5">Core switch</text>
+        <rect class="unit" x="116" y="44" width="88" height="14" rx="2"/><text class="in dim" x="160" y="54">Core services</text>
+        <rect class="ups" x="116" y="82" width="40" height="34" rx="2"/><rect class="ups" x="164" y="82" width="40" height="34" rx="2"/><text class="in" x="136" y="103">UPS A</text><text class="in" x="184" y="103">UPS B</text>
+        <path class="pwr" d="M136 82 V 72 H 106 V 60 M184 82 V 72 H 214 V 60"/>
+        <path class="pwr" d="M106 30 H 116 M214 30 H 204"/>
+        <rect class="oob" x="246" y="18" width="62" height="20" rx="3"/><text class="in" x="277" y="31.5">Cellular</text>
+        <rect class="oob" x="246" y="48" width="62" height="20" rx="3"/><text class="in" x="277" y="61.5">Console srv</text>
+        <path class="oobline" d="M277 38 V 48 M246 58 H 230 V 30 H 204"/>
+        <text class="t-dim" x="40" y="58">Two power</text><text class="t-dim" x="40" y="70">paths</text><path class="lead" d="M66 76 L 100 90"/>
+        <text class="t-dim" x="277" y="92">Out-of-band</text><text class="t-dim" x="277" y="104">access</text>
       </svg>
       <p class="fp-meta"><span class="cat work">Professional</span>Data center · Campus cores</p>
       <h3><a href="data-center-core-infrastructure.html">Keeping Campus Network Cores Powered and Reachable</a></h3>
+      <p>Built, audited and restored core racks with redundant power and out-of-band console access.</p>
+      <p class="fp-scale"><span class="ev-tag">Role scope</span>1,000+ access points and 250 switches across my sites</p>
       <a class="pc-go" href="data-center-core-infrastructure.html">View the Case Study</a>
+    </article>
+    </div>
+    </div>
+    <article class="fp fp-gb work" data-cap="leadership field">
+      <div class="gb-text">
+        <p class="fp-meta"><span class="cat work">Professional</span><span class="ev-tag">Project outcome</span></p>
+        <p class="gb-cred">Lean Six Sigma Green Belt — Internal Certification</p>
+        <h3><a href="green-belt-case-study.html">Making Label-Printing Support More Consistent</a></h3>
+        <dl class="gb-story">
+          <div><dt>Problem</dt><dd>Label-printing incidents on the production floor were handled inconsistently, with unclear ownership and escalation.</dd></div>
+          <div><dt>My part</dt><dd>Led the project: standard troubleshooting instructions, a RACI for ownership and escalation, ticket visibility, and operator and supervisor training.</dd></div>
+          <div><dt>Outcome</dt><dd>Average label-printing tickets per month fell from 6.3 to 2.3 during the improvement period.</dd></div>
+        </dl>
+        <p class="gb-links"><a class="btn primary" href="green-belt-case-study.html">Explore the Improvement Project</a><a class="p-link" href="#ev-imp">See It in Career Evidence</a></p>
+      </div>
+      <figure class="gb-chart">
+        <svg viewBox="0 0 300 190" role="img" aria-label="Average label-printing tickets per month: 6.3 before and 2.3 during the improvement period, a 63.5% reduction. Zero-based scale.">
+          <g class="grid"><path d="M40 20 H 290 M40 60 H 290 M40 100 H 290 M40 140 H 290"/></g>
+          <g class="axis"><text x="32" y="144">0</text><text x="32" y="104">2</text><text x="32" y="64">4</text><text x="32" y="24">6</text></g>
+          <path class="base" d="M40 140 H 290"/>
+          <rect class="bar before" x="80" y="14" width="56" height="126" rx="2"/>
+          <rect class="bar during" x="186" y="94" width="56" height="46" rx="2"/>
+          <text class="val" x="108" y="8">6.3</text><text class="val" x="214" y="88">2.3</text>
+          <text class="lbl" x="108" y="160">Before</text><text class="lbl" x="214" y="160">During improvement</text>
+          <path class="delta" d="M136 28 C 170 30, 180 70, 200 90"/>
+        </svg>
+        <figcaption><strong class="metal">63.5%</strong> fewer · average label-printing tickets per month · comparison-period lengths not published</figcaption>
+      </figure>
     </article>
   </div>
 </section>
@@ -675,22 +722,34 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <div class="cl-controls"><button type="button" class="btn primary" id="cl-guide">Watch the Investigation</button><button type="button" class="btn secondary" id="cl-reset">Reset</button></div>
   </div>
   <div class="cl-stage">
-    <svg class="cl-scene" viewBox="0 0 640 210" aria-hidden="true">
-      <path class="cl-wire w-sensor" d="M118 128 V 70 H 196"/>
-      <path class="cl-wire w-net" d="M266 52 H 326"/>
-      <path class="cl-wire w-net2" d="M406 52 H 470 V 96"/>
-      <rect class="cl-belt" x="40" y="150" width="520" height="14" rx="7"/>
-      <g class="cl-rollers"><circle cx="50" cy="157" r="5"/><circle cx="150" cy="157" r="5"/><circle cx="250" cy="157" r="5"/><circle cx="350" cy="157" r="5"/><circle cx="450" cy="157" r="5"/><circle cx="550" cy="157" r="5"/></g>
-      <rect class="cl-scale" x="92" y="140" width="52" height="10" rx="2"/>
+    <svg class="cl-scene" viewBox="0 0 640 240" aria-hidden="true">
+      <path class="cl-wire w-sensor" d="M118 150 V 54 H 172"/>
+      <path class="cl-wire w-net" d="M262 54 H 346"/>
+      <path class="cl-wire w-net2" d="M466 54 H 514 V 120"/>
+      <rect class="cl-belt" x="40" y="182" width="540" height="14" rx="7"/>
+      <g class="cl-rollers"><circle cx="50" cy="189" r="5"/><circle cx="150" cy="189" r="5"/><circle cx="250" cy="189" r="5"/><circle cx="350" cy="189" r="5"/><circle cx="450" cy="189" r="5"/><circle cx="570" cy="189" r="5"/></g>
       <g class="cl-bag"><rect x="-16" y="-26" width="32" height="26" rx="5"/><rect class="cl-label" x="-9" y="-19" width="18" height="10" rx="1"/></g>
-      <text class="cl-nolabel" x="470" y="196">No label applied</text>
+      <path class="cl-flow" d="M60 220 H 560 M550 214 L 560 220 L 550 226"/>
+      <text class="cl-cap" x="300" y="236">Product flow</text>
+      <text class="cl-cap sig" x="128" y="104">Sensor input</text>
+      <text class="cl-cap net" x="364" y="40">Network path</text>
+      <text class="cl-nolabel" x="514" y="174">No label applied</text>
     </svg>
     <ol class="cl-parts">
-      <li style="--x:18.4%; --y:61%"><button type="button" class="cl-part" data-part="sensor"><b>Weighing Sensor</b><span class="cl-state">Not yet checked</span></button></li>
-      <li style="--x:36%; --y:25%"><button type="button" class="cl-part" data-part="plc"><b>PLC</b><span class="cl-state">Not yet checked</span></button></li>
-      <li style="--x:57.5%; --y:12%"><button type="button" class="cl-part" data-part="port"><b>Switch Port</b><span class="cl-state">Not yet checked</span></button></li>
-      <li style="--x:57.5%; --y:38%"><button type="button" class="cl-part" data-part="vlan"><b>VLAN</b><span class="cl-state">Not yet checked</span></button></li>
-      <li style="--x:79%; --y:58%"><button type="button" class="cl-part symptom" data-part="labeler"><b>Labeler</b><span class="cl-state">Symptom here</span></button></li>
+      <li class="dev-sensor"><button type="button" class="cl-part" data-part="sensor">
+        <svg class="dev" viewBox="0 0 64 40" aria-hidden="true"><rect class="metal" x="6" y="26" width="52" height="8" rx="2"/><path d="M14 26 V 18 H 50 V 26"/><rect class="hot" x="28" y="10" width="8" height="8" rx="1"/><path d="M32 10 V 4"/></svg>
+        <b>Weighing Sensor</b><span class="cl-state">Not yet checked</span></button></li>
+      <li class="dev-plc"><button type="button" class="cl-part" data-part="plc">
+        <svg class="dev" viewBox="0 0 64 40" aria-hidden="true"><rect class="metal" x="8" y="4" width="48" height="32" rx="2"/><path d="M16 4 V 36 M28 4 V 36 M40 4 V 36"/><circle class="hot" cx="12" cy="10" r="1.6"/><circle class="hot" cx="12" cy="16" r="1.6"/><rect x="44" y="10" width="8" height="6"/></svg>
+        <b>PLC</b><span class="cl-state">Not yet checked</span></button></li>
+      <li class="dev-switch"><div class="cl-switch">
+        <svg class="dev" viewBox="0 0 120 30" aria-hidden="true"><rect class="metal" x="4" y="6" width="112" height="18" rx="2"/><g class="sw-ports"><rect x="12" y="11" width="9" height="8"/><rect x="25" y="11" width="9" height="8"/><rect x="38" y="11" width="9" height="8"/><rect x="51" y="11" width="9" height="8"/><rect x="64" y="11" width="9" height="8"/><rect x="77" y="11" width="9" height="8"/></g><circle class="hot" cx="104" cy="15" r="2.4"/></svg>
+        <b class="cl-switch-name">Switch</b>
+        <div class="cl-switch-checks"><button type="button" class="cl-part mini" data-part="port"><b>Port</b><span class="cl-state">Not yet checked</span></button><button type="button" class="cl-part mini" data-part="vlan"><b>VLAN</b><span class="cl-state">Not yet checked</span></button></div>
+      </div></li>
+      <li class="dev-labeler"><button type="button" class="cl-part symptom" data-part="labeler">
+        <svg class="dev" viewBox="0 0 64 40" aria-hidden="true"><rect class="metal" x="8" y="6" width="48" height="24" rx="2"/><rect x="16" y="12" width="20" height="6" rx="1"/><path class="hot" d="M20 30 V 38 H 44 V 30"/><circle class="hot" cx="48" cy="14" r="2"/></svg>
+        <b>Labeler</b><span class="cl-state">Symptom here</span></button></li>
     </ol>
   </div>
   <div class="cl-bottom">
