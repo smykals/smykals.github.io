@@ -1,33 +1,25 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#171A1E">
-<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
-<meta name="twitter:card" content="summary_large_image">
 
-  <title>CCNA Lab Exercises | Shane Mykal Stark</title>
+  <title>CCNA Lab Exercises | smykalsbuilds</title>
 
   <meta
     name="description"
     content="CCNA networking lab covering switching, routing, VLANs, STP, ACLs, IPv4, IPv6, OSPF, DHCP, SSH, and structured troubleshooting."
   >
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-N43N0LR7NG');
-</script>
+{% include head-extra.html %}
+<link rel="stylesheet" href="{{ '/assets/css/studio.css' | relative_url }}">
 </head>
 
-<body class="c-lab">
+<body class="tone-mix c-lab">
 
-  <div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#lab">Back to the lab</a></div></div>
+  {% include site-header.html active='projects' back_href='/projects.html' back_label='All projects' %}
 
 
   <header>
@@ -56,7 +48,7 @@
   </header>
 
 
-  <main><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>I am developing exercise plans for configuration and troubleshooting practice. Proposed faults and validation steps are not completed test results.</p><ul><li><a href="technical-evidence.html#vlan-connectivity">Read a hypothetical VLAN fault-isolation approach</a></li></ul></div></section><section><div class="container"><div class="section-label">Planned Example Exercises</div><h2>Practice a Specific Fault, Then Prove the Fix.</h2><p>These realistic exercise scenarios are proposed practice, not records of completed work or observed results.</p><div class="lab-grid"><article class="lab-card"><strong>VLAN &amp; trunk validation</strong><p>Connect two switches, assign access ports, and investigate a VLAN missing from a trunk.</p><p><strong>Validation plan:</strong> Check VLAN membership and trunk state; compare same-VLAN reachability before and after correcting the allowed VLAN list.</p></article><article class="lab-card"><strong>Inter-VLAN routing</strong><p>Connect two subnets and investigate an incorrect client default gateway.</p><p><strong>Validation plan:</strong> Compare local-subnet reachability with gateway and remote-subnet reachability, then retest after the correction.</p></article><article class="lab-card"><strong>DHCP troubleshooting</strong><p>Investigate a client that fails to obtain a lease.</p><p><strong>Validation plan:</strong> Check the client VLAN, DHCP pool, and relay configuration where applicable; verify the resulting address, gateway, and connectivity.</p></article><article class="lab-card"><strong>SSH management</strong><p>Configure administrative access and diagnose a failed SSH session.</p><p><strong>Validation plan:</strong> Check management reachability, SSH configuration, authentication, and VTY settings; verify a successful login after correcting the fault.</p></article></div></div></section>
+  <main id="main"><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>I am developing exercise plans for configuration and troubleshooting practice. Proposed faults and validation steps are not completed test results. I am studying for the CCNA and targeting February 2027; the certification is not earned yet.</p><ul><li><a href="technical-evidence.html#vlan-connectivity">Read a hypothetical VLAN fault-isolation approach</a></li></ul></div></section><section><div class="container"><div class="section-label">Planned Example Exercises</div><h2>Practice a Specific Fault, Then Prove the Fix.</h2><p>These realistic exercise scenarios are proposed practice, not records of completed work or observed results.</p><div class="lab-grid"><article class="lab-card"><strong>VLAN &amp; trunk validation</strong><p>Connect two switches, assign access ports, and investigate a VLAN missing from a trunk.</p><p><strong>Validation plan:</strong> Check VLAN membership and trunk state; compare same-VLAN reachability before and after correcting the allowed VLAN list.</p></article><article class="lab-card"><strong>Inter-VLAN routing</strong><p>Connect two subnets and investigate an incorrect client default gateway.</p><p><strong>Validation plan:</strong> Compare local-subnet reachability with gateway and remote-subnet reachability, then retest after the correction.</p></article><article class="lab-card"><strong>DHCP troubleshooting</strong><p>Investigate a client that fails to obtain a lease.</p><p><strong>Validation plan:</strong> Check the client VLAN, DHCP pool, and relay configuration where applicable; verify the resulting address, gateway, and connectivity.</p></article><article class="lab-card"><strong>SSH management</strong><p>Configure administrative access and diagnose a failed SSH session.</p><p><strong>Validation plan:</strong> Check management reachability, SSH configuration, authentication, and VTY settings; verify a successful login after correcting the fault.</p></article></div></div></section>
 
 
     <section>
@@ -470,7 +462,7 @@ End-to-End Service
 
         </p>
 
-        <a class="next-button" href="index.html">
+        <a class="next-button" href="/">
           ← Return to Portfolio
         </a>
 
@@ -482,13 +474,7 @@ End-to-End Service
 <section><div class="container"><div class="section-label">Supporting work</div><h2>Connect the Exercises to the Larger Lab.</h2><p><a class="next-button" href="network-lab.html">Read the network case study &rarr;</a></p><p><a href="ccna-study-laptop.html">See the workstation used for study and lab access &rarr;</a></p><p><a href="/journal/">Explore the Field Journal for build and troubleshooting notes &rarr;</a></p></div></section>  </main>
 
 
-  <footer>
-
-    <div class="container">
-      © 2026 Shane Mykal Stark
-    </div>
-
-  </footer>
+  {% include site-footer.html %}
 
 
 </body>

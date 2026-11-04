@@ -1,21 +1,21 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cable Run | Shane Mykal Stark</title>
+<title>Cable Run | smykalsbuilds</title>
 <meta name="description" content="A server-room maze-and-chase game: every move extends your cable, so you collect packets, dodge rats and hazards, and reach the destination port without tangling yourself.">
-<meta property="og:title" content="Cable Run | Shane Mykal Stark">
+<meta property="og:title" content="Cable Run | smykalsbuilds">
 <meta property="og:description" content="A server-room maze-and-chase game: every move extends your cable, so you collect packets, dodge rats and hazards, and reach the destination port without tangling yourself.">
-<meta name="theme-color" content="#171A1E">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/css/case.css">
+{% include head-extra.html %}
+<link rel="stylesheet" href="{{ '/assets/css/studio.css' | relative_url }}">
 </head>
-<body style="--c: var(--play)">
-<header class="site-head"><div class="wrap"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#games">Back to games</a></div></header>
-<main>
+<body class="tone-mix" style="--c: var(--play)">
+{% include site-header.html active='projects' back_href='/interactive/' back_label='Playground' %}
+<main id="main">
 <div class="case-hero"><div class="wrap">
   <span class="kind">Game case study<span class="state">, playable in your browser</span></span>
   <h1>Cable Run</h1>
@@ -29,6 +29,6 @@
 <section><div class="wrap"><p class="note"><b>About this project.</b> I designed the concept, mechanics and interface and built it with AI assistance, then tested and iterated on it. It runs entirely in your browser and stores only local progress on your own device.</p></div></section>
 <div class="wrap next"><a href="game-packet-bingo.html">&larr; Packet Bingo</a><a href="game-packet-route.html">Packet Route &rarr;</a></div>
 </main>
-<footer><div class="wrap">&copy; 2026 Shane Mykal Stark. Built by hand, hosted on GitHub Pages.</div></footer>
+{% include site-footer.html %}
 </body>
 </html>

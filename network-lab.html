@@ -1,33 +1,25 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#171A1E">
-<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
-<meta name="twitter:card" content="summary_large_image">
 
-  <title>Network Segmentation &amp; Connectivity Lab | Shane Mykal Stark</title>
+  <title>Network Segmentation &amp; Connectivity Lab | smykalsbuilds</title>
 
   <meta
     name="description"
     content="Enterprise networking lab demonstrating switching, routing, VLANs, firewalling, virtualization integration, secure management, and structured troubleshooting."
   >
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-N43N0LR7NG');
-</script>
+{% include head-extra.html %}
+<link rel="stylesheet" href="{{ '/assets/css/studio.css' | relative_url }}">
 </head>
 
-<body class="c-lab">
+<body class="tone-mix c-lab">
 
-  <div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#lab">Back to the lab</a></div></div>
+  {% include site-header.html active='projects' back_href='/projects.html' back_label='All projects' %}
 
 
   <header>
@@ -53,7 +45,7 @@
   </header>
 
 
-  <main><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
+  <main id="main"><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
 
 
 
@@ -619,7 +611,7 @@
         </p>
 
 
-        <a class="next-button" href="index.html">
+        <a class="next-button" href="/">
 
           ← Return to Portfolio
 
@@ -630,18 +622,10 @@
     </section>
 
 
-<section><div class="container"><div class="section-label">Connected workloads</div><h2>The Network Supports the Services.</h2><p>This page covers traffic paths and network controls. The infrastructure case study documents the separate hosts providing jump access, storage, VPN, and local AI.</p><a class="next-button" href="virtualization-lab.html">Explore workload placement &amp; administration &rarr;</a></div></section>  </main>
+<section><div class="container"><div class="section-label">Connected workloads</div><h2>The Network Supports the Services.</h2><p>This page covers traffic paths and network controls. The infrastructure case study describes the jump access, storage, VPN and local AI services by function.</p><a class="next-button" href="virtualization-lab.html">Explore workload placement &amp; administration &rarr;</a></div></section>  </main>
 
 
-  <footer>
-
-    <div class="container">
-
-      © 2026 Shane Mykal Stark
-
-    </div>
-
-  </footer>
+  {% include site-footer.html %}
 
 
 </body>

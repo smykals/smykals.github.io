@@ -1,39 +1,31 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#171A1E">
-<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
-<meta name="twitter:card" content="summary_large_image">
 
-  <title>Label-Printing Support Improvement | Shane Mykal Stark</title><meta property="og:title" content="Label-Printing Support Improvement | Shane Mykal Stark">
+  <title>Label-Printing Support Improvement | smykalsbuilds</title><meta property="og:title" content="Label-Printing Support Improvement | smykalsbuilds">
 
   <meta
     name="description"
     content="An anonymous manufacturing support case study: Lean Six Sigma analysis, standardized ownership and troubleshooting, and a measured decline in monthly label-printing tickets."
   >
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-N43N0LR7NG');
-</script>
+{% include head-extra.html %}
+<link rel="stylesheet" href="{{ '/assets/css/studio.css' | relative_url }}">
 </head>
 
-<body class="c-work">
-<div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="index.html">Shane Mykal Stark</a><a class="back" href="index.html#impact">Back to results</a></div></div>
+<body class="tone-mix c-work">
+{% include site-header.html active='cases' back_href='/case-studies.html' back_label='All case studies' %}
 <header><div class="container"><div class="status"><span class="status-dot"></span>Professional Case Study / Lean Six Sigma Green Belt</div>
 <h1>Making Label-Printing Support More Consistent.</h1>
 <p class="intro">A manufacturing support improvement project that used incident data to clarify ownership, standardize troubleshooting, and strengthen knowledge transfer.</p>
-<dl class="tldr" aria-label="In short"><div><dt>Type</dt><dd>Professional, Lean Six Sigma Green Belt</dd></div><div><dt>My role</dt><dd>Led the project</dd></div><div><dt>Result</dt><dd>Average monthly label-printing tickets fell from 6.3 to 2.3 (63.5%) during the improvement period</dd></div></dl>
+<dl class="tldr" aria-label="In short"><div><dt>Type</dt><dd>Professional. Lean Six Sigma Green Belt, internal employer certification</dd></div><div><dt>My role</dt><dd>Led the project</dd></div><div><dt>Result</dt><dd>Average monthly label-printing tickets fell from 6.3 to 2.3 (63.5%) during the improvement period</dd></div></dl>
 <div class="results-grid" aria-label="Measured ticket-volume comparison"><div class="result"><strong>6.3</strong><span>Average tickets per month before improvement</span></div><div class="result"><strong>2.3</strong><span>Average tickets per month during the improvement period</span></div><div class="result"><strong>63.5%</strong><span>Reported reduction during the improvement period</span></div></div>
 <figure class="green-belt-cover"><img src="assets/img/pages/green-belt-workshop.webp" alt="Illustration of a Green Belt practitioner with a DMAIC board, process-improvement tools, and manufacturing themes." width="1536" height="1024"><figcaption>Concept artwork illustrating the Green Belt approach. The project’s measured results and measurement limits are documented below.</figcaption></figure></div></header>
-<main><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>I led the improvement project and support-instruction development, clarified ownership and escalation, improved ticket visibility, and supported training. Delivery involved the support and operational teams.</p><ul><li><a href="#measured-outcome">View the monthly-ticket comparison and measurement limits</a></li><li><a href="#baseline-analysis">View baseline findings</a></li></ul></div></section>
+<main id="main"><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>I led the improvement project and support-instruction development, clarified ownership and escalation, improved ticket visibility, and supported training. Delivery involved the support and operational teams.</p><ul><li><a href="#measured-outcome">View the monthly-ticket comparison and measurement limits</a></li><li><a href="#baseline-analysis">View baseline findings</a></li></ul></div></section>
 <section><div class="container"><div class="section-label">01 / Problem &amp; My Role</div><h2>One Support Process, Uneven Outcomes.</h2>
 <p>Label-printing incidents were handled inconsistently, with unclear ownership, variation in troubleshooting and escalation, higher ticket volume, and operational disruption.</p>
 <p><strong>My role:</strong> I led the Green Belt improvement project and development of standardized support instructions, clarified ownership and escalation through a RACI, improved ticket visibility and aging controls, and supported documented operator and supervisor training.</p>
@@ -59,5 +51,5 @@
 <p>The project reinforced the value of looking beyond a single average. Variation revealed where waiting, ownership, escalation, and knowledge gaps influenced the support experience.</p>
 <p>Standard work, explicit responsibilities, ticket visibility, and training gave the team a more defined support process. The result demonstrates how technical support and process improvement can work together.</p>
 <div class="tech-grid"><span class="tag">DMAIC</span><span class="tag">Root-cause analysis</span><span class="tag">RACI</span><span class="tag">Standard work</span><span class="tag">Incident analysis</span><span class="tag">Knowledge transfer</span></div>
-<a class="next-button" href="index.html#projects">&larr; Return to featured projects</a></div></section>
-</main><footer><div class="container">&copy; 2026 Shane Mykal Stark</div></footer></body></html>
+<a class="next-button" href="/#projects">&larr; Return to featured projects</a></div></section>
+</main>{% include site-footer.html %}</body></html>

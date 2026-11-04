@@ -1,4 +1,13 @@
-title: Shane Mykal Stark | Field Journal
+# smykalsbuilds: Shane Mykal Stark's career portfolio on GitHub Pages.
+title: smykalsbuilds
+description: "Career portfolio of Shane Mykal Stark: manufacturing IT/OT, campus and data center network infrastructure, and technical leadership."
+author: Shane Mykal Stark
+# Change to https://smykalsbuilds.com when the custom domain is activated (see docs/DOMAIN-SETUP.md).
+url: "https://smykalsbuilds.com"
+baseurl: ""
 markdown: kramdown
 permalink: /journal/:year/:month/:day/:title/
 timezone: America/New_York
+exclude:
+  - README.md
+  - docs/

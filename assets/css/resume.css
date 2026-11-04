@@ -1,0 +1,47 @@
+/* Printable resume page */
+.resume-page main { padding: 40px 0 64px; }
+.cv { width: min(900px, calc(100% - 40px)); margin: 0 auto; }
+.cv__note { font-size: 14.5px; color: var(--dim); border-left: 3px solid var(--red); padding: 8px 12px; background: var(--panel); margin-bottom: 28px !important; }
+.cv__head { display: flex; justify-content: space-between; gap: 24px; align-items: end; border-bottom: 3px solid var(--head); padding-bottom: 16px; flex-wrap: wrap; }
+.cv h1 { font-size: clamp(38px, 6vw, 58px); line-height: .95; font-weight: 880; font-stretch: 118%; letter-spacing: -.03em; }
+.cv__title { margin: 10px 0 0 !important; font-size: 17px; color: var(--steel); }
+.cv__contact li { font-size: 15px; text-align: right; }
+.cv__sec { padding: 22px 0 6px; border-bottom: 1px solid var(--rule); }
+.cv h2 { font-size: 15px; font-weight: 800; font-stretch: 112%; color: var(--red-ink); margin-bottom: 10px; }
+.cv__sec > p { font-size: 16px; }
+.cv__job { margin-bottom: 18px; }
+.cv__job header { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.cv__job h3 { font-size: 19px; font-weight: 780; }
+.cv__when { font: 500 14px var(--mono); color: var(--dim); margin: 0 !important; }
+.cv__org { font-size: 15px; color: var(--dim); margin: 2px 0 6px !important; }
+.cv__job ul li, .cv__proj li { position: relative; padding: 3px 0 3px 16px; font-size: 15px; line-height: 1.5; }
+.cv__job ul li::before, .cv__proj li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 2px; background: var(--red); }
+.cv__two { display: grid; grid-template-columns: 1.15fr 1fr; gap: 32px; }
+.cv__skills div { padding: 4px 0 8px; }
+.cv__skills dt { font-weight: 700; font-size: 14.5px; }
+.cv__skills dd { margin: 0; font-size: 14.5px; color: var(--steel); }
+.cv__proj { margin-bottom: 18px !important; }
+.cv__foot { font-size: 13.5px; color: var(--dim); margin-top: 14px !important; }
+@media (max-width: 720px) { .cv__two { grid-template-columns: 1fr; } .cv__contact li { text-align: left; } }
+@media print {
+  @page { size: letter; margin: 0.45in; }
+  .resume-page main { padding: 0; background: #FFFDF8; }
+  .cv { width: 100%; }
+  .cv__note { display: none; }
+  .cv, .cv * { color: #171512 !important; }
+  .cv h2 { color: #8E1324 !important; }
+  .cv a { text-decoration: none; }
+  .cv h1 { font-size: 30pt; }
+  .cv__job li, .cv__job header, .cv__skills div { break-inside: avoid; }
+  .cv__job header { break-after: avoid; }
+  :root { color-scheme: light; }
+  html, body { background: #FFFDF8 !important; }
+  .cv__sec { padding: 12px 0 4px; }
+  .cv__job { margin-bottom: 10px; }
+  .cv__job ul li, .cv__proj li { padding: 1px 0 1px 14px; line-height: 1.38; }
+  .cv__job ul li::before, .cv__proj li::before { top: 8px; }
+  .cv__head { padding-bottom: 10px; }
+  .cv__skills div { padding: 2px 0 5px; }
+  .cv__two { grid-template-columns: 1.15fr 1fr; }
+  .cv__job ul li, .cv__proj li, .cv__skills dd, .cv__sec > p { font-size: 9.5pt; }
+}
