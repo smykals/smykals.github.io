@@ -1,0 +1,503 @@
+{
+ "version": 1,
+ "source": "Approved portfolio pages on this site. Rebuild when page titles or descriptions change.",
+ "entries": [
+  {
+   "title": "Bags Weighed, but Never Labeled",
+   "url": "weighing-labeling-fault.html",
+   "category": "professional",
+   "summary": "Fault isolation on an automated weighing and labeling line: the network was proven healthy and the root cause was a weighing sensor.",
+   "keywords": [
+    "troubleshooting",
+    "plc",
+    "manufacturing",
+    "ot",
+    "labeler",
+    "sensor",
+    "vlan",
+    "checking the line",
+    "production line",
+    "fault isolation"
+   ]
+  },
+  {
+   "title": "Replacing a Plant's Network While It Runs",
+   "url": "plant-network-refresh.html",
+   "category": "professional",
+   "summary": "Hands-on work on a facility-wide Cisco switching and wireless refresh in an active manufacturing plant.",
+   "keywords": [
+    "cisco",
+    "switching",
+    "wireless",
+    "manufacturing",
+    "plant",
+    "refresh",
+    "sla",
+    "deployment",
+    "networking"
+   ]
+  },
+  {
+   "title": "Keeping Production Data Reachable",
+   "url": "production-data-connectivity.html",
+   "category": "professional",
+   "summary": "Supporting the network and server infrastructure behind manufacturing information systems such as SAP workflows, PI Vision and labeling applications.",
+   "keywords": [
+    "sap",
+    "pi vision",
+    "manufacturing",
+    "ot",
+    "servers",
+    "troubleshooting",
+    "production data"
+   ]
+  },
+  {
+   "title": "Keeping Campus Network Cores Powered and Reachable",
+   "url": "data-center-core-infrastructure.html",
+   "category": "professional",
+   "summary": "Hands-on data center and core-rack work for campus networks: redundant UPS and PDU power, out-of-band console access, and the core equipment every user depends on.",
+   "keywords": [
+    "data center",
+    "campus",
+    "core",
+    "power",
+    "console",
+    "networking",
+    "access points",
+    "switches",
+    "infrastructure"
+   ]
+  },
+  {
+   "title": "Campus Network Leadership",
+   "url": "campus-network-leadership.html",
+   "category": "professional",
+   "summary": "Regional network specialist with 24/7/365 direct responsibility for five campuses in three states and additional escalation support across 20+ campuses.",
+   "keywords": [
+    "campus",
+    "networking",
+    "leadership",
+    "escalation",
+    "sla",
+    "callbacks",
+    "users",
+    "three states"
+   ]
+  },
+  {
+   "title": "Leading Distributed IT Field Operations",
+   "url": "field-team-leadership.html",
+   "category": "professional",
+   "summary": "Leadership case study: a hands-on technical supervisor with hiring authority, 14 direct reports, five campuses under 24/7 responsibility, seasonal coordination across 15 campuses, and nationwide after-hours escalation support.",
+   "keywords": [
+    "leadership",
+    "team",
+    "technicians",
+    "supervisor",
+    "hiring",
+    "coaching",
+    "field operations"
+   ]
+  },
+  {
+   "title": "From Smart Home Professional to Team Trainer",
+   "url": "technician-development.html",
+   "category": "professional",
+   "summary": "Team trainer role in smart home technology and field services: training six technicians, a regional top-three ranking, and a 30% cut in my own repeat service calls.",
+   "keywords": [
+    "training",
+    "team",
+    "technicians",
+    "vivint",
+    "repeat calls",
+    "leadership"
+   ]
+  },
+  {
+   "title": "Making Label-Printing Support More Consistent.",
+   "url": "green-belt-case-study.html",
+   "category": "professional",
+   "summary": "A manufacturing support improvement project that used incident data to clarify ownership, standardize troubleshooting, and strengthen knowledge transfer.",
+   "keywords": [
+    "lean six sigma",
+    "green belt",
+    "manufacturing",
+    "label printing",
+    "process improvement",
+    "tickets"
+   ]
+  },
+  {
+   "title": "Professional Experience",
+   "url": "professional-experience.html",
+   "category": "professional",
+   "summary": "Full work history: IT Engineer at a 24/7 manufacturing plant (2024–present), network specialist and regional field supervisor (2018–2024), and Vivint smart home professional and team trainer (2016–2018), with how each result was measured.",
+   "keywords": [
+    "experience",
+    "resume",
+    "work history",
+    "roles"
+   ]
+  },
+  {
+   "title": "Technical Skills",
+   "url": "technical-skills.html",
+   "category": "professional",
+   "summary": "A detailed technical experience breakdown covering enterprise IT, manufacturing systems, networking, virtualization, cybersecurity, AI infrastructure and independent lab projects.",
+   "keywords": [
+    "skills",
+    "networking",
+    "systems",
+    "ot",
+    "tools"
+   ]
+  },
+  {
+   "title": "Network Segmentation & Connectivity Lab",
+   "url": "network-lab.html",
+   "category": "lab",
+   "summary": "A physical Cisco and FortiGate lab focused on how traffic moves between network segments: switching, trunking, routing, firewall policy, network services, and validation.",
+   "keywords": [
+    "fortinet",
+    "fortigate",
+    "cisco",
+    "vlan",
+    "segmentation",
+    "firewall",
+    "networking",
+    "lab"
+   ]
+  },
+  {
+   "title": "The Homelab Is Getting a Factory Floor.",
+   "url": "ot-network-lab.html",
+   "category": "lab",
+   "summary": "A dedicated OT environment alongside my existing IT lab, starting with a simulated automated asset-sorting line. The focus is how industrial systems work together and what happens at the IT/OT boundary.",
+   "keywords": [
+    "fortinet",
+    "ot",
+    "plc",
+    "hmi",
+    "scada",
+    "historian",
+    "lab",
+    "manufacturing"
+   ]
+  },
+  {
+   "title": "PROTO.LAB Technical Evidence.",
+   "url": "proto-lab-evidence.html",
+   "category": "lab",
+   "summary": "Sanitized personal-lab firewall, VPN DNS, remote access, and virtualization capacity evidence with verification context.",
+   "keywords": [
+    "fortinet",
+    "fortigate",
+    "firewall",
+    "vpn",
+    "dns",
+    "proxmox",
+    "troubleshooting",
+    "lab"
+   ]
+  },
+  {
+   "title": "Access, Storage & Local AI.",
+   "url": "virtualization-lab.html",
+   "category": "lab",
+   "summary": "Four separate physical hosts support a Windows 11 jump VM, TrueNAS storage, VPN access, and local AI. Virtualization is one part of the environment, alongside dedicated hardware for distinct workloads.",
+   "keywords": [
+    "proxmox",
+    "virtualization",
+    "hosts",
+    "storage",
+    "lab",
+    "infrastructure"
+   ]
+  },
+  {
+   "title": "AIIO Station",
+   "url": "aiio.html",
+   "category": "lab",
+   "summary": "AIIO: migrating a self-hosted AI workload from CPU inference on Debian to a GPU workstation running a containerized platform with a monitoring control center.",
+   "keywords": [
+    "ai",
+    "gpu",
+    "docker",
+    "ollama",
+    "local ai",
+    "lab"
+   ]
+  },
+  {
+   "title": "MONITROPE",
+   "url": "monitrope.html",
+   "category": "lab",
+   "summary": "MONITROPE is a self-hosted network monitoring appliance with discovery, behavioral baselining, root-cause analysis and signed updates.",
+   "keywords": [
+    "monitoring",
+    "network monitoring",
+    "software",
+    "discovery",
+    "lab"
+   ]
+  },
+  {
+   "title": "DO2",
+   "url": "do2.html",
+   "category": "lab",
+   "summary": "DO2 DIG & DIGEST: a concept-stage engineering workbench for structured software artifact analysis, traceable findings, and clear technical interpretation.",
+   "keywords": [
+    "software",
+    "windows",
+    "analysis",
+    "security"
+   ]
+  },
+  {
+   "title": "CCNA Lab Exercises",
+   "url": "ccna-lab.html",
+   "category": "lab",
+   "summary": "A structured collection of hands-on networking labs used to reinforce Cisco switching, routing, network services, security, IPv4, IPv6, and troubleshooting concepts through practical configuration and validation.",
+   "keywords": [
+    "ccna",
+    "cisco",
+    "networking",
+    "study",
+    "lab"
+   ]
+  },
+  {
+   "title": "CCNA Study Laptop",
+   "url": "ccna-study-laptop.html",
+   "category": "lab",
+   "summary": "A repurposed Dell Latitude 5480 running Parrot OS: a portable workbench for Cisco labs, Linux diagnostics, device management, and packet analysis.",
+   "keywords": [
+    "ccna",
+    "parrot os",
+    "laptop",
+    "study"
+   ]
+  },
+  {
+   "title": "Technical Evidence.",
+   "url": "technical-evidence.html",
+   "category": "lab",
+   "summary": "An anonymized infrastructure incident, technical scenarios, and Shane Stark's approach to fault isolation, restoration, and operational decisions.",
+   "keywords": [
+    "troubleshooting",
+    "evidence",
+    "lab"
+   ]
+  },
+  {
+   "title": "Curiosity with a Practical Purpose.",
+   "url": "about.html",
+   "category": "about",
+   "summary": "Meet Shane Stark, online as smykals: curiosity, practical troubleshooting, manufacturing IT, and learning through building.",
+   "keywords": [
+    "about",
+    "personal",
+    "background"
+   ]
+  },
+  {
+   "title": "From Spare OptiPlex to HTTPS Local AI Service",
+   "url": "journal/2026/09/28/cpu-only-local-ai-segmented-network/",
+   "category": "journal",
+   "summary": "My build notes on Debian 13, CPU-only Ollama, Open WebUI, and making the service reachable from a separate management network.",
+   "keywords": [
+    "systems",
+    "networking"
+   ]
+  },
+  {
+   "title": "Why I Started a Field Journal",
+   "url": "journal/2026/09/28/why-i-started-a-field-journal/",
+   "category": "journal",
+   "summary": "A running record of practical IT projects, troubleshooting, and lessons learned.",
+   "keywords": [
+    "portfolio"
+   ]
+  },
+  {
+   "title": "I Set Out to Build a NAS. I Ended Up Troubleshooting the Entire Stack.",
+   "url": "journal/2026/10/01/proxmox-truenas-zfs-nas/",
+   "category": "journal",
+   "summary": "Building a three-drive NAS with Proxmox, TrueNAS, ZFS, Syncthing, and segmented networking turned into an end-to-end troubleshooting exercise.",
+   "keywords": [
+    "storage",
+    "virtualization"
+   ]
+  },
+  {
+   "title": "AdGuard Home Over WireGuard: Following the DNS Packets",
+   "url": "journal/2026/10/02/adguard-home-wireguard-dns-troubleshooting/",
+   "category": "journal",
+   "summary": "A field note on adding DNS-level filtering to a WireGuard VPN, diagnosing a DNS bypass with tcpdump, and verifying the fix.",
+   "keywords": [
+    "networking"
+   ]
+  },
+  {
+   "title": "Two VMs, Several Layers: Troubleshooting the Stack",
+   "url": "journal/2026/10/03/two-vms-troubleshooting-the-stack/",
+   "category": "journal",
+   "summary": "Building Windows 11 and Void Linux VMs on Proxmox turned into a practical exercise in firmware, VirtIO drivers, networking, Linux services, and layered troubleshooting.",
+   "keywords": [
+    "virtualization"
+   ]
+  },
+  {
+   "title": "Building a Local AI Sales Agent: From Lead Tracker to Prospect Intelligence",
+   "url": "journal/2026/10/05/building-local-ai-sales-agent/",
+   "category": "journal",
+   "summary": "How a simple lead tracker evolved into a locally hosted prospect intelligence system using Python, FastAPI, SQLite, Ollama, public-source research, deterministic scoring, and human review.",
+   "keywords": [
+    "local ai"
+   ]
+  },
+  {
+   "title": "The VPN Connected. The Internet Didn't.",
+   "url": "journal/2026/10/08/the-vpn-connected-the-internet-didnt/",
+   "category": "journal",
+   "summary": "Troubleshooting WireGuard full-tunnel internet access, source NAT, and competing VPN paths in PROTO.LAB, with persistence and DNS validation still planned.",
+   "keywords": [
+    "networking",
+    "infrastructure",
+    "remote access"
+   ]
+  },
+  {
+   "title": "Giving an Old Kiosk a Second Life: Building a Two-Node Monitoring System",
+   "url": "journal/2026/10/09/giving-an-old-kiosk-a-second-life/",
+   "category": "journal",
+   "summary": "Repurposing a retired touchscreen kiosk and a spare Raspberry Pi into a two-node monitoring system, starting with the dedicated Ethernet link.",
+   "keywords": [
+    "proto.monitor"
+   ]
+  },
+  {
+   "title": "It's Not Always Rainbows and Sunshine",
+   "url": "journal/2026/10/13/its-not-always-rainbows-and-sunshine/",
+   "category": "journal",
+   "summary": "A reflection on discouragement, persistence, and making deliberate decisions about professional growth.",
+   "keywords": [
+    "professional development",
+    "career reflection"
+   ]
+  },
+  {
+   "title": "From Individual Systems to Managed Infrastructure",
+   "url": "journal/2026/10/16/from-individual-systems-to-managed-infrastructure/",
+   "category": "journal",
+   "summary": "Exploring multi-hypervisor virtualization, centralized identity, automation, backup strategy, and IT/OT lab design.",
+   "keywords": [
+    "infrastructure engineering"
+   ]
+  },
+  {
+   "title": "From CPU Inference to Production",
+   "url": "journal/2026/10/17/from-cpu-inference-to-production/",
+   "category": "journal",
+   "summary": "A practical account of moving a self-hosted AI workload toward GPU acceleration, repurposing hardware, and validating a containerized production release.",
+   "keywords": [
+    "infrastructure engineering"
+   ]
+  },
+  {
+   "title": "Taking Git Hosting Into My Own Hands",
+   "url": "journal/2026/10/20/taking-git-hosting-into-my-own-hands/",
+   "category": "journal",
+   "summary": "Why I deployed Forgejo on TrueNAS SCALE in PROTO.LAB, how it fits into my infrastructure, and what still needs to be validated.",
+   "keywords": [
+    "infrastructure",
+    "devops",
+    "self-hosting"
+   ]
+  },
+  {
+   "title": "Experience summary",
+   "url": "#experience",
+   "category": "professional",
+   "summary": "IT Engineer at a 24/7 manufacturing plant (2024–now); network specialist and regional field supervisor on campus and data center networks (2018–2024); Vivint smart home professional to team trainer (2016–2018).",
+   "keywords": [
+    "experience",
+    "roles",
+    "career",
+    "history",
+    "resume"
+   ]
+  },
+  {
+   "title": "Led 14 field technicians",
+   "url": "field-team-leadership.html",
+   "category": "professional",
+   "summary": "Regional field supervisor 2020–2024: 14 direct reports, nearly 30 during vacancies, move-in coverage across 15 campuses. Trained six technicians at Vivint.",
+   "keywords": [
+    "team",
+    "teams",
+    "led",
+    "leadership",
+    "technicians",
+    "supervisor",
+    "direct reports",
+    "managed"
+   ]
+  },
+  {
+   "title": "About 70% fewer repeat callbacks",
+   "url": "campus-network-leadership.html",
+   "category": "professional",
+   "summary": "Reported after improving troubleshooting and support practices across five campuses in three states, 2018–2024.",
+   "keywords": [
+    "callbacks",
+    "outcome",
+    "results",
+    "campus",
+    "support"
+   ]
+  },
+  {
+   "title": "Checking the Line (interactive)",
+   "url": "#scene-line",
+   "category": "professional",
+   "summary": "Run the checks from a real production-line fault: switch port, VLAN, control signals, then the weighing sensor.",
+   "keywords": [
+    "checking the line",
+    "troubleshooting",
+    "plc",
+    "manufacturing",
+    "interactive"
+   ]
+  },
+  {
+   "title": "Fortinet IT/OT boundary (interactive)",
+   "url": "#scene-fortinet",
+   "category": "lab",
+   "summary": "The PROTO lab map: IT side, Fortinet boundary, OT side in development. Select devices for details.",
+   "keywords": [
+    "fortinet",
+    "fortigate",
+    "firewall",
+    "boundary",
+    "it/ot",
+    "lab",
+    "interactive"
+   ]
+  },
+  {
+   "title": "Core skills",
+   "url": "#skills",
+   "category": "professional",
+   "summary": "Cisco Catalyst, ISE and WLC; VLANs; TCP/IP, DNS, DHCP; packet capture; PLC-connected troubleshooting; SAP; PI Vision; Windows Server; Linux; Active Directory; VMware; ServiceNow.",
+   "keywords": [
+    "skills",
+    "tools",
+    "cisco",
+    "networking",
+    "systems"
+   ]
+  }
+ ]
+}
