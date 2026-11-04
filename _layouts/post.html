@@ -3,20 +3,30 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 155 | escape }}">
-<title>{{ page.title | escape }} | Field Journal | smykalsbuilds</title>
-<meta property="og:title" content="{{ page.title | escape }}">
-<meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 155 | escape }}">
+<title>{{ page.title | escape }} | Field Journal</title>
 <link rel="stylesheet" href="{{ '/journal/style.css' | relative_url }}">
-{% include head-extra.html %}
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<meta name="theme-color" content="#171A1E">
+<meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N43N0LR7NG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N43N0LR7NG');
+</script>
 </head>
-<body class="c-writing tone-light">
-{% include site-header.html active='journal' back_href='/journal/' back_label='All journal entries' %}
-<main id="main" class="wrap article-wrap">
+<body class="c-writing">
+<div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="{{ '/' | relative_url }}">Shane Mykal Stark</a><a class="back" href="{{ '/' | relative_url }}#journal">Back to the portfolio</a></div></div>
+<main class="wrap article-wrap">
+<a class="back" href="{{ '/journal/' | relative_url }}">← All journal entries</a>
 <article>
 <header class="article-header"><span class="eyebrow">Field Journal{% if page.category %} / {{ page.category | escape }}{% endif %}</span><h1>{{ page.title | escape }}</h1><p class="date"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% if page.status %} · {{ page.status | escape }}{% endif %}</p></header>
 <div class="prose">{{ content }}</div>
 </article>
 <a class="back bottom" href="{{ '/journal/' | relative_url }}">← Back to Field Journal</a>
 </main>
-{% include site-footer.html %}
+<footer class="wrap footer"><span>© {{ 'now' | date: '%Y' }} Shane Mykal Stark</span><a href="{{ '/' | relative_url }}">Portfolio home</a></footer>
 </body></html>
