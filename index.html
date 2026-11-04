@@ -11,7 +11,7 @@ layout: null
 <meta property="og:title" content="Shane Mykal Stark | Infrastructure, Networking &amp; IT/OT">
 <meta property="og:description" content="Ten years in IT: 24/7 manufacturing networks, university data center and campus infrastructure, technical leadership, and a documented home lab.">
 <meta property="og:image" content="https://smykalsbuilds.com/assets/img/og-card.png">
-<meta name="theme-color" content="#171A1E">
+<meta name="theme-color" content="#0B0B0D">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
@@ -325,70 +325,300 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 @media (max-width: 560px) { .proof { grid-template-columns: 1fr; } }
 </style>
 <link rel="stylesheet" href="assets/css/light-dark.css">
+<link rel="stylesheet" href="assets/css/workspace.css">
 </head>
-<body>
+<body class="ws">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top">Shane Mykal Stark</a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="site-nav" id="nav" aria-label="Main">
-      <a href="#start">Start Here</a>
+      <a href="#top">Dashboard</a>
+      <a href="#scene-line">Checking the Line</a>
+      <a href="#scene-lab">Fortinet Lab</a>
+      <a href="#plant">Case Studies</a>
       <a href="#experience">Experience</a>
-      <a href="#impact">Impact</a>
-      <a href="#plant">Plant Floor</a>
-      <a href="technical-skills.html">Technical Skills</a>
-      <a href="#lifecycle">Day 0–3</a>
-      <a href="#support">Support</a>
-      <a href="#lab">Lab</a>
-      <a href="#software">Software</a>
+      <a href="#skills">Skills</a>
+      <a href="#software">Projects</a>
       <a href="#journal">Journal</a>
       <a href="#contact">Contact</a>
+      <a class="nav-cta" href="professional-experience.html">Résumé</a>
     </nav>
   </div>
 </header>
 
 <nav class="rail" aria-label="Sections">
-  <a href="#top" data-s="top"><i></i><span>Top</span></a>
+  <a href="#top" data-s="top"><i></i><span>Dashboard</span></a>
+  <a href="#plant" data-s="plant"><i></i><span>Case Studies</span></a>
+  <a href="#lab" data-s="lab"><i></i><span>Lab</span></a>
   <a href="#start" data-s="start"><i></i><span>Start Here</span></a>
-  <a href="#impact" data-s="impact"><i></i><span>Impact</span></a>
-  <a href="#plant" data-s="plant"><i></i><span>Plant Floor</span></a>
   <a href="#experience" data-s="experience"><i></i><span>Experience</span></a>
   <a href="#skills" data-s="skills"><i></i><span>Skills</span></a>
-  <a href="#lab" data-s="lab"><i></i><span>Lab</span></a>
-  <a href="#software" data-s="software"><i></i><span>Software</span></a>
+  <a href="#software" data-s="software"><i></i><span>Projects</span></a>
   <a href="#journal" data-s="journal"><i></i><span>Journal</span></a>
   <a href="#contact" data-s="contact"><i></i><span>Contact</span></a>
 </nav>
 <main id="main">
-<div class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <h1><span>Shane</span> <span>Mykal</span> <span>Stark</span></h1>
-      <p class="role">I keep networks and infrastructure running where downtime isn't an option, from 24/7 plant floors to university data centers, and I've led the teams that do it.</p>
-      <p class="lede">Ten years in IT. Today I'm the sole onsite IT engineer for a continuous-production plant with about 300 endpoints and 120 wireless access points, working across the network, systems and the PLC-connected equipment production depends on. Before that, I spent six years supporting university networks across data centers and campuses, and from 2020 also led a regional team of field technicians. At home I build and document lab projects, from network segmentation to an OT learning environment.</p>
-      <ul class="proof" aria-label="Highlights"><li><strong>6,500+</strong><span>users on networks I was responsible for</span></li><li><strong>Up to 14</strong><span>field technicians led directly</span></li><li><strong>63.5%</strong><span>fewer label-printing tickets in my Green Belt project</span></li></ul>
+<div class="dash" id="top">
+  <div class="dash-grid">
+
+    <header class="panel ident-panel">
+      <span class="corner" aria-hidden="true"></span>
+      <div class="ident">
+        <div class="id-ring" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><circle class="r-outer" cx="60" cy="60" r="57"/><circle class="r-ticks" cx="60" cy="60" r="52"/><path class="r-arc" d="M60 3 A57 57 0 0 1 113.6 40.5"/><circle class="r-node" cx="113.6" cy="40.5" r="3.2"/></svg>
+          <img src="assets/img/shane-avatar.webp" width="320" height="320" alt="">
+        </div>
+        <div class="ident-text">
+          <p class="status"><i aria-hidden="true"></i>Open to Opportunities</p>
+          <h1>Shane Mykal Stark</h1>
+          <p class="position">IT Engineer <span aria-hidden="true">|</span> Infrastructure, Networking &amp; Digital Technology</p>
+        </div>
+      </div>
+      <p class="lede">Ten years of hands-on IT. Today I'm the sole onsite IT engineer for a 24/7 manufacturing plant, working across the network, systems and PLC-connected production equipment. Before that, six years on university campus and data center networks, where I also led a regional team of field technicians across multiple sites.</p>
       <div class="actions">
-        <a class="btn primary" href="#contact">Get in touch</a>
-        <a class="btn secondary" href="about.html">About me</a>
+        <a class="btn primary" href="professional-experience.html">View Résumé</a>
+        <a class="btn secondary" href="#stage">Explore My Work</a>
+        <a class="btn secondary" href="#contact">Contact</a>
       </div>
+    </header>
+
+    <ul class="kpi-row" aria-label="Career highlights">
+      <li><button type="button" class="kpi-card" data-view="kpi-callbacks" aria-haspopup="dialog">
+        <span class="kc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 12a9 9 0 0 1 16-3M24 20a9 9 0 0 1-16 3"/><path d="M24 4v5h-5M8 28v-5h5"/></svg></span>
+        <span class="kc-body"><span class="kc-type">Outcome</span><strong class="metal">~70%</strong><span class="kc-label">fewer repeat callbacks</span><span class="kc-ctx"><span class="cat work">Professional</span>Campus networks, 2018–2024</span></span>
+      </button></li>
+      <li><button type="button" class="kpi-card" data-view="kpi-team" aria-haspopup="dialog">
+        <span class="kc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="11" r="4"/><circle cx="22" cy="12" r="3"/><path d="M3 26c0-5 4-8 8-8s8 3 8 8M19 19c4-1 9 1 9 6"/></svg></span>
+        <span class="kc-body"><span class="kc-type">Team</span><strong class="metal">14</strong><span class="kc-label">field technicians led directly</span><span class="kc-ctx"><span class="cat work">Professional</span>Regional field supervisor, 2020–2024</span></span>
+      </button></li>
+      <li><button type="button" class="kpi-card" data-view="kpi-campuses" aria-haspopup="dialog">
+        <span class="kc-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 29s-9-8-9-15a9 9 0 0 1 18 0c0 7-9 15-9 15z"/><circle cx="16" cy="14" r="3"/></svg></span>
+        <span class="kc-body"><span class="kc-type">Scope</span><strong class="metal">5 campuses</strong><span class="kc-label">in 3 states, 24/7/365, 6,500+ users</span><span class="kc-ctx"><span class="cat work">Professional</span>Direct responsibility, 2018–2024</span></span>
+      </button></li>
+    </ul>
+
+    <div class="col col-left">
+      <section class="panel" aria-labelledby="p-track">
+        <span class="corner" aria-hidden="true"></span>
+        <h2 class="p-title" id="p-track">Career track</h2>
+        <ol class="gantt" aria-label="Roles by year">
+          <li style="--a:80; --b:100"><span class="g-name">IT Engineer, 24/7 plant</span><span class="g-bar"></span><span class="g-yr">2024–now</span></li>
+          <li style="--a:40; --b:80"><span class="g-name">Regional field supervisor</span><span class="g-bar"></span><span class="g-yr">2020–2024</span></li>
+          <li style="--a:20; --b:80"><span class="g-name">Network specialist</span><span class="g-bar"></span><span class="g-yr">2018–2024</span></li>
+          <li style="--a:0; --b:20"><span class="g-name">Smart home pro → team trainer</span><span class="g-bar"></span><span class="g-yr">2016–2018</span></li>
+        </ol>
+        <div class="g-axis" aria-hidden="true"><span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>now</span></div>
+        <a class="p-link" href="#experience">Full experience</a>
+      </section>
+
+      <section class="panel" aria-labelledby="p-scope">
+        <span class="corner" aria-hidden="true"></span>
+        <h2 class="p-title" id="p-scope">Campus scope, 2018–2024</h2>
+        <ul class="hbars" aria-label="Campuses by type of responsibility">
+          <li style="--v:25"><span class="hb-label">Direct 24/7/365 responsibility</span><span class="hb-track"><span class="hb-bar"></span></span><span class="hb-val">5</span></li>
+          <li style="--v:75"><span class="hb-label">Move-in coverage I planned</span><span class="hb-track"><span class="hb-bar"></span></span><span class="hb-val">15</span></li>
+          <li style="--v:100"><span class="hb-label">Escalation support for specialists</span><span class="hb-track"><span class="hb-bar soft"></span></span><span class="hb-val">20+</span></li>
+        </ul>
+        <p class="p-foot">Different kinds of responsibility: only the 5 were mine directly.</p>
+        <button type="button" class="p-link" data-view="kpi-campuses" aria-haspopup="dialog">Scope details</button>
+      </section>
+
+      <section class="panel" aria-labelledby="p-team">
+        <span class="corner" aria-hidden="true"></span>
+        <h2 class="p-title" id="p-team">Team</h2>
+        <ul class="hbars" aria-label="Team size">
+          <li style="--v:47"><span class="hb-label">Direct reports, 2020–2024</span><span class="hb-track"><span class="hb-bar"></span></span><span class="hb-val">14</span></li>
+          <li style="--v:100"><span class="hb-label">Covered during vacancies</span><span class="hb-track"><span class="hb-bar soft"></span></span><span class="hb-val">~30</span></li>
+          <li style="--v:20"><span class="hb-label">Technicians trained, 2016–2018</span><span class="hb-track"><span class="hb-bar"></span></span><span class="hb-val">6</span></li>
+        </ul>
+        <button type="button" class="p-link" data-view="kpi-team" aria-haspopup="dialog">Leadership details</button>
+      </section>
     </div>
-    <div style="position: relative;">
-      <div class="rack" role="list" aria-label="Career highlights, shown as rack equipment">
-        <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 0" data-detail="Cisco switching and wireless, SAP, PI Vision, industrial labeling equipment"><span class="u">U1</span><span><strong>IT Engineer, 24/7 manufacturing plant</strong><small>About 300 endpoints, 120 access points</small></span><span class="leds" aria-hidden="true"><i></i><i></i></span></a>
-        <a class="unit" role="listitem" href="#colo-skills" style="--c: var(--work); --i: 1" data-detail="Network cabinets, switches, cabling and cabinet-level PDUs in university data centers, plus demarcation points, MDFs and IDFs"><span class="u">U2</span><span><strong>6 years of data center &amp; campus network infrastructure</strong><small>Network specialist 2018–2024 · Regional field supervisor 2020–2024</small></span><span class="leds" aria-hidden="true"><i></i><i></i></span></a>
-        <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 2" data-detail="10+ network refresh and installation projects, SLA breaches under 5%, about 70% fewer repeat callbacks"><span class="u">U3</span><span><strong>6,500+ users across 5 directly assigned campuses</strong><small>24/7/365 responsibility in 3 states; supported specialists across 20+ more campuses</small>
+
+    <div class="col col-center">
+      <section class="panel stage" id="stage" aria-labelledby="p-stage">
+        <span class="corner" aria-hidden="true"></span>
+        <div class="stage-head">
+          <h2 class="p-title" id="p-stage">Workspace</h2>
+          <div class="stage-tabs" role="tablist" aria-label="Workspace scenes">
+            <button type="button" role="tab" id="tab-rack" aria-controls="scene-rack" aria-selected="true">Equipment rack</button>
+            <button type="button" role="tab" id="tab-line" aria-controls="scene-line" aria-selected="false">Checking the Line</button>
+            <button type="button" role="tab" id="tab-lab" aria-controls="scene-lab" aria-selected="false">Fortinet lab</button>
+          </div>
+        </div>
+        <div class="scene" id="scene-rack" role="tabpanel" aria-labelledby="tab-rack">
+          <p class="scene-hint">Select a unit to open its details.</p>
+          <div class="rack" role="list" aria-label="Career highlights, shown as rack equipment">
+        <a class="unit" data-view="rack-u1" aria-haspopup="dialog" role="listitem" href="#experience" style="--c: var(--work); --i: 0" data-detail="Cisco switching and wireless, SAP, PI Vision, industrial labeling equipment"><span class="u">U1</span><span><strong>IT Engineer, 24/7 manufacturing plant</strong><small>About 300 endpoints, 120 access points</small></span><span class="leds" aria-hidden="true"><i></i><i></i></span></a>
+        <a class="unit" data-view="rack-u2" aria-haspopup="dialog" role="listitem" href="#colo-skills" style="--c: var(--work); --i: 1" data-detail="Network cabinets, switches, cabling and cabinet-level PDUs in university data centers, plus demarcation points, MDFs and IDFs"><span class="u">U2</span><span><strong>6 years of data center &amp; campus network infrastructure</strong><small>Network specialist 2018–2024 · Regional field supervisor 2020–2024</small></span><span class="leds" aria-hidden="true"><i></i><i></i></span></a>
+        <a class="unit" data-view="rack-u3" aria-haspopup="dialog" role="listitem" href="#experience" style="--c: var(--work); --i: 2" data-detail="10+ network refresh and installation projects, SLA breaches under 5%, about 70% fewer repeat callbacks"><span class="u">U3</span><span><strong>6,500+ users across 5 directly assigned campuses</strong><small>24/7/365 responsibility in 3 states; supported specialists across 20+ more campuses</small>
           <span class="ports" aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b class="on"></b><b class="on"></b><b></b><b class="on"></b><b class="on"></b><b class="on"></b></span></span><span class="leds" aria-hidden="true"><i></i><i></i><i></i></span></a>
-        <a class="unit" role="listitem" href="#experience" style="--c: var(--work); --i: 3" data-detail="Hiring, coaching, escalations, and Cisco firmware-upgrade training I wrote"><span class="u">U4</span><span><strong>14 field specialists supervised</strong><small>Up to nearly 30 during vacancies</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
-        <a class="unit" role="listitem" href="#impact" style="--c: var(--work); --i: 4" data-detail="Average monthly tickets: 6.3 before, 2.3 during the improvement period"><span class="u">U5</span><span><strong>63.5% fewer label-printing tickets</strong><small>Lean Six Sigma Green Belt project I led</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
-        <a class="unit" role="listitem" href="#lab" style="--c: var(--lab); --i: 5" data-detail="Sensors > PLC > actuators > HMI > SCADA > historian, behind a Fortinet boundary"><span class="u">U6</span><span><strong>OT lab: simulated sorting line</strong><small>PLC, HMI, SCADA and historian, in development</small></span><span class="leds" aria-hidden="true"><i></i><i class="amber"></i></span></a>
-        <a class="unit" role="listitem" href="#software" style="--c: var(--lab); --i: 6" data-detail="RTX 3060 GPU, Docker, Ollama; supports MONITROPE development"><span class="u">U7</span><span><strong>Local AI engineering platform</strong><small>Deployed and in daily use</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
+        <a class="unit" data-view="rack-u4" aria-haspopup="dialog" role="listitem" href="#experience" style="--c: var(--work); --i: 3" data-detail="Hiring, coaching, escalations, and Cisco firmware-upgrade training I wrote"><span class="u">U4</span><span><strong>14 field specialists supervised</strong><small>Up to nearly 30 during vacancies</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
+        <a class="unit" data-view="rack-u5" aria-haspopup="dialog" role="listitem" href="#p-out" style="--c: var(--work); --i: 4" data-detail="Average monthly tickets: 6.3 before, 2.3 during the improvement period"><span class="u">U5</span><span><strong>63.5% fewer label-printing tickets</strong><small>Lean Six Sigma Green Belt project I led</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
+        <a class="unit" data-view="rack-u6" aria-haspopup="dialog" role="listitem" href="#lab" style="--c: var(--lab); --i: 5" data-detail="Sensors > PLC > actuators > HMI > SCADA > historian, behind a Fortinet boundary"><span class="u">U6</span><span><strong>OT lab: simulated sorting line</strong><small>PLC, HMI, SCADA and historian, in development</small></span><span class="leds" aria-hidden="true"><i></i><i class="amber"></i></span></a>
+        <a class="unit" data-view="rack-u7" aria-haspopup="dialog" role="listitem" href="#software" style="--c: var(--lab); --i: 6" data-detail="RTX 3060 GPU, Docker, Ollama; supports MONITROPE development"><span class="u">U7</span><span><strong>Local AI engineering platform</strong><small>Deployed and in daily use</small></span><span class="leds" aria-hidden="true"><i></i></span></a>
+          </div>
+          <p class="rack-caption console" aria-live="polite"><span class="prompt">&gt;</span> <span id="readout">Point at a unit to read it. Select it to open the details.</span></p>
+        </div>
+        <div class="scene" id="scene-line" role="tabpanel" aria-labelledby="tab-line">
+    <div class="trace" id="trace">
+      <div class="trace-head">
+        <div><span class="tag">Checking the line · Fault isolation, production line</span><h3>Bags Weighed, but Never Labeled</h3><p class="trace-hint">Run the checks with the button, or select the station to check next.</p></div>
+        <div class="trace-controls"><button type="button" class="btn primary" id="trace-next">Run the first check</button><button type="button" class="btn secondary" id="trace-reset" hidden>Start over</button></div>
       </div>
-      <img class="badge" src="assets/img/shane-avatar.webp" width="320" height="320" alt="Pixel-art portrait of Shane">
-      <p class="rack-caption console" aria-live="polite"><span class="prompt">&gt;</span> <span id="readout">Point at a unit to read it. Select it to jump to the details.</span></p>
+      <ol class="line" aria-label="Production line, from weighing to labeling">
+        <li class="node" data-n="sensor"><span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="8" y="30" width="32" height="8" rx="2"/><path d="M14 30v-6h20v6M24 24V12"/><circle cx="24" cy="10" r="3"/></svg></span><b>Weighing sensor</b><small>Weighs each bag</small></li>
+        <li class="link" data-l="1"><i></i></li>
+        <li class="node" data-n="plc"><span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="32" rx="2"/><path d="M16 16h16M16 22h16M16 28h8"/><circle cx="32" cy="32" r="2"/></svg></span><b>PLC</b><small>Decides what to print</small></li>
+        <li class="link" data-l="2"><i></i></li>
+        <li class="node" data-n="switch"><span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="12" rx="2"/><path d="M11 24h3M17 24h3M23 24h3M29 24h3M35 24h3"/></svg></span><b>Switch port and VLAN</b><small>Carries the PLC traffic</small></li>
+        <li class="link" data-l="3"><i></i></li>
+        <li class="node" data-n="labeler"><span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="20" rx="2"/><path d="M14 32v6h20v-6M16 20h16"/></svg></span><b>Labeler</b><small>Prints and applies</small></li>
+      </ol>
+      <div class="log" aria-live="polite"><p id="trace-log"><b>Symptom.</b> Every bag is weighed, but the labeling step never completes. Run the checks I ran to find out why.</p></div>
+      <p class="trace-doc"><a href="weighing-labeling-fault.html">Read the full case study</a></p>
     </div>
+        </div>
+        <div class="scene" id="scene-lab" role="tabpanel" aria-labelledby="tab-lab">
+          <p class="scene-hint"><span class="cat lab">Personal lab</span> PROTO Engineering Lab. Select a device or the boundary.</p>
+    <div class="map" aria-label="PROTO lab layout: IT side, Fortinet boundary, OT side">
+      <div class="zone it"><span class="zlabel"><span class="cat lab">Personal lab</span> IT side <em>built</em></span>
+        <a class="dev" href="network-lab.html" data-view="lab-switching" aria-haspopup="dialog">Cisco switching and VLANs</a>
+        <a class="dev" href="virtualization-lab.html" data-view="lab-proxmox" aria-haspopup="dialog">Proxmox hosts</a>
+        <a class="dev" href="journal/2026/10/01/proxmox-truenas-zfs-nas/" data-view="lab-storage" aria-haspopup="dialog">Storage and NAS</a>
+        <a class="dev" href="aiio.html" data-view="lab-ai" aria-haspopup="dialog">Local AI (AIIO)</a>
+        <a class="dev" href="journal/2026/10/08/the-vpn-connected-the-internet-didnt/" data-view="lab-wireguard" aria-haspopup="dialog">WireGuard remote access</a>
+      </div>
+      <div class="wall"><span class="zlabel">Boundary</span><a class="wall-hit" href="network-lab.html" data-view="lab-fortinet" aria-haspopup="dialog"><b>Fortinet</b><small>Only what the process needs crosses</small><span class="wall-cue">Inspect the boundary</span></a>
+        <div class="flow" aria-hidden="true"><i class="ok"></i><i class="ok d2"></i><i class="no d3"></i></div>
+      </div>
+      <div class="zone ot"><span class="zlabel"><span class="cat lab">Personal lab</span> OT side <em class="plan">in development</em></span>
+        <a class="dev plan" href="ot-network-lab.html" data-view="lab-ot" aria-haspopup="dialog">Sensors and actuators</a>
+        <a class="dev plan" href="ot-network-lab.html" data-view="lab-ot" aria-haspopup="dialog">PLC logic</a>
+        <a class="dev plan" href="ot-network-lab.html" data-view="lab-ot" aria-haspopup="dialog">HMI</a>
+        <a class="dev plan" href="ot-network-lab.html" data-view="lab-ot" aria-haspopup="dialog">SCADA</a>
+        <a class="dev plan" href="ot-network-lab.html" data-view="lab-ot" aria-haspopup="dialog">Historian</a>
+      </div>
+    </div>
+    <p class="legend"><span><i class="solid"></i>Built and documented</span><span><i class="dash"></i>Planned, being built</span><span><i class="pk ok"></i>Allowed traffic</span><span><i class="pk no"></i>Blocked at the boundary</span></p>
+        </div>
+      </section>
+
+      <div class="duo">
+        <section class="panel" aria-labelledby="p-infra">
+          <span class="corner" aria-hidden="true"></span>
+          <h2 class="p-title" id="p-infra">Infrastructure scale</h2>
+          <dl class="scale">
+            <div><dt><span class="cat work">Professional</span>Campus sites, cumulative 2018–2024</dt><dd><button type="button" class="stat" data-view="kpi-infra" aria-haspopup="dialog"><strong class="metal">1,000+</strong> access points <strong class="metal">250</strong> switches</button></dd></div>
+            <div><dt><span class="cat work">Professional</span>Current plant, 2024–now</dt><dd><button type="button" class="stat" data-view="kpi-plant" aria-haspopup="dialog"><strong class="metal">~300</strong> endpoints <strong class="metal">120</strong> access points</button></dd></div>
+          </dl>
+        </section>
+        <section class="panel" aria-labelledby="p-proj">
+          <span class="corner" aria-hidden="true"></span>
+          <h2 class="p-title" id="p-proj">Projects</h2>
+          <ul class="proj">
+            <li><a href="monitrope.html">MONITROPE</a><span class="chip dev">v0.7.0 release candidate</span></li>
+            <li><a href="aiio.html">AIIO Station</a><span class="chip ok">Running in my lab</span></li>
+            <li><a href="network-lab.html">Segmentation lab</a><span class="chip ok">Ongoing validation</span></li>
+            <li><a href="ot-network-lab.html">OT learning environment</a><span class="chip dev">In development</span></li>
+            <li><a href="do2.html">DO2: Dig &amp; Digest</a><span class="chip dev">Early working build</span></li>
+          </ul>
+          <p class="p-foot"><span class="cat lab">Personal lab</span>Status as published on each project page.</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="col col-right" id="impact">
+      <section class="panel" aria-labelledby="p-out">
+        <span class="corner" aria-hidden="true"></span>
+        <h2 class="p-title" id="p-out">Reductions, reported</h2>
+        <ul class="rings">
+          <li><button type="button" class="ring" data-view="kpi-callbacks" aria-haspopup="dialog" style="--p:.70"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="rg-bg" cx="40" cy="40" r="34"/><circle class="rg-fg" cx="40" cy="40" r="34"/></svg><strong class="metal">~70%</strong><span>repeat callbacks</span><small>Campus, 2018–2024</small></button></li>
+          <li><button type="button" class="ring" data-view="kpi-greenbelt" aria-haspopup="dialog" style="--p:.635"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="rg-bg" cx="40" cy="40" r="34"/><circle class="rg-fg" cx="40" cy="40" r="34"/></svg><strong class="metal">63.5%</strong><span>label-printing tickets</span><small>Green Belt, plant</small></button></li>
+          <li><button type="button" class="ring" data-view="kpi-vivint" aria-haspopup="dialog" style="--p:.30"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="rg-bg" cx="40" cy="40" r="34"/><circle class="rg-fg" cx="40" cy="40" r="34"/></svg><strong class="metal">30%</strong><span>own repeat calls</span><small>Vivint, 2016–2018</small></button></li>
+        </ul>
+        <p class="p-foot"><span class="cat work">Professional</span>Each ring is the size of the reduction.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="p-gb">
+        <span class="corner" aria-hidden="true"></span>
+        <h2 class="p-title" id="p-gb">Green Belt: avg monthly tickets</h2>
+        <div class="vbars" role="img" aria-label="Average monthly label-printing tickets: 6.3 before, 2.3 during the improvement period">
+          <div style="--v:100"><span class="vb-val">6.3</span><span class="vb-bar soft"></span><span class="vb-label">Before</span></div>
+          <div style="--v:36.5"><span class="vb-val">2.3</span><span class="vb-bar"></span><span class="vb-label">During improvement</span></div>
+        </div>
+        <button type="button" class="p-link" data-view="kpi-greenbelt" aria-haspopup="dialog">Project details</button>
+      </section>
+
+      <section class="panel" aria-labelledby="p-sla">
+        <span class="corner" aria-hidden="true"></span>
+        <h2 class="p-title" id="p-sla">SLA breach rate, reported</h2>
+        <ul class="sla">
+          <li><button type="button" class="stat" data-view="kpi-sla-plant" aria-haspopup="dialog"><strong class="metal">&lt;2.5%</strong><span>IT engineer, 24/7 plant, 2024–now</span></button></li>
+          <li><button type="button" class="stat" data-view="kpi-sla-campus" aria-haspopup="dialog"><strong class="metal">&lt;5%</strong><span>Campus networks, 2018–2024</span></button></li>
+        </ul>
+        <p class="p-foot">Separate roles and measures, not a trend.</p>
+      </section>
+    </div>
+
   </div>
 </div>
+
+
+
+
+<section id="plant" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>On the Plant Floor</h2>
+      <p><a class="scene-jump" href="#scene-line">Run Checking the Line in the workspace</a> Problems I've worked where IT, production equipment and the people who run it meet. I focus on how systems depend on each other, not just the symptom in front of me.</p>
+    </div>
+    <div class="cases two">
+      <article class="fault">
+        <span class="tag">Infrastructure refresh</span>
+        <h3>Replacing a Plant's Network While It Runs</h3>
+        <dl>
+          <dt>Project</dt><dd>A facility-wide Cisco switching and wireless refresh in an active plant.</dd>
+          <dt>What I did</dt><dd>Deployed and replaced equipment, applied approved switchport configurations, helped roll out wireless, and validated connectivity.</dd>
+          <dt>Constraint</dt><dd>All work was scheduled around production requirements.</dd>
+        </dl>
+      <a class="go" href="plant-network-refresh.html">Read the case study</a>
+      </article>
+      <article class="fault">
+        <span class="tag">Manufacturing systems</span>
+        <h3>Keeping Production Data Reachable</h3>
+        <dl>
+          <dt>Systems</dt><dd>SAP manufacturing workflows, PI Vision, industrial printing and labeling applications, and the Windows servers behind them.</dd>
+          <dt>What I do</dt><dd>Trace connectivity and availability problems through the network and server dependencies, and work with application owners to restore access.</dd>
+        </dl>
+      <a class="go" href="production-data-connectivity.html">Explore the troubleshooting workflow</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="lab" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>PROTO Engineering Lab</h2>
+      <p><a class="scene-jump" href="#scene-lab">Open the Fortinet lab map in the workspace</a> My independent lab for networking, virtualization, OT and certification study. Each project shows its status, and planned work is never presented as finished.</p>
+    </div>
+    <div class="grid">
+      <a class="card lab wide" href="ot-network-lab.html"><img src="assets/img/lab-ot.webp" width="960" height="800" alt="" loading="lazy"><div class="body"><span class="kind">OT<span class="state">, in development</span></span><h3>OT Learning Environment</h3><p>A simulated asset-sorting line with sensors, PLC logic, actuators, HMI, SCADA and a historian, behind a Fortinet IT/OT boundary. Built to test what happens to the process when the network fails.</p></div></a>
+      <a class="card lab" href="network-lab.html"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"><div class="body"><span class="kind">Network<span class="state">, ongoing validation</span></span><h3>Network Segmentation and Connectivity</h3><p>Switching, VLANs, routing and traffic controls, with the topology and how I validate it.</p></div></a>
+      <a class="card lab" href="virtualization-lab.html"><img src="assets/img/lab-infrastructure.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><span class="kind">Infrastructure<span class="state">, documented fixes</span></span><h3>Access, Storage and AI Hosts</h3><p>A four-host environment built from retired hardware, and the guest dependencies I've troubleshot.</p></div></a>
+      <a class="card lab" href="ccna-lab.html"><img src="assets/img/ccna-exercises.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><span class="kind">Study<span class="state">, active</span></span><h3>CCNA Lab Exercises</h3><p>Repeatable configuration and fault-isolation exercises.</p></div></a>
+      <a class="card lab" href="ccna-study-laptop.html"><img src="assets/img/ccna-laptop.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><span class="kind">Study<span class="state">, built and in use</span></span><h3>CCNA Study Laptop</h3><p>A Dell Latitude 5480 repurposed as a Parrot OS networking workstation.</p></div></a>
+    </div>
+    <p class="more"><a href="proto-lab-evidence.html">PROTO.LAB technical evidence</a><a href="technical-evidence.html">Troubleshooting records</a></p>
+  </div>
+</section>
 
 <section id="start" class="start">
   <div class="wrap">
@@ -468,89 +698,6 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 </section>
 
-<section id="impact">
-  <div class="wrap">
-    <div class="head">
-      <h2>Results I Can Point To</h2>
-      <p>Three changes with numbers behind them, from the plant floor, campus networks and field teams.</p>
-    </div>
-    <div class="impact">
-      <article class="case">
-        <img src="assets/img/green-belt.webp" width="960" height="640" alt="" loading="lazy">
-        <span class="figure">63.5%</span>
-        <h3>Fewer Label-Printing Tickets on the Production Floor</h3>
-        <p>I led a Green Belt project: standard troubleshooting instructions, clear ownership and escalation, and operator training. Average monthly tickets fell from 6.3 to 2.3 during the improvement period.</p>
-        <a href="green-belt-case-study.html">Read the case study</a>
-      </article>
-      <article class="case">
-        <span class="figure">6,500+</span>
-        <h3>Users on Networks I Was Responsible For</h3>
-        <p>I was directly responsible for five campuses across three states, 24/7/365. I also helped specialists across 20+ additional campuses, including residence halls and full administrative buildings. My team included 14 field specialists; reported SLA breaches remained under 5%.</p>
-        <a href="campus-network-leadership.html">Read the case study</a>
-      </article>
-      <article class="case">
-        <span class="figure">30%</span>
-        <h3>Fewer Repeat Service Calls</h3>
-        <p>My own repeat service calls fell 30% at Vivint, measured by repeat tickets from the same customer, and I trained six technicians as Team Trainer.</p>
-        <a href="technician-development.html">Read the case study</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="plant" class="alt">
-  <div class="wrap">
-    <div class="head">
-      <h2>On the Plant Floor</h2>
-      <p>Problems I've worked where IT, production equipment and the people who run it meet. I focus on how systems depend on each other, not just the symptom in front of me.</p>
-    </div>
-    <div class="trace" id="trace">
-      <div class="trace-head">
-        <div><span class="tag">Fault isolation, production line</span><h3>Bags Weighed, but Never Labeled</h3></div>
-        <div class="trace-controls"><button type="button" class="btn primary" id="trace-next">Run the first check</button><button type="button" class="btn secondary" id="trace-reset" hidden>Start over</button></div>
-      </div>
-      <ol class="line" aria-label="Production line, from weighing to labeling">
-        <li class="node" data-n="sensor"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="8" y="30" width="32" height="8" rx="2"/><path d="M14 30v-6h20v6M24 24V12"/><circle cx="24" cy="10" r="3"/></svg></span><b>Weighing sensor</b><small>Weighs each bag</small></li>
-        <li class="link" data-l="1"><i></i></li>
-        <li class="node" data-n="plc"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="32" rx="2"/><path d="M16 16h16M16 22h16M16 28h8"/><circle cx="32" cy="32" r="2"/></svg></span><b>PLC</b><small>Decides what to print</small></li>
-        <li class="link" data-l="2"><i></i></li>
-        <li class="node" data-n="switch"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="12" rx="2"/><path d="M11 24h3M17 24h3M23 24h3M29 24h3M35 24h3"/></svg></span><b>Switch port and VLAN</b><small>Carries the PLC traffic</small></li>
-        <li class="link" data-l="3"><i></i></li>
-        <li class="node" data-n="labeler"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="20" rx="2"/><path d="M14 32v6h20v-6M16 20h16"/></svg></span><b>Labeler</b><small>Prints and applies</small></li>
-      </ol>
-      <div class="log" aria-live="polite"><p id="trace-log"><b>Symptom.</b> Every bag is weighed, but the labeling step never completes. Run the checks I ran to find out why.</p></div>
-      <p class="trace-doc"><a href="weighing-labeling-fault.html">Read the full case study</a></p>
-    </div>
-    <div class="cases two">
-      <article class="fault">
-        <span class="tag">Infrastructure refresh</span>
-        <h3>Replacing a Plant's Network While It Runs</h3>
-        <dl>
-          <dt>Project</dt><dd>A facility-wide Cisco switching and wireless refresh in an active plant.</dd>
-          <dt>What I did</dt><dd>Deployed and replaced equipment, applied approved switchport configurations, helped roll out wireless, and validated connectivity.</dd>
-          <dt>Constraint</dt><dd>All work was scheduled around production requirements.</dd>
-        </dl>
-      <a class="go" href="plant-network-refresh.html">Read the case study</a>
-      </article>
-      <article class="fault">
-        <span class="tag">Manufacturing systems</span>
-        <h3>Keeping Production Data Reachable</h3>
-        <dl>
-          <dt>Systems</dt><dd>SAP manufacturing workflows, PI Vision, industrial printing and labeling applications, and the Windows servers behind them.</dd>
-          <dt>What I do</dt><dd>Trace connectivity and availability problems through the network and server dependencies, and work with application owners to restore access.</dd>
-        </dl>
-      <a class="go" href="production-data-connectivity.html">Explore the troubleshooting workflow</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-
 <section id="skills">
   <div class="wrap">
     <div class="head">
@@ -594,44 +741,10 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <div class="actions" style="justify-content:center; margin-top:32px;"><a class="btn primary" href="technical-skills.html">Explore All Skills <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
-<section id="lifecycle"><div class="wrap"><div class="head"><h2>From Planning to Improvement</h2><p>How my experience spans Day 0–3. These are working definitions; organizations use the terms differently.</p></div><div class="lifecycle-grid"><article class="lifecycle-card"><span class="stage-label">Day 0</span><h3>Assess &amp; plan</h3><p>Requirements, site assessments, equipment evaluation, procurement and implementation preparation.</p><p class="stage-evidence">Planned regional coverage, assessed site infrastructure, compared vendor quotes and contributed to deployment planning.</p><a href="campus-network-leadership.html">Explore the experience ↗</a></article><article class="lifecycle-card"><span class="stage-label">Day 1</span><h3>Deploy &amp; integrate</h3><p>Installation, configuration, refreshes, testing and handover.</p><p class="stage-evidence">Supported campus network installations and refreshes, deployed out-of-band access, and assisted a staged plant network refresh.</p><a href="plant-network-refresh.html">Explore the experience ↗</a></article><article class="lifecycle-card"><span class="stage-label">Day 2</span><h3>Operate &amp; maintain</h3><p>Monitoring, troubleshooting, maintenance, incident response and documentation.</p><p class="stage-evidence">Support a 24/7 plant and previously held direct network responsibility across five campuses, coordinating specialist escalations.</p><a href="production-data-connectivity.html">Explore the experience ↗</a></article><article class="lifecycle-card"><span class="stage-label">Day 3</span><h3>Improve &amp; evolve</h3><p>Root-cause analysis, standardization, training and ongoing improvement.</p><p class="stage-evidence">Led a Green Belt improvement project, developed troubleshooting guidance and coached technicians. Automation is an area of ongoing project development.</p><a href="green-belt-case-study.html">Explore the experience ↗</a></article></div></div></section><section id="support"><div class="wrap"><div class="head"><h2>Support &amp; Escalation Experience</h2><p>Tier 1–4 describes the range of work I handle, rather than formal titles or a universal ranking. Definitions vary between organizations.</p></div><div class="lifecycle-grid"><article class="lifecycle-card"><span class="stage-label">Tier 1</span><h3>Initial assessment</h3><p>User support, common endpoint and printer issues, connectivity checks and initial fault isolation.</p><a href="technician-development.html">See a related example ↗</a></article><article class="lifecycle-card"><span class="stage-label">Tier 2</span><h3>Deeper troubleshooting</h3><p>Endpoint, identity, application access, wireless, VLAN and device connectivity troubleshooting.</p><a href="production-data-connectivity.html">See a related example ↗</a></article><article class="lifecycle-card"><span class="stage-label">Tier 3</span><h3>Complex infrastructure incidents</h3><p>Cross-system diagnosis, network fault isolation, recurring problems and coordination across engineering teams.</p><a href="weighing-labeling-fault.html">See a related example ↗</a></article><article class="lifecycle-card"><span class="stage-label">Tier 4</span><h3>Vendor &amp; specialist escalation</h3><p>Gathering evidence and coordinating with OEMs, ISPs, vendor support and internal specialists. My contribution is escalation and coordination, not a claim of product engineering or PLC programming.</p><a href="data-center-core-infrastructure.html">See a related example ↗</a></article></div></div></section>
 
-<section id="lab" class="alt">
-  <div class="wrap">
-    <div class="head">
-      <h2>PROTO Engineering Lab</h2>
-      <p>My independent lab for networking, virtualization, OT and certification study. Each project shows its status, and planned work is never presented as finished.</p>
-    </div>
-    <div class="map" aria-label="PROTO lab layout: IT side, Fortinet boundary, OT side">
-      <div class="zone it"><span class="zlabel">IT side <em>built</em></span>
-        <a class="dev" href="network-lab.html">Cisco switching and VLANs</a>
-        <a class="dev" href="virtualization-lab.html">Proxmox hosts</a>
-        <a class="dev" href="journal/2026/10/01/proxmox-truenas-zfs-nas/">Storage and NAS</a>
-        <a class="dev" href="aiio.html">Local AI (AIIO)</a>
-        <a class="dev" href="journal/2026/10/08/the-vpn-connected-the-internet-didnt/">WireGuard remote access</a>
-      </div>
-      <div class="wall"><span class="zlabel">Boundary</span><b>Fortinet</b><small>Only what the process needs crosses</small>
-        <div class="flow" aria-hidden="true"><i class="ok"></i><i class="ok d2"></i><i class="no d3"></i></div>
-      </div>
-      <div class="zone ot"><span class="zlabel">OT side <em class="plan">in development</em></span>
-        <a class="dev plan" href="ot-network-lab.html">Sensors and actuators</a>
-        <a class="dev plan" href="ot-network-lab.html">PLC logic</a>
-        <a class="dev plan" href="ot-network-lab.html">HMI</a>
-        <a class="dev plan" href="ot-network-lab.html">SCADA</a>
-        <a class="dev plan" href="ot-network-lab.html">Historian</a>
-      </div>
-    </div>
-    <p class="legend"><span><i class="solid"></i>Built and documented</span><span><i class="dash"></i>Planned, being built</span><span><i class="pk ok"></i>Allowed traffic</span><span><i class="pk no"></i>Blocked at the boundary</span></p>
-    <div class="grid">
-      <a class="card lab wide" href="ot-network-lab.html"><img src="assets/img/lab-ot.webp" width="960" height="800" alt="" loading="lazy"><div class="body"><span class="kind">OT<span class="state">, in development</span></span><h3>OT Learning Environment</h3><p>A simulated asset-sorting line with sensors, PLC logic, actuators, HMI, SCADA and a historian, behind a Fortinet IT/OT boundary. Built to test what happens to the process when the network fails.</p></div></a>
-      <a class="card lab" href="network-lab.html"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"><div class="body"><span class="kind">Network<span class="state">, ongoing validation</span></span><h3>Network Segmentation and Connectivity</h3><p>Switching, VLANs, routing and traffic controls, with the topology and how I validate it.</p></div></a>
-      <a class="card lab" href="virtualization-lab.html"><img src="assets/img/lab-infrastructure.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><span class="kind">Infrastructure<span class="state">, documented fixes</span></span><h3>Access, Storage and AI Hosts</h3><p>A four-host environment built from retired hardware, and the guest dependencies I've troubleshot.</p></div></a>
-      <a class="card lab" href="ccna-lab.html"><img src="assets/img/ccna-exercises.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><span class="kind">Study<span class="state">, active</span></span><h3>CCNA Lab Exercises</h3><p>Repeatable configuration and fault-isolation exercises.</p></div></a>
-      <a class="card lab" href="ccna-study-laptop.html"><img src="assets/img/ccna-laptop.webp" width="960" height="640" alt="" loading="lazy"><div class="body"><span class="kind">Study<span class="state">, built and in use</span></span><h3>CCNA Study Laptop</h3><p>A Dell Latitude 5480 repurposed as a Parrot OS networking workstation.</p></div></a>
-    </div>
-    <p class="more"><a href="proto-lab-evidence.html">PROTO.LAB technical evidence</a><a href="technical-evidence.html">Troubleshooting records</a></p>
-  </div>
-</section>
+<section id="lifecycle"><div class="wrap"><div class="head"><h2>From Planning to Improvement</h2><p>How my experience spans Day 0–3. These are working definitions; organizations use the terms differently.</p></div><div class="lifecycle-grid"><article class="lifecycle-card"><span class="stage-label">Day 0</span><h3>Assess &amp; plan</h3><p>Requirements, site assessments, equipment evaluation, procurement and implementation preparation.</p><p class="stage-evidence">Planned regional coverage, assessed site infrastructure, compared vendor quotes and contributed to deployment planning.</p><a href="campus-network-leadership.html">Explore the experience ↗</a></article><article class="lifecycle-card"><span class="stage-label">Day 1</span><h3>Deploy &amp; integrate</h3><p>Installation, configuration, refreshes, testing and handover.</p><p class="stage-evidence">Supported campus network installations and refreshes, deployed out-of-band access, and assisted a staged plant network refresh.</p><a href="plant-network-refresh.html">Explore the experience ↗</a></article><article class="lifecycle-card"><span class="stage-label">Day 2</span><h3>Operate &amp; maintain</h3><p>Monitoring, troubleshooting, maintenance, incident response and documentation.</p><p class="stage-evidence">Support a 24/7 plant and previously held direct network responsibility across five campuses, coordinating specialist escalations.</p><a href="production-data-connectivity.html">Explore the experience ↗</a></article><article class="lifecycle-card"><span class="stage-label">Day 3</span><h3>Improve &amp; evolve</h3><p>Root-cause analysis, standardization, training and ongoing improvement.</p><p class="stage-evidence">Led a Green Belt improvement project, developed troubleshooting guidance and coached technicians. Automation is an area of ongoing project development.</p><a href="green-belt-case-study.html">Explore the experience ↗</a></article></div></div></section>
+
+<section id="support"><div class="wrap"><div class="head"><h2>Support &amp; Escalation Experience</h2><p>Tier 1–4 describes the range of work I handle, rather than formal titles or a universal ranking. Definitions vary between organizations.</p></div><div class="lifecycle-grid"><article class="lifecycle-card"><span class="stage-label">Tier 1</span><h3>Initial assessment</h3><p>User support, common endpoint and printer issues, connectivity checks and initial fault isolation.</p><a href="technician-development.html">See a related example ↗</a></article><article class="lifecycle-card"><span class="stage-label">Tier 2</span><h3>Deeper troubleshooting</h3><p>Endpoint, identity, application access, wireless, VLAN and device connectivity troubleshooting.</p><a href="production-data-connectivity.html">See a related example ↗</a></article><article class="lifecycle-card"><span class="stage-label">Tier 3</span><h3>Complex infrastructure incidents</h3><p>Cross-system diagnosis, network fault isolation, recurring problems and coordination across engineering teams.</p><a href="weighing-labeling-fault.html">See a related example ↗</a></article><article class="lifecycle-card"><span class="stage-label">Tier 4</span><h3>Vendor &amp; specialist escalation</h3><p>Gathering evidence and coordinating with OEMs, ISPs, vendor support and internal specialists. My contribution is escalation and coordination, not a claim of product engineering or PLC programming.</p><a href="data-center-core-infrastructure.html">See a related example ↗</a></article></div></div></section>
 
 <section id="software">
   <div class="wrap">
@@ -691,6 +804,221 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     </div>
   </div>
 </section>
+
+
+<!-- Drawer views. Every hotspot that opens one is also a normal link or has the same content elsewhere on the page. -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1" hidden>
+  <div class="drawer-bar"><span class="drawer-kicker" id="drawer-kicker"></span><button type="button" class="drawer-close" id="drawer-close">Close <span aria-hidden="true">✕</span></button></div>
+  <div class="drawer-body" id="drawer-body"></div>
+</aside>
+
+<template id="view-kpi-callbacks" data-kicker="Outcome · Professional">
+  <p class="d-figure metal">~70%</p><h2 class="d-title">Fewer repeat callbacks</h2>
+  <p class="d-ctx">Network specialist (2018–2024) and regional field supervisor (2020–2024), higher-education managed services</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>Five campuses in three states under my direct 24/7/365 responsibility, plus escalation support for specialists at 20+ more. Switching, wireless, authentication and Layer 1–3 problems came through this role.</dd>
+    <dt>My contribution</dt><dd>Standardized the troubleshooting documentation used across the region, wrote Cisco switch firmware-upgrade training, and coordinated escalations across the NOC, engineering, ISPs and Cisco TAC.</dd>
+    <dt>Result</dt><dd>Repeat callbacks fell by about 70% after improving troubleshooting and support practices.</dd>
+  </dl>
+  <p class="d-note">Reported work-history result. Underlying counts and the measurement window aren't published.</p>
+  <a class="btn primary" href="campus-network-leadership.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-greenbelt" data-kicker="Outcome · Professional">
+  <p class="d-figure metal">63.5%</p><h2 class="d-title">Fewer label-printing tickets</h2>
+  <p class="d-ctx">Lean Six Sigma Green Belt project I led, manufacturing IT/OT support</p>
+  <dl class="d-story">
+    <dt>Challenge</dt><dd>Label-printing incidents were handled inconsistently, with unclear ownership, varied troubleshooting and escalation, higher ticket volume and operational disruption.</dd>
+    <dt>My contribution</dt><dd>Led the project and the standardized support instructions, clarified ownership and escalation with a RACI, improved ticket visibility and aging controls, and supported operator and supervisor training.</dd>
+    <dt>Result</dt><dd>Average monthly tickets fell from 6.3 to 2.3 during the improvement period.</dd>
+  </dl>
+  <p class="d-note">Comparison-period lengths, raw counts and sustained performance aren't established in the project summary.</p>
+  <a class="btn primary" href="green-belt-case-study.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-sla-plant" data-kicker="Outcome · Professional">
+  <p class="d-figure metal">&lt;2.5%</p><h2 class="d-title">Infrastructure SLA breach rate</h2>
+  <p class="d-ctx">IT engineer, 24/7 continuous-production plant, 2024–present</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>An 18-month staged Cisco switching and wireless refresh in a plant that never stops producing. Every change had to fit around the line.</dd>
+    <dt>My contribution</dt><dd>Deployed and replaced switching hardware, applied approved switchport configurations, helped roll out wireless, and validated connectivity after each change, timed with operations.</dd>
+    <dt>Result</dt><dd>Infrastructure SLA breach rate reported below 2.5% for my plant role, about 97.5% SLA compliance on assigned tickets.</dd>
+  </dl>
+  <p class="d-note">Reported figure for my role, not a measured improvement.</p>
+  <a class="btn primary" href="plant-network-refresh.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-sla-campus" data-kicker="Outcome · Professional">
+  <p class="d-figure metal">&lt;5%</p><h2 class="d-title">SLA breach rate</h2>
+  <p class="d-ctx">Network specialist and regional field supervisor, 2018–2024</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>Direct responsibility for five campuses, while supervising a field team and taking regional escalations.</dd>
+    <dt>My contribution</dt><dd>Coordinated switching, wireless, authentication and Layer 1–3 escalations across NOC, engineering, campus IT, ISPs and Cisco TAC.</dd>
+    <dt>Result</dt><dd>My reported SLA breach rate stayed below 5%.</dd>
+  </dl>
+  <p class="d-note">A historical reported figure, not a measured improvement. It is a different role and measure from the plant figure.</p>
+  <a class="btn primary" href="field-team-leadership.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-vivint" data-kicker="Outcome · Professional">
+  <p class="d-figure metal">30%</p><h2 class="d-title">Fewer repeat service calls</h2>
+  <p class="d-ctx">Smart home professional → team trainer, Vivint Smart Home, 2016–2018</p>
+  <dl class="d-story">
+    <dt>Challenge</dt><dd>A repeat service call means the first visit didn't fix the problem: a second appointment for the customer and a second trip for the team.</dd>
+    <dt>My contribution</dt><dd>Focused on getting it right the first time, then passed that approach on as a trainer, in diagnostics, structured cabling, networking and device integration.</dd>
+    <dt>Result</dt><dd>My own repeat service calls fell 30%, measured by repeat tickets from the same customer.</dd>
+  </dl>
+  <p class="d-note">Reported work-history result. Underlying counts and the measurement window aren't published.</p>
+  <a class="btn primary" href="technician-development.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-team" data-kicker="Team · Professional">
+  <p class="d-figure metal">14</p><h2 class="d-title">Field technicians who reported to me</h2>
+  <p class="d-ctx">Regional field supervisor, March 2020 – September 2024, alongside my network specialist role</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>A distributed team, each technician owning one or more campuses, across a region of higher-education sites.</dd>
+    <dt>My contribution</dt><dd>Hired, scheduled, trained, evaluated and coached the team, kept hands-on network duties, and planned move-in coverage across 15 campuses each year.</dd>
+    <dt>Scope</dt><dd>14 direct reports, and coverage for nearly 30 technicians during staffing vacancies.</dd>
+  </dl>
+  <p class="d-note">Team size describes responsibility, not an outcome.</p>
+  <a class="btn primary" href="field-team-leadership.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-trained" data-kicker="Team · Professional">
+  <p class="d-figure metal">6</p><h2 class="d-title">Technicians trained</h2>
+  <p class="d-ctx">Team trainer, Vivint Smart Home, 2016–2018</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>Installing and servicing connected security and smart-home systems in the field.</dd>
+    <dt>My contribution</dt><dd>Trained six technicians in diagnostics, installation quality and independent problem-solving, and served as the team's first-line escalation.</dd>
+  </dl>
+  <a class="btn primary" href="technician-development.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-campuses" data-kicker="Scope · Professional">
+  <p class="d-figure metal">5 campuses · 3 states</p><h2 class="d-title">Direct 24/7/365 network responsibility</h2>
+  <p class="d-ctx">Network specialist and regional field supervisor, 2018–2024</p>
+  <dl class="d-story">
+    <dt>Direct scope</dt><dd>Five assigned campuses across three states, accountable around the clock for network support and escalations.</dd>
+    <dt>Wider reach</dt><dd>Helped specialists troubleshoot at 20+ additional campuses, including residence halls and administrative buildings. That is escalation support, not direct ownership.</dd>
+    <dt>Users</dt><dd>6,500+ users on the directly assigned campus networks, not the wider 20+ campus footprint.</dd>
+  </dl>
+  <a class="btn primary" href="campus-network-leadership.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-infra" data-kicker="Scope · Professional · Cumulative">
+  <p class="d-figure metal">1,000+ / 250</p><h2 class="d-title">Access points and switches across my sites</h2>
+  <p class="d-ctx">Assigned university sites, 2018–2024</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>University data center rooms, network closets and a shared colocation, where each campus depended on a single core rack.</dd>
+    <dt>My contribution</dt><dd>Participated in and coordinated 10+ refresh and installation projects; built, audited and restored core racks with redundant power and out-of-band console access; upgraded firmware on about 300 Cisco switches and wrote the team's upgrade guide.</dd>
+  </dl>
+  <p class="d-note">Environment scale across my sites, not equipment I installed alone. The 250 switches and the ~300 firmware upgrades are separate counts.</p>
+  <a class="btn primary" href="data-center-core-infrastructure.html">Read the case study</a>
+</template>
+
+<template id="view-kpi-plant" data-kicker="Scope · Professional">
+  <p class="d-figure metal">~300 / 120</p><h2 class="d-title">Endpoints and access points</h2>
+  <p class="d-ctx">IT engineer, 24/7 continuous-production plant, 2024–present</p>
+  <dl class="d-story">
+    <dt>Context</dt><dd>The sole onsite IT engineer for a plant that never stops, on Cisco switching and wireless.</dd>
+    <dt>My work</dt><dd>The network, systems and PLC-connected equipment production depends on, with engineering, maintenance, operations and vendors.</dd>
+  </dl>
+  <a class="btn primary" href="plant-network-refresh.html">Read the case study</a>
+</template>
+
+<template id="view-rack-u1" data-kicker="Rack unit U1 · Professional">
+  <h2 class="d-title">IT Engineer, 24/7 manufacturing plant</h2>
+  <p class="d-ctx">2024–present · about 300 endpoints, 120 access points</p>
+  <p>I support a continuous-production plant: Cisco switching and wireless, SAP, PI Vision and industrial labeling equipment. I troubleshoot network-connected production systems with engineering, maintenance, operations and vendors, using switch and controller logs, Cisco ISE data and packet captures.</p>
+  <ul class="d-links"><li><a href="weighing-labeling-fault.html">Bags weighed, but never labeled</a></li><li><a href="plant-network-refresh.html">Replacing a plant's network while it runs</a></li><li><a href="production-data-connectivity.html">Keeping production data reachable</a></li></ul>
+</template>
+
+<template id="view-rack-u2" data-kicker="Rack unit U2 · Professional">
+  <h2 class="d-title">6 years of data center &amp; campus network infrastructure</h2>
+  <p class="d-ctx">Network specialist 2018–2024 · Regional field supervisor 2020–2024</p>
+  <p>Network cabinets, switches, cabling and cabinet-level PDUs in university data centers, plus demarcation points, MDFs and IDFs. The work was keeping campus cores redundant, reachable when the main network was down, and documented well enough for anyone on the team to work on safely.</p>
+  <ul class="d-links"><li><a href="data-center-core-infrastructure.html">Keeping campus network cores powered and reachable</a></li><li><a href="#skills">Data center and campus skills</a></li></ul>
+</template>
+
+<template id="view-rack-u3" data-kicker="Rack unit U3 · Professional">
+  <h2 class="d-title">6,500+ users across 5 directly assigned campuses</h2>
+  <p class="d-ctx">24/7/365 responsibility in 3 states; supported specialists across 20+ more campuses</p>
+  <p>10+ network refresh and installation projects, reported SLA breaches under 5%, and about 70% fewer repeat callbacks after improving troubleshooting and support practices.</p>
+  <ul class="d-links"><li><a href="campus-network-leadership.html">Campus networks across three states</a></li><li><a href="#top">All results</a></li></ul>
+</template>
+
+<template id="view-rack-u4" data-kicker="Rack unit U4 · Professional">
+  <h2 class="d-title">14 field specialists supervised</h2>
+  <p class="d-ctx">Up to nearly 30 during vacancies</p>
+  <p>Hiring, coaching, escalations, and the Cisco firmware-upgrade training I wrote, while keeping hands-on network duties.</p>
+  <ul class="d-links"><li><a href="field-team-leadership.html">Leading distributed IT field operations</a></li></ul>
+</template>
+
+<template id="view-rack-u5" data-kicker="Rack unit U5 · Professional">
+  <h2 class="d-title">63.5% fewer label-printing tickets</h2>
+  <p class="d-ctx">Lean Six Sigma Green Belt project I led</p>
+  <p>Average monthly tickets: 6.3 before, 2.3 during the improvement period.</p>
+  <ul class="d-links"><li><a href="green-belt-case-study.html">Read the Green Belt case study</a></li></ul>
+</template>
+
+<template id="view-rack-u6" data-kicker="Rack unit U6 · Personal lab · In development">
+  <h2 class="d-title">OT lab: simulated sorting line</h2>
+  <p class="d-ctx">PLC, HMI, SCADA and historian, in development</p>
+  <p>Sensors &gt; PLC &gt; actuators &gt; HMI &gt; SCADA &gt; historian, behind a Fortinet IT/OT boundary. Built to test what happens to the process when the network fails. Planned work is not presented as finished.</p>
+  <ul class="d-links"><li><a href="ot-network-lab.html">OT learning environment</a></li><li><a href="#scene-lab">The lab map</a></li></ul>
+</template>
+
+<template id="view-rack-u7" data-kicker="Rack unit U7 · Personal lab">
+  <h2 class="d-title">Local AI engineering platform</h2>
+  <p class="d-ctx">Deployed and in daily use</p>
+  <p>RTX 3060 GPU, Docker and Ollama. It supports MONITROPE development.</p>
+  <ul class="d-links"><li><a href="aiio.html">AIIO Station case study</a></li><li><a href="#software">Software and AI</a></li></ul>
+</template>
+
+<template id="view-lab-switching" data-kicker="IT side · Personal lab · Built">
+  <h2 class="d-title">Cisco switching and VLANs</h2>
+  <p>A physical Cisco and FortiGate lab focused on how traffic moves between network segments: switching, trunking, routing, firewall policy, network services and validation. I configured the switches and firewall, created the segments, validated connected endpoints and documented the architecture.</p>
+  <ul class="d-links"><li><a href="network-lab.html">Network segmentation and connectivity lab</a></li></ul>
+</template>
+
+<template id="view-lab-proxmox" data-kicker="IT side · Personal lab · Built">
+  <h2 class="d-title">Proxmox hosts</h2>
+  <p>A four-host environment built from retired hardware, and the guest dependencies I've troubleshot.</p>
+  <ul class="d-links"><li><a href="virtualization-lab.html">Access, storage and AI hosts</a></li></ul>
+</template>
+
+<template id="view-lab-storage" data-kicker="IT side · Personal lab · Built">
+  <h2 class="d-title">Storage and NAS</h2>
+  <p>Building a three-drive NAS with Proxmox, TrueNAS, ZFS, Syncthing and segmented networking turned into an end-to-end troubleshooting exercise.</p>
+  <ul class="d-links"><li><a href="journal/2026/10/01/proxmox-truenas-zfs-nas/">Read the journal entry</a></li></ul>
+</template>
+
+<template id="view-lab-ai" data-kicker="IT side · Personal lab · Built">
+  <h2 class="d-title">Local AI (AIIO)</h2>
+  <p>A move from a CPU-only server to a GPU workstation that became a containerized local AI platform for development, observability and automation.</p>
+  <ul class="d-links"><li><a href="aiio.html">AIIO Station case study</a></li></ul>
+</template>
+
+<template id="view-lab-wireguard" data-kicker="IT side · Personal lab · Built">
+  <h2 class="d-title">WireGuard remote access</h2>
+  <p>Troubleshooting WireGuard full-tunnel internet access, source NAT and competing VPN paths, with persistence and DNS validation still planned.</p>
+  <ul class="d-links"><li><a href="journal/2026/10/08/the-vpn-connected-the-internet-didnt/">The VPN connected. The internet didn't.</a></li><li><a href="proto-lab-evidence.html">Firewall, VPN DNS and remote-access investigations</a></li></ul>
+</template>
+
+<template id="view-lab-fortinet" data-kicker="Boundary · Personal lab">
+  <h2 class="d-title">Fortinet IT/OT boundary</h2>
+  <p>Fortinet sits between the IT side and the OT side. It's where I explore which communication the process actually needs and how it should be controlled. Only what the process needs crosses; everything else is blocked at the boundary.</p>
+  <p>The IT side, with a FortiGate firewall, is built and documented. The OT side behind it is in development.</p>
+  <ul class="d-links"><li><a href="network-lab.html">Network segmentation lab</a></li><li><a href="ot-network-lab.html">OT learning environment</a></li><li><a href="proto-lab-evidence.html">Firewall policy and remote-access investigations</a></li></ul>
+</template>
+
+<template id="view-lab-ot" data-kicker="OT side · Personal lab · In development">
+  <h2 class="d-title">OT learning environment</h2>
+  <p>A simulated asset-sorting line with sensors, PLC logic, actuators, HMI, SCADA and a historian, behind a Fortinet IT/OT boundary. Built to test what happens to the process when the network fails.</p>
+  <p class="d-note">In development. Results will be published as each test is run.</p>
+  <ul class="d-links"><li><a href="ot-network-lab.html">OT learning environment</a></li></ul>
+</template>
 </main>
 <footer><div class="wrap">© 2026 Shane Mykal Stark. Built by hand, hosted on GitHub Pages.</div></footer>
 
@@ -738,7 +1066,22 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     if (s.btn) next.textContent = s.btn; else next.hidden = true;
   }
   next.addEventListener('click', () => { step = Math.min(step + 1, steps.length - 1); render(); });
+  const names = { sensor: 'weighing sensor', plc: 'PLC', switch: 'switch port and VLAN', labeler: 'labeler' };
+  document.querySelectorAll('.node').forEach((n) => {
+    n.tabIndex = 0; n.setAttribute('role', 'button');
+    n.setAttribute('aria-label', 'Check the ' + names[n.dataset.n]);
+    const pick = () => {
+      if (step >= steps.length - 1) { log.innerHTML = '<b>Done.</b> The root cause was found. Select Start over to run it again.'; return; }
+      const want = steps[step + 1].check;
+      if (n.dataset.n === want) { next.click(); n.focus(); }
+      else if (n.dataset.n === 'labeler') log.innerHTML = '<b>The labeler is where the symptom shows,</b> not necessarily the fault. Next check: the ' + names[want] + '.';
+      else log.innerHTML = '<b>Not yet.</b> I started with the network so the right team would get the fault. Next check: the ' + names[want] + '.';
+    };
+    n.addEventListener('click', pick);
+    n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+  });
   reset.addEventListener('click', () => { step = -1; render(); next.focus(); });
 </script>
+<script src="assets/js/workspace.js" defer></script>
 </body>
 </html>
