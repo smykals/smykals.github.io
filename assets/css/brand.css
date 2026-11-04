@@ -126,3 +126,5 @@ main :not(pre) > code { overflow-wrap: anywhere; }
 /* Recorded: a dated historical observation, not re-verified since */
 .ev--rec { color: var(--lab); border-style: solid; border-width: 1px; }
 .ev--rec::before { background: transparent; border: 1.5px solid currentColor; border-radius: 50%; width: 5px; height: 5px; }
+
+:root{--head:var(--steel);--red:var(--work);--red-ink:var(--work);--black:var(--rack);--wire:var(--rule);--soft:var(--dim);--bar:min(1160px,calc(100% - 32px))}

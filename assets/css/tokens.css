@@ -1,60 +1,28 @@
-/* smykalsbuilds color tokens. Every page reads its colors from here.
-   The site composes dark and light bands. Dark is the default (charcoal and graphite with warm off-white text);
-   any element with .tone-light redefines the same tokens for a warm off-white band, so components adapt without
-   separate styles. No pure white or pure black is used.
-   Red marks professional work and primary actions. Warm bone marks lab and project work.
-   Green, amber and red status colors are reserved for diagrams: healthy, developing or degraded, root cause. */
-:root, .tone-dark {
-  --black: #121110;     /* header, footer, deepest panels */
-  --floor: #1B1A18;     /* charcoal band */
-  --panel: #24221F;     /* graphite surfaces */
-  --panel-2: #2E2B27;   /* raised twice */
-  --rack: #151412;      /* diagram wells */
-  --rule: #3A3631;      /* dividers */
-  --wire: #5E5850;      /* outlines */
-  --steel: #ECE6DC;     /* body text, warm off-white */
-  --head: #F4EFE6;      /* headings */
-  --dim: #B9B1A4;       /* secondary text */
-  --soft: #CFC8BB;
-  --muted-match: #9A9286; /* text that is not part of a capability selection */
-  --red: #C8243A;       /* fills, rules, primary buttons */
-  --red-ink: #F0606C;   /* red text on dark */
-  --work: var(--red-ink);
-  --lab: #D9C9A8;       /* lab and project work */
-  --play: var(--soft);
-  --writing: var(--soft);
-  --led: #4CC982;
-  --amber: #E8B04A;
-  --fault: #F0606C;
-  color-scheme: dark;
-}
-.tone-light {
-  --floor: #F3EEE5;     /* warm off-white band */
-  --panel: #EAE3D7;
-  --panel-2: #E0D7C8;
-  --rack: #E7E0D3;
-  --rule: #D3C9B8;
-  --wire: #9C917F;
-  --steel: #23201C;     /* body text, graphite */
-  --head: #171512;      /* headings */
-  --dim: #554D42;
-  --soft: #554D42;
-  --muted-match: #625A4F;
-  --red-ink: #AE1C30;
-  --work: var(--red-ink);
-  --lab: #6A5527;
-  --led: #1A6B3E;
-  --amber: #7A4E00;
-  --fault: #AE1C30;
-  --writing: var(--dim);
-  --play: var(--dim);
-  --muted: var(--dim);
-  --silver: var(--steel);
-  --background: var(--floor);
-  --border: var(--rule);
-  --green: var(--led);
-  --c: var(--red-ink);
-  color-scheme: light;
-  background: var(--floor);
-  color: var(--steel);
+/* Color tokens for the whole site. Every page reads its colors from here.
+   Work = orange, lab = blue, everything else is neutral.
+   Green, amber and red are reserved for status: up, degraded, down. */
+:root {
+  /* Surfaces */
+  --floor: #171A1E;     /* page */
+  --panel: #21262B;     /* cards */
+  --panel-2: #2A3036;   /* raised */
+  --rack: #111417;      /* diagrams and rack chassis */
+  --rule: #333A42;      /* dividers */
+  --wire: #4A5560;      /* outlines */
+
+  /* Text */
+  --steel: #E8EBEE;     /* main text, 14.6:1 on page */
+  --dim: #ADB6BF;       /* secondary text, 7.4:1 on cards */
+  --soft: #C3CBD3;      /* neutral accent */
+
+  /* Categories */
+  --work: #F0913F;      /* professional work, 6.4:1 on cards */
+  --lab: #74A3F2;       /* personal lab and projects, 6.0:1 on cards */
+  --play: var(--soft);  /* games: neutral */
+  --writing: var(--soft); /* journal: neutral */
+
+  /* Status only */
+  --led: #43D17F;       /* up / healthy */
+  --amber: #F4B23E;     /* degraded / warning */
+  --fault: #F2675C;     /* down / root cause */
 }
