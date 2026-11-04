@@ -392,18 +392,75 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
       <a class="btn secondary" href="#contact">Contact</a>
     </div>
   </div>
-  <div class="glimpse live" aria-labelledby="g-title">
+  <div class="glance boot" aria-labelledby="gl-title">
     <span class="corner" aria-hidden="true"></span>
-    <div class="g-art" aria-hidden="true">
-      <img src="assets/img/lab-ot.webp" width="960" height="800" alt="">
-      <svg viewBox="0 0 960 800" preserveAspectRatio="xMidYMid slice"><path class="g-path" d="M115 352 C 250 300, 400 330, 485 416 S 640 330, 701 368"/></svg>
-      <i class="led" style="--x:7%; --y:41%; --d:0s"></i><i class="led" style="--x:10%; --y:47%; --d:1.3s"></i><i class="led" style="--x:15%; --y:52%; --d:2.1s"></i>
+    <div class="gl-head"><h2 id="gl-title">Experience at a Glance</h2><p>Four areas I work across. Select one for an example. Activity lights are illustrative.</p></div>
+    <div class="gl-map">
+      <svg class="gl-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path data-area="net" d="M50 50 L 22 24"/><path data-area="sys" d="M50 50 L 78 24"/><path data-area="ot" d="M50 50 L 22 76"/><path data-area="lead" d="M50 50 L 78 76"/>
+      </svg>
+      <div class="gl-hub" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><circle class="r-outer" cx="60" cy="60" r="57"/><circle class="r-ticks" cx="60" cy="60" r="52"/><path class="r-arc" d="M60 3 A57 57 0 0 1 113.6 40.5"/></svg>
+        <img src="assets/img/shane-avatar.webp" width="320" height="320" alt="">
+      </div>
+
+      <article class="gl-area net" data-area="net" style="grid-area: net">
+        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
+          <path class="cable" d="M4 40 C 30 40, 30 22, 52 22"/><path class="sig" d="M4 40 C 30 40, 30 22, 52 22"/>
+          <rect class="metal-rect" x="52" y="12" width="84" height="22" rx="3"/>
+          <g class="ports"><rect x="58" y="18" width="7" height="6"/><rect x="68" y="18" width="7" height="6"/><rect x="78" y="18" width="7" height="6"/><rect x="88" y="18" width="7" height="6"/><rect x="98" y="18" width="7" height="6"/><rect x="108" y="18" width="7" height="6"/></g>
+          <circle class="act a1" cx="124" cy="21" r="2"/><circle class="act a2" cx="130" cy="21" r="2"/>
+        </svg>
+        <h3>Networking</h3>
+        <p class="gl-desc">Cisco switching, wireless and VLANs across campus, data center and plant networks.</p>
+        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-net">Show an example</button>
+        <p class="gl-acc" id="acc-net">Upgraded firmware on about 300 Cisco switches and wrote the team's upgrade and recovery guide.</p>
+        <a class="gl-link" href="campus-network-leadership.html">Explore Networking Experience</a>
+      </article>
+
+      <article class="gl-area sys" data-area="sys" style="grid-area: sys">
+        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
+          <rect class="metal-rect" x="34" y="3" width="72" height="12" rx="2"/><rect class="metal-rect" x="34" y="17" width="72" height="12" rx="2"/><rect class="metal-rect" x="34" y="31" width="72" height="12" rx="2"/>
+          <g class="slots"><rect x="40" y="7" width="30" height="4"/><rect x="40" y="21" width="30" height="4"/><rect x="40" y="35" width="30" height="4"/></g>
+          <circle class="act a1" cx="92" cy="9" r="2"/><circle class="act a2" cx="99" cy="9" r="2"/><circle class="act a3" cx="92" cy="23" r="2"/><circle class="act a1" cx="99" cy="37" r="2"/><circle class="act a2" cx="92" cy="37" r="2"/>
+        </svg>
+        <h3>Systems</h3>
+        <p class="gl-desc">Windows Server, Linux, Active Directory and VMware at work; a four-host Proxmox lab at home.</p>
+        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-sys">Show an example</button>
+        <p class="gl-acc" id="acc-sys">Traced SAP, PI Vision and labeling application outages through their network and server dependencies.</p>
+        <a class="gl-link" href="production-data-connectivity.html">Explore Systems Work</a>
+      </article>
+
+      <article class="gl-area ot" data-area="ot" style="grid-area: ot">
+        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
+          <rect class="belt" x="6" y="32" width="96" height="6" rx="3"/><circle class="roller" cx="12" cy="35" r="3"/><circle class="roller" cx="96" cy="35" r="3"/>
+          <rect class="box b1" x="18" y="22" width="12" height="10" rx="1"/><rect class="box b2" x="56" y="22" width="12" height="10" rx="1"/>
+          <path class="post" d="M80 32 V 10 H 88"/><circle class="sensor" cx="80" cy="12" r="3"/>
+          <path class="cable" d="M88 10 C 104 10, 104 18, 116 18"/><path class="sig" d="M88 10 C 104 10, 104 18, 116 18"/>
+          <rect class="metal-rect" x="116" y="10" width="20" height="18" rx="2"/><text x="126" y="22.5" text-anchor="middle">PLC</text>
+        </svg>
+        <h3>Manufacturing IT/OT</h3>
+        <p class="gl-desc">Sole onsite IT engineer for a 24/7 plant, including PLC-connected production equipment.</p>
+        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-ot">Show an example</button>
+        <p class="gl-acc" id="acc-ot">Isolated a labeling fault to a weighing sensor by proving the switch port, VLAN and PLC healthy first.</p>
+        <a class="gl-link" href="weighing-labeling-fault.html">Explore IT/OT Troubleshooting</a>
+      </article>
+
+      <article class="gl-area lead" data-area="lead" style="grid-area: lead">
+        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
+          <path class="cable" d="M70 23 L 18 10 M70 23 L 18 38 M70 23 L 122 10 M70 23 L 122 38"/>
+          <path class="sig" d="M70 23 L 122 10"/><path class="sig s2" d="M70 23 L 18 38"/>
+          <g class="site"><path d="M10 14 V 6 L 18 2 L 26 6 V 14 Z"/><path d="M10 42 V 34 L 18 30 L 26 34 V 42 Z"/><path d="M114 14 V 6 L 122 2 L 130 6 V 14 Z"/><path d="M114 42 V 34 L 122 30 L 130 34 V 42 Z"/></g>
+          <circle class="person" cx="70" cy="18" r="4"/><path class="person" d="M62 32 C 62 25, 78 25, 78 32 Z"/>
+        </svg>
+        <h3>Leadership</h3>
+        <p class="gl-desc">Regional field supervisor across multiple campuses, technician trainer, and improvement project lead.</p>
+        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-lead">Show an example</button>
+        <p class="gl-acc" id="acc-lead">Hired, scheduled and coached a distributed team while keeping hands-on network responsibility.</p>
+        <a class="gl-link" href="field-team-leadership.html">Explore Leadership Experience</a>
+      </article>
     </div>
-    <div class="g-body">
-      <h2 id="g-title">Workspace</h2>
-      <p>Run a real fault isolation, then walk the lab I'm building.</p>
-      <div class="g-actions"><a class="btn primary" href="#scene-line">Run Checking the Line</a><a class="btn secondary" href="#scene-floor">Walk the Lab Floor</a></div>
-    </div>
+    <p class="gl-more">Go deeper: <a href="#scene-line">Run Checking the Line</a> · <a href="#scene-floor">Walk the Lab Floor</a></p>
   </div>
 </section>
 
@@ -426,40 +483,62 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </button></li>
 </ul>
 
-<!-- 3. Career evidence: connected graphs -->
-<section class="evidence" id="evidence" aria-labelledby="h-evidence">
-  <div class="sec-head">
-    <div><h2 id="h-evidence">Career Evidence</h2><p>Historical figures from published case studies, not live data. Select a capability to see where it shows up across the page.</p></div>
-    <div class="capbar" role="group" aria-label="Highlight evidence by capability">
-      <button type="button" data-cap-select="networking" aria-pressed="false">Networking</button>
-      <button type="button" data-cap-select="systems" aria-pressed="false">Systems</button>
-      <button type="button" data-cap-select="itot" aria-pressed="false">IT/OT</button>
-      <button type="button" data-cap-select="leadership" aria-pressed="false">Leadership</button>
-      <button type="button" class="cap-reset" data-cap-select="" disabled>Show All</button>
+
+
+<!-- 3. Start here and core skills -->
+<section class="orient" id="skills" aria-label="Start here and core skills">
+  <div class="panel o-start">
+    <span class="corner" aria-hidden="true"></span>
+    <h2 class="p-title">Start Here</h2>
+    <ul class="paths">
+      <li><a href="data-center-core-infrastructure.html"><b>Infrastructure &amp; Networking</b><span>Campus cores, data centers and a live plant network refresh</span></a></li>
+      <li><a href="weighing-labeling-fault.html"><b>IT/OT &amp; Manufacturing</b><span>Fault isolation where the network meets production equipment</span></a></li>
+      <li><a href="field-team-leadership.html"><b>Leadership &amp; Operations</b><span>Leading distributed field teams and measured improvement</span></a></li>
+    </ul>
+  </div>
+  <div class="panel o-skills">
+    <span class="corner" aria-hidden="true"></span>
+    <h2 class="p-title">Core Skills</h2>
+    <dl class="skillset">
+      <div data-cap="networking"><dt>Networking</dt><dd>Cisco Catalyst, ISE and WLC · VLANs and trunking · TCP/IP, DNS, DHCP · packet capture</dd></div>
+      <div data-cap="itot"><dt>Manufacturing IT/OT</dt><dd>PLC-connected network troubleshooting · SAP · PI Vision · industrial labeling</dd></div>
+      <div data-cap="systems"><dt>Systems and Operations</dt><dd>Windows Server · Linux · Active Directory · VMware · ServiceNow · root cause analysis</dd></div>
+    </dl>
+    <a class="p-link" href="technical-skills.html">Explore Skills With Supporting Examples</a>
+  </div>
+</section>
+
+<!-- 4. Career evidence: one view at a time -->
+<section class="evidence panel" id="experience" aria-labelledby="h-evidence">
+  <span class="corner" aria-hidden="true"></span>
+  <div class="ev-head">
+    <div><h2 id="h-evidence">Career Evidence</h2><p>Historical figures from published case studies, not live data.</p></div>
+    <div class="ev-tabs" role="tablist" aria-label="Career evidence views">
+      <button type="button" role="tab" id="evt-time" aria-controls="ev-time" aria-selected="true">Career Timeline</button>
+      <button type="button" role="tab" id="evt-imp" aria-controls="ev-imp" aria-selected="false">Improvements</button>
+      <button type="button" role="tab" id="evt-scale" aria-controls="ev-scale" aria-selected="false">Infrastructure Scale</button>
+      <button type="button" role="tab" id="evt-map" aria-controls="ev-map" aria-selected="false">Capability Map</button>
     </div>
   </div>
-  <p class="cap-status" id="cap-status" aria-live="polite">Showing all evidence.</p>
 
-  <div class="ev-grid">
-    <article class="panel ev-timeline" id="experience" aria-labelledby="h-time">
-      <span class="corner" aria-hidden="true"></span>
-      <h3 class="p-title" id="h-time">Career Timeline</h3>
-      <div class="gantt" role="list" aria-label="Roles by year; the supervisor and specialist roles overlapped from 2020 to 2024">
-        <div class="g-axis" aria-hidden="true"><span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>Now</span></div>
-        <div class="g-row" role="listitem" data-cap="networking systems itot" style="--a:80; --b:100"><span class="g-name">IT Engineer, 24/7 Manufacturing Plant</span><span class="g-yr">2024–now</span><span class="g-bar"></span></div>
-        <div class="g-row" role="listitem" data-cap="leadership" style="--a:40; --b:80"><span class="g-name">Regional Field Supervisor</span><span class="g-yr">2020–2024</span><span class="g-bar"></span></div>
-        <div class="g-row" role="listitem" data-cap="networking" style="--a:20; --b:80"><span class="g-name">Network Specialist, Campus &amp; Data Center</span><span class="g-yr">2018–2024</span><span class="g-bar"></span></div>
-        <div class="g-row" role="listitem" data-cap="leadership" style="--a:0; --b:20"><span class="g-name">Smart Home Professional → Team Trainer</span><span class="g-yr">2016–2018</span><span class="g-bar"></span></div>
-        <span class="g-overlap" aria-hidden="true" style="--a:40; --b:80">Both roles held, 2020–2024</span>
-      </div>
+  <div class="ev-view" id="ev-time" role="tabpanel" aria-labelledby="evt-time">
+    <div class="gantt" role="list" aria-label="Roles by year; the supervisor and specialist roles overlapped from 2020 to 2024">
+      <div class="g-axis" aria-hidden="true"><span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>Now</span></div>
+      <div class="g-row" role="listitem" style="--a:80; --b:100"><span class="g-name">IT Engineer, 24/7 Manufacturing Plant</span><span class="g-yr">2024–now</span><span class="g-bar"></span></div>
+      <div class="g-row" role="listitem" style="--a:40; --b:80"><span class="g-name">Regional Field Supervisor</span><span class="g-yr">2020–2024</span><span class="g-bar"></span></div>
+      <div class="g-row" role="listitem" style="--a:20; --b:80"><span class="g-name">Network Specialist, Campus &amp; Data Center</span><span class="g-yr">2018–2024</span><span class="g-bar"></span></div>
+      <div class="g-row" role="listitem" style="--a:0; --b:20"><span class="g-name">Smart Home Professional → Team Trainer</span><span class="g-yr">2016–2018</span><span class="g-bar"></span></div>
+    </div>
+    <div class="ev-foot">
+      <details class="note"><summary>About this timeline</summary><p>Bars show years in each role. From 2020 to 2024 I held the regional field supervisor and network specialist roles at the same time. Employer names are omitted.</p></details>
       <a class="p-link" href="professional-experience.html">Explore Full Experience and Leadership History</a>
-    </article>
+    </div>
+  </div>
 
-    <article class="panel ev-before" aria-labelledby="h-before">
-      <span class="corner" aria-hidden="true"></span>
-      <h3 class="p-title" id="h-before">Before and After</h3>
-      <div class="ba" data-cap="itot leadership">
-        <p class="ba-title"><b>Green Belt project I led</b><span>Average label-printing tickets per month</span></p>
+  <div class="ev-view" id="ev-imp" role="tabpanel" aria-labelledby="evt-imp" hidden>
+    <div class="imp-grid">
+      <div class="ba">
+        <p class="ba-title"><b>Green Belt project I led</b><span>Label-printing tickets per month, average</span></p>
         <div class="ba-bars" role="img" aria-label="Average label-printing tickets per month: 6.3 before, 2.3 during the improvement period, a 63.5% reduction">
           <div style="--v:100"><span class="bv">6.3</span><span class="bb soft"></span><span class="bl">Before</span></div>
           <div style="--v:36.5"><span class="bv">2.3</span><span class="bb"></span><span class="bl">During improvement</span></div>
@@ -467,39 +546,43 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
         </div>
         <a class="p-link" href="green-belt-case-study.html">View the Green Belt Case Study</a>
       </div>
-      <div class="ba" data-cap="leadership">
+      <div class="ba">
         <p class="ba-title"><b>Repeat service calls on my own work</b><span>Vivint, 2016–2018 · indexed, before = 100</span></p>
-        <div class="ba-bars" role="img" aria-label="Own repeat service calls indexed to 100 before; 70 after, a 30% reduction. Raw counts are not published.">
+        <div class="ba-bars" role="img" aria-label="Own repeat service calls indexed to 100 before and 70 after, a 30% reduction">
           <div style="--v:100"><span class="bv">100</span><span class="bb soft"></span><span class="bl">Before</span></div>
           <div style="--v:70"><span class="bv">70</span><span class="bb"></span><span class="bl">After</span></div>
           <p class="ba-delta"><strong class="metal">30%</strong> fewer</p>
         </div>
         <a class="p-link" href="technician-development.html">View the Technician Case Study</a>
       </div>
-    </article>
+    </div>
+    <div class="ev-foot">
+      <details class="note"><summary>How these were measured</summary><p>Green Belt: monthly label-printing ticket volume, before versus during the improvement period, as documented in the project summary. It is ticket count, not resolution time. Comparison-period lengths and raw counts aren't published. Vivint: repeat tickets from the same customer on my own work; raw counts aren't published, so the bars are indexed to 100. Both charts use zero-based scales.</p></details>
+      <a class="p-link" href="professional-experience.html">How Each Result Was Measured</a>
+    </div>
+  </div>
 
-    <article class="panel ev-infra" data-cap="networking systems" aria-labelledby="h-infra">
-      <span class="corner" aria-hidden="true"></span>
-      <h3 class="p-title" id="h-infra">Infrastructure Scale</h3>
-      <div class="scale-legend" aria-hidden="true"><span class="env campus">Campus sites, 2018–2024, cumulative</span><span class="env plant">Plant, 2024–now</span></div>
-      <dl class="scale">
-        <div><dt>Wireless access points</dt>
-          <dd class="campus" style="--v:100"><span class="sb"></span><b>1,000+</b><span class="vh">at campus sites</span></dd>
-          <dd class="plant" style="--v:12"><span class="sb"></span><b>120</b><span class="vh">at the plant</span></dd></div>
-        <div><dt>Switches</dt>
-          <dd class="campus" style="--v:25"><span class="sb"></span><b>250</b><span class="vh">at campus sites</span></dd>
-          <dd class="plant na"><span class="sb"></span><b>Not published</b></dd></div>
-        <div><dt>People and devices</dt>
-          <dd class="campus text"><b>6,500+</b> users on my directly assigned campuses</dd>
-          <dd class="plant text"><b>~300</b> endpoints</dd></div>
-      </dl>
-      <p class="p-foot">Bars in each row share one zero-based scale. Campus figures cover my assigned sites, not equipment I installed alone.</p>
+  <div class="ev-view" id="ev-scale" role="tabpanel" aria-labelledby="evt-scale" hidden>
+    <div class="scale-legend" aria-hidden="true"><span class="env campus">Campus sites, 2018–2024, cumulative</span><span class="env plant">Plant, 2024–now</span></div>
+    <dl class="scale">
+      <div><dt>Wireless access points</dt>
+        <dd class="campus" style="--v:100"><span class="sb"></span><b>1,000+</b><span class="vh">at campus sites</span></dd>
+        <dd class="plant" style="--v:12"><span class="sb"></span><b>120</b><span class="vh">at the plant</span></dd></div>
+      <div><dt>Switches</dt>
+        <dd class="campus" style="--v:25"><span class="sb"></span><b>250</b><span class="vh">at campus sites</span></dd>
+        <dd class="plant na"><span class="sb"></span><b>Not published</b></dd></div>
+      <div><dt>People and devices</dt>
+        <dd class="campus text"><b>6,500+</b> users on my directly assigned campuses</dd>
+        <dd class="plant text"><b>~300</b> endpoints</dd></div>
+    </dl>
+    <div class="ev-foot">
+      <details class="note"><summary>About these figures</summary><p>Bars in each row share one zero-based scale. Campus figures cover my assigned sites across 10+ refresh and installation projects; they describe scope, not equipment I installed alone.</p></details>
       <a class="p-link" href="data-center-core-infrastructure.html">View the Data Center Case Study</a>
-    </article>
+    </div>
+  </div>
 
-    <article class="panel ev-map" aria-labelledby="h-map">
-      <span class="corner" aria-hidden="true"></span>
-      <h3 class="p-title" id="h-map">Capability Map</h3>
+  <div class="ev-view" id="ev-map" role="tabpanel" aria-labelledby="evt-map" hidden>
+    <div class="map-wrap">
       <div class="cmap">
         <svg viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true">
           <g class="edges">
@@ -520,7 +603,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
             <path data-c="leadership" data-e="e4" d="M150 340 C 280 340, 280 130, 400 130"/>
           </g>
         </svg>
-        <div class="cm-caps">
+        <div class="cm-caps" role="group" aria-label="Capabilities">
           <button type="button" data-cap-select="networking" style="--y:15%" aria-pressed="false">Networking</button>
           <button type="button" data-cap-select="systems" style="--y:38.3%" aria-pressed="false">Systems</button>
           <button type="button" data-cap-select="itot" style="--y:61.5%" aria-pressed="false">IT/OT</button>
@@ -531,7 +614,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
           <li data-e="e3" data-cap="networking leadership" style="--y:12.5%"><a href="#view-kpi-campuses" data-view="kpi-campuses">5 campuses, 24/7</a></li>
           <li data-e="e2" data-cap="leadership" style="--y:22.5%"><a href="#view-kpi-team" data-view="kpi-team">14 technicians led</a></li>
           <li data-e="e4" data-cap="itot leadership" style="--y:32.5%"><a href="green-belt-case-study.html">Green Belt project</a></li>
-          <li data-e="e5" data-cap="networking systems" style="--y:42.5%"><a href="#h-infra">Infrastructure scale</a></li>
+          <li data-e="e5" data-cap="networking systems" style="--y:42.5%"><a href="#ev-scale">Infrastructure scale</a></li>
           <li data-e="e6" data-cap="networking itot" style="--y:52.5%"><a href="#scene-line">Checking the Line</a></li>
           <li data-e="e7" data-cap="networking itot" style="--y:62.5%"><a href="#scene-fortinet">Fortinet boundary</a></li>
           <li data-e="e8" data-cap="networking" style="--y:72.5%"><a href="network-lab.html">Segmentation lab</a></li>
@@ -539,31 +622,15 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
           <li data-e="e10" data-cap="systems" style="--y:92.5%"><a href="aiio.html">AIIO and MONITROPE</a></li>
         </ul>
       </div>
-      <p class="p-foot">Lines show where a capability is used, not cause and effect.</p>
-    </article>
-  </div>
-</section>
-
-<!-- 4. Start here and core skills -->
-<section class="orient" id="skills" aria-label="Start here and core skills">
-  <div class="panel o-start">
-    <span class="corner" aria-hidden="true"></span>
-    <h2 class="p-title">Start Here</h2>
-    <ul class="paths">
-      <li><a href="data-center-core-infrastructure.html"><b>Infrastructure &amp; Networking</b><span>Campus cores, data centers and a live plant network refresh</span></a></li>
-      <li><a href="weighing-labeling-fault.html"><b>IT/OT &amp; Manufacturing</b><span>Fault isolation where the network meets production equipment</span></a></li>
-      <li><a href="field-team-leadership.html"><b>Leadership &amp; Operations</b><span>Leading distributed field teams and measured improvement</span></a></li>
-    </ul>
-  </div>
-  <div class="panel o-skills">
-    <span class="corner" aria-hidden="true"></span>
-    <h2 class="p-title">Core Skills</h2>
-    <dl class="skillset">
-      <div data-cap="networking"><dt>Networking</dt><dd>Cisco Catalyst, ISE and WLC · VLANs and trunking · TCP/IP, DNS, DHCP · packet capture</dd></div>
-      <div data-cap="itot"><dt>Manufacturing IT/OT</dt><dd>PLC-connected network troubleshooting · SAP · PI Vision · industrial labeling</dd></div>
-      <div data-cap="systems"><dt>Systems and Operations</dt><dd>Windows Server · Linux · Active Directory · VMware · ServiceNow · root cause analysis</dd></div>
-    </dl>
-    <a class="p-link" href="technical-skills.html">Explore Skills With Supporting Examples</a>
+      <div class="cm-detail" aria-live="polite">
+        <p class="cm-prompt" id="cm-prompt">Select or focus a capability to light up its evidence.</p>
+        <div class="cm-links" id="cm-links" hidden></div>
+        <button type="button" class="cm-reset" data-cap-select="" disabled>Reset</button>
+      </div>
+    </div>
+    <div class="ev-foot">
+      <details class="note"><summary>Reading the map</summary><p>Lines show where a capability is used, not cause and effect. Each item links to its evidence.</p></details>
+    </div>
   </div>
 </section>
 
@@ -662,30 +729,21 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 
 <!-- 6. Selected projects -->
 <section class="projects-sec" aria-labelledby="h-proj">
-  <h2 class="sec-title" id="h-proj">Selected Projects</h2>
+  <div class="proj-head"><h2 class="sec-title" id="h-proj">Selected Projects</h2></div>
   <div class="proj-grid">
-    <div class="panel" id="work">
-      <span class="corner" aria-hidden="true"></span>
-      <h3 class="p-title"><span class="cat work">Professional</span>Professional Work</h3>
-      <ul class="worklist">
-        <li data-cap="itot networking"><a href="weighing-labeling-fault.html"><b>Bags Weighed, but Never Labeled</b><span>Proving the network healthy first so the right team fixed the real fault.</span></a></li>
-        <li data-cap="networking itot"><a href="plant-network-refresh.html"><b>Replacing a Plant's Network While It Runs</b><span><strong class="metal">&lt;2.5%</strong> infrastructure SLA breach rate, reported for my plant role.</span></a></li>
-        <li data-cap="networking systems"><a href="data-center-core-infrastructure.html"><b>Keeping Campus Network Cores Powered and Reachable</b><span>Redundant power and out-of-band access for campus core racks.</span></a></li>
-        <li data-cap="itot systems"><a href="production-data-connectivity.html"><b>Keeping Production Data Reachable</b><span>SAP, PI Vision and labeling apps traced through network and server dependencies.</span></a></li>
-        <li data-cap="leadership"><a href="field-team-leadership.html"><b>Leading Distributed IT Field Operations</b><span>Hiring, coaching and escalations across a region of campuses.</span></a></li>
+    <div class="proj-col" id="work">
+      <p class="proj-label"><span class="cat work">Professional</span><a class="p-link" href="professional-experience.html">Explore All Professional Work</a></p>
+      <ul class="pcards">
+        <li><a class="pcard work" href="plant-network-refresh.html"><span class="pc-kind">Infrastructure refresh · 24/7 plant</span><b>Replacing a Plant's Network While It Runs</b><span class="pc-sum">Deployed switching, applied approved configurations and validated each change around production.</span><span class="pc-fig"><strong class="metal">&lt;2.5%</strong> infrastructure SLA breach rate, reported for my plant role</span><span class="pc-go">View the Full Case Study</span></a></li>
+        <li><a class="pcard work" href="data-center-core-infrastructure.html"><span class="pc-kind">Data center · Campus cores</span><b>Keeping Campus Network Cores Powered and Reachable</b><span class="pc-sum">Built, audited and restored core racks with redundant power and out-of-band console access.</span><span class="pc-go">View the Full Case Study</span></a></li>
       </ul>
-      <a class="p-link" href="professional-experience.html">Explore Full Experience and Results</a>
     </div>
-    <div class="panel" id="lab">
-      <span class="corner" aria-hidden="true"></span>
-      <h3 class="p-title"><span class="cat lab">Lab</span>Lab Projects</h3>
-      <ul class="labcards">
-        <li data-cap="networking"><a href="network-lab.html"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"><span><span class="chip ok">Ongoing validation</span><b>Network Segmentation Lab</b><small>Cisco switching and a FortiGate firewall.</small></span></a></li>
-        <li data-cap="systems"><a href="virtualization-lab.html"><img src="assets/img/lab-infrastructure.webp" width="960" height="640" alt="" loading="lazy"><span><span class="chip ok">Documented fixes</span><b>Access, Storage and AI Hosts</b><small>Four hosts built from retired hardware.</small></span></a></li>
-        <li data-cap="systems"><a href="aiio.html"><img class="contain" src="assets/img/aiio.webp" width="426" height="356" alt="" loading="lazy"><span><span class="chip ok">Running in my lab</span><b>AIIO Station</b><small>A containerized local AI platform.</small></span></a></li>
-        <li data-cap="networking systems"><a href="monitrope.html"><img class="contain" src="assets/img/monitrope-logo.webp" width="960" height="321" alt="" loading="lazy"><span><span class="chip dev">v0.7.0 release candidate</span><b>MONITROPE</b><small>Network monitoring that traces outages to a probable cause.</small></span></a></li>
+    <div class="proj-col" id="lab">
+      <p class="proj-label"><span class="cat lab">Lab</span><a class="p-link" href="proto-lab-evidence.html">Explore All Lab Projects</a></p>
+      <ul class="pcards">
+        <li><a class="pcard lab" href="network-lab.html"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"><span class="pc-body"><span class="chip ok">Ongoing validation</span><b>Network Segmentation Lab</b><span class="pc-sum">Cisco switching and a FortiGate firewall: VLANs, routing, policy and validation.</span><span class="pc-go">View the Project</span></span></a></li>
+        <li><a class="pcard lab" href="monitrope.html"><img src="assets/images/monitrope%20real%20app%20images/Screenshot%202026-10-20%20135921.png" alt="" loading="lazy"><span class="pc-body"><span class="chip dev">v0.7.0 release candidate</span><b>MONITROPE</b><span class="pc-sum">Network monitoring that learns normal behavior and traces outages to a probable cause.</span><span class="pc-go">View the Project</span></span></a></li>
       </ul>
-      <a class="p-link" href="proto-lab-evidence.html">Explore PROTO.LAB Technical Evidence</a>
     </div>
   </div>
 </section>

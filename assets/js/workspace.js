@@ -1,5 +1,5 @@
-// Homepage behavior on top of shell.js: workspace scenes, detail panels, capability
-// highlighting, lab-floor connection paths, and pausing animation offscreen.
+// Homepage behavior on top of shell.js: Experience at a Glance, workspace scenes, detail panels,
+// Career Evidence tabs, the capability map, lab-floor connection paths, and pausing animation offscreen.
 // Without this script every scene shows in sequence and every hotspot is a plain link or listed.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -99,27 +99,101 @@
     openView(id, document.querySelector(`[data-view="${id}"]`));
   }
 
-  /* Capability highlighting ------------------------------------------------------------------- */
-  const NAMES = { networking: 'Networking', systems: 'Systems', itot: 'IT/OT', leadership: 'Leadership' };
-  const status = $('#cap-status'), reset = $('.cap-reset'), cmap = $('.cmap');
-  function selectCap(cap) {
-    const on = cap && document.body.dataset.cap !== cap ? cap : '';
-    if (on) document.body.dataset.cap = on; else delete document.body.dataset.cap;
-    $$('[data-cap-select]').forEach((b) => { if (b !== reset) b.setAttribute('aria-pressed', String(b.dataset.capSelect === on)); });
-    reset.disabled = !on;
-    const hits = $$('[data-cap]').filter((el) => el !== document.body && on && el.dataset.cap.split(' ').includes(on));
-    $$('[data-cap]').forEach((el) => el.classList.toggle('cap-on', hits.includes(el)));
-    $$('.cmap path').forEach((p) => p.classList.toggle('lit', p.dataset.c === on));
-    cmap.classList.toggle('dim', !!on);
-    if (!on) { status.textContent = 'Showing all evidence.'; return; }
-    const names = $$('.cm-ev li.cap-on a').map((a) => a.textContent);
-    status.textContent = `${NAMES[on]}: ${names.join(', ')}. ${hits.length} related items highlighted across the page.`;
+  /* Tab sets: Career Evidence (and any future set) share one accessible pattern --------------- */
+  function tabset(list, onShow) {
+    const ts = $$('[role="tab"]', list);
+    const views = ts.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+    const pick = (i, focus) => {
+      ts.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; views[k].hidden = k !== i; });
+      if (focus) ts[i].focus();
+      if (onShow) onShow(views[i]);
+    };
+    ts.forEach((t, k) => {
+      t.addEventListener('click', () => pick(k));
+      t.addEventListener('keydown', (e) => {
+        const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); pick(e.key === 'Home' ? 0 : ts.length - 1, true); }
+        else if (d) { e.preventDefault(); pick((k + d + ts.length) % ts.length, true); }
+      });
+    });
+    pick(0);
+    return { pick, views };
   }
-  $$('[data-cap-select]').forEach((b) => b.addEventListener('click', () => selectCap(b.dataset.capSelect)));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.body.dataset.cap && !document.documentElement.classList.contains('overlay-open')) selectCap(''); });
+
+  /* Capability map: selecting or focusing a capability lights its paths and evidence ---------- */
+  const NAMES = { networking: 'Networking', systems: 'Systems', itot: 'IT/OT', leadership: 'Leadership' };
+  const SUPPORT = {
+    networking: [['campus-network-leadership.html', 'Campus Network Leadership'], ['plant-network-refresh.html', "Replacing a Plant's Network While It Runs"], ['network-lab.html', 'Network Segmentation Lab'], ['technical-skills.html', 'Technical Skills']],
+    systems: [['production-data-connectivity.html', 'Keeping Production Data Reachable'], ['virtualization-lab.html', 'Access, Storage and AI Hosts'], ['aiio.html', 'AIIO Station'], ['monitrope.html', 'MONITROPE']],
+    itot: [['weighing-labeling-fault.html', 'Bags Weighed, but Never Labeled'], ['production-data-connectivity.html', 'Keeping Production Data Reachable'], ['ot-network-lab.html', 'OT Learning Environment'], ['green-belt-case-study.html', 'Green Belt Case Study']],
+    leadership: [['field-team-leadership.html', 'Leading Distributed IT Field Operations'], ['technician-development.html', 'From Technician to Team Trainer'], ['green-belt-case-study.html', 'Green Belt Case Study'], ['campus-network-leadership.html', 'Campus Network Leadership']]
+  };
+  const cmap = $('.cmap'), prompt = $('#cm-prompt'), links = $('#cm-links'), reset = $('.cm-reset');
+  let selected = '';
+  function paint(cap, pulse) {
+    $$('.cmap path').forEach((p) => {
+      const on = p.dataset.c === cap;
+      p.classList.toggle('lit', on);
+      if (on && pulse && !reduced.matches) { p.classList.remove('pulse'); void p.getBBox(); p.classList.add('pulse'); setTimeout(() => p.classList.remove('pulse'), 1050); }
+    });
+    $$('.cm-ev li').forEach((li) => li.classList.toggle('cap-on', !!cap && li.dataset.cap.split(' ').includes(cap)));
+    cmap.classList.toggle('dim', !!cap);
+    if (!cap) { prompt.textContent = 'Select or focus a capability to light up its evidence.'; links.hidden = true; return; }
+    const items = $$('.cm-ev li.cap-on a').map((a) => a.textContent);
+    prompt.innerHTML = `<b>${NAMES[cap]}</b> shows up in ${items.join(', ')}.`;
+    links.innerHTML = SUPPORT[cap].map(([h, t]) => `<a href="${h}">${t}</a>`).join('');
+    links.hidden = false;
+  }
+  function previewCap(cap) { paint(cap || selected, false); }
+  function selectCap(cap) {
+    selected = cap && selected !== cap ? cap : '';
+    $$('.cm-caps [data-cap-select]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.capSelect === selected)));
+    reset.disabled = !selected;
+    paint(selected, true);
+  }
+  $$('.cm-caps [data-cap-select]').forEach((b) => {
+    b.addEventListener('click', () => selectCap(b.dataset.capSelect));
+    b.addEventListener('focus', () => previewCap(b.dataset.capSelect));
+    b.addEventListener('mouseenter', () => previewCap(b.dataset.capSelect));
+    b.addEventListener('mouseleave', () => previewCap(null));
+    b.addEventListener('blur', () => previewCap(null));
+  });
+  reset.addEventListener('click', () => { selectCap(''); $('.cm-caps button').focus(); });
+  $('#ev-map').addEventListener('keydown', (e) => { if (e.key === 'Escape' && selected && !document.documentElement.classList.contains('overlay-open')) { e.stopPropagation(); selectCap(''); } });
+
+  const evTabs = tabset($('.ev-tabs'), (view) => { if (view.id !== 'ev-map') selectCap(''); });
+  // Links to an evidence view (for example from the capability map) switch to that tab.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#ev-"]');
+    if (!a) return;
+    const i = evTabs.views.findIndex((v) => '#' + v.id === a.getAttribute('href'));
+    if (i < 0) return;
+    e.preventDefault(); evTabs.pick(i, true);
+  });
+
+  /* Experience at a Glance -------------------------------------------------------------------- */
+  const glance = $('.glance');
+  const areas = $$('.gl-area', glance);
+  const line = (a) => glance.querySelector(`.gl-lines path[data-area="${a.dataset.area}"]`);
+  function light() { areas.forEach((a) => line(a).classList.toggle('lit', a.classList.contains('hl') || a.classList.contains('open'))); }
+  areas.forEach((a) => {
+    const btn = $('.gl-toggle', a);
+    const on = () => { a.classList.add('hl'); light(); };
+    const off = () => { a.classList.remove('hl'); light(); };
+    a.addEventListener('mouseenter', on); a.addEventListener('mouseleave', off);
+    a.addEventListener('focusin', on); a.addEventListener('focusout', (e) => { if (!a.contains(e.relatedTarget)) off(); });
+    btn.addEventListener('click', () => {
+      const open = !a.classList.contains('open');
+      a.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Hide example' : 'Show an example';
+      light();
+    });
+  });
+  // Brief illumination on load, then settle into subtle activity.
+  setTimeout(() => glance.classList.remove('boot'), reduced.matches ? 0 : 1700);
 
   /* Pause scene animation offscreen ------------------------------------------------------------ */
   const io = new IntersectionObserver((entries) => entries.forEach((en) => en.target.classList.toggle('paused', !en.isIntersecting)), { rootMargin: '80px' });
-  $$('.glimpse, #workspace, #games').forEach((el) => io.observe(el));
+  $$('.glance, #workspace, #games').forEach((el) => io.observe(el));
   $('#scene-floor .floor-art').classList.add('live');
 })();
