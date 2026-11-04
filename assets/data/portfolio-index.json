@@ -462,7 +462,7 @@
 "title": "Checking the Line (interactive)",
 "url": "#scene-line",
 "category": "professional",
-"summary": "Run the checks from a real production-line fault: switch port, VLAN, control signals, then the weighing sensor.",
+"summary": "Investigate a real production-line fault: check the switch port, VLAN, PLC signals and weighing sensor in any valid order and see the findings.",
 "keywords": [
 "checking the line",
 "troubleshooting",
@@ -475,7 +475,7 @@
 "title": "Fortinet IT/OT boundary (interactive)",
 "url": "#scene-fortinet",
 "category": "lab",
-"summary": "The PROTO lab map: IT side, Fortinet boundary, OT side in development. Select devices for details.",
+"summary": "The PROTO.LAB map and a packet path simulation of a documented incident: a management connection denied at the forward-policy check, then permitted by a scoped rule.",
 "keywords": [
 "fortinet",
 "fortigate",
@@ -4660,10 +4660,10 @@
 "text": "Firmware-upgrade training Cisco switch firmware-upgrade training materials I wrote for the team (not published). Troubleshooting standards Standardized troubleshooting documentation used across the region (not published). Full role history Professional experience, with how each result was measured Sanitized for public use. Employer names, site locations, people, hostnames, addresses, credentials and internal system d"
 },
 {
-"title": "Experience at a Glance",
-"url": "#top",
+"title": "Explore My Experience",
+"url": "#explore",
 "category": "professional",
-"summary": "Networking, systems, field services and IT operations leadership, each linked to supporting experience.",
+"summary": "Networking, systems, field services and IT operations leadership, each with a verified example and links to the evidence.",
 "keywords": [
 "field services",
 "operations",
@@ -4683,6 +4683,38 @@
 "monitrope",
 "lab",
 "featured"
+]
+},
+{
+"title": "Roles at a Glance",
+"url": "professional-experience.html#roles",
+"category": "professional",
+"summary": "Titles, organizations and dates: IT Engineer (2024–Present), Network Specialist (Nov 2018–Sep 2024), Regional Field Supervisor (Mar 2020–Sep 2024), Smart Home Professional → Team Trainer at Vivint (2016–2018), Pest Control Route Technician at Terminix (Aug 2012–Dec 2015).",
+"keywords": [
+"resume",
+"titles",
+"dates",
+"employers",
+"history",
+"experience"
+]
+},
+{
+"title": "Leadership Responsibilities",
+"url": "field-team-leadership.html#responsibilities",
+"category": "professional",
+"summary": "Hiring, coaching and accountability, performance management, staffing and scheduling, training and escalations as regional field supervisor.",
+"keywords": [
+"leadership",
+"hiring",
+"coaching",
+"performance",
+"staffing",
+"scheduling",
+"training",
+"escalation",
+"team",
+"managed"
 ]
 }
 ]

@@ -174,3 +174,18 @@ body.has-shell > footer:not(.site-foot) { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .side, body.has-shell, .side-toggle svg { transition: none; }
 }
+
+/* Leadership responsibilities and experience roles table */
+.resp { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.resp li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--rule); border-top: 3px solid var(--work); border-radius: 8px; background: var(--panel); }
+.resp b { color: var(--steel); font-size: 16px; }
+.resp span { color: var(--dim); font-size: 14.5px; line-height: 1.5; }
+.resp a { justify-self: start; font-size: 13.5px; font-weight: 600; color: var(--steel); }
+.roles-glance h2 { margin: 0 0 14px; }
+.roles-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.roles-table th, .roles-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.roles-table thead th { font: 500 12.5px var(--mono); color: var(--dim); border-bottom: 2px solid var(--silver); }
+.roles-table tbody th { color: var(--steel); font-weight: 700; }
+.roles-table td { color: var(--dim); }
+.roles-table td:last-child { white-space: nowrap; color: var(--steel); font-family: var(--mono); font-size: 13.5px; }
+@media (max-width: 700px) { .roles-table thead { display: none; } .roles-table tr { display: grid; padding: 8px 0; border-bottom: 1px solid var(--rule); } .roles-table th, .roles-table td { border: 0; padding: 2px 4px; } }

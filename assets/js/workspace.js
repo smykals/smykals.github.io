@@ -1,4 +1,4 @@
-// Homepage behavior on top of shell.js: Experience at a Glance, workspace scenes, detail panels,
+// Homepage behavior on top of shell.js: Explore My Experience, workspace scenes, detail panels,
 // Career Evidence tabs, the capability map, lab-floor connection paths, and pausing animation offscreen.
 // Without this script every scene shows in sequence and every hotspot is a plain link or listed.
 (() => {
@@ -181,29 +181,138 @@
   });
   portrait.addEventListener('keydown', (e) => { if (e.key === 'Escape' && portrait.classList.contains('flipped')) { cue.click(); cue.focus(); } });
 
-  /* Experience at a Glance -------------------------------------------------------------------- */
-  const glance = $('.glance');
-  const areas = $$('.gl-area', glance);
-  const line = (a) => glance.querySelector(`.gl-lines path[data-area="${a.dataset.area}"]`);
-  function light() { areas.forEach((a) => line(a).classList.toggle('lit', a.classList.contains('hl') || a.classList.contains('open'))); }
-  areas.forEach((a) => {
-    const btn = $('.gl-toggle', a);
-    const on = () => { a.classList.add('hl'); light(); };
-    const off = () => { a.classList.remove('hl'); light(); };
-    a.addEventListener('mouseenter', on); a.addEventListener('mouseleave', off);
-    a.addEventListener('focusin', on); a.addEventListener('focusout', (e) => { if (!a.contains(e.relatedTarget)) off(); });
-    btn.addEventListener('click', () => {
-      const open = !a.classList.contains('open');
-      a.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
-      btn.textContent = open ? 'Hide example' : 'Show an example';
-      light();
-    });
+  /* Explore My Experience: pick an area to see an example and light up related work ---------- */
+  const explore = $('#explore'), exDetail = $('#ex-detail'), exPrompt = exDetail.innerHTML;
+  const exNodes = $$('.ex-node', explore);
+  let pick = '';
+  function choose(cap) {
+    pick = cap && pick !== cap ? cap : '';
+    exNodes.forEach((n) => n.setAttribute('aria-pressed', String(n.dataset.capPick === pick)));
+    const scope = $$('.kpis [data-cap], .featured [data-cap], .skills-sum [data-cap]');
+    scope.forEach((el) => el.classList.toggle('pick-on', !!pick && el.dataset.cap.split(' ').includes(pick)));
+    if (!pick) { delete document.body.dataset.pick; exDetail.innerHTML = exPrompt; return; }
+    document.body.dataset.pick = pick;
+    exDetail.replaceChildren(document.getElementById('ex-' + pick).content.cloneNode(true));
+    const n = $$('.pick-on').length;
+    const tail = document.createElement('p');
+    tail.className = 'ex-related';
+    tail.innerHTML = `<span>${n} related item${n === 1 ? '' : 's'} highlighted below.</span><button type="button" class="ex-reset">Reset</button>`;
+    exDetail.appendChild(tail);
+    $('.ex-reset', exDetail).addEventListener('click', () => { const was = pick; choose(''); $(`.ex-node[data-cap-pick="${was}"]`, explore).focus(); });
+  }
+  exNodes.forEach((n) => n.addEventListener('click', () => choose(n.dataset.capPick)));
+  explore.addEventListener('keydown', (e) => { if (e.key === 'Escape' && pick && !document.documentElement.classList.contains('overlay-open')) choose(''); });
+  const pauseBtn = $('.ex-pause', explore);
+  pauseBtn.addEventListener('click', () => {
+    const stop = pauseBtn.getAttribute('aria-pressed') !== 'true';
+    pauseBtn.setAttribute('aria-pressed', String(stop));
+    $('.ex-pause-label', pauseBtn).textContent = stop ? 'Resume Motion' : 'Pause Motion';
+    explore.classList.toggle('ex-stopped', stop);
   });
-  // Brief illumination on load, then settle into subtle activity.
-  setTimeout(() => glance.classList.remove('boot'), reduced.matches ? 0 : 1700);
+
+  /* Career graph details: selecting a role, chart or environment shows the context ------------- */
+  $$('[data-detail]').forEach((btn) => btn.addEventListener('click', () => {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    const group = $$(`[aria-controls="${panel.id}"]`);
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    group.forEach((b) => b.setAttribute('aria-expanded', 'false'));
+    if (!open) { panel.innerHTML = panel.dataset.prompt; return; }
+    btn.setAttribute('aria-expanded', 'true');
+    panel.replaceChildren(document.getElementById(btn.dataset.detail).content.cloneNode(true));
+  }));
+  $$('.ev-detail').forEach((p) => { p.dataset.prompt = p.innerHTML; });
+
+  /* Checking the Line: investigate in any valid order; findings persist --------------------- */
+  // Every finding below is taken from the published case study (weighing-labeling-fault.html).
+  const cl = $('#trace'), clStage = $('.cl-stage', cl), clLog = $('#cl-log'), clEnd = $('#cl-conclusion');
+  const FIND = {
+    port: { ok: true, text: '<b>Switch port: healthy.</b> The port serving the PLC was up, with no errors or flapping.', wire: 'w-net' },
+    vlan: { ok: true, text: '<b>VLAN: healthy.</b> The port was in the expected VLAN and the PLC could reach the labeler.', wire: 'w-net2' },
+    plc: { ok: true, text: '<b>PLC signals: healthy.</b> With electrical engineering, I confirmed the PLC was communicating and sending the signals we expected.', wire: null },
+    sensor: { ok: false, text: '<b>Weighing sensor: root cause.</b> With the network and PLC ruled out, the missing input pointed to the sensor. It was faulty and was replaced.', wire: 'w-sensor' }
+  };
+  const done = new Set();
+  const partBtn = (k) => $(`.cl-part[data-part="${k}"]`, cl);
+  function log(html, cls) {
+    const empty = $('.cl-empty', clLog); if (empty) empty.remove();
+    const li = document.createElement('li'); li.innerHTML = html; if (cls) li.className = cls; clLog.appendChild(li);
+  }
+  function check(k) {
+    $$('.cl-part', cl).forEach((b) => b.classList.toggle('active', b.dataset.part === k));
+    if (k === 'labeler') { log('The symptom shows at the labeler: bags arrive weighed, but no label is applied. The case study records no separate labeler fault; the question was which upstream input never arrived.', 'note'); return; }
+    if (done.has(k)) return;
+    if (k === 'sensor' && !['port', 'vlan', 'plc'].every((x) => done.has(x))) {
+      log('Not enough evidence yet to judge the sensor. In this incident it was identified only after the switch port, VLAN and PLC signals were shown healthy.', 'note'); return;
+    }
+    const f = FIND[k]; done.add(k);
+    const b = partBtn(k); b.classList.add(f.ok ? 'ok' : 'bad'); $('.cl-state', b).textContent = f.ok ? 'Healthy' : 'Root cause';
+    if (f.wire) $(`.cl-wire.${f.wire}`, cl).classList.add(f.ok ? 'ok' : 'bad');
+    log(f.text);
+    if (k === 'sensor') {
+      clStage.classList.add('fixed');
+      const lb = partBtn('labeler'); lb.classList.remove('symptom'); lb.classList.add('ok'); $('.cl-state', lb).textContent = 'Labeling resumed';
+      $('.cl-nolabel', cl).textContent = 'Label applied';
+      clEnd.hidden = false;
+    }
+  }
+  $$('.cl-part', cl).forEach((b) => b.addEventListener('click', () => { stopGuide(); check(b.dataset.part); }));
+  let guide = null;
+  function stopGuide() { clearTimeout(guide); guide = null; $('#cl-guide').textContent = 'Watch the Investigation'; }
+  function resetLine() {
+    stopGuide(); done.clear(); clStage.classList.remove('fixed');
+    $$('.cl-part', cl).forEach((b) => { b.classList.remove('ok', 'bad', 'active'); $('.cl-state', b).textContent = b.dataset.part === 'labeler' ? 'Symptom here' : 'Not yet checked'; });
+    partBtn('labeler').classList.add('symptom');
+    $$('.cl-wire', cl).forEach((w) => w.classList.remove('ok', 'bad'));
+    $('.cl-nolabel', cl).textContent = 'No label applied';
+    clLog.innerHTML = '<li class="cl-empty">Nothing established yet. Every component starts as not yet checked.</li>';
+    clEnd.hidden = true;
+  }
+  $('#cl-reset').addEventListener('click', resetLine);
+  $('#cl-guide').addEventListener('click', () => {
+    if (guide) { stopGuide(); return; }
+    resetLine();
+    const order = ['labeler', 'port', 'vlan', 'plc', 'sensor'];   // the documented sequence
+    const step = (i) => { if (i >= order.length) { stopGuide(); return; } check(order[i]); guide = setTimeout(() => step(i + 1), reduced.matches ? 900 : 1800); };
+    $('#cl-guide').textContent = 'Stop the Walkthrough';
+    step(0);
+  });
+
+  /* Fortinet packet path: documented before/after plus one illustrative case ----------------- */
+  const PK = {
+    before: { allow: false, text: '<span class="ev-tag">Documented</span>The firewall received the connection and found a route to the OT zone, but rejected the session at the forward-policy check: the administrative path had no explicit inter-zone permit policy.' },
+    after: { allow: true, text: '<span class="ev-tag">Documented</span>I added a narrowly scoped permit rule for the required management traffic, with internal NAT disabled. The Proxmox web interface became reachable from the authorized management path. This validates that path, not every segmentation policy.' },
+    other: { allow: false, text: '<span class="ev-tag">Illustrative</span>Traffic with no matching permit policy is stopped at the same forward-policy check, as the first case showed. This is a generic example, not a published rule from my configuration.' }
+  };
+  const lane = $('.pk-lane'), pkExplain = $('#pk-explain');
+  $$('[data-pk]').forEach((b) => b.addEventListener('click', () => {
+    $$('[data-pk]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const c = PK[b.dataset.pk];
+    lane.classList.remove('run', 'allow', 'deny'); void lane.offsetWidth;
+    lane.classList.add('run', c.allow ? 'allow' : 'deny');
+    pkExplain.innerHTML = c.text;
+  }));
+
+  /* MONITROPE screenshots: user-controlled, labeled as screenshots ---------------------------- */
+  const SHOTS = [
+    ['Screenshot%202026-10-20%20135921.png', 'Overview page, 18 discovered devices', 'MONITROPE 0.6.0 Overview page showing the first-week checklist, 18 discovered devices, the network hive and the MONITROPE Intelligence panel'],
+    ['Screenshot%202026-10-20%20140124.png', 'Discovery: four approved scopes', 'MONITROPE Discovery page listing four approved scopes with blurred address ranges'],
+    ['Screenshot%202026-10-20%20140142.png', 'Events with stored evidence', 'MONITROPE Events page listing device discovery events with their stored evidence'],
+    ['Screenshot%202026-10-20%20140000.png', 'Proof: discovery proven, learning at day 0 of 7', 'MONITROPE Proof page showing Discovery proven and Learning at day 0 of 7'],
+    ['Screenshot%202026-10-20%20140016.png', 'Proof: root-cause analysis not yet proven', 'MONITROPE Proof page showing root-cause analysis not yet proven and one failed deployment check']
+  ];
+  let shot = 0;
+  const shotImg = $('#shot-img');
+  function showShot(i) {
+    shot = (i + SHOTS.length) % SHOTS.length;
+    const [file, cap, alt] = SHOTS[shot];
+    shotImg.src = 'assets/images/monitrope%20real%20app%20images/' + file; shotImg.alt = alt;
+    $('#shot-cap').textContent = cap; $('#shot-count').textContent = `${shot + 1} of ${SHOTS.length}`;
+  }
+  $('.shot-prev').addEventListener('click', () => showShot(shot - 1));
+  $('.shot-next').addEventListener('click', () => showShot(shot + 1));
 
   /* Pause scene animation offscreen ------------------------------------------------------------ */
   const io = new IntersectionObserver((entries) => entries.forEach((en) => en.target.classList.toggle('paused', !en.isIntersecting)), { rootMargin: '80px' });
-  $$('.glance, #workspace, #games').forEach((el) => io.observe(el));
+  $$('#explore, #workspace, #games').forEach((el) => io.observe(el));
   $('#scene-floor .floor-art').classList.add('live');
 })();

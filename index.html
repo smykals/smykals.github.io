@@ -377,7 +377,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <div class="intro-text">
       <p class="status"><i aria-hidden="true"></i>Open to Opportunities</p>
       <h1 id="name">Shane Stark</h1>
-      <p class="position">Technologist <span aria-hidden="true">|</span> IT Infrastructure, Networking &amp; Systems <span aria-hidden="true">|</span> IT Operations Leadership <span aria-hidden="true">|</span> Field Services</p>
+      <p class="position"><span class="nb">Technologist</span> <span class="sep" aria-hidden="true">|</span> <span class="nb">IT Infrastructure, Networking &amp; Systems</span> <span class="sep" aria-hidden="true">|</span> <span class="nb">IT Operations Leadership</span> <span class="sep" aria-hidden="true">|</span> <span class="nb">Field Services</span></p>
       <p class="lede">I’m a hands-on technologist with experience in IT infrastructure, networking, and systems. My background combines regional field services leadership, technician development, and practical troubleshooting that keeps operations running.</p>
       <div class="actions">
         <a class="btn primary" href="professional-experience.html">View Résumé</a>
@@ -402,92 +402,55 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 </section>
 
-<!-- 2. Experience at a Glance -->
-<section class="glance-sec" aria-labelledby="gl-title">
-  <div class="glance boot">
-    <span class="corner" aria-hidden="true"></span>
-    <div class="gl-head"><h2 id="gl-title">Experience at a Glance</h2><p>Four areas I work across. Select one for an example; each links to the full story. Activity lights are illustrative.</p></div>
-    <div class="gl-map">
-      <svg class="gl-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <path data-area="net" d="M50 50 L 8 50"/><path data-area="sys" d="M50 50 L 32 50"/><path data-area="field" d="M50 50 L 68 50"/><path data-area="lead" d="M50 50 L 92 50"/>
-      </svg>
-      <div class="gl-hub" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="r-outer" cx="60" cy="60" r="57"/><circle class="r-ticks" cx="60" cy="60" r="44"/><path class="r-arc" d="M60 3 A57 57 0 0 1 113.6 40.5"/><circle class="h-core" cx="60" cy="60" r="16"/></svg></div>
-
-      <article class="gl-area net" data-area="net" style="grid-area: net">
-        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
-          <path class="cable" d="M4 40 C 30 40, 30 22, 52 22"/><path class="sig" d="M4 40 C 30 40, 30 22, 52 22"/>
-          <rect class="metal-rect" x="52" y="12" width="84" height="22" rx="3"/>
-          <g class="ports"><rect x="58" y="18" width="7" height="6"/><rect x="68" y="18" width="7" height="6"/><rect x="78" y="18" width="7" height="6"/><rect x="88" y="18" width="7" height="6"/><rect x="98" y="18" width="7" height="6"/><rect x="108" y="18" width="7" height="6"/></g>
-          <circle class="act a1" cx="124" cy="21" r="2"/><circle class="act a2" cx="130" cy="21" r="2"/>
-        </svg>
-        <h3>Networking</h3>
-        <p class="gl-desc">Cisco switching, wireless and VLANs across campus, data center and plant networks.</p>
-        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-net">Show an example</button>
-        <p class="gl-acc" id="acc-net">Upgraded firmware on about 300 Cisco switches and wrote the team's upgrade and recovery guide.</p>
-        <a class="gl-link" href="campus-network-leadership.html">Explore Networking Experience</a>
-      </article>
-
-      <article class="gl-area sys" data-area="sys" style="grid-area: sys">
-        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
-          <rect class="metal-rect" x="34" y="3" width="72" height="12" rx="2"/><rect class="metal-rect" x="34" y="17" width="72" height="12" rx="2"/><rect class="metal-rect" x="34" y="31" width="72" height="12" rx="2"/>
-          <g class="slots"><rect x="40" y="7" width="30" height="4"/><rect x="40" y="21" width="30" height="4"/><rect x="40" y="35" width="30" height="4"/></g>
-          <circle class="act a1" cx="92" cy="9" r="2"/><circle class="act a2" cx="99" cy="9" r="2"/><circle class="act a3" cx="92" cy="23" r="2"/><circle class="act a1" cx="99" cy="37" r="2"/><circle class="act a2" cx="92" cy="37" r="2"/>
-        </svg>
-        <h3>Systems</h3>
-        <p class="gl-desc">Windows Server, Linux, Active Directory and VMware at work; a four-host Proxmox lab at home.</p>
-        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-sys">Show an example</button>
-        <p class="gl-acc" id="acc-sys">Traced SAP, PI Vision and labeling application outages through their network and server dependencies.</p>
-        <a class="gl-link" href="production-data-connectivity.html">Explore Systems Work</a>
-      </article>
-
-      <article class="gl-area field" data-area="field" style="grid-area: field">
-        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
-          <path class="cable" d="M8 36 C 30 36, 34 12, 58 12 S 92 34, 118 22"/><path class="sig" d="M8 36 C 30 36, 34 12, 58 12 S 92 34, 118 22"/>
-          <g class="pin"><path d="M8 36 c0 0 -5 -6 -5 -9 a5 5 0 0 1 10 0 c0 3 -5 9 -5 9z"/><path d="M58 12 c0 0 -5 -6 -5 -9 a5 5 0 0 1 10 0 c0 3 -5 9 -5 9z"/><path d="M118 22 c0 0 -5 -6 -5 -9 a5 5 0 0 1 10 0 c0 3 -5 9 -5 9z"/></g>
-          <rect class="metal-rect" x="84" y="30" width="22" height="12" rx="2"/><path class="post" d="M90 30 v-3 h10 v3"/>
-        </svg>
-        <h3>Field Services</h3>
-        <p class="gl-desc">On-site installs, troubleshooting and support across homes, campuses and a 24/7 plant.</p>
-        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-field">Show an example</button>
-        <p class="gl-acc" id="acc-field">Ranked in the top three of about 100 technicians in my region for one quarter on customer ratings, installs and quality.</p>
-        <a class="gl-link" href="technician-development.html">Explore Field Services Experience</a>
-      </article>
-
-      <article class="gl-area lead" data-area="lead" style="grid-area: lead">
-        <svg class="gl-art" viewBox="0 0 140 46" aria-hidden="true">
-          <path class="cable" d="M70 23 L 18 10 M70 23 L 18 38 M70 23 L 122 10 M70 23 L 122 38"/>
-          <path class="sig" d="M70 23 L 122 10"/><path class="sig s2" d="M70 23 L 18 38"/>
-          <g class="site"><path d="M10 14 V 6 L 18 2 L 26 6 V 14 Z"/><path d="M10 42 V 34 L 18 30 L 26 34 V 42 Z"/><path d="M114 14 V 6 L 122 2 L 130 6 V 14 Z"/><path d="M114 42 V 34 L 122 30 L 130 34 V 42 Z"/></g>
-          <circle class="person" cx="70" cy="18" r="4"/><path class="person" d="M62 32 C 62 25, 78 25, 78 32 Z"/>
-        </svg>
-        <h3>IT Operations Leadership</h3>
-        <p class="gl-desc">Regional field supervisor: hiring, scheduling, escalations and coverage across multiple campuses.</p>
-        <button type="button" class="gl-toggle" aria-expanded="false" aria-controls="acc-lead">Show an example</button>
-        <p class="gl-acc" id="acc-lead">Planned and staffed move-in coverage across 15 campuses each year while keeping hands-on network duties.</p>
-        <a class="gl-link" href="field-team-leadership.html">Explore Leadership Experience</a>
-      </article>
-    </div>
-    <p class="gl-more">Go deeper: <a href="#scene-line">Run Checking the Line</a> · <a href="#scene-floor">Walk the Lab Floor</a></p>
+<!-- 2. Explore My Experience: signal graph and Experience at a Glance in one -->
+<section class="explore panel" id="explore" aria-labelledby="ex-title">
+  <span class="corner" aria-hidden="true"></span>
+  <div class="ex-head">
+    <div><h2 id="ex-title">Explore My Experience</h2><p>Experience at a glance. Select an area for an example and the related work on this page.</p></div>
+    <button type="button" class="ex-pause" aria-pressed="false"><span class="ex-pause-icon" aria-hidden="true"></span><span class="ex-pause-label">Pause Motion</span></button>
   </div>
+  <div class="ex-graph">
+    <svg class="ex-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+      <defs><pattern id="ex-grid" width="25" height="20" patternUnits="userSpaceOnUse"><path d="M25 0H0V20" fill="none" stroke="#1F2125" stroke-width="1"/></pattern></defs>
+      <rect width="1000" height="120" fill="url(#ex-grid)"/>
+      <path class="ex-base" d="M0 70 C 60 70, 80 40, 125 40 S 200 90, 250 80 S 330 45, 375 45 S 450 95, 500 85 S 580 35, 625 35 S 700 88, 750 78 S 830 42, 875 42 S 950 70, 1000 70"/>
+      <path class="ex-signal" d="M0 70 C 60 70, 80 40, 125 40 S 200 90, 250 80 S 330 45, 375 45 S 450 95, 500 85 S 580 35, 625 35 S 700 88, 750 78 S 830 42, 875 42 S 950 70, 1000 70"/>
+    </svg>
+    <ul class="ex-nodes">
+      <li style="--x:12.5%; --y:33%; --n:0"><button type="button" class="ex-node" data-cap-pick="networking" aria-pressed="false" aria-controls="ex-detail"><i aria-hidden="true"></i><b>Networking</b><span>Cisco switching, wireless and VLANs</span></button></li>
+      <li style="--x:37.5%; --y:37%; --n:1"><button type="button" class="ex-node" data-cap-pick="systems" aria-pressed="false" aria-controls="ex-detail"><i aria-hidden="true"></i><b>Systems</b><span>Servers, applications and a Proxmox lab</span></button></li>
+      <li style="--x:62.5%; --y:29%; --n:2"><button type="button" class="ex-node" data-cap-pick="field" aria-pressed="false" aria-controls="ex-detail"><i aria-hidden="true"></i><b>Field Services</b><span>On-site installs, support and troubleshooting</span></button></li>
+      <li style="--x:87.5%; --y:35%; --n:3"><button type="button" class="ex-node" data-cap-pick="leadership" aria-pressed="false" aria-controls="ex-detail"><i aria-hidden="true"></i><b>IT Operations Leadership</b><span>Regional field team leadership</span></button></li>
+    </ul>
+  </div>
+  <div class="ex-detail" id="ex-detail" aria-live="polite">
+    <p class="ex-prompt">Select an area above. Related metrics, projects and skills on this page light up.</p>
+  </div>
+  <p class="ex-note">Illustrative navigation, not live data.</p>
 </section>
+<template id="ex-networking"><p class="ex-kicker"><span class="cat work">Professional</span>Networking</p><p class="ex-example">Upgraded firmware on about 300 Cisco switches and wrote the team's upgrade and recovery guide, alongside 24/7 responsibility for five campus networks.</p><a class="p-link" href="campus-network-leadership.html">See the Campus Network Evidence</a></template>
+<template id="ex-systems"><p class="ex-kicker"><span class="cat work">Professional</span><span class="cat lab">Lab</span>Systems</p><p class="ex-example">At work I troubleshoot access to SAP, PI Vision and labeling applications through their network and server dependencies, with the application owners. At home I run a four-host Proxmox lab.</p><a class="p-link" href="production-data-connectivity.html">See the Production Data Evidence</a></template>
+<template id="ex-field"><p class="ex-kicker"><span class="cat work">Professional</span>Field Services</p><p class="ex-example">Installed and troubleshot connected security systems in the field, then trained six technicians and served as their first-line escalation.</p><a class="p-link" href="technician-development.html">See the Field Services Evidence</a></template>
+<template id="ex-leadership"><p class="ex-kicker"><span class="cat work">Professional</span>IT Operations Leadership</p><p class="ex-example">As regional field supervisor I hired, scheduled, evaluated and coached field technicians, and planned move-in coverage across 15 campuses each year.</p><a class="p-link" href="field-team-leadership.html">See the Leadership Evidence</a></template>
+
 
 
 <!-- 2. Three standout metrics: each graphic encodes its own number -->
 <ul class="kpis" aria-label="Career highlights">
-  <li><button type="button" class="kpi" data-view="kpi-callbacks" data-cap="networking leadership" aria-haspopup="dialog">
-    <span class="k-head"><span class="k-type">Outcome</span><span class="cat work">Professional</span></span>
+  <li><button type="button" class="kpi" data-view="kpi-callbacks" data-cap="field networking" aria-haspopup="dialog">
+    <span class="k-head"><span class="k-type">Role-level outcome</span><span class="cat work">Professional</span></span>
     <span class="k-main"><svg class="k-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" pathLength="100"/><circle class="fg" cx="22" cy="22" r="18" pathLength="100" style="stroke-dasharray:70 100"/></svg><span><strong class="metal">~70%</strong><span class="k-label">fewer repeat callbacks</span></span></span>
-    <span class="k-ctx">Campus networks, 2018–2024 · ring shows the 70% reduction</span><span class="k-more">Context and Evidence</span>
+    <span class="k-ctx">Campus networks, 2018–2024</span><span class="k-more">Context and Evidence</span>
   </button></li>
   <li><button type="button" class="kpi" data-view="kpi-team" data-cap="leadership" aria-haspopup="dialog">
-    <span class="k-head"><span class="k-type">Team</span><span class="cat work">Professional</span></span>
+    <span class="k-head"><span class="k-type">Team size</span><span class="cat work">Professional</span></span>
     <span class="k-main"><span><strong class="metal">14</strong><span class="k-label">field technicians led directly</span></span><span class="k-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
-    <span class="k-ctx">Regional field supervisor, 2020–2024 · one mark per technician</span><span class="k-more">Context and Evidence</span>
+    <span class="k-ctx">Regional field supervisor, 2020–2024</span><span class="k-more">Context and Evidence</span>
   </button></li>
   <li><button type="button" class="kpi" data-view="kpi-campuses" data-cap="networking leadership" aria-haspopup="dialog">
-    <span class="k-head"><span class="k-type">Scope</span><span class="cat work">Professional</span></span>
+    <span class="k-head"><span class="k-type">Scope of responsibility</span><span class="cat work">Professional</span></span>
     <span class="k-main"><span><strong class="metal">5 Campuses</strong><span class="k-label">in 3 states, 24/7/365</span></span><span class="k-pins" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>
-    <span class="k-ctx">Network specialist, 2018–2024 · one pin per campus</span><span class="k-more">Context and Evidence</span>
+    <span class="k-ctx">Network specialist, 2018–2024</span><span class="k-more">Context and Evidence</span>
   </button></li>
 </ul>
 
@@ -498,16 +461,23 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <p class="feat-links"><a class="p-link" href="professional-experience.html">All Professional Work</a><a class="p-link" href="proto-lab-evidence.html">All Lab Projects</a></p>
   </div>
   <div class="feat-grid">
-    <article class="fp fp-hero lab" id="lab">
-      <a class="fp-media" href="monitrope.html" tabindex="-1" aria-hidden="true"><img src="assets/images/monitrope%20real%20app%20images/Screenshot%202026-10-20%20135921.png" alt="" loading="lazy"></a>
+    <article class="fp fp-hero lab" id="lab" data-cap="systems networking">
+      <figure class="shots" aria-roledescription="carousel" aria-label="MONITROPE screenshots">
+        <div class="shots-frame"><img id="shot-img" src="assets/images/monitrope%20real%20app%20images/Screenshot%202026-10-20%20135921.png" alt="MONITROPE 0.6.0 Overview page showing the first-week checklist, 18 discovered devices, the network hive and the MONITROPE Intelligence panel" loading="lazy"></div>
+        <figcaption><span class="shots-badge">Screenshot, not a live demo</span><span id="shot-cap">Overview page, 18 discovered devices</span><span class="shots-nav"><button type="button" class="shot-prev" aria-label="Previous screenshot">‹</button><span id="shot-count">1 of 5</span><button type="button" class="shot-next" aria-label="Next screenshot">›</button></span></figcaption>
+      </figure>
       <div class="fp-body">
         <p class="fp-meta"><span class="cat lab">Lab</span><span class="chip wip">v0.7.0 release candidate</span></p>
         <h3><a href="monitrope.html">MONITROPE</a></h3>
-        <p>A network monitoring appliance that discovers devices, learns each one's normal behavior and traces outages to a probable cause. Runs with Docker Compose or as a Windows desktop app, with signed updates. Not yet validated on a production network.</p>
+        <p>A self-hosted network monitoring appliance I created, designed to discover devices, learn normal behavior and trace outages to a probable cause.</p>
+        <div class="fp-proof">
+          <div><p class="fp-proof-h">Shown in my lab (v0.6.0)</p><ul><li>Discovery found 18 devices across eight approved-range scans</li><li>Installable OS image with signed one-button updates</li><li>305 automated backend tests passing at release</li></ul></div>
+          <div><p class="fp-proof-h wip">Not yet proven</p><ul><li>Behavioral baselines: learning period not completed at capture</li><li>Root-cause analysis against a real failure</li><li>Use on a production network</li></ul></div>
+        </div>
         <a class="btn primary" href="monitrope.html">View Project</a>
       </div>
     </article>
-    <article class="fp fp-wide lab">
+    <article class="fp fp-wide lab" data-cap="networking">
       <a class="fp-media" href="network-lab.html" tabindex="-1" aria-hidden="true"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"></a>
       <div class="fp-body">
         <p class="fp-meta"><span class="cat lab">Lab</span><span class="chip ok">Ongoing validation</span></p>
@@ -516,7 +486,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
         <a class="pc-go" href="network-lab.html">View Project</a>
       </div>
     </article>
-    <article class="fp fp-case work" id="work">
+    <article class="fp fp-case work" id="work" data-cap="networking field">
       <svg class="fp-diagram" viewBox="0 0 300 74" role="img" aria-label="How each change was run: plan, stage, swap, validate, hand back">
         <g class="steps"><rect x="2" y="22" width="50" height="28" rx="4"/><rect x="64" y="22" width="50" height="28" rx="4"/><rect x="126" y="22" width="50" height="28" rx="4"/><rect x="188" y="22" width="50" height="28" rx="4"/><rect x="250" y="22" width="48" height="28" rx="4"/></g>
         <g class="arrows"><path d="M52 36 H64M114 36 H126M176 36 H188M238 36 H250"/></g>
@@ -525,10 +495,10 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
       </svg>
       <p class="fp-meta"><span class="cat work">Professional</span>Infrastructure refresh</p>
       <h3><a href="plant-network-refresh.html">Replacing a Plant's Network While It Runs</a></h3>
-      <p class="pc-fig"><strong class="metal">&lt;2.5%</strong> infrastructure SLA breach rate, reported for my plant role</p>
+      <p>On-site deployment and validation for a facility-wide Cisco switching and wireless refresh, scheduled around production.</p>
       <a class="pc-go" href="plant-network-refresh.html">View the Case Study</a>
     </article>
-    <article class="fp fp-case work">
+    <article class="fp fp-case work" data-cap="networking systems">
       <svg class="fp-diagram" viewBox="0 0 300 74" role="img" aria-label="Two paths that keep a campus core alive: separate power feeds through two UPSs and two PDUs to dual power supplies, and out-of-band access through a cellular router and console server">
         <g class="steps"><rect x="2" y="16" width="62" height="20" rx="4"/><rect x="84" y="16" width="62" height="20" rx="4"/><rect x="166" y="16" width="62" height="20" rx="4"/><rect x="2" y="48" width="62" height="20" rx="4"/><rect x="84" y="48" width="62" height="20" rx="4"/><rect x="166" y="48" width="62" height="20" rx="4"/><rect class="core" x="246" y="22" width="52" height="40" rx="4"/></g>
         <g class="arrows"><path d="M64 26 H84M146 26 H166M228 26 H246M64 58 H84M146 58 H166M228 58 H246"/></g>
@@ -547,9 +517,9 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   <span class="corner" aria-hidden="true"></span>
   <h2 class="p-title" id="h-skills">Core Skills</h2>
   <dl class="skillset">
-    <div><dt>Networking</dt><dd>Cisco Catalyst, ISE and WLC · VLANs and trunking · TCP/IP, DNS, DHCP · packet capture</dd></div>
-    <div><dt>Systems</dt><dd>Windows Server · Linux · Active Directory · VMware · SAP and PI Vision support</dd></div>
-    <div><dt>Field Services &amp; Operations</dt><dd>ServiceNow · escalation management · technician training · documentation · vendor coordination</dd></div>
+    <div data-cap="networking"><dt>Networking <span class="ev-tag">Professional + lab</span></dt><dd>Cisco Catalyst, ISE and WLC · VLANs and trunking · TCP/IP, DNS, DHCP · packet capture</dd></div>
+    <div data-cap="systems"><dt>Systems <span class="ev-tag">Professional + lab</span></dt><dd>Windows Server · Linux · Active Directory · VMware · SAP and PI Vision support</dd></div>
+    <div data-cap="field leadership"><dt>Field Services &amp; Operations <span class="ev-tag">Professional</span></dt><dd>ServiceNow · escalation management · technician training · documentation · vendor coordination</dd></div>
   </dl>
   <a class="p-link" href="technical-skills.html">Explore Skills With Supporting Examples</a>
 </section>
@@ -573,13 +543,14 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 
   <div class="ev-view" id="ev-time" role="tabpanel" aria-labelledby="evt-time">
-    <div class="gantt" role="list" aria-label="Roles by year; the supervisor and specialist roles overlapped from 2020 to 2024">
+    <div class="gantt" role="group" aria-label="Roles by year; the supervisor and specialist roles overlapped from 2020 to 2024. Select a role for details.">
       <div class="g-axis" aria-hidden="true"><span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>Now</span></div>
-      <div class="g-row" role="listitem" style="--a:80; --b:100"><span class="g-name">IT Engineer, 24/7 Manufacturing Plant</span><span class="g-yr">2024–now</span><span class="g-bar"></span></div>
-      <div class="g-row" role="listitem" style="--a:40; --b:80"><span class="g-name">Regional Field Supervisor</span><span class="g-yr">2020–2024</span><span class="g-bar"></span></div>
-      <div class="g-row" role="listitem" style="--a:20; --b:80"><span class="g-name">Network Specialist, Campus &amp; Data Center</span><span class="g-yr">2018–2024</span><span class="g-bar"></span></div>
-      <div class="g-row" role="listitem" style="--a:0; --b:20"><span class="g-name">Smart Home Professional → Team Trainer</span><span class="g-yr">2016–2018</span><span class="g-bar"></span></div>
+      <button type="button" class="g-row" style="--a:80; --b:100" data-detail="tl-it" aria-controls="tl-detail" aria-expanded="false"><span class="g-name">IT Engineer, 24/7 Manufacturing Plant</span><span class="g-yr">2024–now</span><span class="g-bar"></span></button>
+      <button type="button" class="g-row" style="--a:40; --b:80" data-detail="tl-sup" aria-controls="tl-detail" aria-expanded="false"><span class="g-name">Regional Field Supervisor</span><span class="g-yr">2020–2024</span><span class="g-bar"></span></button>
+      <button type="button" class="g-row" style="--a:20; --b:80" data-detail="tl-spec" aria-controls="tl-detail" aria-expanded="false"><span class="g-name">Network Specialist, Campus &amp; Data Center</span><span class="g-yr">2018–2024</span><span class="g-bar"></span></button>
+      <button type="button" class="g-row" style="--a:0; --b:20" data-detail="tl-viv" aria-controls="tl-detail" aria-expanded="false"><span class="g-name">Smart Home Professional → Team Trainer</span><span class="g-yr">2016–2018</span><span class="g-bar"></span></button>
     </div>
+    <div class="ev-detail" id="tl-detail" aria-live="polite"><p class="ev-prompt">Select a role to see my contribution.</p></div>
     <div class="ev-foot">
       <details class="note"><summary>About this timeline</summary><p>Bars show years in each role. From 2020 to 2024 I held the regional field supervisor and network specialist roles at the same time. Employer names are omitted.</p></details>
       <a class="p-link" href="professional-experience.html">Explore Full Experience and Leadership History</a>
@@ -589,24 +560,23 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   <div class="ev-view" id="ev-imp" role="tabpanel" aria-labelledby="evt-imp" hidden>
     <div class="imp-grid">
       <div class="ba">
-        <p class="ba-title"><b>Green Belt project I led</b><span>Label-printing tickets per month, average</span></p>
-        <div class="ba-bars" role="img" aria-label="Average label-printing tickets per month: 6.3 before, 2.3 during the improvement period, a 63.5% reduction">
-          <div style="--v:100"><span class="bv">6.3</span><span class="bb soft"></span><span class="bl">Before</span></div>
-          <div style="--v:36.5"><span class="bv">2.3</span><span class="bb"></span><span class="bl">During improvement</span></div>
-          <p class="ba-delta"><strong class="metal">63.5%</strong> fewer</p>
-        </div>
+        <p class="ba-title"><span class="ev-tag">Project outcome</span><b>Green Belt project I led</b><span>Label-printing tickets per month, average</span></p>
+        <button type="button" class="ba-bars" data-detail="imp-gb" aria-controls="imp-detail" aria-expanded="false" aria-label="Average label-printing tickets per month: 6.3 before, 2.3 during the improvement period, a 63.5% reduction. Select for my contribution.">
+          <span class="bcol" style="--v:100"><span class="bv">6.3</span><span class="bb soft"></span><span class="bl">Before</span></span>
+          <span class="bcol" style="--v:36.5"><span class="bv">2.3</span><span class="bb"></span><span class="bl">During improvement</span></span>
+          <span class="ba-delta"><strong class="metal">63.5%</strong> fewer</span></button>
         <a class="p-link" href="green-belt-case-study.html">View the Green Belt Case Study</a>
       </div>
       <div class="ba">
-        <p class="ba-title"><b>Repeat service calls on my own work</b><span>Vivint, 2016–2018 · indexed, before = 100</span></p>
-        <div class="ba-bars" role="img" aria-label="Own repeat service calls indexed to 100 before and 70 after, a 30% reduction">
-          <div style="--v:100"><span class="bv">100</span><span class="bb soft"></span><span class="bl">Before</span></div>
-          <div style="--v:70"><span class="bv">70</span><span class="bb"></span><span class="bl">After</span></div>
-          <p class="ba-delta"><strong class="metal">30%</strong> fewer</p>
-        </div>
+        <p class="ba-title"><span class="ev-tag">Role-level, my own work</span><b>Repeat service calls on my own work</b><span>Vivint, 2016–2018 · indexed, before = 100</span></p>
+        <button type="button" class="ba-bars" data-detail="imp-viv" aria-controls="imp-detail" aria-expanded="false" aria-label="Own repeat service calls indexed to 100 before and 70 after, a 30% reduction. Select for my contribution.">
+          <span class="bcol" style="--v:100"><span class="bv">100</span><span class="bb soft"></span><span class="bl">Before</span></span>
+          <span class="bcol" style="--v:70"><span class="bv">70</span><span class="bb"></span><span class="bl">After</span></span>
+          <span class="ba-delta"><strong class="metal">30%</strong> fewer</span></button>
         <a class="p-link" href="technician-development.html">View the Technician Case Study</a>
       </div>
     </div>
+    <div class="ev-detail" id="imp-detail" aria-live="polite"><p class="ev-prompt">Select a chart to see what I did.</p></div>
     <div class="ev-foot">
       <details class="note"><summary>How these were measured</summary><p>Green Belt: monthly label-printing ticket volume, before versus during the improvement period, as documented in the project summary. It is ticket count, not resolution time. Comparison-period lengths and raw counts aren't published. Vivint: repeat tickets from the same customer on my own work; raw counts aren't published, so the bars are indexed to 100. Both charts use zero-based scales.</p></details>
       <a class="p-link" href="professional-experience.html">How Each Result Was Measured</a>
@@ -614,7 +584,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 
   <div class="ev-view" id="ev-scale" role="tabpanel" aria-labelledby="evt-scale" hidden>
-    <div class="scale-legend" aria-hidden="true"><span class="env campus">Campus sites, 2018–2024, cumulative</span><span class="env plant">Plant, 2024–now</span></div>
+    <div class="scale-legend"><button type="button" class="env campus" data-detail="inf-campus" aria-controls="inf-detail" aria-expanded="false">Campus sites, 2018–2024, cumulative</button><button type="button" class="env plant" data-detail="inf-plant" aria-controls="inf-detail" aria-expanded="false">Plant, 2024–now</button></div>
     <dl class="scale">
       <div><dt>Wireless access points</dt>
         <dd class="campus" style="--v:100"><span class="sb"></span><b>1,000+</b><span class="vh">at campus sites</span></dd>
@@ -626,6 +596,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
         <dd class="campus text"><b>6,500+</b> users on my directly assigned campuses</dd>
         <dd class="plant text"><b>~300</b> endpoints</dd></div>
     </dl>
+    <div class="ev-detail" id="inf-detail" aria-live="polite"><p class="ev-prompt">Select an environment above for context.</p></div>
     <div class="ev-foot">
       <details class="note"><summary>About these figures</summary><p>Bars in each row share one zero-based scale. Campus figures cover my assigned sites across 10+ refresh and installation projects; they describe scope, not equipment I installed alone.</p></details>
       <a class="p-link" href="data-center-core-infrastructure.html">View the Data Center Case Study</a>
@@ -698,27 +669,42 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 
   <div class="scene" id="scene-line" role="tabpanel" aria-labelledby="tab-line">
-<div class="trace" id="trace">
-      <div class="trace-head">
-        <div><span class="tag">Checking the Line · Fault isolation on a production line</span><h3>Bags Weighed, but Never Labeled</h3><p class="trace-hint">Run the checks with the button, or select the station to check next.</p></div>
-        <div class="trace-controls"><button type="button" class="btn primary" id="trace-next">Run the First Check</button><button type="button" class="btn secondary" id="trace-reset" hidden>Start Over</button></div>
-      </div>
-      <ol class="line" aria-label="Production line, from weighing to labeling">
-        <li class="node" data-n="sensor"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="8" y="30" width="32" height="8" rx="2"/><path d="M14 30v-6h20v6M24 24V12"/><circle cx="24" cy="10" r="3"/></svg></span><b>Weighing sensor</b><small>Weighs each bag</small></li>
-        <li class="link" data-l="1"><i></i></li>
-        <li class="node" data-n="plc"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="32" rx="2"/><path d="M16 16h16M16 22h16M16 28h8"/><circle cx="32" cy="32" r="2"/></svg></span><b>PLC</b><small>Decides what to print</small></li>
-        <li class="link" data-l="2"><i></i></li>
-        <li class="node" data-n="switch"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="12" rx="2"/><path d="M11 24h3M17 24h3M23 24h3M29 24h3M35 24h3"/></svg></span><b>Switch port and VLAN</b><small>Carries the PLC traffic</small></li>
-        <li class="link" data-l="3"><i></i></li>
-        <li class="node" data-n="labeler"><span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="20" rx="2"/><path d="M14 32v6h20v-6M16 20h16"/></svg></span><b>Labeler</b><small>Prints and applies</small></li>
-      </ol>
-      <div class="log" aria-live="polite"><p id="trace-log"><b>Symptom.</b> Every bag is weighed, but the labeling step never completes. Run the checks I ran to find out why.</p></div>
-      <p class="trace-doc"><a href="weighing-labeling-fault.html">View the Full Case Study</a></p>
+<div class="cl" id="trace">
+  <div class="cl-head">
+    <div><span class="tag">Checking the Line · Fault isolation on a production line</span><h3>Bags Weighed, but Never Labeled</h3><p class="trace-hint">Bags were weighed correctly, but the labeling step never completed. Pick a component to check, in any order, or watch the investigation.</p></div>
+    <div class="cl-controls"><button type="button" class="btn primary" id="cl-guide">Watch the Investigation</button><button type="button" class="btn secondary" id="cl-reset">Reset</button></div>
+  </div>
+  <div class="cl-stage">
+    <svg class="cl-scene" viewBox="0 0 640 210" aria-hidden="true">
+      <path class="cl-wire w-sensor" d="M118 128 V 70 H 196"/>
+      <path class="cl-wire w-net" d="M266 52 H 326"/>
+      <path class="cl-wire w-net2" d="M406 52 H 470 V 96"/>
+      <rect class="cl-belt" x="40" y="150" width="520" height="14" rx="7"/>
+      <g class="cl-rollers"><circle cx="50" cy="157" r="5"/><circle cx="150" cy="157" r="5"/><circle cx="250" cy="157" r="5"/><circle cx="350" cy="157" r="5"/><circle cx="450" cy="157" r="5"/><circle cx="550" cy="157" r="5"/></g>
+      <rect class="cl-scale" x="92" y="140" width="52" height="10" rx="2"/>
+      <g class="cl-bag"><rect x="-16" y="-26" width="32" height="26" rx="5"/><rect class="cl-label" x="-9" y="-19" width="18" height="10" rx="1"/></g>
+      <text class="cl-nolabel" x="470" y="196">No label applied</text>
+    </svg>
+    <ol class="cl-parts">
+      <li style="--x:18.4%; --y:61%"><button type="button" class="cl-part" data-part="sensor"><b>Weighing Sensor</b><span class="cl-state">Not yet checked</span></button></li>
+      <li style="--x:36%; --y:25%"><button type="button" class="cl-part" data-part="plc"><b>PLC</b><span class="cl-state">Not yet checked</span></button></li>
+      <li style="--x:57.5%; --y:12%"><button type="button" class="cl-part" data-part="port"><b>Switch Port</b><span class="cl-state">Not yet checked</span></button></li>
+      <li style="--x:57.5%; --y:38%"><button type="button" class="cl-part" data-part="vlan"><b>VLAN</b><span class="cl-state">Not yet checked</span></button></li>
+      <li style="--x:79%; --y:58%"><button type="button" class="cl-part symptom" data-part="labeler"><b>Labeler</b><span class="cl-state">Symptom here</span></button></li>
+    </ol>
+  </div>
+  <div class="cl-bottom">
+    <div class="cl-findings" aria-labelledby="cl-f-title">
+      <h4 id="cl-f-title">Findings</h4>
+      <ol id="cl-log" aria-live="polite"><li class="cl-empty">Nothing established yet. Every component starts as not yet checked.</li></ol>
     </div>
+    <div class="cl-conclusion" id="cl-conclusion" hidden>
+      <h4>How It Was Resolved</h4>
+      <p>I proved the switch port, VLAN and PLC signals healthy one layer at a time, working with electrical engineering on the control signals. With the network and PLC ruled out, the missing input pointed to the weighing sensor. The sensor was replaced and labeling resumed, and the right team fixed the right part.</p>
+    </div>
+  </div>
+  <p class="trace-doc"><a href="weighing-labeling-fault.html">View the Full Case Study</a></p>
+</div>
   </div>
 
   <div class="scene" id="scene-floor" role="tabpanel" aria-labelledby="tab-floor">
@@ -775,6 +761,21 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
       </div>
     </div>
     <p class="legend"><span><i class="solid"></i>Built and documented</span><span><i class="dash"></i>Planned, being built</span><span><i class="pk ok"></i>Allowed traffic</span><span><i class="pk no"></i>Blocked at the boundary</span></p>
+    <div class="pk" aria-labelledby="pk-title">
+      <div class="pk-head"><h4 id="pk-title">Packet Path Simulation</h4><p>Lab simulation of a documented PROTO.LAB incident. Addresses, ports and rule details beyond what the evidence page publishes are left out.</p></div>
+      <div class="pk-choices" role="group" aria-label="Choose a connection">
+        <button type="button" data-pk="before" aria-pressed="false">Management → Proxmox Web UI, Before the Fix</button>
+        <button type="button" data-pk="after" aria-pressed="false">Same Path, After the Scoped Rule</button>
+        <button type="button" data-pk="other" aria-pressed="false">Unmatched Traffic Into the OT Zone <em>Illustrative</em></button>
+      </div>
+      <div class="pk-lane">
+        <div class="pk-zone"><b>Management Zone</b><span>Trusted management endpoint</span></div>
+        <div class="pk-zone fw"><b>FortiGate</b><span>Forward-policy check</span><i class="pk-verdict" aria-hidden="true"></i></div>
+        <div class="pk-zone ot"><b>OT Zone</b><span>Proxmox host, web UI on TCP 8006</span></div>
+        <span class="pk-packet" aria-hidden="true"></span>
+      </div>
+      <p class="pk-explain" id="pk-explain" aria-live="polite">Choose a connection to send a packet through the boundary.</p>
+    </div>
   </div>
 </section>
 
@@ -849,6 +850,15 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   <ol class="results" id="search-results"></ol>
 </aside>
 
+<template id="tl-it"><p class="ev-d-h">IT Engineer · 2024–now</p><p>Support a 24/7 manufacturing plant: about 300 endpoints and 120 access points on Cisco infrastructure, and network-connected production systems with engineering, maintenance and vendors.</p><p class="ev-d-role"><span class="ev-tag">Role-level</span>Infrastructure SLA breach rate reported below 2.5% (about 97.5% compliance on assigned tickets).</p><a class="p-link" href="professional-experience.html#experience-manufacturing">See This Role in Full</a></template>
+<template id="tl-sup"><p class="ev-d-h">Regional Field Supervisor · Mar 2020–Sep 2024</p><p>Held alongside my network specialist role. 14 direct reports, nearly 30 during vacancies: hiring, scheduling, performance evaluations, coaching and escalations.</p><a class="p-link" href="field-team-leadership.html">See the Leadership Case Study</a></template>
+<template id="tl-spec"><p class="ev-d-h">Network Specialist · Nov 2018–Sep 2024</p><p>24/7/365 responsibility for five campuses in three states; participated in and coordinated 10+ refresh and installation projects.</p><p class="ev-d-role"><span class="ev-tag">Role-level</span>About 70% fewer repeat callbacks after improving troubleshooting and support practices.</p><a class="p-link" href="campus-network-leadership.html">See the Campus Network Case Study</a></template>
+<template id="tl-viv"><p class="ev-d-h">Smart Home Professional → Team Trainer · Vivint, 2016–2018</p><p>Installed and troubleshot security and smart home systems, trained six technicians, and ranked in the top three of about 100 technicians in the region for one quarter.</p><a class="p-link" href="technician-development.html">See the Technician Case Study</a></template>
+<template id="imp-gb"><p class="ev-d-h">Green Belt project · project outcome</p><p>I led the project: standardized support instructions, clarified ownership and escalation with a RACI, improved ticket visibility and aging controls, and supported operator and supervisor training.</p><a class="p-link" href="green-belt-case-study.html">View the Green Belt Case Study</a></template>
+<template id="imp-viv"><p class="ev-d-h">Repeat service calls · role-level, my own work</p><p>Measured as repeat tickets from the same customer. I focused on getting it right the first time, then passed that approach on as a team trainer.</p><a class="p-link" href="technician-development.html">View the Technician Case Study</a></template>
+<template id="inf-campus"><p class="ev-d-h">Campus sites · 2018–2024</p><p>Environments with 1,000+ access points and 250 switches across my assigned sites, cumulative over 10+ refresh and installation projects, and 6,500+ users on my five directly assigned campuses. These describe scope, not equipment I installed alone.</p><a class="p-link" href="data-center-core-infrastructure.html">View the Data Center Case Study</a></template>
+<template id="inf-plant"><p class="ev-d-h">Plant · 2024–now</p><p>About 300 endpoints and 120 access points on Cisco switching and wireless. The plant's switch count isn't published.</p><a class="p-link" href="plant-network-refresh.html">View the Plant Refresh Case Study</a></template>
+
 <!-- Detail panels. Every hotspot that opens one is also a link or has a listed equivalent. -->
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1" hidden>
@@ -864,7 +874,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <dt>My contribution</dt><dd>Standardized the troubleshooting documentation used across the region, wrote Cisco switch firmware-upgrade training, and coordinated escalations across the NOC, engineering, ISPs and Cisco TAC.</dd>
     <dt>Result</dt><dd>Repeat callbacks fell by about 70% after improving troubleshooting and support practices.</dd>
   </dl>
-  <p class="d-note">Reported work-history result. Underlying counts and the measurement window aren't published.</p>
+  <p class="d-note">Reported work-history result. Underlying counts and the measurement window aren't published. The ring on the card shows the 70% reduction.</p>
   <a class="btn primary" href="campus-network-leadership.html">View the Case Study</a>
   <p class="d-sub"><a href="professional-experience.html">How each result was measured</a></p>
 </template>
@@ -945,46 +955,6 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 </template>
 
 
-<script>
-  // Fault trace
-  const steps = [
-    { check: 'switch', btn: 'Check the VLAN', log: '<b>Check 1: the switch port.</b> The port the PLC uses is up, with no errors or flapping. The physical link is fine.', ok: ['switch'] },
-    { check: 'switch', btn: 'Check the Control Signals', log: '<b>Check 2: the VLAN.</b> The port is in the right VLAN and the PLC can reach the labeler. The network is not the fault.', ok: ['switch'], links: [2, 3] },
-    { check: 'plc', btn: 'Check the Sensor', log: '<b>Check 3: the control signals.</b> With electrical engineering, I confirmed the PLC is talking and sending the signals we expected. The PLC is not the fault either.', ok: ['switch', 'plc', 'labeler'], links: [2, 3] },
-    { check: 'sensor', btn: null, log: '<b>Root cause: the weighing sensor.</b> The PLC never got the reading it needed to trigger a label. The sensor was replaced and labeling resumed. Proving the network healthy first meant the right team fixed the right part.', ok: ['switch', 'plc', 'labeler'], bad: 'sensor', links: [2, 3] }
-  ];
-  let step = -1;
-  const nodes = (n) => document.querySelector(`.node[data-n="${n}"]`);
-  const next = document.getElementById('trace-next'), reset = document.getElementById('trace-reset'), log = document.getElementById('trace-log'), log0 = log.innerHTML;
-  function render() {
-    document.querySelectorAll('.node').forEach((n) => n.className = 'node' + (step >= 0 ? ' waiting' : ''));
-    document.querySelectorAll('.link').forEach((l) => l.className = 'link');
-    if (step < 0) { log.innerHTML = log0; next.textContent = 'Run the First Check'; next.hidden = false; reset.hidden = true; return; }
-    const s = steps[step];
-    s.ok.forEach((n) => nodes(n).className = 'node ok');
-    (s.links || []).forEach((i) => document.querySelector(`.link[data-l="${i}"]`).className = 'link ok');
-    if (s.bad) nodes(s.bad).className = 'node bad'; else nodes(steps[step + 1].check).classList.add('checking');
-    log.innerHTML = s.log;
-    reset.hidden = false;
-    if (s.btn) next.textContent = s.btn; else next.hidden = true;
-  }
-  next.addEventListener('click', () => { step = Math.min(step + 1, steps.length - 1); render(); });
-  const names = { sensor: 'weighing sensor', plc: 'PLC', switch: 'switch port and VLAN', labeler: 'labeler' };
-  document.querySelectorAll('.node').forEach((n) => {
-    n.tabIndex = 0; n.setAttribute('role', 'button');
-    n.setAttribute('aria-label', 'Check the ' + names[n.dataset.n]);
-    const pick = () => {
-      if (step >= steps.length - 1) { log.innerHTML = '<b>Done.</b> The root cause was found. Select Start over to run it again.'; return; }
-      const want = steps[step + 1].check;
-      if (n.dataset.n === want) { next.click(); n.focus(); }
-      else if (n.dataset.n === 'labeler') log.innerHTML = '<b>The labeler is where the symptom shows,</b> not necessarily the fault. Next check: the ' + names[want] + '.';
-      else log.innerHTML = '<b>Not yet.</b> I started with the network so the right team would get the fault. Next check: the ' + names[want] + '.';
-    };
-    n.addEventListener('click', pick);
-    n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
-  });
-  reset.addEventListener('click', () => { step = -1; render(); next.focus(); });
-</script>
 <script src="assets/js/shell.js"></script>
 <script src="assets/js/portfolio-search.js" defer></script>
 <script src="assets/js/workspace.js" defer></script>
