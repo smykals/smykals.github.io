@@ -1,10 +1,12 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#171A1E">
 <meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,10 +24,12 @@ content="Dedicated Linux networking workstation built for CCNA study, packet ana
   gtag('config', 'G-N43N0LR7NG');
 </script>
 <link rel="stylesheet" href="assets/css/theme.css">
+{% include site-icons.html %}
 </head>
 
 
-<body class="c-lab">
+<body class="c-lab themed has-shell">
+{% include portfolio-shell.html %}
 
 
 <div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="index.html">Shane Stark</a><a class="back" href="index.html#lab">Back to the lab</a></div></div>
@@ -56,24 +60,17 @@ CCNA Study Laptop
 </header>
 
 
-<main><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>The build is complete: I repurposed the laptop, set it up as a networking workstation, and documented it. Tool availability and learning plans are distinct from proficiency demonstrated through completed exercises.</p><ul><li><a href="https://www.linkedin.com/pulse/from-dust-data-building-network-engineers-swiss-army-knife-stark-bdpve/" target="_blank" rel="noopener noreferrer">Read my original workstation-build article</a></li></ul></div></section><section><div class="container"><div class="section-label">01 / Build &amp; Purpose</div><h2>From an Unused Laptop to a Networking Workbench.</h2><p>I had an older Dell laptop that still worked but no longer had a clear purpose. Rather than putting Packet Tracer on my everyday computer, I wiped the laptop, installed Parrot OS, and dedicated it to networking study and experimentation.</p><p>Keeping this environment separate lets me try unfamiliar tools, change configurations, and rebuild when needed. The value is the range of tasks one portable machine can support.</p><div class="tech-grid"><span class="tag">Dell Latitude 5480</span><span class="tag">Parrot OS</span><span class="tag">Independent study environment</span></div></div></section><section><div class="container"><div class="section-label">02 / Tool-to-Task Map</div><h2>Choose the Tool for the Question.</h2><div class="table-wrap"><table><caption>Networking toolkit and intended use</caption><thead><tr><th scope="col">Task</th><th scope="col">Tools</th><th scope="col">What I examine</th></tr></thead><tbody>
+<main id="main" tabindex="-1"><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>The build is complete: I repurposed the laptop, set it up as a networking workstation, and documented it. Tool availability and learning plans are distinct from proficiency demonstrated through completed exercises.</p><ul><li><a href="https://www.linkedin.com/pulse/from-dust-data-building-network-engineers-swiss-army-knife-stark-bdpve/" target="_blank" rel="noopener noreferrer">Read my original workstation-build article</a></li></ul></div></section><section><div class="container"><div class="section-label">01 / Build &amp; Purpose</div><h2>From an Unused Laptop to a Networking Workbench.</h2><p>I had an older Dell laptop that still worked but no longer had a clear purpose. Rather than putting Packet Tracer on my everyday computer, I wiped the laptop, installed Parrot OS, and dedicated it to networking study and experimentation.</p><p>Keeping this environment separate lets me try unfamiliar tools, change configurations, and rebuild when needed. The value is the range of tasks one portable machine can support.</p><div class="tech-grid"><span class="tag">Dell Latitude 5480</span><span class="tag">Parrot OS</span><span class="tag">Independent study environment</span></div></div></section><section><div class="container"><div class="section-label">02 / Tool-to-Task Map</div><h2>Choose the Tool for the Question.</h2><div class="table-wrap"><table><caption>Networking toolkit and intended use</caption><thead><tr><th scope="col">Task</th><th scope="col">Tools</th><th scope="col">What I examine</th></tr></thead><tbody>
 <tr><th scope="row">Build a virtual Cisco network</th><td>Packet Tracer</td><td>Topology, configuration, and protocol behavior when physical equipment is unavailable</td></tr>
 <tr><th scope="row">Administer lab equipment</th><td>SSH / terminal</td><td>Device configuration and operational state</td></tr>
 <tr><th scope="row">Inspect the endpoint</th><td>Linux networking utilities</td><td>Interfaces, addresses, routes, neighbors, sockets, and DNS</td></tr>
 <tr><th scope="row">Discover lab hosts and services</th><td>Nmap</td><td>Host and service visibility in my lab</td></tr>
 <tr><th scope="row">Observe traffic</th><td>tcpdump / Wireshark</td><td>Packets and protocol exchanges to compare with expected behavior</td></tr>
 </tbody></table></div></div></section><section><div class="container"><div class="section-label">03 / Physical &amp; Virtual Lab Use</div><h2>One Machine, Several Perspectives.</h2><div class="grid"><div class="card"><strong>Endpoint &amp; test client</strong>Join the physical Cisco lab and inspect what a connected system actually experiences.</div><div class="card"><strong>Management terminal</strong>Access network equipment and compare device state with endpoint observations.</div><div class="card"><strong>Packet analyzer</strong>Capture traffic to investigate what is happening on the wire.</div><div class="card"><strong>Virtual lab platform</strong>Use Packet Tracer to practice Cisco networking away from the physical equipment.</div></div><p>The guiding question is what each observation proves. A command becomes useful when I know why I am running it, what I expect to see, and how its output narrows the investigation.</p></div></section><section><div class="container"><div class="section-label">04 / Continuing Development</div><h2>Extend the Workbench as the Exercises Require.</h2><p>Python scripting, Git-based management of scripts and configurations, lightweight services, and containers are directions for extending this environment. They are not presented here as completed automation or deployed services.</p><p>The immediate focus remains CCNA practice and deeper understanding of the protocols behind the commands.</p></div></section><section><div class="container"><div class="section-label">05 / Original Build Story</div><h2>The Thinking Behind the Build.</h2><p>I wrote about the motivation and intended capabilities in my August 27, 2026 LinkedIn article.</p><p><a class="next-button" href="https://www.linkedin.com/pulse/from-dust-data-building-network-engineers-swiss-army-knife-stark-bdpve/" target="_blank" rel="noopener noreferrer">Read “From Dust to Data” on LinkedIn &rarr;</a></p><p><a href="ccna-lab.html">Browse CCNA exercises &rarr;</a> &nbsp; <a href="network-lab.html">Explore the physical network case study &rarr;</a></p><a class="next-button" href="index.html#projects">&larr; Return to projects</a></div></section></main>
+{% include portfolio-contact.html %}
 
 
-<footer>
-
-<div class="container">
-
-© 2026 Shane Stark
-
-</div>
-
-</footer>
+{% include portfolio-footer.html %}
 
 
 <script src="assets/js/shell.js" defer></script>

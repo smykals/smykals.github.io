@@ -1,10 +1,12 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#171A1E">
 <meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -24,9 +26,11 @@
   gtag('config', 'G-N43N0LR7NG');
 </script>
 <link rel="stylesheet" href="assets/css/theme.css">
+{% include site-icons.html %}
 </head>
 
-<body class="c-lab">
+<body class="c-lab themed has-shell">
+{% include portfolio-shell.html %}
 
   <div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="index.html">Shane Stark</a><a class="back" href="index.html#lab">Back to the lab</a></div></div>
 
@@ -54,7 +58,7 @@
   </header>
 
 
-  <main><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
+  <main id="main" tabindex="-1"><section id="artifacts"><div class="container"><h2>Contribution and Supporting Artifacts</h2><p>This is my independent network learning lab. Configuration and troubleshooting work are distinct from a claim that every proposed isolation or failure test has been completed.</p><ul><li><a href="proto-lab-evidence.html#firewall-policy">Inspect firewall flow evidence and application verification &rarr;</a></li><li><a href="assets/images/network-topology.svg">Open the lab topology diagram</a></li><li><a href="technical-evidence.html#vlan-connectivity">Read the hypothetical network fault-isolation scenario</a></li></ul></div></section>
 
 
 
@@ -632,17 +636,10 @@
 
 
 <section><div class="container"><div class="section-label">Connected workloads</div><h2>The Network Supports the Services.</h2><p>This page covers traffic paths and network controls. The infrastructure case study documents the separate hosts providing jump access, storage, VPN, and local AI.</p><a class="next-button" href="virtualization-lab.html">Explore workload placement &amp; administration &rarr;</a></div></section>  </main>
+{% include portfolio-contact.html %}
 
 
-  <footer>
-
-    <div class="container">
-
-      © 2026 Shane Stark
-
-    </div>
-
-  </footer>
+  {% include portfolio-footer.html %}
 
 
 <script src="assets/js/shell.js" defer></script>

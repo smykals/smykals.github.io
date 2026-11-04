@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +11,16 @@
 <meta property="og:title" content="Campus Network Leadership | Shane Stark">
 <meta property="og:description" content="Regional field supervisor and network specialist role covering five campuses, three states and 6,500+ users.">
 <meta name="theme-color" content="#171A1E">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/css/case.css">
 <link rel="stylesheet" href="assets/css/theme.css">
+{% include site-icons.html %}
 </head>
-<body style="--c: var(--work)">
+<body style="--c: var(--work)" class="themed has-shell">
+{% include portfolio-shell.html %}
 <header class="site-head"><div class="wrap"><a class="brand" href="index.html">Shane Stark</a><a class="back" href="index.html#impact">Back to results</a></div></header>
-<main>
+<main id="main" tabindex="-1">
 <div class="case-hero"><div class="wrap">
   <span class="kind">Leadership case study<span class="state">, 2018 to 2024</span></span>
   <h1>Campus Network Leadership</h1>
@@ -30,7 +34,8 @@
 <section><div class="wrap"><p class="note"><b>Sanitized for public use.</b> Employer names, site locations, people, hostnames, addresses, credentials and internal system details are left out or generalized. Counts are approximate and describe the scope of my responsibilities, not work I did alone.</p></div></section>
 <div class="wrap next"><a href="production-data-connectivity.html">&larr; Keeping Production Data Reachable</a><a href="technician-development.html">Field Technician Development &rarr;</a></div>
 </main>
-<footer><div class="wrap">&copy; 2026 Shane Stark. Built by hand, hosted on GitHub Pages.</div></footer>
+{% include portfolio-contact.html %}
+{% include portfolio-footer.html %}
 <script src="assets/js/shell.js" defer></script>
 </body>
 </html>

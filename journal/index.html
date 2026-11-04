@@ -9,7 +9,6 @@ title: Field Journal
 <meta name="description" content="Shane Stark's professional portfolio field journal: hands-on IT infrastructure, systems, networking, and troubleshooting notes.">
 <title>Field Journal | Shane Stark</title>
 <link rel="stylesheet" href="{{ '/journal/style.css' | relative_url }}">
-<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <meta name="theme-color" content="#171A1E">
 <meta property="og:image" content="https://smykals.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,10 +21,12 @@ title: Field Journal
   gtag('config', 'G-N43N0LR7NG');
 </script>
 <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}">
+{% include site-icons.html %}
 </head>
-<body class="c-writing">
+<body class="c-writing themed has-shell">
+{% include portfolio-shell.html %}
 <div class="site-head" role="banner"><div class="bar-inner"><a class="brand" href="{{ '/' | relative_url }}">Shane Stark</a><a class="back" href="{{ '/' | relative_url }}#journal">Back to the portfolio</a></div></div>
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 <section class="intro"><span class="eyebrow">Field Journal</span><h1>Notes from the Workbench.</h1><p>Hands-on records of the systems I build, the problems I investigate, and what I learn along the way. Each entry focuses on the goal, the approach, the evidence, and the result.</p></section>
 <section aria-labelledby="entries"><div class="section-head"><h2 id="entries">Journal Entries</h2><span>{{ site.posts.size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span></div>
 {% for post in site.posts %}
@@ -35,6 +36,7 @@ title: Field Journal
 {% endfor %}
 </section>
 </main>
-<footer class="wrap footer"><span>© {{ 'now' | date: '%Y' }} Shane Stark</span><a href="{{ '/' | relative_url }}">Back to portfolio</a></footer>
+{% include portfolio-contact.html %}
+{% include portfolio-footer.html %}
 <script src="{{ '/assets/js/shell.js' | relative_url }}" defer></script>
 </body></html>

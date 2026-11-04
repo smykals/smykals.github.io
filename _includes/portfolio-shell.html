@@ -1,0 +1,46 @@
+<a class="portfolio-skip" href="#main">Skip to Content</a>
+<div class="mbar">
+  <button type="button" class="mbar-btn" id="menu-open" aria-controls="side" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+  <a class="mbar-name" href="{% if page.url == "/" or page.url == "/index.html" %}#top{% else %}{{ "/#top" | relative_url }}{% endif %}">Shane Stark</a>
+  <a class="mbar-btn contact-link" href="#contact">Contact</a>
+  <button type="button" class="mbar-btn ask-open" aria-controls="search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><span>Ask</span></button>
+</div>
+
+<nav class="portfolio-side" id="side" aria-label="Main">
+  <div class="side-head">
+    <a class="side-brand" href="{% if page.url == "/" or page.url == "/index.html" %}#top{% else %}{{ "/#top" | relative_url }}{% endif %}"><img src="{{ "/assets/img/shane-avatar.webp" | relative_url }}" width="320" height="320" alt=""><span class="lbl">Shane Stark</span></a>
+    <button type="button" class="side-close" id="menu-close" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="side-nav">
+    <div class="side-group"><a href="{% if page.url == "/" or page.url == "/index.html" %}#top{% else %}{{ "/#top" | relative_url }}{% endif %}" data-nav="overview" data-tip="Overview" title="Overview"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/></svg><span class="lbl">Overview</span></a></div>
+    <div class="side-group"><span>Career</span>
+      <a href="{% if page.url == "/" or page.url == "/index.html" %}#experience{% else %}{{ "/#experience" | relative_url }}{% endif %}" data-nav="experience" data-tip="Experience" title="Experience"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M9 7.5V5.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></svg><span class="lbl">Experience</span></a>
+      <a href="{% if page.url == "/" or page.url == "/index.html" %}#skills{% else %}{{ "/#skills" | relative_url }}{% endif %}" data-nav="skills" data-tip="Skills" title="Skills"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="lbl">Skills</span></a>
+      <a href="{% if page.url == "/" or page.url == "/index.html" %}#work{% else %}{{ "/#work" | relative_url }}{% endif %}" data-nav="work" data-tip="Professional Work" title="Professional Work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h3l1 6h3v8z"/></svg><span class="lbl">Professional Work</span></a>
+    </div>
+    <div class="side-group"><span>Lab &amp; Play</span>
+      <a href="{% if page.url == "/" or page.url == "/index.html" %}#lab{% else %}{{ "/#lab" | relative_url }}{% endif %}" data-nav="lab" data-tip="Lab Projects" title="Lab Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5.5 9.5A1.5 1.5 0 0 0 5.8 21h12.4a1.5 1.5 0 0 0 1.3-2.5L14 9V3M7.5 15h9"/></svg><span class="lbl">Lab Projects</span></a>
+      <a href="{% if page.url == "/" or page.url == "/index.html" %}#games{% else %}{{ "/#games" | relative_url }}{% endif %}" data-nav="games" data-tip="Games" title="Games"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="13.5" r="1"/></svg><span class="lbl">Games</span></a>
+      <a href="{% if page.url == "/" or page.url == "/index.html" %}#journal{% else %}{{ "/#journal" | relative_url }}{% endif %}" data-nav="journal" data-tip="Field Journal" title="Field Journal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg><span class="lbl">Field Journal</span></a>
+    </div>
+    <div class="side-group"><span>Connect</span>
+      <a href="{{ "/professional-experience.html" | relative_url }}" data-nav="resume" data-tip="Résumé" title="Résumé"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span class="lbl">Résumé</span></a>
+      <a href="#contact" data-nav="contact" data-tip="Contact" title="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span class="lbl">Contact</span></a>
+    </div>
+  </div>
+  <button type="button" class="side-toggle" id="side-toggle" aria-expanded="true" aria-controls="side" data-tip="Collapse Sidebar" title="Collapse Sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7-5 5 5 5"/></svg><span class="lbl">Collapse Sidebar</span></button>
+</nav>
+<div class="scrim nav-scrim" id="nav-scrim" hidden></div>
+
+<div class="utility">
+  <a class="u-back" href="{{ "/" | relative_url }}">Portfolio Overview</a>
+  <div class="utility-actions"><a class="ask contact-link" href="#contact">Contact</a>
+  <button type="button" class="ask ask-open" aria-controls="search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask About My Experience</button></div>
+</div>
+
+<noscript><style>
+body.has-shell { padding-left: 0; }
+.portfolio-side { position: static; width: 100%; transform: none; visibility: visible; }
+.portfolio-side .side-nav { display: flex; flex-wrap: wrap; }
+.side-toggle, .side-close, .mbar, .utility { display: none; }
+</style></noscript>

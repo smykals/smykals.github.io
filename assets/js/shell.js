@@ -1,6 +1,4 @@
-// Site shell: sidebar navigation, portfolio search, footer links and one-overlay-at-a-time
-// handling for every page. The homepage ships this markup statically; inner pages get it
-// injected here and keep their original header and footer when JavaScript is off.
+// Shared Jekyll includes render the shell; enhance navigation and portfolio search here.
 (() => {
   const script = document.currentScript;
   const ROOT = new URL('../../', script.src).href;           // site root, from this file's location
@@ -14,64 +12,22 @@
   const isHome = body.classList.contains('home');
   body.classList.add('themed', 'has-shell');
 
-  /* Navigation model: same destinations everywhere; the homepage uses in-page anchors. */
-  const ICON = {
-    overview: '<rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/>',
-    experience: '<rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M9 7.5V5.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
-    skills: '<rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
-    work: '<path d="M3 20V10l5 3V10l5 3V6h3l1 6h3v8z"/>',
-    lab: '<path d="M9 3h6M10 3v6l-5.5 9.5A1.5 1.5 0 0 0 5.8 21h12.4a1.5 1.5 0 0 0 1.3-2.5L14 9V3M7.5 15h9"/>',
-    games: '<rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="13.5" r="1"/>',
-    journal: '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/>',
-    resume: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
-    contact: '<rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/>'
-  };
-  const NAV = [
-    [null, [['overview', 'Overview', '#top', 'index.html']]],
-    ['Career', [['experience', 'Experience', '#experience', 'professional-experience.html'], ['skills', 'Skills', '#skills', 'technical-skills.html'], ['work', 'Professional Work', '#work', 'index.html#work']]],
-    ['Lab & Play', [['lab', 'Lab Projects', '#lab', 'index.html#lab'], ['games', 'Games', '#games', 'interactive/'], ['journal', 'Field Journal', '#journal', 'journal/']]],
-    ['Connect', [['resume', 'Résumé', 'professional-experience.html', 'professional-experience.html'], ['contact', 'Contact', '#contact', 'index.html#contact']]]
-  ];
   // Which destination an inner page belongs to, for the active state.
   const SECTION = {
     experience: ['professional-experience.html'], skills: ['technical-skills.html'],
     work: ['weighing-labeling-fault', 'plant-network-refresh', 'production-data-connectivity', 'data-center-core-infrastructure', 'campus-network-leadership', 'field-team-leadership', 'technician-development', 'green-belt-case-study'],
     lab: ['network-lab', 'ot-network-lab', 'proto-lab-evidence', 'virtualization-lab', 'aiio', 'monitrope', 'do2', 'ccna-lab', 'ccna-study-laptop', 'technical-evidence'],
-    games: ['interactive/', 'game-'], journal: ['journal/']
+    games: ['interactive/', 'game-', 'packet-game'], journal: ['journal/']
   };
   const path = location.pathname.replace(ROOT.replace(location.origin, ''), '');
-  const current = Object.keys(SECTION).find((k) => SECTION[k].some((p) => path.includes(p)));
+  const current = path.startsWith('journal/') ? 'journal'
+    : path.startsWith('interactive/') ? 'games'
+    : Object.keys(SECTION).find((k) => SECTION[k].some((p) => path === p || path === p + '.html' || (p === 'game-' && path.startsWith(p)))) || 'overview';
 
-  const svg = (k) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>`;
-  const SOCIAL = `<ul class="socials" aria-label="Contact and social links">
-    <li><a href="mailto:shanemykalstark@gmail.com" aria-label="Email Shane Stark">${'<svg viewBox="0 0 24 24" aria-hidden="true">' + ICON.contact + '</svg>'}Email</a></li>
-    <li><a href="https://www.linkedin.com/in/SHANEMYKALSTARK" rel="noopener" aria-label="Shane Stark on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M8 10.5V17M8 7.5v.01M11.5 17v-6.5M11.5 13.5c0-2 1.2-3 2.7-3s2.3 1 2.3 3V17"/></svg>LinkedIn</a></li>
-    <li><a href="https://www.instagram.com/smykalsbuilds/" rel="noopener" aria-label="@smykalsbuilds on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7v.01"/></svg>Instagram</a></li>
-    <li><a href="https://github.com/smykals" rel="noopener" aria-label="smykals on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.4c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C5.8 1 4.7 1.3 4.7 1.3a4.9 4.9 0 0 0-.1 3.6A5.2 5.2 0 0 0 3.2 8.4c0 5.2 3.1 6.4 6.1 6.7a3 3 0 0 0-.9 2.3V21"/></svg>GitHub</a></li>
-  </ul>`;
-
-  /* Inject the shell on inner pages ------------------------------------------------- */
-  if (!$('#side')) {
-    const nav = NAV.map(([group, items]) => `<div class="side-group">${group ? `<span>${group}</span>` : ''}${items.map(([k, label, , page]) =>
-      `<a href="${ROOT}${page}" data-nav="${k}" data-tip="${label}"${k === current ? ' class="active" aria-current="page"' : ''}>${svg(k)}<span class="lbl">${label}</span></a>`).join('')}</div>`).join('');
-    const back = $('.site-head .back');
-    const shell = document.createElement('div');
-    shell.innerHTML = `
-      <div class="mbar"><button type="button" class="mbar-btn" id="menu-open" aria-controls="side" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button><a class="mbar-name" href="${ROOT}index.html">Shane Stark</a><button type="button" class="mbar-btn ask-open" aria-controls="search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><span>Ask</span></button></div>
-      <nav class="side" id="side" aria-label="Main">
-        <div class="side-head"><a class="side-brand" href="${ROOT}index.html"><img src="${ROOT}assets/img/shane-avatar.webp" width="320" height="320" alt=""><span class="lbl">Shane Stark</span></a><button type="button" class="side-close" id="menu-close" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-        <div class="side-nav">${nav}</div>
-        <button type="button" class="side-toggle" id="side-toggle" aria-expanded="true" aria-controls="side" data-tip="Collapse Sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7-5 5 5 5"/></svg><span class="lbl">Collapse Sidebar</span></button>
-      </nav>
-      <div class="scrim nav-scrim" id="nav-scrim" hidden></div>
-      <div class="utility">${back ? `<a class="u-back" href="${back.getAttribute('href')}">${back.textContent}</a>` : '<span class="u-label">Shane Stark · Portfolio</span>'}<button type="button" class="ask ask-open" aria-controls="search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask About My Experience</button></div>`;
-    const skip = $('.skip, .skip-link');
-    const anchor = skip ? skip.nextSibling : body.firstChild;
-    [...shell.children].forEach((el) => body.insertBefore(el, anchor));
-    const foot = document.createElement('footer');
-    foot.className = 'site-foot';
-    foot.innerHTML = `<span>© 2026 Shane Stark. Built by hand, hosted on GitHub Pages.</span>${SOCIAL}`;
-    body.appendChild(foot);
+  // Mark the current page using the shared include's navigation model.
+  if (!isHome && current) {
+    const link = $(`[data-nav="${current}"]`, $('#side'));
+    if (link) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
   }
   if (!$('#search')) {
     const sheet = document.createElement('aside');
@@ -89,11 +45,17 @@
   /* Overlays: one at a time ---------------------------------------------------------- */
   const overlays = {};
   let active = null, returnFocus = null;
+  let inerted = [];
+  function restoreBackground() { inerted.forEach((el) => { el.inert = false; }); inerted = []; }
+
   function open(name, from, focusEl) {
     if (active && active !== name) close({ restore: false, quiet: true });
     const o = overlays[name];
     if (active !== name) returnFocus = from || document.activeElement;
     active = name;
+    [...body.children].forEach((el) => {
+      if (el !== o.el && el !== o.scrim && !el.inert && !['SCRIPT', 'STYLE'].includes(el.tagName)) { el.inert = true; inerted.push(el); }
+    });
     if (!o.persistent) o.el.hidden = false;
     if (o.scrim) o.scrim.hidden = false;
     o.el.classList.remove('in'); void o.el.offsetWidth; o.el.classList.add('in');
@@ -107,6 +69,7 @@
     if (o.scrim) o.scrim.hidden = true;
     document.documentElement.classList.remove('overlay-open');
     active = null;
+    restoreBackground();
     if (o.onClose) o.onClose(quiet);
     if (restore && returnFocus && document.contains(returnFocus) && returnFocus.offsetParent !== null) returnFocus.focus();
     returnFocus = null;
@@ -121,7 +84,7 @@
     if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
   });
-  window.Shell = { open, close, register: (name, o) => { overlays[name] = o; }, isOpen: (n) => active === n, contains: (el) => !!(active && overlays[active].el.contains(el)), ROOT, SOCIAL };
+  window.Shell = { open, close, register: (name, o) => { overlays[name] = o; }, isOpen: (n) => active === n, contains: (el) => !!(active && overlays[active].el.contains(el)), ROOT };
 
   /* Sidebar ---------------------------------------------------------------------------- */
   const side = $('#side'), toggle = $('#side-toggle'), menuOpen = $('#menu-open');
@@ -129,7 +92,8 @@
     body.classList.toggle('side-collapsed', c);
     toggle.setAttribute('aria-expanded', String(!c));
     const label = c ? 'Expand Sidebar' : 'Collapse Sidebar';
-    toggle.querySelector('.lbl').textContent = label; toggle.dataset.tip = label;
+    toggle.setAttribute('aria-label', label);
+    toggle.querySelector('.lbl').textContent = label; toggle.dataset.tip = label; toggle.title = label;
     if (save) store.set('ws-sidebar', c ? 'collapsed' : 'expanded');
   }
   setCollapsed(store.get('ws-sidebar') === 'collapsed', false);   // first visit: labels shown
@@ -150,6 +114,11 @@
     }), { rootMargin: '-30% 0px -65% 0px' });
     links.forEach((a) => { const t = $(a.getAttribute('href')); if (t) io.observe(t); });
   }
+
+  $$('.contact-link, [data-nav="contact"]').forEach((link) => link.addEventListener('click', () => {
+    if (active) close({ restore: false });
+    $('#contact').focus({ preventScroll: true });
+  }));
 
   /* Portfolio search --------------------------------------------------------------------- */
   const sheet = $('#search'), form = $('#search-form'), input = $('#search-q'), list = $('#search-results'), status = $('#search-status'), suggest = $('#search-suggest');
