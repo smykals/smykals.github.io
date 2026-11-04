@@ -121,11 +121,11 @@
   }
 
   /* Capability map: selecting or focusing a capability lights its paths and evidence ---------- */
-  const NAMES = { networking: 'Networking', systems: 'Systems', itot: 'IT/OT', leadership: 'Leadership' };
+  const NAMES = { networking: 'Networking', systems: 'Systems', field: 'Field Services', leadership: 'Leadership' };
   const SUPPORT = {
     networking: [['campus-network-leadership.html', 'Campus Network Leadership'], ['plant-network-refresh.html', "Replacing a Plant's Network While It Runs"], ['network-lab.html', 'Network Segmentation Lab'], ['technical-skills.html', 'Technical Skills']],
     systems: [['production-data-connectivity.html', 'Keeping Production Data Reachable'], ['virtualization-lab.html', 'Access, Storage and AI Hosts'], ['aiio.html', 'AIIO Station'], ['monitrope.html', 'MONITROPE']],
-    itot: [['weighing-labeling-fault.html', 'Bags Weighed, but Never Labeled'], ['production-data-connectivity.html', 'Keeping Production Data Reachable'], ['ot-network-lab.html', 'OT Learning Environment'], ['green-belt-case-study.html', 'Green Belt Case Study']],
+    field: [['technician-development.html', 'From Smart Home Professional to Team Trainer'], ['campus-network-leadership.html', 'Campus Network Leadership'], ['weighing-labeling-fault.html', 'Bags Weighed, but Never Labeled'], ['field-team-leadership.html', 'Leading Distributed IT Field Operations']],
     leadership: [['field-team-leadership.html', 'Leading Distributed IT Field Operations'], ['technician-development.html', 'From Technician to Team Trainer'], ['green-belt-case-study.html', 'Green Belt Case Study'], ['campus-network-leadership.html', 'Campus Network Leadership']]
   };
   const cmap = $('.cmap'), prompt = $('#cm-prompt'), links = $('#cm-links'), reset = $('.cm-reset');
@@ -170,6 +170,16 @@
     if (i < 0) return;
     e.preventDefault(); evTabs.pick(i, true);
   });
+
+  /* Behind the Build portrait: hover or focus previews it; the button (tap or keyboard) keeps it open */
+  const portrait = $('#portrait'), cue = $('.build-cue', portrait);
+  cue.addEventListener('click', () => {
+    const open = !portrait.classList.contains('flipped');
+    portrait.classList.toggle('flipped', open);
+    cue.setAttribute('aria-expanded', String(open));
+    cue.lastChild.textContent = open ? ' Back to Portrait' : ' Behind the Build';
+  });
+  portrait.addEventListener('keydown', (e) => { if (e.key === 'Escape' && portrait.classList.contains('flipped')) { cue.click(); cue.focus(); } });
 
   /* Experience at a Glance -------------------------------------------------------------------- */
   const glance = $('.glance');

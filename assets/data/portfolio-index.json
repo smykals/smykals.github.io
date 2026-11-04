@@ -417,10 +417,10 @@
 ]
 },
 {
-"title": "Experience summary",
+"title": "Career timeline",
 "url": "#experience",
 "category": "professional",
-"summary": "IT Engineer at a 24/7 manufacturing plant (2024–now); network specialist and regional field supervisor on campus and data center networks (2018–2024); Vivint smart home professional to team trainer (2016–2018).",
+"summary": "Technologist with roles in IT infrastructure, networking and systems: IT engineer (2024–now), network specialist (2018–2024), regional field supervisor (2020–2024), and smart home professional to team trainer (2016–2018).",
 "keywords": [
 "experience",
 "roles",
@@ -490,13 +490,15 @@
 "title": "Core skills",
 "url": "#skills",
 "category": "professional",
-"summary": "Cisco Catalyst, ISE and WLC; VLANs; TCP/IP, DNS, DHCP; packet capture; PLC-connected troubleshooting; SAP; PI Vision; Windows Server; Linux; Active Directory; VMware; ServiceNow.",
+"summary": "Networking: Cisco Catalyst, ISE and WLC, VLANs, TCP/IP, DNS, DHCP, packet capture. Systems: Windows Server, Linux, Active Directory, VMware, SAP and PI Vision support. Field services and operations: ServiceNow, escalation management, technician training, documentation, vendor coordination.",
 "keywords": [
 "skills",
 "tools",
 "cisco",
 "networking",
-"systems"
+"systems",
+"field services",
+"operations"
 ]
 },
 {
@@ -4656,6 +4658,32 @@
 ],
 "section": "Documentation",
 "text": "Firmware-upgrade training Cisco switch firmware-upgrade training materials I wrote for the team (not published). Troubleshooting standards Standardized troubleshooting documentation used across the region (not published). Full role history Professional experience, with how each result was measured Sanitized for public use. Employer names, site locations, people, hostnames, addresses, credentials and internal system d"
+},
+{
+"title": "Experience at a Glance",
+"url": "#top",
+"category": "professional",
+"summary": "Networking, systems, field services and IT operations leadership, each linked to supporting experience.",
+"keywords": [
+"field services",
+"operations",
+"leadership",
+"networking",
+"systems",
+"overview"
+]
+},
+{
+"title": "Featured Projects",
+"url": "#projects",
+"category": "lab",
+"summary": "MONITROPE, the network segmentation lab, a plant network refresh and campus network cores.",
+"keywords": [
+"projects",
+"monitrope",
+"lab",
+"featured"
+]
 }
 ]
 }
