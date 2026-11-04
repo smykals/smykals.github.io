@@ -1,4 +1,15 @@
 title: Shane Stark | Field Journal
 markdown: kramdown
-permalink: /journal/:year/:month/:day/:title/
 timezone: America/New_York
+# Repository notes are not part of the published site.
+exclude:
+  - README.md
+  - docs/
+# The journal URL pattern applies to posts only. Pages carry front matter for the
+# shared includes, and must keep their existing .html addresses.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      permalink: /journal/:year/:month/:day/:title/

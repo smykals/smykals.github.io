@@ -961,3 +961,16 @@ body[data-pick] .kpis [data-cap]:not(.pick-on), body[data-pick] .featured [data-
   @keyframes bag-move-2 { 0% { transform: translate(60px, 182px); } 15%, 30% { transform: translate(118px, 182px); } 85%, 100% { transform: translate(514px, 182px); } }
 }
 @media (prefers-reduced-motion: reduce) { .cl-bag { transform: translate(514px, 182px); } }
+
+/* Each experience label stays inside its quarter of the graph, including the
+   rightmost leadership node when the expanded sidebar reduces available width. */
+.ex-nodes li { width: 25%; padding-inline: 6px; }
+.ex-node { width: 100%; min-width: 0; margin-inline: auto; }
+.ex-node b, .ex-node span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+/* Keep these overrides after the later desktop revisions in this stylesheet. */
+@media (max-width: 760px) {
+  .ex-graph { height: auto; }
+  .ex-nodes li { width: auto; padding: 0; transform: none; }
+  .ex-node { max-width: none; margin: 0; }
+  .ex-node span { grid-column: 2; min-width: 0; }
+}
