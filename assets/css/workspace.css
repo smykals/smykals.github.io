@@ -241,7 +241,7 @@
 .home .sec-title { margin-bottom: 10px; }
 .chip { justify-self: start; max-width: 100%; font: 500 11px var(--mono); padding: 1px 8px; border-radius: 999px; border: 1px solid; line-height: 1.6; white-space: normal; }
 .chip.ok { color: var(--lab); border-color: rgba(116,163,242,.5); }
-.chip.dev { color: #E3C27A; border-color: #7A6438; border-style: dashed; }
+.chip.wip { color: #E3C27A; border-color: #7A6438; border-style: dashed; }
 
 /* 7. Games and Field Journal --------------------------------------------------------------- */
 .duo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start; }
@@ -428,6 +428,7 @@
 
 /* Selected projects: two professional, two lab --------------------------------------------- */
 .proj-head { margin-bottom: 8px; }
+.home .sec-title { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.1; margin: 0; font-stretch: 108%; }
 .proj-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
 .proj-label { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 0 0 8px; }
 .proj-label .p-link { margin: 0; font-size: 13px; }
