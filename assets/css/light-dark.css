@@ -1,9 +1,6 @@
-/* Original dark graphite layout with bright red accents. */
-:root{--accent:#F5223E}
-.path,.case,.group,.card,.fault,.lifecycle-card{border-top-color:var(--accent)}
-.hero .proof li,.unit{border-left-color:var(--accent)}
+/* Original graphite, orange and blue palette; additional capability layouts only. */
 .lifecycle-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.lifecycle-card{display:flex;flex-direction:column;gap:13px;border:1px solid var(--rule);border-top:4px solid var(--accent);border-radius:10px;background:var(--panel);padding:24px}
+.lifecycle-card{display:flex;flex-direction:column;gap:13px;border:1px solid var(--rule);border-top:4px solid var(--work);border-radius:10px;background:var(--panel);padding:24px}
 .stage-label{font:600 13px var(--mono);color:var(--work);letter-spacing:.08em;text-transform:uppercase}
 .lifecycle-card h3{font-size:22px;line-height:1.2;margin:0}.lifecycle-card p{font-size:15px;color:var(--dim);margin:0;line-height:1.65}.lifecycle-card .stage-evidence{padding-top:13px;border-top:1px solid var(--rule);color:var(--steel)}
 .lifecycle-card a{margin-top:auto;padding-top:12px;font-weight:600;font-size:14px;text-underline-offset:4px}
