@@ -1,19 +1,25 @@
 /* Color tokens for the whole site. Every page reads its colors from here.
+   Black and charcoal surfaces, soft white text, red for interaction.
    Work = orange, lab = blue, everything else is neutral.
-   Green, amber and red are reserved for status: up, degraded, down. */
+   Green, amber and fault red are reserved for diagram status: up, degraded, down. */
 :root {
   /* Surfaces */
-  --floor: #171A1E;     /* page */
-  --panel: #21262B;     /* cards */
-  --panel-2: #2A3036;   /* raised */
-  --rack: #111417;      /* diagrams and rack chassis */
-  --rule: #333A42;      /* dividers */
-  --wire: #4A5560;      /* outlines */
+  --floor: #0B0B0D;     /* page */
+  --panel: #141518;     /* cards */
+  --panel-2: #1C1E22;   /* raised */
+  --rack: #0F1012;      /* diagrams and equipment chassis */
+  --rule: #26282D;      /* dividers */
+  --wire: #3B3E44;      /* outlines */
 
   /* Text */
-  --steel: #E8EBEE;     /* main text, 14.6:1 on page */
-  --dim: #ADB6BF;       /* secondary text, 7.4:1 on cards */
-  --soft: #C3CBD3;      /* neutral accent */
+  --steel: #F2F2F5;     /* main text, 18:1 on page */
+  --dim: #B4B6BD;       /* secondary text, 8.9:1 on cards */
+  --soft: #C0C0C0;      /* silver: neutral accent and metallic edges */
+
+  /* Interface */
+  --red: #DF2531;       /* controls, hotspots, active states, focus */
+  --red-ink: #FF6B74;   /* red for small text on black */
+  --silver: #C0C0C0;
 
   /* Categories */
   --work: #F0913F;      /* professional work, 6.4:1 on cards */

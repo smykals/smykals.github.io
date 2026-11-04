@@ -325,12 +325,12 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
 @media (max-width: 560px) { .proof { grid-template-columns: 1fr; } }
 </style>
 <link rel="stylesheet" href="assets/css/light-dark.css">
+<link rel="stylesheet" href="assets/css/theme.css">
 <link rel="stylesheet" href="assets/css/workspace.css">
 </head>
-<body class="ws">
-<a class="skip" href="#main">Skip to content</a>
+<body class="home">
+<a class="skip" href="#main">Skip to Content</a>
 
-<!-- Mobile bar: menu and search stay reachable without taking content width -->
 <div class="mbar">
   <button type="button" class="mbar-btn" id="menu-open" aria-controls="side" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
   <a class="mbar-name" href="#top">Shane Stark</a>
@@ -342,117 +342,248 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <a class="side-brand" href="#top"><img src="assets/img/shane-avatar.webp" width="320" height="320" alt=""><span class="lbl">Shane Stark</span></a>
     <button type="button" class="side-close" id="menu-close" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
-  <ul class="side-list">
-    <li><a href="#top" data-nav="top" data-tip="Overview"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/></svg><span class="lbl">Overview</span></a></li>
-    <li><a href="#experience" data-nav="experience" data-tip="Experience"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M9 7.5V5.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></svg><span class="lbl">Experience</span></a></li>
-    <li><a href="#skills" data-nav="skills" data-tip="Skills"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="lbl">Skills</span></a></li>
-    <li><a href="#work" data-nav="work" data-tip="Professional Work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h3l1 6h3v8z"/></svg><span class="lbl">Professional Work</span></a></li>
-    <li><a href="#lab" data-nav="lab" data-tip="Lab Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5.5 9.5A1.5 1.5 0 0 0 5.8 21h12.4a1.5 1.5 0 0 0 1.3-2.5L14 9V3M7.5 15h9"/></svg><span class="lbl">Lab Projects</span></a></li>
-    <li><a href="professional-experience.html" data-tip="Résumé"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span class="lbl">Résumé</span></a></li>
-    <li><a href="#contact" data-nav="contact" data-tip="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span class="lbl">Contact</span></a></li>
-  </ul>
-  <button type="button" class="side-toggle" id="side-toggle" aria-expanded="true" aria-controls="side" data-tip="Expand sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7-5 5 5 5"/></svg><span class="lbl">Collapse sidebar</span></button>
+  <div class="side-nav">
+    <div class="side-group"><a href="#top" data-nav="overview" data-tip="Overview"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/></svg><span class="lbl">Overview</span></a></div>
+    <div class="side-group"><span>Career</span>
+      <a href="#experience" data-nav="experience" data-tip="Experience"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M9 7.5V5.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></svg><span class="lbl">Experience</span></a>
+      <a href="#skills" data-nav="skills" data-tip="Skills"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="lbl">Skills</span></a>
+      <a href="#work" data-nav="work" data-tip="Professional Work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h3l1 6h3v8z"/></svg><span class="lbl">Professional Work</span></a>
+    </div>
+    <div class="side-group"><span>Lab &amp; Play</span>
+      <a href="#lab" data-nav="lab" data-tip="Lab Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5.5 9.5A1.5 1.5 0 0 0 5.8 21h12.4a1.5 1.5 0 0 0 1.3-2.5L14 9V3M7.5 15h9"/></svg><span class="lbl">Lab Projects</span></a>
+      <a href="#games" data-nav="games" data-tip="Games"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="13.5" r="1"/></svg><span class="lbl">Games</span></a>
+      <a href="#journal" data-nav="journal" data-tip="Field Journal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg><span class="lbl">Field Journal</span></a>
+    </div>
+    <div class="side-group"><span>Connect</span>
+      <a href="professional-experience.html" data-nav="resume" data-tip="Résumé"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span class="lbl">Résumé</span></a>
+      <a href="#contact" data-nav="contact" data-tip="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span class="lbl">Contact</span></a>
+    </div>
+  </div>
+  <button type="button" class="side-toggle" id="side-toggle" aria-expanded="true" aria-controls="side" data-tip="Collapse Sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7-5 5 5 5"/></svg><span class="lbl">Collapse Sidebar</span></button>
 </nav>
 <div class="scrim nav-scrim" id="nav-scrim" hidden></div>
 
-<div class="shell">
 <div class="utility">
-  <span class="u-label">Career overview</span>
-  <button type="button" class="ask ask-open" aria-controls="search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask about my experience</button>
+  <span class="u-label">Career Overview</span>
+  <button type="button" class="ask ask-open" aria-controls="search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask About My Experience</button>
 </div>
 
 <main id="main">
 
-<!-- 1. Identity -->
-<section class="intro" id="top" aria-labelledby="name">
-  <span class="corner" aria-hidden="true"></span>
-  <div class="intro-id">
-    <div class="id-ring" aria-hidden="true">
-      <svg viewBox="0 0 120 120"><circle class="r-outer" cx="60" cy="60" r="57"/><circle class="r-ticks" cx="60" cy="60" r="52"/><path class="r-arc" d="M60 3 A57 57 0 0 1 113.6 40.5"/><circle class="r-node" cx="113.6" cy="40.5" r="3.2"/></svg>
-      <img src="assets/img/shane-avatar.webp" width="320" height="320" alt="">
+<!-- 1. Overview: identity, actions and a glimpse of the workspace -->
+<section class="overview" id="top" aria-labelledby="name">
+  <div class="intro">
+    <span class="corner" aria-hidden="true"></span>
+    <div class="intro-id">
+      <div class="id-ring" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><circle class="r-outer" cx="60" cy="60" r="57"/><circle class="r-ticks" cx="60" cy="60" r="52"/><path class="r-arc" d="M60 3 A57 57 0 0 1 113.6 40.5"/><circle class="r-node" cx="113.6" cy="40.5" r="3.2"/></svg>
+        <img src="assets/img/shane-avatar.webp" width="320" height="320" alt="">
+      </div>
+      <div>
+        <p class="status"><i aria-hidden="true"></i>Open to Opportunities</p>
+        <h1 id="name">Shane Stark</h1>
+        <p class="position">IT Engineer <span aria-hidden="true">|</span> Infrastructure, Networking &amp; Digital Technology</p>
+      </div>
     </div>
-    <div>
-      <p class="status"><i aria-hidden="true"></i>Open to Opportunities</p>
-      <h1 id="name">Shane Stark</h1>
-      <p class="position">IT Engineer <span aria-hidden="true">|</span> Infrastructure, Networking &amp; Digital Technology</p>
+    <p class="lede">I'm the sole onsite IT engineer for a 24/7 manufacturing plant, working across the network, systems and PLC-connected production equipment. Before that, I spent six years on university campus and data center networks and led a regional team of field technicians.</p>
+    <div class="actions">
+      <a class="btn primary" href="professional-experience.html">View Résumé</a>
+      <a class="btn secondary" href="#workspace">Explore My Work</a>
+      <a class="btn secondary" href="#contact">Contact</a>
     </div>
   </div>
-  <p class="lede">Ten years of hands-on IT. I'm the sole onsite IT engineer for a 24/7 manufacturing plant, working across the network, systems and PLC-connected production equipment. Before that, I spent six years on university campus and data center networks and led a regional team of field technicians.</p>
-  <div class="actions">
-    <a class="btn primary" href="professional-experience.html">View Résumé</a>
-    <a class="btn secondary" href="#workspace">Explore My Work</a>
-    <a class="btn secondary" href="#contact">Contact</a>
+  <div class="glimpse live" aria-labelledby="g-title">
+    <span class="corner" aria-hidden="true"></span>
+    <div class="g-art" aria-hidden="true">
+      <img src="assets/img/lab-ot.webp" width="960" height="800" alt="">
+      <svg viewBox="0 0 960 800" preserveAspectRatio="xMidYMid slice"><path class="g-path" d="M115 352 C 250 300, 400 330, 485 416 S 640 330, 701 368"/></svg>
+      <i class="led" style="--x:7%; --y:41%; --d:0s"></i><i class="led" style="--x:10%; --y:47%; --d:1.3s"></i><i class="led" style="--x:15%; --y:52%; --d:2.1s"></i>
+    </div>
+    <div class="g-body">
+      <h2 id="g-title">Workspace</h2>
+      <p>Run a real fault isolation, then walk the lab I'm building.</p>
+      <div class="g-actions"><a class="btn primary" href="#scene-line">Run Checking the Line</a><a class="btn secondary" href="#scene-floor">Walk the Lab Floor</a></div>
+    </div>
   </div>
 </section>
 
-<!-- 2. Three standout metrics -->
+<!-- 2. Three standout metrics: each graphic encodes its own number -->
 <ul class="kpis" aria-label="Career highlights">
-  <li><button type="button" class="kpi" data-view="kpi-callbacks" aria-haspopup="dialog">
+  <li><button type="button" class="kpi" data-view="kpi-callbacks" data-cap="networking leadership" aria-haspopup="dialog">
     <span class="k-head"><span class="k-type">Outcome</span><span class="cat work">Professional</span></span>
-    <strong class="metal">~70%</strong><span class="k-label">fewer repeat callbacks</span><span class="k-ctx">Campus networks, 2018–2024</span><span class="k-more">Context and evidence</span>
+    <span class="k-main"><svg class="k-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" pathLength="100"/><circle class="fg" cx="22" cy="22" r="18" pathLength="100" style="stroke-dasharray:70 100"/></svg><span><strong class="metal">~70%</strong><span class="k-label">fewer repeat callbacks</span></span></span>
+    <span class="k-ctx">Campus networks, 2018–2024 · ring shows the 70% reduction</span><span class="k-more">Context and Evidence</span>
   </button></li>
-  <li><button type="button" class="kpi" data-view="kpi-team" aria-haspopup="dialog">
+  <li><button type="button" class="kpi" data-view="kpi-team" data-cap="leadership" aria-haspopup="dialog">
     <span class="k-head"><span class="k-type">Team</span><span class="cat work">Professional</span></span>
-    <strong class="metal">14</strong><span class="k-label">field technicians led directly</span><span class="k-ctx">Regional field supervisor, 2020–2024</span><span class="k-more">Context and evidence</span>
+    <span class="k-main"><span><strong class="metal">14</strong><span class="k-label">field technicians led directly</span></span><span class="k-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="k-ctx">Regional field supervisor, 2020–2024 · one mark per technician</span><span class="k-more">Context and Evidence</span>
   </button></li>
-  <li><button type="button" class="kpi" data-view="kpi-campuses" aria-haspopup="dialog">
+  <li><button type="button" class="kpi" data-view="kpi-campuses" data-cap="networking leadership" aria-haspopup="dialog">
     <span class="k-head"><span class="k-type">Scope</span><span class="cat work">Professional</span></span>
-    <strong class="metal">5 campuses</strong><span class="k-label">in 3 states under 24/7/365 responsibility</span><span class="k-ctx">Network specialist, 2018–2024</span><span class="k-more">Context and evidence</span>
+    <span class="k-main"><span><strong class="metal">5 Campuses</strong><span class="k-label">in 3 states, 24/7/365</span></span><span class="k-pins" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>
+    <span class="k-ctx">Network specialist, 2018–2024 · one pin per campus</span><span class="k-more">Context and Evidence</span>
   </button></li>
 </ul>
 
-<!-- 3. Start here, experience, skills -->
-<div class="summary">
-  <section class="panel" id="start" aria-labelledby="h-start">
+<!-- 3. Career evidence: connected graphs -->
+<section class="evidence" id="evidence" aria-labelledby="h-evidence">
+  <div class="sec-head">
+    <div><h2 id="h-evidence">Career Evidence</h2><p>Historical figures from published case studies, not live data. Select a capability to see where it shows up across the page.</p></div>
+    <div class="capbar" role="group" aria-label="Highlight evidence by capability">
+      <button type="button" data-cap-select="networking" aria-pressed="false">Networking</button>
+      <button type="button" data-cap-select="systems" aria-pressed="false">Systems</button>
+      <button type="button" data-cap-select="itot" aria-pressed="false">IT/OT</button>
+      <button type="button" data-cap-select="leadership" aria-pressed="false">Leadership</button>
+      <button type="button" class="cap-reset" data-cap-select="" disabled>Show All</button>
+    </div>
+  </div>
+  <p class="cap-status" id="cap-status" aria-live="polite">Showing all evidence.</p>
+
+  <div class="ev-grid">
+    <article class="panel ev-timeline" id="experience" aria-labelledby="h-time">
+      <span class="corner" aria-hidden="true"></span>
+      <h3 class="p-title" id="h-time">Career Timeline</h3>
+      <div class="gantt" role="list" aria-label="Roles by year; the supervisor and specialist roles overlapped from 2020 to 2024">
+        <div class="g-axis" aria-hidden="true"><span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>Now</span></div>
+        <div class="g-row" role="listitem" data-cap="networking systems itot" style="--a:80; --b:100"><span class="g-name">IT Engineer, 24/7 Manufacturing Plant</span><span class="g-yr">2024–now</span><span class="g-bar"></span></div>
+        <div class="g-row" role="listitem" data-cap="leadership" style="--a:40; --b:80"><span class="g-name">Regional Field Supervisor</span><span class="g-yr">2020–2024</span><span class="g-bar"></span></div>
+        <div class="g-row" role="listitem" data-cap="networking" style="--a:20; --b:80"><span class="g-name">Network Specialist, Campus &amp; Data Center</span><span class="g-yr">2018–2024</span><span class="g-bar"></span></div>
+        <div class="g-row" role="listitem" data-cap="leadership" style="--a:0; --b:20"><span class="g-name">Smart Home Professional → Team Trainer</span><span class="g-yr">2016–2018</span><span class="g-bar"></span></div>
+        <span class="g-overlap" aria-hidden="true" style="--a:40; --b:80">Both roles held, 2020–2024</span>
+      </div>
+      <a class="p-link" href="professional-experience.html">Explore Full Experience and Leadership History</a>
+    </article>
+
+    <article class="panel ev-before" aria-labelledby="h-before">
+      <span class="corner" aria-hidden="true"></span>
+      <h3 class="p-title" id="h-before">Before and After</h3>
+      <div class="ba" data-cap="itot leadership">
+        <p class="ba-title"><b>Green Belt project I led</b><span>Average label-printing tickets per month</span></p>
+        <div class="ba-bars" role="img" aria-label="Average label-printing tickets per month: 6.3 before, 2.3 during the improvement period, a 63.5% reduction">
+          <div style="--v:100"><span class="bv">6.3</span><span class="bb soft"></span><span class="bl">Before</span></div>
+          <div style="--v:36.5"><span class="bv">2.3</span><span class="bb"></span><span class="bl">During improvement</span></div>
+          <p class="ba-delta"><strong class="metal">63.5%</strong> fewer</p>
+        </div>
+        <a class="p-link" href="green-belt-case-study.html">View the Green Belt Case Study</a>
+      </div>
+      <div class="ba" data-cap="leadership">
+        <p class="ba-title"><b>Repeat service calls on my own work</b><span>Vivint, 2016–2018 · indexed, before = 100</span></p>
+        <div class="ba-bars" role="img" aria-label="Own repeat service calls indexed to 100 before; 70 after, a 30% reduction. Raw counts are not published.">
+          <div style="--v:100"><span class="bv">100</span><span class="bb soft"></span><span class="bl">Before</span></div>
+          <div style="--v:70"><span class="bv">70</span><span class="bb"></span><span class="bl">After</span></div>
+          <p class="ba-delta"><strong class="metal">30%</strong> fewer</p>
+        </div>
+        <a class="p-link" href="technician-development.html">View the Technician Case Study</a>
+      </div>
+    </article>
+
+    <article class="panel ev-infra" data-cap="networking systems" aria-labelledby="h-infra">
+      <span class="corner" aria-hidden="true"></span>
+      <h3 class="p-title" id="h-infra">Infrastructure Scale</h3>
+      <div class="scale-legend" aria-hidden="true"><span class="env campus">Campus sites, 2018–2024, cumulative</span><span class="env plant">Plant, 2024–now</span></div>
+      <dl class="scale">
+        <div><dt>Wireless access points</dt>
+          <dd class="campus" style="--v:100"><span class="sb"></span><b>1,000+</b><span class="vh">at campus sites</span></dd>
+          <dd class="plant" style="--v:12"><span class="sb"></span><b>120</b><span class="vh">at the plant</span></dd></div>
+        <div><dt>Switches</dt>
+          <dd class="campus" style="--v:25"><span class="sb"></span><b>250</b><span class="vh">at campus sites</span></dd>
+          <dd class="plant na"><span class="sb"></span><b>Not published</b></dd></div>
+        <div><dt>People and devices</dt>
+          <dd class="campus text"><b>6,500+</b> users on my directly assigned campuses</dd>
+          <dd class="plant text"><b>~300</b> endpoints</dd></div>
+      </dl>
+      <p class="p-foot">Bars in each row share one zero-based scale. Campus figures cover my assigned sites, not equipment I installed alone.</p>
+      <a class="p-link" href="data-center-core-infrastructure.html">View the Data Center Case Study</a>
+    </article>
+
+    <article class="panel ev-map" aria-labelledby="h-map">
+      <span class="corner" aria-hidden="true"></span>
+      <h3 class="p-title" id="h-map">Capability Map</h3>
+      <div class="cmap">
+        <svg viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true">
+          <g class="edges">
+            <path data-c="networking" data-e="e3" d="M150 60 C 280 60, 280 50, 400 50"/>
+            <path data-c="networking" data-e="e5" d="M150 60 C 280 60, 280 170, 400 170"/>
+            <path data-c="networking" data-e="e6" d="M150 60 C 280 60, 280 210, 400 210"/>
+            <path data-c="networking" data-e="e7" d="M150 60 C 280 60, 280 250, 400 250"/>
+            <path data-c="networking" data-e="e8" d="M150 60 C 280 60, 280 290, 400 290"/>
+            <path data-c="systems" data-e="e5" d="M150 153 C 280 153, 280 170, 400 170"/>
+            <path data-c="systems" data-e="e9" d="M150 153 C 280 153, 280 330, 400 330"/>
+            <path data-c="systems" data-e="e10" d="M150 153 C 280 153, 280 370, 400 370"/>
+            <path data-c="itot" data-e="e4" d="M150 246 C 280 246, 280 130, 400 130"/>
+            <path data-c="itot" data-e="e6" d="M150 246 C 280 246, 280 210, 400 210"/>
+            <path data-c="itot" data-e="e7" d="M150 246 C 280 246, 280 250, 400 250"/>
+            <path data-c="leadership" data-e="e1" d="M150 340 C 280 340, 280 10, 400 10"/>
+            <path data-c="leadership" data-e="e2" d="M150 340 C 280 340, 280 90, 400 90"/>
+            <path data-c="leadership" data-e="e3" d="M150 340 C 280 340, 280 50, 400 50"/>
+            <path data-c="leadership" data-e="e4" d="M150 340 C 280 340, 280 130, 400 130"/>
+          </g>
+        </svg>
+        <div class="cm-caps">
+          <button type="button" data-cap-select="networking" style="--y:15%" aria-pressed="false">Networking</button>
+          <button type="button" data-cap-select="systems" style="--y:38.3%" aria-pressed="false">Systems</button>
+          <button type="button" data-cap-select="itot" style="--y:61.5%" aria-pressed="false">IT/OT</button>
+          <button type="button" data-cap-select="leadership" style="--y:85%" aria-pressed="false">Leadership</button>
+        </div>
+        <ul class="cm-ev">
+          <li data-e="e1" data-cap="leadership" style="--y:2.5%"><a href="#view-kpi-callbacks" data-view="kpi-callbacks">~70% fewer callbacks</a></li>
+          <li data-e="e3" data-cap="networking leadership" style="--y:12.5%"><a href="#view-kpi-campuses" data-view="kpi-campuses">5 campuses, 24/7</a></li>
+          <li data-e="e2" data-cap="leadership" style="--y:22.5%"><a href="#view-kpi-team" data-view="kpi-team">14 technicians led</a></li>
+          <li data-e="e4" data-cap="itot leadership" style="--y:32.5%"><a href="green-belt-case-study.html">Green Belt project</a></li>
+          <li data-e="e5" data-cap="networking systems" style="--y:42.5%"><a href="#h-infra">Infrastructure scale</a></li>
+          <li data-e="e6" data-cap="networking itot" style="--y:52.5%"><a href="#scene-line">Checking the Line</a></li>
+          <li data-e="e7" data-cap="networking itot" style="--y:62.5%"><a href="#scene-fortinet">Fortinet boundary</a></li>
+          <li data-e="e8" data-cap="networking" style="--y:72.5%"><a href="network-lab.html">Segmentation lab</a></li>
+          <li data-e="e9" data-cap="systems" style="--y:82.5%"><a href="virtualization-lab.html">Proxmox hosts</a></li>
+          <li data-e="e10" data-cap="systems" style="--y:92.5%"><a href="aiio.html">AIIO and MONITROPE</a></li>
+        </ul>
+      </div>
+      <p class="p-foot">Lines show where a capability is used, not cause and effect.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 4. Start here and core skills -->
+<section class="orient" id="skills" aria-label="Start here and core skills">
+  <div class="panel o-start">
     <span class="corner" aria-hidden="true"></span>
-    <h2 class="p-title" id="h-start">Start here</h2>
+    <h2 class="p-title">Start Here</h2>
     <ul class="paths">
-      <li><a href="data-center-core-infrastructure.html"><b>Infrastructure &amp; networking</b><span>Campus cores, data centers and a live plant network refresh</span></a></li>
-      <li><a href="weighing-labeling-fault.html"><b>IT/OT &amp; manufacturing</b><span>Fault isolation where the network meets production equipment</span></a></li>
-      <li><a href="field-team-leadership.html"><b>Leadership &amp; operations</b><span>Leading distributed field teams and measured improvement</span></a></li>
+      <li><a href="data-center-core-infrastructure.html"><b>Infrastructure &amp; Networking</b><span>Campus cores, data centers and a live plant network refresh</span></a></li>
+      <li><a href="weighing-labeling-fault.html"><b>IT/OT &amp; Manufacturing</b><span>Fault isolation where the network meets production equipment</span></a></li>
+      <li><a href="field-team-leadership.html"><b>Leadership &amp; Operations</b><span>Leading distributed field teams and measured improvement</span></a></li>
     </ul>
-  </section>
-
-  <section class="panel" id="experience" aria-labelledby="h-exp">
+  </div>
+  <div class="panel o-skills">
     <span class="corner" aria-hidden="true"></span>
-    <h2 class="p-title" id="h-exp">Experience</h2>
-    <ol class="roles">
-      <li><span class="when">2024–now</span><div><b>IT Engineer</b><span>24/7 manufacturing plant · network, systems and production equipment</span></div></li>
-      <li><span class="when">2018–2024</span><div><b>Network Specialist &amp; Regional Field Supervisor</b><span>Higher-education campus and data center networks</span></div></li>
-      <li><span class="when">2016–2018</span><div><b>Smart Home Professional → Team Trainer</b><span>Vivint Smart Home · connected security systems</span></div></li>
-    </ol>
-    <a class="p-link" href="professional-experience.html">Explore full experience and leadership history</a>
-  </section>
-
-  <section class="panel" id="skills" aria-labelledby="h-skills">
-    <span class="corner" aria-hidden="true"></span>
-    <h2 class="p-title" id="h-skills">Core skills</h2>
+    <h2 class="p-title">Core Skills</h2>
     <dl class="skillset">
-      <div><dt>Networking</dt><dd>Cisco Catalyst, ISE and WLC · VLANs and trunking · TCP/IP, DNS, DHCP · packet capture</dd></div>
-      <div><dt>Manufacturing IT/OT</dt><dd>PLC-connected network troubleshooting · SAP · PI Vision · industrial labeling</dd></div>
-      <div><dt>Systems &amp; operations</dt><dd>Windows Server · Linux · Active Directory · VMware · ServiceNow · root cause analysis</dd></div>
+      <div data-cap="networking"><dt>Networking</dt><dd>Cisco Catalyst, ISE and WLC · VLANs and trunking · TCP/IP, DNS, DHCP · packet capture</dd></div>
+      <div data-cap="itot"><dt>Manufacturing IT/OT</dt><dd>PLC-connected network troubleshooting · SAP · PI Vision · industrial labeling</dd></div>
+      <div data-cap="systems"><dt>Systems and Operations</dt><dd>Windows Server · Linux · Active Directory · VMware · ServiceNow · root cause analysis</dd></div>
     </dl>
-    <a class="p-link" href="technical-skills.html">Explore skills with supporting examples</a>
-  </section>
-</div>
+    <a class="p-link" href="technical-skills.html">Explore Skills With Supporting Examples</a>
+  </div>
+</section>
 
-<!-- 4. Immersive workspace -->
+<!-- 5. Immersive workspace -->
 <section class="stage" id="workspace" aria-labelledby="h-ws">
   <span class="corner" aria-hidden="true"></span>
   <div class="stage-head">
-    <div><h2 id="h-ws">Workspace</h2><p class="stage-sub">Run a real fault isolation, then walk the lab I'm building.</p></div>
+    <div><h2 id="h-ws">Workspace</h2><p class="stage-sub">Equipment and scenes are the interface. Select them for the story behind each one.</p></div>
     <div class="stage-tabs" role="tablist" aria-label="Workspace scenes">
-      <button type="button" role="tab" id="tab-line" aria-controls="scene-line" aria-selected="true"><span class="cat work">Professional</span>Checking the Line</button>
-      <button type="button" role="tab" id="tab-floor" aria-controls="scene-floor" aria-selected="false"><span class="cat lab">Lab</span>Lab floor</button>
-      <button type="button" role="tab" id="tab-fortinet" aria-controls="scene-fortinet" aria-selected="false"><span class="cat lab">Lab</span>Fortinet boundary</button>
+      <button type="button" role="tab" id="tab-line" aria-controls="scene-line" aria-selected="true" data-cap="itot networking"><span class="cat work">Professional</span>Checking the Line</button>
+      <button type="button" role="tab" id="tab-floor" aria-controls="scene-floor" aria-selected="false" data-cap="systems itot"><span class="cat lab">Lab</span>Lab Floor</button>
+      <button type="button" role="tab" id="tab-fortinet" aria-controls="scene-fortinet" aria-selected="false" data-cap="networking itot"><span class="cat lab">Lab</span>Fortinet Boundary</button>
     </div>
   </div>
 
   <div class="scene" id="scene-line" role="tabpanel" aria-labelledby="tab-line">
 <div class="trace" id="trace">
       <div class="trace-head">
-        <div><span class="tag">Checking the line · Fault isolation, production line</span><h3>Bags Weighed, but Never Labeled</h3><p class="trace-hint">Run the checks with the button, or select the station to check next.</p></div>
-        <div class="trace-controls"><button type="button" class="btn primary" id="trace-next">Run the first check</button><button type="button" class="btn secondary" id="trace-reset" hidden>Start over</button></div>
+        <div><span class="tag">Checking the Line · Fault isolation on a production line</span><h3>Bags Weighed, but Never Labeled</h3><p class="trace-hint">Run the checks with the button, or select the station to check next.</p></div>
+        <div class="trace-controls"><button type="button" class="btn primary" id="trace-next">Run the First Check</button><button type="button" class="btn secondary" id="trace-reset" hidden>Start Over</button></div>
       </div>
       <ol class="line" aria-label="Production line, from weighing to labeling">
         <li class="node" data-n="sensor"><span class="icon" aria-hidden="true">
@@ -468,7 +599,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
           <svg viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="20" rx="2"/><path d="M14 32v6h20v-6M16 20h16"/></svg></span><b>Labeler</b><small>Prints and applies</small></li>
       </ol>
       <div class="log" aria-live="polite"><p id="trace-log"><b>Symptom.</b> Every bag is weighed, but the labeling step never completes. Run the checks I ran to find out why.</p></div>
-      <p class="trace-doc"><a href="weighing-labeling-fault.html">Read the full case study</a></p>
+      <p class="trace-doc"><a href="weighing-labeling-fault.html">View the Full Case Study</a></p>
     </div>
   </div>
 
@@ -476,28 +607,36 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <div class="floor">
       <figure class="floor-art">
         <img src="assets/img/lab-ot.webp" width="960" height="800" alt="Illustration of my lab: Proxmox and TrueNAS servers on the IT side, a Fortinet IT/OT boundary, and PLC, HMI and SCADA screens over a sorting conveyor on the OT side.">
-        <button type="button" class="hot" style="--x:12%; --y:44%" data-view="lab-proxmox" aria-haspopup="dialog"><i aria-hidden="true"></i><span>IT servers</span></button>
-        <button type="button" class="hot" style="--x:50.5%; --y:52%" data-view="lab-fortinet" aria-haspopup="dialog"><i aria-hidden="true"></i><span>Fortinet boundary</span></button>
-        <button type="button" class="hot" style="--x:73%; --y:46%" data-view="lab-ot" aria-haspopup="dialog"><i aria-hidden="true"></i><span>PLC, HMI, SCADA</span></button>
-        <button type="button" class="hot" style="--x:84%; --y:74%" data-view="lab-line" aria-haspopup="dialog"><i aria-hidden="true"></i><span>Sorting line</span></button>
-        <button type="button" class="hot" style="--x:47%; --y:86%" data-view="lab-switching" aria-haspopup="dialog"><i aria-hidden="true"></i><span>Segmentation design</span></button>
+        <svg class="paths-art" viewBox="0 0 960 800" aria-hidden="true">
+          <path id="lp1" d="M115 352 C 250 300, 400 330, 485 416"/>
+          <path id="lp2" d="M485 416 C 560 360, 640 330, 701 368"/>
+          <path id="lp3" d="M701 368 C 760 430, 800 500, 806 592"/>
+          <path id="lp4" d="M451 688 C 455 600, 470 500, 485 416"/>
+        </svg>
+        <span class="leds" aria-hidden="true"><i style="--x:6%; --y:39%; --d:0s"></i><i style="--x:8%; --y:41.5%; --d:.9s"></i><i style="--x:13%; --y:44%; --d:1.7s"></i><i style="--x:6.5%; --y:50%; --d:2.4s"></i><i style="--x:14%; --y:53%; --d:3.1s"></i><i style="--x:9%; --y:56%; --d:1.2s"></i></span>
+        <button type="button" class="hot" style="--x:12%; --y:44%" data-view="lab-proxmox" data-cap="systems" data-paths="lp1" aria-haspopup="dialog"><i aria-hidden="true"></i><span>IT Servers</span></button>
+        <button type="button" class="hot" style="--x:50.5%; --y:52%" data-view="lab-fortinet" data-cap="networking itot" data-paths="lp1 lp2 lp4" aria-haspopup="dialog"><i aria-hidden="true"></i><span>Fortinet Boundary</span></button>
+        <button type="button" class="hot" style="--x:73%; --y:46%" data-view="lab-ot" data-cap="itot" data-paths="lp2 lp3" aria-haspopup="dialog"><i aria-hidden="true"></i><span>PLC, HMI and SCADA</span></button>
+        <button type="button" class="hot" style="--x:84%; --y:74%" data-view="lab-line" data-cap="itot" data-paths="lp3" aria-haspopup="dialog"><i aria-hidden="true"></i><span>Sorting Line</span></button>
+        <button type="button" class="hot" style="--x:47%; --y:86%" data-view="lab-switching" data-cap="networking" data-paths="lp4" aria-haspopup="dialog"><i aria-hidden="true"></i><span>Segmentation Design</span></button>
+        <figcaption>Illustration. Lights show activity in the scene, not live status.</figcaption>
       </figure>
       <div class="floor-list">
-        <p class="scene-hint"><span class="cat lab">Personal lab</span>Select equipment in the scene, or pick it here.</p>
+        <p class="scene-hint"><span class="cat lab">Personal Lab</span>Select equipment in the scene, or pick it here.</p>
         <ul>
-          <li><button type="button" data-view="lab-proxmox" aria-haspopup="dialog">IT servers: Proxmox hosts <em>Built</em></button></li>
+          <li><button type="button" data-view="lab-proxmox" data-paths="lp1" aria-haspopup="dialog">IT servers: Proxmox hosts <em>Built</em></button></li>
           <li><button type="button" data-view="lab-storage" aria-haspopup="dialog">Storage and NAS <em>Built</em></button></li>
-          <li><button type="button" data-view="lab-fortinet" aria-haspopup="dialog">Fortinet IT/OT boundary <em>Built</em></button></li>
-          <li><button type="button" data-view="lab-switching" aria-haspopup="dialog">Cisco switching and VLANs <em>Built</em></button></li>
-          <li><button type="button" data-view="lab-ot" aria-haspopup="dialog">PLC, HMI and SCADA <em class="wip">In development</em></button></li>
-          <li><button type="button" data-view="lab-line" aria-haspopup="dialog">Simulated sorting line <em class="wip">In development</em></button></li>
+          <li><button type="button" data-view="lab-fortinet" data-paths="lp1 lp2 lp4" aria-haspopup="dialog">Fortinet IT/OT boundary <em>Built</em></button></li>
+          <li><button type="button" data-view="lab-switching" data-paths="lp4" aria-haspopup="dialog">Cisco switching and VLANs <em>Built</em></button></li>
+          <li><button type="button" data-view="lab-ot" data-paths="lp2 lp3" aria-haspopup="dialog">PLC, HMI and SCADA <em class="wip">In development</em></button></li>
+          <li><button type="button" data-view="lab-line" data-paths="lp3" aria-haspopup="dialog">Simulated sorting line <em class="wip">In development</em></button></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="scene" id="scene-fortinet" role="tabpanel" aria-labelledby="tab-fortinet">
-    <p class="scene-hint"><span class="cat lab">Personal lab</span>PROTO Engineering Lab. Select a device or the boundary.</p>
+    <p class="scene-hint"><span class="cat lab">Personal Lab</span>PROTO Engineering Lab. Select a device or the boundary.</p>
 <div class="map" aria-label="PROTO lab layout: IT side, Fortinet boundary, OT side">
       <div class="zone it"><span class="zlabel"><span class="cat lab">Personal lab</span> IT side <em>built</em></span>
         <a class="dev" href="network-lab.html" data-view="lab-switching" aria-haspopup="dialog">Cisco switching and VLANs</a>
@@ -521,57 +660,95 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   </div>
 </section>
 
-<!-- 5. Professional work and lab projects -->
-<section class="block" id="work" aria-labelledby="h-work">
-  <div class="block-head"><h2 id="h-work"><span class="cat work">Professional</span>Professional work</h2><a class="p-link" href="professional-experience.html">Full experience and results</a></div>
-  <ul class="cases">
-    <li><a class="case" href="weighing-labeling-fault.html"><span class="c-kind">Troubleshooting · Plant floor</span><b>Bags weighed, but never labeled</b><span class="c-sum">Proving the network healthy first so the right team fixed the real fault.</span><span class="c-go">View the full case study</span></a></li>
-    <li><a class="case" href="plant-network-refresh.html"><span class="c-kind">Infrastructure refresh · Plant</span><b>Replacing a plant's network while it runs</b><span class="c-fig"><strong class="metal">&lt;2.5%</strong> infrastructure SLA breach rate, reported for my plant role</span><span class="c-go">View the full case study</span></a></li>
-    <li><a class="case" href="data-center-core-infrastructure.html"><span class="c-kind">Data center · Campus</span><b>Keeping campus network cores powered and reachable</b><span class="c-fig"><strong class="metal">1,000+ / 250</strong> access points and switches across my sites, cumulative</span><span class="c-go">View the full case study</span></a></li>
-    <li><a class="case" href="green-belt-case-study.html"><span class="c-kind">Lean Six Sigma Green Belt · Plant</span><b>Making label-printing support consistent</b><span class="c-fig"><strong class="metal">63.5%</strong> fewer average label-printing tickets per month (6.3 to 2.3) during the improvement period</span><span class="c-go">View the full case study</span></a></li>
-    <li><a class="case" href="technician-development.html"><span class="c-kind">Training · Field service</span><b>From smart home professional to team trainer</b><span class="c-fig"><strong class="metal">30%</strong> fewer repeat service calls on my own work</span><span class="c-go">View the full case study</span></a></li>
-    <li><a class="case" href="production-data-connectivity.html"><span class="c-kind">Manufacturing systems</span><b>Keeping production data reachable</b><span class="c-sum">SAP, PI Vision and labeling applications traced through network and server dependencies.</span><span class="c-go">Explore the troubleshooting workflow</span></a></li>
-  </ul>
-</section>
-
-<section class="block" id="lab" aria-labelledby="h-lab">
-  <div class="block-head"><h2 id="h-lab"><span class="cat lab">Lab</span>Lab projects</h2><a class="p-link" href="proto-lab-evidence.html">PROTO.LAB technical evidence</a></div>
-  <ul class="projects">
-    <li><a class="proj" href="network-lab.html"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"><span class="pj-body"><span class="chip ok">Ongoing validation</span><b>Network segmentation lab</b><span>Cisco switching and a FortiGate firewall: VLANs, routing, firewall policy and validation.</span></span></a></li>
-    <li><a class="proj" href="virtualization-lab.html"><img src="assets/img/lab-infrastructure.webp" width="960" height="640" alt="" loading="lazy"><span class="pj-body"><span class="chip ok">Documented fixes</span><b>Access, storage and AI hosts</b><span>A four-host environment built from retired hardware.</span></span></a></li>
-    <li><a class="proj" href="aiio.html"><img class="contain" src="assets/img/aiio.webp" width="426" height="356" alt="" loading="lazy"><span class="pj-body"><span class="chip ok">Running in my lab</span><b>AIIO Station</b><span>A containerized local AI platform for development, observability and automation.</span></span></a></li>
-    <li><a class="proj" href="monitrope.html"><img class="contain" src="assets/img/monitrope-logo.webp" width="960" height="321" alt="" loading="lazy"><span class="pj-body"><span class="chip dev">v0.7.0 release candidate</span><b>MONITROPE</b><span>Network monitoring that learns normal behavior and traces outages to a probable cause.</span></span></a></li>
-  </ul>
-  <div class="extras">
-    <div class="runner-track" aria-hidden="true"><div class="runner"><div class="runner-sprite"></div></div></div>
-    <p><a href="interactive/">Networking games I built</a> · <a href="do2.html">DO2: Dig &amp; Digest</a> · <a href="ccna-lab.html">CCNA lab exercises</a> · <a href="journal/">Field Journal ({{ site.posts.size }} entries)</a></p>
+<!-- 6. Selected projects -->
+<section class="projects-sec" aria-labelledby="h-proj">
+  <h2 class="sec-title" id="h-proj">Selected Projects</h2>
+  <div class="proj-grid">
+    <div class="panel" id="work">
+      <span class="corner" aria-hidden="true"></span>
+      <h3 class="p-title"><span class="cat work">Professional</span>Professional Work</h3>
+      <ul class="worklist">
+        <li data-cap="itot networking"><a href="weighing-labeling-fault.html"><b>Bags Weighed, but Never Labeled</b><span>Proving the network healthy first so the right team fixed the real fault.</span></a></li>
+        <li data-cap="networking itot"><a href="plant-network-refresh.html"><b>Replacing a Plant's Network While It Runs</b><span><strong class="metal">&lt;2.5%</strong> infrastructure SLA breach rate, reported for my plant role.</span></a></li>
+        <li data-cap="networking systems"><a href="data-center-core-infrastructure.html"><b>Keeping Campus Network Cores Powered and Reachable</b><span>Redundant power and out-of-band access for campus core racks.</span></a></li>
+        <li data-cap="itot systems"><a href="production-data-connectivity.html"><b>Keeping Production Data Reachable</b><span>SAP, PI Vision and labeling apps traced through network and server dependencies.</span></a></li>
+        <li data-cap="leadership"><a href="field-team-leadership.html"><b>Leading Distributed IT Field Operations</b><span>Hiring, coaching and escalations across a region of campuses.</span></a></li>
+      </ul>
+      <a class="p-link" href="professional-experience.html">Explore Full Experience and Results</a>
+    </div>
+    <div class="panel" id="lab">
+      <span class="corner" aria-hidden="true"></span>
+      <h3 class="p-title"><span class="cat lab">Lab</span>Lab Projects</h3>
+      <ul class="labcards">
+        <li data-cap="networking"><a href="network-lab.html"><img src="assets/img/lab-segmentation.webp" width="960" height="860" alt="" loading="lazy"><span><span class="chip ok">Ongoing validation</span><b>Network Segmentation Lab</b><small>Cisco switching and a FortiGate firewall.</small></span></a></li>
+        <li data-cap="systems"><a href="virtualization-lab.html"><img src="assets/img/lab-infrastructure.webp" width="960" height="640" alt="" loading="lazy"><span><span class="chip ok">Documented fixes</span><b>Access, Storage and AI Hosts</b><small>Four hosts built from retired hardware.</small></span></a></li>
+        <li data-cap="systems"><a href="aiio.html"><img class="contain" src="assets/img/aiio.webp" width="426" height="356" alt="" loading="lazy"><span><span class="chip ok">Running in my lab</span><b>AIIO Station</b><small>A containerized local AI platform.</small></span></a></li>
+        <li data-cap="networking systems"><a href="monitrope.html"><img class="contain" src="assets/img/monitrope-logo.webp" width="960" height="321" alt="" loading="lazy"><span><span class="chip dev">v0.7.0 release candidate</span><b>MONITROPE</b><small>Network monitoring that traces outages to a probable cause.</small></span></a></li>
+      </ul>
+      <a class="p-link" href="proto-lab-evidence.html">Explore PROTO.LAB Technical Evidence</a>
+    </div>
   </div>
 </section>
 
+<!-- 7. Games and Field Journal -->
+<div class="duo">
+  <section class="panel" id="games" aria-labelledby="h-games">
+    <span class="corner" aria-hidden="true"></span>
+    <h2 class="p-title" id="h-games">Games</h2>
+    <div class="runner-track" aria-hidden="true"><div class="runner"><div class="runner-sprite"></div></div></div>
+    <ul class="games">
+      <li><img src="assets/img/game-packet-launcher.webp" width="960" height="640" alt="" loading="lazy"><div><b>Packet Launcher</b><span>Launch a packet while network hazards bend its path.</span><span class="g-links"><a class="play" href="packet-game.html">Play</a><a href="game-packet-launcher.html">About</a></span></div></li>
+      <li><img src="assets/img/game-packet-bingo.webp" width="960" height="640" alt="" loading="lazy"><div><b>Packet Bingo</b><span>Scan for devices and services, then build routes.</span><span class="g-links"><a class="play" href="interactive/packet-bingo/">Play</a><a href="game-packet-bingo.html">About</a></span></div></li>
+      <li><img src="assets/img/game-cable-run.webp" width="960" height="640" alt="" loading="lazy"><div><b>Cable Run</b><span>A server-room maze where every move extends your cable.</span><span class="g-links"><a class="play" href="interactive/cable-run/">Play</a><a href="game-cable-run.html">About</a></span></div></li>
+      <li><img src="assets/img/game-packet-route.webp" width="960" height="640" alt="" loading="lazy"><div><b>Packet Route</b><span>Aim, route and match traffic across a congested network.</span><span class="g-links"><a class="play" href="interactive/packet-route/">Play</a><a href="game-packet-route.html">About</a></span></div></li>
+    </ul>
+    <a class="p-link" href="interactive/">View All Games</a>
+  </section>
+  <section class="panel" id="journal" aria-labelledby="h-journal">
+    <span class="corner" aria-hidden="true"></span>
+    <h2 class="p-title" id="h-journal">Field Journal</h2>
+    {% for post in site.posts limit: 1 %}<article class="latest">
+      <p class="j-label">Latest Entry · <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %-d, %Y' }}</time></p>
+      <h3>{{ post.title | escape }}</h3>
+      <p>{% if post.description %}{{ post.description | escape }}{% else %}{{ post.excerpt | strip_html | truncate: 200 | escape }}{% endif %}</p>
+      <a class="btn primary" href="{{ post.url | relative_url }}">Read Entry</a>
+    </article>{% endfor %}
+    <p class="j-note">Notes from the systems I build and the problems I troubleshoot, including the ones that didn't go to plan.</p>
+    <a class="p-link" href="journal/">View All {{ site.posts.size }} Entries</a>
+  </section>
+</div>
+
+<!-- 8. Contact -->
 <section class="contact-panel" id="contact" aria-labelledby="h-contact">
   <span class="corner" aria-hidden="true"></span>
   <div><h2 id="h-contact">Contact</h2><p>Email is the fastest way to reach me. My full work history is on LinkedIn.</p></div>
   <div class="actions">
-    <a class="btn primary" href="mailto:shanemykalstark@gmail.com">Email me</a>
-    <a class="btn secondary" href="https://www.linkedin.com/in/SHANEMYKALSTARK" rel="noopener">LinkedIn</a>
+    <a class="btn primary" href="mailto:shanemykalstark@gmail.com">Email Me</a>
     <a class="btn secondary" href="professional-experience.html">View Résumé</a>
   </div>
 </section>
 
 </main>
-<footer class="foot">© 2026 Shane Stark. Built by hand, hosted on GitHub Pages.</footer>
-</div>
 
-<!-- Portfolio search: local, over approved portfolio content. No AI or external calls. -->
+<footer class="site-foot">
+  <span>© 2026 Shane Stark. Built by hand, hosted on GitHub Pages.</span>
+  <ul class="socials" aria-label="Contact and social links">
+    <li><a href="mailto:shanemykalstark@gmail.com" aria-label="Email Shane Stark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Email</a></li>
+    <li><a href="https://www.linkedin.com/in/SHANEMYKALSTARK" rel="noopener" aria-label="Shane Stark on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M8 10.5V17M8 7.5v.01M11.5 17v-6.5M11.5 13.5c0-2 1.2-3 2.7-3s2.3 1 2.3 3V17"/></svg>LinkedIn</a></li>
+    <li><a href="https://www.instagram.com/smykalsbuilds/" rel="noopener" aria-label="@smykalsbuilds on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7v.01"/></svg>Instagram <span class="handle">@smykalsbuilds</span></a></li>
+    <li><a href="https://github.com/smykals" rel="noopener" aria-label="smykals on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.4c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C5.8 1 4.7 1.3 4.7 1.3a4.9 4.9 0 0 0-.1 3.6A5.2 5.2 0 0 0 3.2 8.4c0 5.2 3.1 6.4 6.1 6.7a3 3 0 0 0-.9 2.3V21"/></svg>GitHub</a></li>
+  </ul>
+</footer>
+
 <aside class="sheet search" id="search" role="dialog" aria-modal="true" aria-labelledby="search-title" tabindex="-1" hidden>
-  <div class="sheet-bar"><h2 id="search-title">Ask about my experience</h2><button type="button" class="sheet-close" data-close>Close <span aria-hidden="true">✕</span></button></div>
+  <div class="sheet-bar"><h2 id="search-title">Ask About My Experience</h2><button type="button" class="sheet-close" data-close>Close <span aria-hidden="true">✕</span></button></div>
   <p class="search-note">Portfolio search. Results come only from pages on this site, not from an AI.</p>
   <form class="search-form" role="search" id="search-form">
     <label class="vh" for="search-q">Search my portfolio</label>
     <input id="search-q" type="search" autocomplete="off" placeholder="Try “Fortinet” or “team leadership”">
-    <button type="submit" class="btn primary">Search</button>
+    <button type="submit">Search</button>
   </form>
-  <div class="suggest" id="search-suggest"><p>Suggested</p>
+  <div class="suggest" id="search-suggest"><p>Suggested questions</p>
     <button type="button">Show me networking experience</button>
     <button type="button">What teams has Shane led?</button>
     <button type="button">Find Fortinet projects</button>
@@ -597,7 +774,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <dt>Result</dt><dd>Repeat callbacks fell by about 70% after improving troubleshooting and support practices.</dd>
   </dl>
   <p class="d-note">Reported work-history result. Underlying counts and the measurement window aren't published.</p>
-  <a class="btn primary" href="campus-network-leadership.html">Read the case study</a>
+  <a class="btn primary" href="campus-network-leadership.html">View the Case Study</a>
   <p class="d-sub"><a href="professional-experience.html">How each result was measured</a></p>
 </template>
 
@@ -610,7 +787,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <dt>Scope</dt><dd>14 direct reports, and coverage for nearly 30 technicians during staffing vacancies.</dd>
   </dl>
   <p class="d-note">Team size describes responsibility, not an outcome.</p>
-  <a class="btn primary" href="field-team-leadership.html">Read the case study</a>
+  <a class="btn primary" href="field-team-leadership.html">View the Case Study</a>
   <p class="d-sub"><a href="professional-experience.html">How each result was measured</a></p>
 </template>
 
@@ -622,7 +799,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
     <dt>Wider reach</dt><dd>Helped specialists troubleshoot at 20+ additional campuses, including residence halls and administrative buildings. That is escalation support, not direct ownership.</dd>
     <dt>Users</dt><dd>6,500+ users on the directly assigned campus networks, not the wider 20+ campus footprint.</dd>
   </dl>
-  <a class="btn primary" href="campus-network-leadership.html">Read the case study</a>
+  <a class="btn primary" href="campus-network-leadership.html">View the Case Study</a>
   <p class="d-sub"><a href="professional-experience.html">How each result was measured</a></p>
 </template>
 
@@ -681,8 +858,8 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   // Fault trace
   const steps = [
     { check: 'switch', btn: 'Check the VLAN', log: '<b>Check 1: the switch port.</b> The port the PLC uses is up, with no errors or flapping. The physical link is fine.', ok: ['switch'] },
-    { check: 'switch', btn: 'Check the control signals', log: '<b>Check 2: the VLAN.</b> The port is in the right VLAN and the PLC can reach the labeler. The network is not the fault.', ok: ['switch'], links: [2, 3] },
-    { check: 'plc', btn: 'Check the sensor', log: '<b>Check 3: the control signals.</b> With electrical engineering, I confirmed the PLC is talking and sending the signals we expected. The PLC is not the fault either.', ok: ['switch', 'plc', 'labeler'], links: [2, 3] },
+    { check: 'switch', btn: 'Check the Control Signals', log: '<b>Check 2: the VLAN.</b> The port is in the right VLAN and the PLC can reach the labeler. The network is not the fault.', ok: ['switch'], links: [2, 3] },
+    { check: 'plc', btn: 'Check the Sensor', log: '<b>Check 3: the control signals.</b> With electrical engineering, I confirmed the PLC is talking and sending the signals we expected. The PLC is not the fault either.', ok: ['switch', 'plc', 'labeler'], links: [2, 3] },
     { check: 'sensor', btn: null, log: '<b>Root cause: the weighing sensor.</b> The PLC never got the reading it needed to trigger a label. The sensor was replaced and labeling resumed. Proving the network healthy first meant the right team fixed the right part.', ok: ['switch', 'plc', 'labeler'], bad: 'sensor', links: [2, 3] }
   ];
   let step = -1;
@@ -691,7 +868,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   function render() {
     document.querySelectorAll('.node').forEach((n) => n.className = 'node' + (step >= 0 ? ' waiting' : ''));
     document.querySelectorAll('.link').forEach((l) => l.className = 'link');
-    if (step < 0) { log.innerHTML = log0; next.textContent = 'Run the first check'; next.hidden = false; reset.hidden = true; return; }
+    if (step < 0) { log.innerHTML = log0; next.textContent = 'Run the First Check'; next.hidden = false; reset.hidden = true; return; }
     const s = steps[step];
     s.ok.forEach((n) => nodes(n).className = 'node ok');
     (s.links || []).forEach((i) => document.querySelector(`.link[data-l="${i}"]`).className = 'link ok');
@@ -717,6 +894,7 @@ footer { background: var(--rack); color: #8B949E; font-size: 14px; padding: 22px
   });
   reset.addEventListener('click', () => { step = -1; render(); next.focus(); });
 </script>
+<script src="assets/js/shell.js"></script>
 <script src="assets/js/portfolio-search.js" defer></script>
 <script src="assets/js/workspace.js" defer></script>
 </body>

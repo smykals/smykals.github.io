@@ -1,5 +1,5 @@
 // Portfolio search: matches a question against approved portfolio content
-// (assets/data/portfolio-index.json). Runs entirely in the browser; no AI and no external calls.
+// (assets/data/portfolio-index.json: page summaries plus each page's sections). Runs entirely in the browser; no AI and no external calls.
 //
 // The UI only calls PortfolioSearch.ask(query) and renders { results, suggestions }.
 // A grounded AI provider could later implement the same ask() contract, answering only
@@ -40,9 +40,9 @@ window.PortfolioSearch = (() => {
   const STOP = new Set('a an and are about any do does find for from has have he his i in is it me my of on or show shane tell the to what where which who with you your experience'.split(' '));
 
   let index = null;
-  async function load() {
+  async function load(root) {
     if (index) return index;
-    const res = await fetch('assets/data/portfolio-index.json', { cache: 'no-cache' });
+    const res = await fetch((root || '') + 'assets/data/portfolio-index.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('index unavailable');
     index = (await res.json()).entries;
     return index;
@@ -66,13 +66,16 @@ window.PortfolioSearch = (() => {
   }
 
   function score(entry, terms) {
-    const title = entry.title.toLowerCase(), summary = (entry.summary || '').toLowerCase(), kw = entry.keywords.join(' | ').toLowerCase();
+    const title = entry.title.toLowerCase(), section = (entry.section || '').toLowerCase(), summary = (entry.summary || '').toLowerCase(),
+      text = (entry.text || '').toLowerCase(), kw = (entry.keywords || []).join(' | ').toLowerCase();
     let s = 0, hits = 0;
     terms.forEach((weight, t) => {
       let h = 0;
       if (title.includes(t)) h += 3;
+      if (section.includes(t)) h += 2;
       if (kw.includes(t)) h += 2.5;
       if (summary.includes(t)) h += 1;
+      if (text.includes(t)) h += 0.6;
       if (h) { hits += weight; s += h * weight; }
     });
     return hits ? s * (1 + hits / 4) : 0;
@@ -92,16 +95,20 @@ window.PortfolioSearch = (() => {
 
   const SUGGEST = ['Show me networking experience', 'What teams has Shane led?', 'Find Fortinet projects', 'Show manufacturing IT/OT experience'];
 
-  async function ask(query) {
-    const entries = await load();
+  // root: the site root URL, so search works from any page depth.
+  async function ask(query, root) {
+    const entries = await load(root);
     const terms = expand(tokens(query));
     if (!terms.size) return { query, results: [], suggestions: SUGGEST };
+    const perPage = {};
     const results = entries
       .map((e) => ({ e, s: score(e, terms) }))
       .filter((r) => r.s > 0)
       .sort((a, b) => b.s - a.s)
-      .slice(0, 6)
-      .map(({ e }) => ({ title: e.title, url: e.url, category: e.category, excerpt: excerpt(e.summary, terms), terms: [...terms.keys()] }));
+      .filter(({ e }) => { const k = e.url.split('#')[0]; perPage[k] = (perPage[k] || 0) + 1; return perPage[k] <= 2; })
+      .slice(0, 7)
+      .map(({ e }) => ({ title: e.title, section: e.section || '', url: e.url, category: e.category,
+        excerpt: excerpt(e.text && !(e.summary || '').trim() ? e.text : (e.section ? e.text : e.summary) || e.summary, terms), terms: [...terms.keys()] }));
     return { query, results, suggestions: results.length ? [] : SUGGEST };
   }
 
