@@ -1,0 +1,16 @@
+/* Original layout retained. Bright red connects warm light and graphite sections. */
+:root{--accent:#F5223E}
+:is(#start,#impact,#skills,#support,#software,#games){--floor:#F5F1EA;--panel:#FFFCF7;--panel-2:#E9E2D8;--rack:#EDE6DC;--rule:#D6CCBF;--wire:#8A7D70;--steel:#252326;--dim:#5E5552;--soft:#5E5552;--work:#C91632;--lab:#C91632;--writing:#5E5552;--play:#196739;--amber:#805000;--led:#196739;background:var(--floor);color:var(--steel);color-scheme:light}
+:is(#start,#impact,#skills,#support,#software,#games) :is(h2,h3,.figure){color:var(--steel)}
+:is(#start,#impact,#skills,#support,#software,#games) .group.focus{background:linear-gradient(100deg,#F0E5DD,var(--panel));border-left-color:var(--accent)}
+:is(#start,#impact,#skills,#support,#software,#games) .group.focus .chips li{border-color:var(--rule)}
+.path,.case,.group,.card,.fault,.lifecycle-card{border-top-color:var(--accent)}
+.hero .proof li,.unit{border-left-color:var(--accent)}
+.lifecycle-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.lifecycle-card{display:flex;flex-direction:column;gap:13px;border:1px solid var(--rule);border-top:4px solid var(--accent);border-radius:10px;background:var(--panel);padding:24px}
+.stage-label{font:600 13px var(--mono);color:var(--work);letter-spacing:.08em;text-transform:uppercase}
+.lifecycle-card h3{font-size:22px;line-height:1.2;margin:0}.lifecycle-card p{font-size:15px;color:var(--dim);margin:0;line-height:1.65}.lifecycle-card .stage-evidence{padding-top:13px;border-top:1px solid var(--rule);color:var(--steel)}
+.lifecycle-card a{margin-top:auto;padding-top:12px;font-weight:600;font-size:14px;text-underline-offset:4px}
+.site-nav{gap:14px;font-size:14px}
+@media(max-width:1100px){.lifecycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-nav{gap:10px;font-size:12px}}
+@media(max-width:760px){.lifecycle-grid{grid-template-columns:1fr}.site-nav{font-size:16px}.lifecycle-card{padding:21px}}

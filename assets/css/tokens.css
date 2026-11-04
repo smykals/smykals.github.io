@@ -16,8 +16,8 @@
   --soft: #C3CBD3;      /* neutral accent */
 
   /* Categories */
-  --work: #F0913F;      /* professional work, 6.4:1 on cards */
-  --lab: #74A3F2;       /* personal lab and projects, 6.0:1 on cards */
+  --work: #FF4055;      /* professional work, 6.4:1 on cards */
+  --lab: #FF4055;       /* personal lab and projects, 6.0:1 on cards */
   --play: var(--soft);  /* games: neutral */
   --writing: var(--soft); /* journal: neutral */
 
