@@ -974,3 +974,65 @@ body[data-pick] .kpis [data-cap]:not(.pick-on), body[data-pick] .featured [data-
   .ex-node { max-width: none; margin: 0; }
   .ex-node span { grid-column: 2; min-width: 0; }
 }
+
+/* Revision 9: hero hierarchy (name > headline > introduction > actions > avatar) ------------- */
+.home .intro { grid-template-columns: minmax(0, 1fr) auto; gap: 32px; padding: 28px 30px; align-items: center; }
+.intro-text { gap: 14px; }
+.home .intro h1 { font-size: clamp(38px, 4.2vw, 58px); letter-spacing: -.03em; }
+.home .position { font-size: clamp(15px, 1.3vw, 17.5px); font-weight: 650; line-height: 1.55; max-width: 60ch; color: var(--silver); text-wrap: balance; }
+.home .position .phrase { color: var(--silver); margin: 0; }
+.home .position .sep { margin: 0 6px; }
+.home .intro .lede { font-size: 16px; line-height: 1.68; max-width: 64ch; color: #C4C6CC; text-wrap: pretty; }
+.home .intro .actions { margin-top: 4px; }
+
+/* Avatar about 12% smaller on desktop; same ring, frame and red accents */
+.portrait { width: 220px; gap: 12px; }
+.flip { width: 202px; height: 202px; }
+.p-face { width: 172px; height: 172px; }
+.flip-back { padding: 24px 22px; gap: 7px; }
+.home .flip-back h2 { font-size: 14px; color: var(--red-ink); letter-spacing: .02em; }
+.flip-back p { font-size: 13px; line-height: 1.5; }
+.flip-back .p-link { font-size: 12.5px; }
+.build-cue { padding: 6px 14px; }
+.build-cue:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .p-arc { transition: stroke-width .3s ease; }
+  .portrait:hover .p-arc, .build-cue:focus-visible ~ .flip .p-arc { stroke-width: 4.5; }
+}
+
+@media (max-width: 1100px) {
+  .home .intro { gap: 24px; padding: 24px; }
+  .portrait { width: 196px; }
+  .flip { width: 180px; height: 180px; }
+  .p-face { width: 152px; height: 152px; }
+  .flip-back { padding: 20px 18px; }
+  .flip-back p { font-size: 12.5px; }
+}
+
+/* Phones and small tablets: the portrait sits after the actions, and Behind the Build opens
+   as a readable card beside it instead of inside a small circle. */
+@media (max-width: 860px) {
+  .home .intro { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; gap: 18px; }
+  .portrait { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 16px; row-gap: 8px; align-items: center; justify-items: start; }
+  .flip { display: contents; perspective: none; }
+  .flip-front { position: relative; inset: auto; width: 128px; height: 128px; grid-column: 1; grid-row: 1 / span 2; transform: none !important; }
+  .p-face { width: 108px; height: 108px; padding: 3px; }
+  .flip-back { position: relative; inset: auto; grid-column: 2; grid-row: 1; transform: none !important; border-radius: 10px; text-align: left; justify-items: start; padding: 12px 14px; gap: 5px; box-shadow: none; display: none; }
+  .home .flip-back h2 { font-size: 13.5px; }
+  .flip-back p { font-size: 13.5px; }
+  .flip-back .p-link { font-size: 13px; }
+  .portrait.flipped .flip-back { display: grid; }
+  .portrait:hover .flip-back, .portrait:focus-within .flip-back { display: none; }
+  .portrait.flipped:hover .flip-back, .portrait.flipped:focus-within .flip-back { display: grid; }
+  .build-cue { grid-column: 2; grid-row: 2; justify-self: start; min-height: 40px; }
+  .portrait:not(.flipped) .build-cue { grid-row: 1 / span 2; align-self: center; }
+}
+
+/* The page grid's single column never grows past the viewport (fixes 8px sideways scroll at 320px). */
+.home main { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 640px) {
+  .home .intro h1 { font-size: 34px; }
+  .home .position { font-size: 15px; }
+  .home .intro .lede { font-size: 15.5px; line-height: 1.6; }
+  .intro-text { gap: 12px; }
+}
