@@ -1036,3 +1036,8 @@ body[data-pick] .kpis [data-cap]:not(.pick-on), body[data-pick] .featured [data-
   .home .intro .lede { font-size: 15.5px; line-height: 1.6; }
   .intro-text { gap: 12px; }
 }
+
+/* Day 0-3 and support tiers, shown inside the career timeline */
+.ev-scope { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 12px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--dim); }
+.ev-scope .ev-tag { margin: 0; color: var(--steel); border-color: rgba(240,145,63,.55); }
+.ev-d-scope { color: var(--dim) !important; font-size: 13.5px !important; }

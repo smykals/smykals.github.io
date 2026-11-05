@@ -227,3 +227,6 @@ body.has-shell #main { scroll-margin-top: 76px; }
 @media (max-height: 620px), (max-width: 900px) {
  .side-collapsed .portfolio-side { overflow-x: hidden; overflow-y: auto; }
 }
+
+.roles-table td.scope { color: var(--steel); font-size: 14px; white-space: normal; }
+.roles-note { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--dim); max-width: 90ch; }
